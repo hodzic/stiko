@@ -41,10 +41,6 @@ const TPL=`
       <label class="toggle"><input type="checkbox" id="jointsChk"> <span data-i18n="poseCheck"></span></label>
     </div>
     <p class="hint" data-i18n="tapPause"></p>
-    <div id="scrubWrap">
-      <input type="range" id="scrub" min="0" max="1000" value="0">
-      <div class="scrub-label" data-i18n="scrub"></div>
-    </div>
     <section class="debug" id="debug" hidden>
       <p data-i18n="debug"></p>
       <code id="debugVals"></code>
@@ -99,7 +95,7 @@ export function mountPlayer(root,queue,opts){
   const multi=queue.length>1;
   let idx=0, ex, a, d, h;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let playing=!reduce, speed=store.load('speed',1), joints=false, scrubPhase=null;
+  let playing=!reduce, speed=store.load('speed',1), joints=false, scrubPhase=null, curPhase=null;
   let st={set:1,mode:'ready',t:0}, readyDur=READY, clock=0, last=performance.now(), raf=0;
   let activeStep=-2, lastJ=null, blendFrom=null, blendStart=-10, lastKey='';
   const ev={key:null,rep:-1,frame:-1,sec:-1};
@@ -113,7 +109,6 @@ export function mountPlayer(root,queue,opts){
     A.stopReading();
     idx=i; ({ex,dose:d}=queue[i]); a=ex.anim; h=ex.howto;
     st={set:1,mode:'ready',t:0,side:0}; readyDur=wait; scrubPhase=null;
-    $('scrubWrap').hidden=!a.cycle;
     renderText();
   }
 
@@ -131,7 +126,6 @@ export function mountPlayer(root,queue,opts){
     $('kin').innerHTML=kinHTML(ex);
     $('stage').setAttribute('aria-label',U('stageLabel'));
     $('speedSeg').setAttribute('aria-label',U('speed'));
-    $('scrub').setAttribute('aria-label',U('scrub'));
     $('prevBtn').setAttribute('aria-label',U('prevEx')); $('nextBtn').setAttribute('aria-label',U('skipEx'));
     $('prevBtn').disabled=idx===0; $('nextBtn').disabled=idx===queue.length-1;
     if(multi){
@@ -174,8 +168,27 @@ export function mountPlayer(root,queue,opts){
     setPlaying(!playing);
   }
   $('playBtn').onclick=toggle;
-  $('stage').addEventListener('click',toggle);
-  $('stage').addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+  // Tap Stiko to pause or resume; drag sideways to step through one rep (the stage's width is one rep).
+  const stage=$('stage');
+  let drag=null;
+  function scrubTo(ph){
+    if(!a.cycle) return;
+    A.stopReading(); if(playing) setPlaying(false);
+    scrubPhase=(ph%1+1)%1; if(st.mode!=='work'){st.mode='work';st.t=0;}
+  }
+  stage.addEventListener('pointerdown',e=>{ if(e.button===0) drag={id:e.pointerId,x:e.clientX,from:scrubPhase??curPhase??0,moved:false}; });
+  stage.addEventListener('pointermove',e=>{
+    if(!drag||e.pointerId!==drag.id) return;
+    const dx=e.clientX-drag.x;
+    if(!drag.moved){ if(Math.abs(dx)<8||!a.cycle) return; drag.moved=true; stage.setPointerCapture(e.pointerId); }
+    scrubTo(drag.from+dx/stage.clientWidth);
+  });
+  stage.addEventListener('pointerup',e=>{ if(drag&&e.pointerId===drag.id&&!drag.moved) toggle(); drag=null; });
+  stage.addEventListener('pointercancel',()=>{ drag=null; });  // the page took the gesture (vertical scroll)
+  stage.addEventListener('keydown',e=>{
+    if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}
+    else if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();scrubTo((scrubPhase??curPhase??0)+(e.key==='ArrowRight'?0.05:-0.05));}
+  });
   $('prevBtn').onclick=()=>{ if(idx>0) loadItem(idx-1); };
   $('nextBtn').onclick=()=>{ if(idx<queue.length-1) loadItem(idx+1); };
 
@@ -190,7 +203,6 @@ export function mountPlayer(root,queue,opts){
   showToggles();
 
   $('jointsChk').onchange=e=>{joints=e.target.checked; $('debug').hidden=!joints;};
-  $('scrub').oninput=e=>{A.stopReading(); setPlaying(false); scrubPhase=e.target.value/1000; if(st.mode!=='work'){st.mode='work';st.t=0;}};
 
   // Read aloud: setup, each step (showing its pose), breathing.
   function setReadStep(i){
@@ -310,7 +322,7 @@ export function mountPlayer(root,queue,opts){
     const want=(st.mode==='work'||scrubPhase!==null)?(fr.step??0):-1;
     if(!A.isReading()&&want!==activeStep) highlight(want);
     $('cueNow').textContent=T(fr.label); $('countMain').textContent=main; $('countSub').textContent=sub;
-    if(phase!==null&&scrubPhase===null) $('scrub').value=Math.round(phase*1000);
+    curPhase=phase;
     if(joints){
       const p=fr.pose;
       $('debugVals').textContent=Object.keys(p).sort().map(k=>`${k} ${Math.round(p[k])}${LEN_KEYS.has(k.replace(/_[lrnf]$/,''))?'':'°'}`).join('   ');
