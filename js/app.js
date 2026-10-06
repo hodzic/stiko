@@ -89,4 +89,11 @@ async function start(){
 }
 start();
 
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator){
+  // When an updated version takes over, reload once so the new code runs now rather than on the next visit.
+  // (No reload on the very first install, when there was no previous version.)
+  const hadController=!!navigator.serviceWorker.controller;
+  let reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(hadController&&!reloaded){ reloaded=true; location.reload(); } });
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
