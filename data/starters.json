@@ -151,6 +151,40 @@
       ]
     },
     {
+      "id": "starter-healthy-aging",
+      "name": {"en": "Healthy aging: strength and balance", "bs": "Zdravo starenje: snaga i ravnoteža", "hr": "Zdravo starenje: snaga i ravnoteža", "sr": "Zdravo starenje: snaga i ravnoteža", "fr": "Bien vieillir : force et équilibre", "de": "Gesund älter werden: Kraft und Gleichgewicht", "es": "Envejecer con salud: fuerza y equilibrio"},
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "side-stepping", "block": "warmup", "sets": 1, "reps": 10, "rest": 15},
+        {"ex": "chair-squat", "block": "main", "sets": 2, "reps": 10, "rest": 45},
+        {"ex": "calf-raise", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "toe-raise", "block": "main", "sets": 2, "reps": 12, "rest": 20},
+        {"ex": "standing-hip-abduction", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "standing-hamstring-curl", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "seated-knee-extension", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "wall-push-up", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "tandem-stance", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "single-leg-stand", "block": "main", "sets": 2, "hold": 20, "rest": 10},
+        {"ex": "calf-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-tai-chi",
+      "name": {"en": "Tai chi & qigong basics", "bs": "Osnove tai chija i qigonga", "hr": "Osnove tai chija i qigonga", "sr": "Osnove tai čija i ći gonga", "fr": "Initiation au tai-chi et au qi gong", "de": "Tai-Chi & Qigong: Grundlagen", "es": "Taichí y qigong: lo básico"},
+      "items": [
+        {"ex": "raising-the-arms", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "holding-up-the-sky", "block": "main", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "drawing-the-bow", "block": "main", "sets": 1, "time": 60, "rest": 15},
+        {"ex": "separating-heaven-and-earth", "block": "main", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "cloud-hands", "block": "main", "sets": 1, "time": 90, "rest": 15},
+        {"ex": "golden-rooster", "block": "main", "sets": 2, "hold": 15, "rest": 10},
+        {"ex": "standing-side-bend", "block": "cooldown", "sets": 1, "hold": 20, "rest": 10},
+        {"ex": "raising-the-arms", "block": "cooldown", "sets": 1, "time": 60, "rest": 0}
+      ]
+    },
+    {
       "id": "starter-ski",
       "name": {"en": "Ski prep", "bs": "Priprema za skijanje", "hr": "Priprema za skijanje", "sr": "Priprema za skijanje", "fr": "Préparation ski", "de": "Ski-Vorbereitung", "es": "Preparación para esquí"},
       "sport": "alpine-skiing",
