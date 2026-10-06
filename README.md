@@ -59,7 +59,7 @@ both sides and the dose counts per side.
 | `spec.ik` | Two-bone IK targets: `an`/`hd` for both ankles/hands, or per side `an_n`, `hd_f`, `an_l`, … Knees bend forward, elbows back (outward in front view) |
 | `spec.footAbs` | Default absolute foot angle (0 = flat, pointing forward) |
 | `frames` | Keyframes `{t, label, face, pose, step?}`; `t` in [0, 1); every frame sets the same pose keys; `step` maps several keyframes to one instruction step |
-| `flow` | `true` for a flow such as the sun salutation: one round per rep, and the step cues are spoken on every round instead of rep numbers |
+| `flow` | `true` for a flow such as the sun salutation (reps: one round per rep) or a shadowboxing round (time): the step cues are spoken every time round, instead of rep numbers |
 | `loopAdd` | Added to the first frame when the cycle wraps, e.g. `{"shoulder": 360}` for continuous circles |
 | `restPose` | `{spec, pose}` shown while getting ready and resting |
 | `props` | `chair {x, back}`, `wall {x, side}`, `step {x, w, h}`, `dumbbell {hands}`, `band {from, to}`, `bar {x, y}` (doorway pull-up bar; pin `n.hd` to it) |

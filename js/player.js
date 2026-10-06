@@ -247,6 +247,11 @@ export function mountPlayer(root,queue,opts){
       if(r!==ev.rep){ ev.rep=r; if(r>0&&r<d.reps){ A.tone('tick'); if(!a.flow) A.speak(r===d.reps-1?U('lastOne'):String(r+1)); } }
       if(fi!==ev.frame){ ev.frame=fi; if(a.flow||(r===0&&st.set===1&&st.side===0)) A.speak(T(a.frames.find(f=>(f.step??a.frames.indexOf(f))===fi).label)); }
     }
+    // A timed flow (e.g. a shadowboxing round) calls out its steps as they come round.
+    if(st.mode==='work'&&d.mode==='time'&&a.flow){
+      const fi=framesAt(a.frames,(st.t%a.cycle)/a.cycle,a.loopAdd).step;
+      if(fi!==ev.frame){ ev.frame=fi; A.speak(T(a.frames.find(f=>(f.step??a.frames.indexOf(f))===fi).label)); }
+    }
     let left=null;
     if(st.mode==='ready') left=readyDur-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='switch') left=SWITCH-st.t;
     else if(st.mode==='work'&&d.mode!=='reps') left=workSeconds(d,ex)-st.t;
