@@ -41,7 +41,7 @@ for(const ex of lib.exercises){
     for(const e of ex.equipment) assert.ok(VOCAB.equipment.includes(e)&&e!=='none',`equipment "${e}"`);
     assert.ok([1,2,3].includes(ex.level));
     assert.ok(ex.discipline===undefined||VOCAB.discipline.includes(ex.discipline),`discipline "${ex.discipline}"`);
-    if(ex.anim.flow) assert.equal(ex.dose.mode,'reps','a flow is dosed in rounds (reps)');
+    if(ex.anim.flow) assert.ok(['reps','time'].includes(ex.dose.mode),'a flow is dosed in rounds (reps) or time');
     for(const k of ['easier','harder']) assert.ok(ex[k]===null||ids.has(ex[k]),`${k} → unknown id ${ex[k]}`);
     const d=ex.dose;
     assert.ok(DOSE_MODES.includes(d.mode));

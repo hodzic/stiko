@@ -4892,6 +4892,338 @@
           {"t": 0, "label": {"en": "Knee up, hand up", "bs": "Koljeno gore, ruka gore", "hr": "Koljeno gore, ruka gore", "sr": "Koleno gore, ruka gore", "fr": "Genou et main en haut", "de": "Knie hoch, Hand hoch", "es": "Rodilla y mano arriba"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_f": 0, "knee_f": 4, "hip_n": 92, "knee_n": 96, "shoulder_n": 120, "elbow_n": 70, "shoulder_f": 4, "elbow_f": 24, "footAbs_n": 30}}
         ]
       }
+    },
+    {
+      "id": "boxing-bounce",
+      "name": {"en": "Boxing stance bounce", "bs": "Poskakivanje u boksačkom stavu", "hr": "Poskakivanje u boksačkom stavu", "sr": "Poskakivanje u boksačkom stavu", "fr": "Rebonds en garde", "de": "Federn in Boxstellung", "es": "Rebotes en guardia"},
+      "short": {"en": "Stance bounce", "bs": "Poskoci u stavu", "hr": "Poskoci u stavu", "sr": "Poskoci u stavu", "fr": "Rebonds en garde", "de": "Federn", "es": "Rebotes"},
+      "discipline": "boxing",
+      "pattern": "gait",
+      "component": "cardio",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup"],
+      "muscles": {"primary": ["calves"], "secondary": ["quadriceps", "shoulders"]},
+      "joints": {"ankle": ["plantarflexion"], "shoulder": []},
+      "dose": {"mode": "time", "sets": 1, "time": 60, "rest": 15},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand side-on with one foot half a step ahead of the other, knees soft, rear heel slightly up. Hands up by your cheeks, elbows in, chin down.", "bs": "Stani bočno, s jednim stopalom pola koraka ispred drugog, koljena blago savijena, zadnja peta malo podignuta. Šake gore uz obraze, laktovi uz tijelo, brada spuštena.", "hr": "Stani bočno, s jednim stopalom pola koraka ispred drugog, koljena blago savijena, stražnja peta malo podignuta. Šake gore uz obraze, laktovi uz tijelo, brada spuštena.", "sr": "Stani bočno, sa jednim stopalom pola koraka ispred drugog, kolena blago savijena, zadnja peta malo podignuta. Šake gore uz obraze, laktovi uz telo, brada spuštena.", "fr": "Tiens-toi de profil, un pied un demi-pas devant l’autre, genoux souples, talon arrière légèrement décollé. Mains levées près des joues, coudes serrés, menton rentré.", "de": "Stell dich seitlich hin, ein Fuß einen halben Schritt vor dem anderen, Knie locker, hintere Ferse leicht angehoben. Hände oben an den Wangen, Ellbogen eng, Kinn unten.", "es": "Ponte de perfil con un pie medio paso por delante del otro, rodillas sueltas y el talón de atrás un poco levantado. Manos arriba junto a las mejillas, codos pegados y barbilla abajo."},
+        "steps": [
+          {"en": "Bounce lightly on the balls of your feet, keeping your hands up and your shoulders relaxed.", "bs": "Lagano poskakuj na prednjem dijelu stopala, drži šake gore, a ramena opuštena.", "hr": "Lagano poskakuj na prednjem dijelu stopala, drži šake gore, a ramena opuštena.", "sr": "Lagano poskakuj na prednjem delu stopala, drži šake gore, a ramena opuštena.", "fr": "Rebondis légèrement sur l’avant des pieds, mains levées et épaules relâchées.", "de": "Federe leicht auf den Fußballen, Hände oben und Schultern locker.", "es": "Rebota suavemente sobre la parte delantera de los pies, con las manos arriba y los hombros relajados."}
+        ],
+        "breathe": {"en": "Breathe steadily through your nose.", "bs": "Diši ravnomjerno kroz nos.", "hr": "Diši ravnomjerno kroz nos.", "sr": "Diši ravnomerno kroz nos.", "fr": "Respire régulièrement par le nez.", "de": "Atme gleichmäßig durch die Nase.", "es": "Respira de forma constante por la nariz."},
+        "mistakes": [
+          {"en": "Flat-footed, heavy landings", "bs": "Teški doskoci na cijela stopala", "hr": "Teški doskoci na cijela stopala", "sr": "Teški doskoci na cela stopala", "fr": "Pieds à plat, réceptions lourdes", "de": "Mit ganzer Sohle schwer landen", "es": "Pies planos y aterrizajes pesados"},
+          {"en": "Hands dropping from the face", "bs": "Šake padaju s lica", "hr": "Šake padaju s lica", "sr": "Šake padaju sa lica", "fr": "Mains qui descendent du visage", "de": "Hände sinken vom Gesicht", "es": "Bajar las manos de la cara"},
+          {"en": "Tense shoulders", "bs": "Zategnuta ramena", "hr": "Zategnuta ramena", "sr": "Zategnuta ramena", "fr": "Épaules crispées", "de": "Verspannte Schultern", "es": "Hombros tensos"}
+        ],
+        "easier": {"en": "Shift your weight from foot to foot without bouncing.", "bs": "Prebacuj težinu s noge na nogu bez poskakivanja.", "hr": "Prebacuj težinu s noge na nogu bez poskakivanja.", "sr": "Prebacuj težinu sa noge na nogu bez poskakivanja.", "fr": "Transfère ton poids d’un pied sur l’autre sans rebondir.", "de": "Verlagere dein Gewicht von einem Fuß auf den anderen, ohne zu federn.", "es": "Pasa el peso de un pie a otro sin rebotar."},
+        "harder": {"en": "Bounce faster and add small steps forward and back.", "bs": "Poskakuj brže i dodaj male korake naprijed i nazad.", "hr": "Poskakuj brže i dodaj male korake naprijed i natrag.", "sr": "Poskakuj brže i dodaj male korake napred i nazad.", "fr": "Rebondis plus vite et ajoute de petits pas en avant et en arrière.", "de": "Federe schneller und mach kleine Schritte vor und zurück.", "es": "Rebota más rápido y añade pasos cortos hacia delante y hacia atrás."}
+      },
+      "anim": {
+        "cycle": 0.6,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Light on your feet", "bs": "Lagano na prstima", "hr": "Lagano na prstima", "sr": "Lagano na prstima", "fr": "Pieds légers", "de": "Leichtfüßig", "es": "Pies ligeros"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.5, "label": {"en": "Light on your feet", "bs": "Lagano na prstima", "hr": "Lagano na prstima", "sr": "Lagano na prstima", "fr": "Pieds légers", "de": "Leichtfüßig", "es": "Pies ligeros"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 5, "slide": 0}, "step": 0}
+        ]
+      }
+    },
+    {
+      "id": "jab-cross",
+      "name": {"en": "Jab-cross", "bs": "Direkt prednjom i zadnjom rukom", "hr": "Direkt prednjom i zadnjom rukom", "sr": "Direkt prednjom i zadnjom rukom", "fr": "Direct bras avant – bras arrière", "de": "Jab-Cross", "es": "Jab-cross"},
+      "short": {"en": "Jab-cross", "bs": "Dva direkta", "hr": "Dva direkta", "sr": "Dva direkta", "fr": "Jab-cross", "de": "Jab-Cross", "es": "Jab-cross"},
+      "discipline": "boxing",
+      "pattern": "push-horizontal",
+      "component": "cardio",
+      "planes": ["sagittal", "transverse"],
+      "position": "standing",
+      "laterality": "alternating",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["shoulders", "triceps"], "secondary": ["chest", "obliques", "calves"]},
+      "joints": {"shoulder": ["flexion"], "elbow": ["extension"], "thoracic-spine": ["rotation"]},
+      "dose": {"mode": "time", "sets": 3, "time": 60, "rest": 30},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Take your boxing stance: one foot half a step ahead, hands up by your cheeks, chin down.", "bs": "Zauzmi boksački stav: jedno stopalo pola koraka ispred, šake gore uz obraze, brada spuštena.", "hr": "Zauzmi boksački stav: jedno stopalo pola koraka ispred, šake gore uz obraze, brada spuštena.", "sr": "Zauzmi boksački stav: jedno stopalo pola koraka ispred, šake gore uz obraze, brada spuštena.", "fr": "Mets-toi en garde : un pied un demi-pas devant, mains levées près des joues, menton rentré.", "de": "Geh in deine Boxstellung: ein Fuß einen halben Schritt vorn, Hände oben an den Wangen, Kinn unten.", "es": "Ponte en guardia: un pie medio paso por delante, manos arriba junto a las mejillas y barbilla abajo."},
+        "steps": [
+          {"en": "Jab: snap the front hand straight out at shoulder height and bring it straight back to your face.", "bs": "Direkt prednjom rukom: brzo ispruži prednju ruku pravo naprijed u visini ramena i vrati je pravo do lica.", "hr": "Direkt prednjom rukom: brzo ispruži prednju ruku ravno naprijed u visini ramena i vrati je ravno do lica.", "sr": "Direkt prednjom rukom: brzo ispruži prednju ruku pravo napred u visini ramena i vrati je pravo do lica.", "fr": "Jab : lance le bras avant tout droit à hauteur d’épaule et ramène-le directement devant ton visage.", "de": "Jab: Schnell die Führhand gerade auf Schulterhöhe nach vorn und zieh sie direkt zurück zum Gesicht.", "es": "Jab: lanza la mano adelantada recta a la altura del hombro y devuélvela recta a la cara."},
+          {"en": "Cross: drive the rear hand straight out, turning your hips and rear foot, then bring it back. Keep going: jab, cross.", "bs": "Direkt zadnjom rukom: snažno ispruži zadnju ruku pravo naprijed, okrećući kukove i zadnje stopalo, pa je vrati. Nastavi: prednja, zadnja.", "hr": "Direkt stražnjom rukom: snažno ispruži stražnju ruku ravno naprijed, okrećući kukove i stražnje stopalo, pa je vrati. Nastavi: prednja, stražnja.", "sr": "Direkt zadnjom rukom: snažno ispruži zadnju ruku pravo napred, okrećući kukove i zadnje stopalo, pa je vrati. Nastavi: prednja, zadnja.", "fr": "Cross : envoie le bras arrière tout droit en pivotant les hanches et le pied arrière, puis ramène-le. Enchaîne : jab, cross.", "de": "Cross: Stoß die Schlaghand gerade nach vorn, dreh dabei Hüfte und hinteren Fuß ein, und zieh sie zurück. Mach weiter: Jab, Cross.", "es": "Cross: lanza la mano trasera recta girando la cadera y el pie de atrás, y luego devuélvela. Sigue así: jab, cross."}
+        ],
+        "breathe": {"en": "Breathe out sharply through your mouth on every punch; keep breathing between them.", "bs": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "hr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "sr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "fr": "Expire fort par la bouche à chaque coup ; continue à respirer entre les coups.", "de": "Atme bei jedem Schlag kräftig durch den Mund aus; atme zwischen den Schlägen weiter.", "es": "Exhala con fuerza por la boca en cada golpe; sigue respirando entre golpes."},
+        "mistakes": [
+          {"en": "Locking the elbow hard at full reach", "bs": "Naglo zaključavanje lakta pri punom ispružanju", "hr": "Naglo zaključavanje lakta pri punom ispružanju", "sr": "Naglo zaključavanje lakta pri punom ispružanju", "fr": "Verrouiller le coude en extension complète", "de": "Den Ellbogen beim vollen Strecken durchdrücken", "es": "Bloquear el codo con fuerza al estirar del todo"},
+          {"en": "Dropping the other hand from the face", "bs": "Spuštanje druge šake s lica", "hr": "Spuštanje druge šake s lica", "sr": "Spuštanje druge šake sa lica", "fr": "Baisser l’autre main du visage", "de": "Die andere Hand vom Gesicht sinken lassen", "es": "Bajar la otra mano de la cara"},
+          {"en": "Leaning forward over the front foot", "bs": "Naginjanje naprijed preko prednjeg stopala", "hr": "Naginjanje naprijed preko prednjeg stopala", "sr": "Naginjanje napred preko prednjeg stopala", "fr": "Se pencher en avant au-dessus du pied avant", "de": "Sich über den vorderen Fuß nach vorn lehnen", "es": "Inclinarse hacia delante sobre el pie adelantado"}
+        ],
+        "easier": {"en": "Punch slowly and only half extend.", "bs": "Udaraj polako i samo do pola ispruži ruku.", "hr": "Udaraj polako i samo do pola ispruži ruku.", "sr": "Udaraj polako i samo do pola ispruži ruku.", "fr": "Frappe lentement et ne tends le bras qu’à moitié.", "de": "Schlag langsam und streck den Arm nur halb.", "es": "Golpea despacio y estira solo a medias."},
+        "harder": {"en": "Punch faster, or hold light dumbbells (no more than 1 kg).", "bs": "Udaraj brže ili drži lagane bučice (najviše 1 kg).", "hr": "Udaraj brže ili drži lagane bučice (najviše 1 kg).", "sr": "Udaraj brže ili drži lagane tegove (najviše 1 kg).", "fr": "Frappe plus vite, ou tiens des haltères légers (1 kg maximum).", "de": "Schlag schneller oder halte leichte Kurzhanteln (höchstens 1 kg).", "es": "Golpea más rápido o sujeta mancuernas ligeras (no más de 1 kg)."}
+      },
+      "anim": {
+        "cycle": 1.6,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Jab", "bs": "Prednja ruka", "hr": "Prednja ruka", "sr": "Prednja ruka", "fr": "Jab", "de": "Jab", "es": "Jab"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.15, "label": {"en": "Jab", "bs": "Prednja ruka", "hr": "Prednja ruka", "sr": "Prednja ruka", "fr": "Jab", "de": "Jab", "es": "Jab"}, "face": "effort", "pose": {"torso": 12, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 86, "elbow_n": 4, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.38, "label": {"en": "Cross", "bs": "Zadnja ruka", "hr": "Stražnja ruka", "sr": "Zadnja ruka", "fr": "Cross", "de": "Cross", "es": "Cross"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.55, "label": {"en": "Cross", "bs": "Zadnja ruka", "hr": "Stražnja ruka", "sr": "Zadnja ruka", "fr": "Cross", "de": "Cross", "es": "Cross"}, "face": "effort", "pose": {"torso": 20, "spine": 6, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -11.9, "knee_f": 25.4, "footAbs_f": 44, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 86, "elbow_f": 4, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.8, "label": {"en": "Cross", "bs": "Zadnja ruka", "hr": "Stražnja ruka", "sr": "Zadnja ruka", "fr": "Cross", "de": "Cross", "es": "Cross"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 1}
+        ]
+      }
+    },
+    {
+      "id": "uppercuts",
+      "name": {"en": "Alternating uppercuts", "bs": "Naizmjenični aperkati", "hr": "Naizmjenični aperkati", "sr": "Naizmenični aperkati", "fr": "Uppercuts alternés", "de": "Abwechselnde Aufwärtshaken", "es": "Ganchos ascendentes alternos"},
+      "short": {"en": "Uppercuts", "bs": "Aperkati", "hr": "Aperkati", "sr": "Aperkati", "fr": "Uppercuts", "de": "Aufwärtshaken", "es": "Uppercuts"},
+      "discipline": "boxing",
+      "pattern": null,
+      "component": "cardio",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "alternating",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["shoulders", "biceps"], "secondary": ["quadriceps", "obliques", "glutes"]},
+      "joints": {"shoulder": ["flexion"], "knee": ["extension"], "thoracic-spine": ["rotation"]},
+      "dose": {"mode": "time", "sets": 2, "time": 45, "rest": 30},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Take your boxing stance with your hands up by your cheeks.", "bs": "Zauzmi boksački stav, šake gore uz obraze.", "hr": "Zauzmi boksački stav, šake gore uz obraze.", "sr": "Zauzmi boksački stav, šake gore uz obraze.", "fr": "Mets-toi en garde, les mains levées près des joues.", "de": "Geh in deine Boxstellung, die Hände oben an den Wangen.", "es": "Ponte en guardia con las manos arriba, junto a las mejillas."},
+        "steps": [
+          {"en": "Dip slightly at the knees, then drive one fist up in front of your chin, elbow bent, pushing up through your legs.", "bs": "Malo se spusti u koljenima, pa odgurivanjem nogama potjeraj jednu šaku gore ispred brade, lakat savijen.", "hr": "Malo se spusti u koljenima, pa odgurivanjem nogama potjeraj jednu šaku gore ispred brade, lakat savijen.", "sr": "Malo se spusti u kolenima, pa odgurivanjem nogama poteraj jednu šaku gore ispred brade, lakat savijen.", "fr": "Fléchis légèrement les genoux, puis envoie un poing vers le haut devant ton menton, coude plié, en poussant avec les jambes.", "de": "Geh leicht in die Knie und treib dann eine Faust vor deinem Kinn nach oben, Ellbogen gebeugt, mit Schub aus den Beinen.", "es": "Flexiona un poco las rodillas y luego lanza un puño hacia arriba por delante de la barbilla, con el codo doblado, empujando con las piernas."},
+          {"en": "Bring it back to your face and uppercut with the other hand.", "bs": "Vrati je do lica i udari aperkat drugom rukom.", "hr": "Vrati je do lica i udari aperkat drugom rukom.", "sr": "Vrati je do lica i udari aperkat drugom rukom.", "fr": "Ramène-le devant ton visage et frappe un uppercut avec l’autre main.", "de": "Zieh sie zurück zum Gesicht und schlag einen Aufwärtshaken mit der anderen Hand.", "es": "Devuélvelo a la cara y lanza un uppercut con la otra mano."}
+        ],
+        "breathe": {"en": "Breathe out sharply through your mouth on every punch; keep breathing between them.", "bs": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "hr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "sr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "fr": "Expire fort par la bouche à chaque coup ; continue à respirer entre les coups.", "de": "Atme bei jedem Schlag kräftig durch den Mund aus; atme zwischen den Schlägen weiter.", "es": "Exhala con fuerza por la boca en cada golpe; sigue respirando entre golpes."},
+        "mistakes": [
+          {"en": "Swinging the arm without using the legs", "bs": "Zamahivanje rukom bez rada nogu", "hr": "Zamahivanje rukom bez rada nogu", "sr": "Zamahivanje rukom bez rada nogu", "fr": "Balancer le bras sans utiliser les jambes", "de": "Den Arm schwingen, ohne die Beine einzusetzen", "es": "Balancear el brazo sin usar las piernas"},
+          {"en": "Dropping the hand low before punching", "bs": "Spuštanje šake nisko prije udarca", "hr": "Spuštanje šake nisko prije udarca", "sr": "Spuštanje šake nisko pre udarca", "fr": "Baisser la main avant de frapper", "de": "Die Hand vor dem Schlag tief fallen lassen", "es": "Bajar la mano antes de golpear"},
+          {"en": "Leaning back", "bs": "Naginjanje unazad", "hr": "Naginjanje unatrag", "sr": "Naginjanje unazad", "fr": "Se pencher en arrière", "de": "Sich nach hinten lehnen", "es": "Echarse hacia atrás"}
+        ],
+        "easier": {"en": "Go slower and keep the dip small.", "bs": "Radi sporije i spuštaj se samo malo.", "hr": "Radi sporije i spuštaj se samo malo.", "sr": "Radi sporije i spuštaj se samo malo.", "fr": "Va plus lentement et fléchis à peine les genoux.", "de": "Mach langsamer und geh nur wenig in die Knie.", "es": "Ve más despacio y flexiona poco las rodillas."},
+        "harder": {"en": "Speed up, or alternate two uppercuts with a jab-cross.", "bs": "Ubrzaj ili naizmjenično radi dva aperkata i dva direkta.", "hr": "Ubrzaj ili naizmjenično radi dva aperkata i dva direkta.", "sr": "Ubrzaj ili naizmenično radi dva aperkata i dva direkta.", "fr": "Accélère, ou alterne deux uppercuts avec un jab-cross.", "de": "Werde schneller oder wechsle zwei Aufwärtshaken mit einem Jab-Cross ab.", "es": "Acelera o alterna dos uppercuts con un jab-cross."}
+      },
+      "anim": {
+        "cycle": 2,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Dip and drive up", "bs": "Spusti se i udari", "hr": "Spusti se i udari", "sr": "Spusti se i udari", "fr": "Fléchis et monte", "de": "Beugen, hochstoßen", "es": "Baja y sube"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 30, "hip_f": -8.4, "knee_f": 30, "footAbs_f": 28, "shoulder_n": 18, "elbow_n": 116, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.2, "label": {"en": "Dip and drive up", "bs": "Spusti se i udari", "hr": "Spusti se i udari", "sr": "Spusti se i udari", "fr": "Fléchis et monte", "de": "Beugen, hochstoßen", "es": "Baja y sube"}, "face": "effort", "pose": {"torso": 2, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 96, "elbow_n": 96, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.5, "label": {"en": "Other hand", "bs": "Druga ruka", "hr": "Druga ruka", "sr": "Druga ruka", "fr": "Autre main", "de": "Andere Hand", "es": "Otra mano"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 30, "hip_f": -8.4, "knee_f": 30, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 14, "elbow_f": 120, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.7, "label": {"en": "Other hand", "bs": "Druga ruka", "hr": "Druga ruka", "sr": "Druga ruka", "fr": "Autre main", "de": "Andere Hand", "es": "Otra mano"}, "face": "effort", "pose": {"torso": 4, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -14.1, "knee_f": 21.4, "footAbs_f": 40, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 100, "elbow_f": 92, "lift": 0, "slide": 0}, "step": 1}
+        ]
+      }
+    },
+    {
+      "id": "bob-and-weave",
+      "name": {"en": "Bob and weave", "bs": "Izmicanje", "hr": "Izmicanje", "sr": "Izmicanje", "fr": "Esquive rotative", "de": "Abtauchen", "es": "Esquiva agachándose"},
+      "short": {"en": "Bob and weave", "bs": "Izmicanje", "hr": "Izmicanje", "sr": "Izmicanje", "fr": "Esquive", "de": "Abtauchen", "es": "Esquiva"},
+      "discipline": "boxing",
+      "pattern": "squat",
+      "component": "cardio",
+      "planes": ["sagittal", "frontal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["quadriceps", "glutes"], "secondary": ["back-extensors", "obliques", "shoulders"]},
+      "joints": {"hip": ["extension"], "knee": ["extension"]},
+      "dose": {"mode": "time", "sets": 2, "time": 45, "rest": 30},
+      "equipment": [],
+      "level": 2,
+      "easier": "squat",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Take your boxing stance with your hands up by your cheeks.", "bs": "Zauzmi boksački stav, šake gore uz obraze.", "hr": "Zauzmi boksački stav, šake gore uz obraze.", "sr": "Zauzmi boksački stav, šake gore uz obraze.", "fr": "Mets-toi en garde, les mains levées près des joues.", "de": "Geh in deine Boxstellung, die Hände oben an den Wangen.", "es": "Ponte en guardia con las manos arriba, junto a las mejillas."},
+        "steps": [
+          {"en": "Bend your knees and hips to duck under an imaginary punch, eyes forward and hands up.", "bs": "Savij koljena i kukove i izmakni se ispod zamišljenog udarca, pogled naprijed, šake gore.", "hr": "Savij koljena i kukove i izmakni se ispod zamišljenog udarca, pogled naprijed, šake gore.", "sr": "Savij kolena i kukove i izmakni se ispod zamišljenog udarca, pogled napred, šake gore.", "fr": "Plie les genoux et les hanches pour passer sous un coup imaginaire, regard devant et mains levées.", "de": "Beuge Knie und Hüfte und tauch unter einem gedachten Schlag ab, Blick nach vorn, Hände oben.", "es": "Flexiona rodillas y cadera para agacharte bajo un golpe imaginario, con la mirada al frente y las manos arriba."},
+          {"en": "Rise back into your stance. Next time, duck slightly to the other side.", "bs": "Vrati se u stav. Sljedeći put se izmakni malo u drugu stranu.", "hr": "Vrati se u stav. Sljedeći put se izmakni malo u drugu stranu.", "sr": "Vrati se u stav. Sledeći put se izmakni malo u drugu stranu.", "fr": "Remonte en garde. La fois suivante, esquive légèrement de l’autre côté.", "de": "Komm zurück in deine Boxstellung. Beim nächsten Mal tauchst du leicht zur anderen Seite ab.", "es": "Vuelve a subir a la guardia. La próxima vez, agáchate un poco hacia el otro lado."}
+        ],
+        "breathe": {"en": "Breathe out as you duck, in as you rise.", "bs": "Izdahni dok se izmičeš, udahni dok se podižeš.", "hr": "Izdahni dok se izmičeš, udahni dok se podižeš.", "sr": "Izdahni dok se izmičeš, udahni dok se podižeš.", "fr": "Expire en descendant, inspire en remontant.", "de": "Atme beim Abtauchen aus, beim Hochkommen ein.", "es": "Exhala al agacharte e inhala al subir."},
+        "mistakes": [
+          {"en": "Bending only at the waist", "bs": "Savijanje samo u struku", "hr": "Savijanje samo u struku", "sr": "Savijanje samo u struku", "fr": "Se plier uniquement à la taille", "de": "Nur in der Taille abknicken", "es": "Doblarse solo por la cintura"},
+          {"en": "Looking at the floor", "bs": "Gledanje u pod", "hr": "Gledanje u pod", "sr": "Gledanje u pod", "fr": "Regarder le sol", "de": "Auf den Boden schauen", "es": "Mirar al suelo"},
+          {"en": "Dropping the hands", "bs": "Spuštanje šaka", "hr": "Spuštanje šaka", "sr": "Spuštanje šaka", "fr": "Baisser les mains", "de": "Die Hände sinken lassen", "es": "Bajar las manos"}
+        ],
+        "easier": {"en": "Duck only a little, or do bodyweight squats.", "bs": "Izmiči se samo malo ili radi čučnjeve.", "hr": "Izmiči se samo malo ili radi čučnjeve.", "sr": "Izmiči se samo malo ili radi čučnjeve.", "fr": "Descends juste un peu, ou fais des squats au poids du corps.", "de": "Tauch nur wenig ab oder mach Kniebeugen mit Körpergewicht.", "es": "Agáchate solo un poco o haz sentadillas con peso corporal."},
+        "harder": {"en": "Duck lower and add a jab-cross each time you rise.", "bs": "Izmiči se niže i pri svakom podizanju dodaj dva direkta.", "hr": "Izmiči se niže i pri svakom podizanju dodaj dva direkta.", "sr": "Izmiči se niže i pri svakom podizanju dodaj dva direkta.", "fr": "Descends plus bas et ajoute un jab-cross à chaque remontée.", "de": "Tauch tiefer ab und schlag bei jedem Hochkommen einen Jab-Cross.", "es": "Agáchate más y añade un jab-cross cada vez que subas."}
+      },
+      "anim": {
+        "cycle": 1.8,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Duck under", "bs": "Izmakni se dolje", "hr": "Izmakni se dolje", "sr": "Izmakni se dole", "fr": "Passe dessous", "de": "Abtauchen", "es": "Agáchate"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.45, "label": {"en": "Back up", "bs": "Nazad gore", "hr": "Natrag gore", "sr": "Nazad gore", "fr": "Remonte", "de": "Hochkommen", "es": "Arriba"}, "face": "smile", "pose": {"torso": 44, "spine": 6, "neck": -24, "hip_n": 62, "knee_n": 70, "hip_f": -1.4, "knee_f": 69.9, "footAbs_f": 28, "shoulder_n": 66, "elbow_n": 128, "shoulder_f": 54, "elbow_f": 138, "lift": 0, "slide": 0}}
+        ]
+      }
+    },
+    {
+      "id": "step-in-step-out",
+      "name": {"en": "Step in, step out", "bs": "Korak naprijed, korak nazad", "hr": "Korak naprijed, korak natrag", "sr": "Korak napred, korak nazad", "fr": "Pas avant, pas arrière", "de": "Vor und zurück", "es": "Paso adelante, paso atrás"},
+      "short": {"en": "Step in, out", "bs": "Naprijed, nazad", "hr": "Naprijed, natrag", "sr": "Napred, nazad", "fr": "Avant, arrière", "de": "Vor, zurück", "es": "Adelante, atrás"},
+      "discipline": "boxing",
+      "pattern": "gait",
+      "component": "cardio",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["calves", "quadriceps"], "secondary": ["glutes", "hip-abductors"]},
+      "joints": {"ankle": ["plantarflexion"], "knee": ["extension"]},
+      "dose": {"mode": "time", "sets": 2, "time": 45, "rest": 20},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Take your boxing stance with your hands up by your cheeks.", "bs": "Zauzmi boksački stav, šake gore uz obraze.", "hr": "Zauzmi boksački stav, šake gore uz obraze.", "sr": "Zauzmi boksački stav, šake gore uz obraze.", "fr": "Mets-toi en garde, les mains levées près des joues.", "de": "Geh in deine Boxstellung, die Hände oben an den Wangen.", "es": "Ponte en guardia con las manos arriba, junto a las mejillas."},
+        "steps": [
+          {"en": "Push off the back foot and step the front foot forward, letting the back foot follow the same distance.", "bs": "Odgurni se zadnjom nogom i zakorači prednjom naprijed, a zadnja neka je prati za istu dužinu.", "hr": "Odgurni se stražnjom nogom i zakorači prednjom naprijed, a stražnja neka je prati za istu duljinu.", "sr": "Odgurni se zadnjom nogom i zakorači prednjom napred, a zadnja neka je prati za istu dužinu.", "fr": "Pousse sur le pied arrière et avance le pied avant, puis laisse le pied arrière suivre de la même distance.", "de": "Drück dich vom hinteren Fuß ab und setz den vorderen Fuß nach vorn; der hintere Fuß folgt um die gleiche Strecke.", "es": "Impúlsate con el pie de atrás y adelanta el pie delantero; deja que el de atrás lo siga la misma distancia."},
+          {"en": "Push off the front foot and step back the same way. Keep your stance the same width the whole time.", "bs": "Odgurni se prednjom nogom i na isti način zakorači nazad. Cijelo vrijeme zadrži istu širinu stava.", "hr": "Odgurni se prednjom nogom i na isti način zakorači natrag. Cijelo vrijeme zadrži istu širinu stava.", "sr": "Odgurni se prednjom nogom i na isti način zakorači nazad. Sve vreme zadrži istu širinu stava.", "fr": "Pousse sur le pied avant et recule de la même façon. Garde le même écart de pieds tout du long.", "de": "Drück dich vom vorderen Fuß ab und geh genauso zurück. Halte deine Stellung die ganze Zeit gleich breit.", "es": "Impúlsate con el pie delantero y retrocede de la misma forma. Mantén la misma anchura de guardia todo el tiempo."}
+        ],
+        "breathe": {"en": "Breathe steadily.", "bs": "Diši ravnomjerno.", "hr": "Diši ravnomjerno.", "sr": "Diši ravnomerno.", "fr": "Respire régulièrement.", "de": "Atme gleichmäßig.", "es": "Respira de forma constante."},
+        "mistakes": [
+          {"en": "Crossing or dragging the feet", "bs": "Ukrštanje ili vučenje stopala", "hr": "Križanje ili vučenje stopala", "sr": "Ukrštanje ili vučenje stopala", "fr": "Croiser ou traîner les pieds", "de": "Die Füße kreuzen oder nachschleifen", "es": "Cruzar o arrastrar los pies"},
+          {"en": "Bringing the feet together", "bs": "Spajanje stopala", "hr": "Spajanje stopala", "sr": "Spajanje stopala", "fr": "Rapprocher les pieds l’un de l’autre", "de": "Die Füße zusammenführen", "es": "Juntar los pies"},
+          {"en": "Bouncing up and down", "bs": "Poskakivanje gore-dolje", "hr": "Poskakivanje gore-dolje", "sr": "Poskakivanje gore-dole", "fr": "Sautiller de haut en bas", "de": "Auf und ab hüpfen", "es": "Rebotar arriba y abajo"}
+        ],
+        "easier": {"en": "Take small, slow steps.", "bs": "Pravi male, spore korake.", "hr": "Radi male, spore korake.", "sr": "Pravi male, spore korake.", "fr": "Fais de petits pas lents.", "de": "Mach kleine, langsame Schritte.", "es": "Da pasos cortos y lentos."},
+        "harder": {"en": "Move faster, and add a jab as you step in.", "bs": "Kreći se brže i dodaj direkt prednjom rukom kad zakoračiš naprijed.", "hr": "Kreći se brže i dodaj direkt prednjom rukom kad zakoračiš naprijed.", "sr": "Kreći se brže i dodaj direkt prednjom rukom kad zakoračiš napred.", "fr": "Bouge plus vite et ajoute un jab en avançant.", "de": "Beweg dich schneller und schlag beim Vorgehen einen Jab.", "es": "Muévete más rápido y añade un jab al avanzar."}
+      },
+      "anim": {
+        "cycle": 1.6,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.25, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 2, "slide": 22}, "step": 0},
+          {"t": 0.5, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 1},
+          {"t": 0.75, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 2, "slide": 0}, "step": 1}
+        ]
+      }
+    },
+    {
+      "id": "shadowboxing",
+      "name": {"en": "Shadowboxing round", "bs": "Runda borbe sa sjenkom", "hr": "Runda borbe sa sjenom", "sr": "Runda borbe sa senkom", "fr": "Round de shadow boxing", "de": "Schattenbox-Runde", "es": "Asalto de sombra"},
+      "short": {"en": "Shadowboxing", "bs": "Borba sa sjenkom", "hr": "Borba sa sjenom", "sr": "Borba sa senkom", "fr": "Shadow boxing", "de": "Schattenboxen", "es": "Sombra"},
+      "discipline": "boxing",
+      "pattern": null,
+      "component": "cardio",
+      "planes": ["sagittal", "transverse"],
+      "position": "standing",
+      "laterality": "alternating",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["shoulders", "quadriceps"], "secondary": ["triceps", "obliques", "calves", "glutes"]},
+      "joints": {"shoulder": ["flexion"], "elbow": ["extension"], "knee": ["extension"], "thoracic-spine": ["rotation"]},
+      "dose": {"mode": "time", "sets": 3, "time": 120, "rest": 60},
+      "equipment": [],
+      "level": 2,
+      "easier": "jab-cross",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Take your boxing stance with your hands up by your cheeks. A round is 2 minutes.", "bs": "Zauzmi boksački stav, šake gore uz obraze. Runda traje 2 minute.", "hr": "Zauzmi boksački stav, šake gore uz obraze. Runda traje 2 minute.", "sr": "Zauzmi boksački stav, šake gore uz obraze. Runda traje 2 minute.", "fr": "Mets-toi en garde, les mains levées près des joues. Un round dure 2 minutes.", "de": "Geh in deine Boxstellung, die Hände oben an den Wangen. Eine Runde dauert 2 Minuten.", "es": "Ponte en guardia con las manos arriba, junto a las mejillas. Un asalto dura 2 minutos."},
+        "steps": [
+          {"en": "Jab and cross.", "bs": "Direkt prednjom pa zadnjom rukom.", "hr": "Direkt prednjom pa stražnjom rukom.", "sr": "Direkt prednjom pa zadnjom rukom.", "fr": "Jab et cross.", "de": "Jab und Cross.", "es": "Jab y cross."},
+          {"en": "Throw two uppercuts.", "bs": "Udari dva aperkata.", "hr": "Udari dva aperkata.", "sr": "Udari dva aperkata.", "fr": "Enchaîne deux uppercuts.", "de": "Schlag zwei Aufwärtshaken.", "es": "Lanza dos uppercuts."},
+          {"en": "Duck under, then come back up and start again. Stay light on your feet throughout.", "bs": "Izmakni se dolje, pa se vrati gore i kreni ispočetka. Cijelo vrijeme ostani lagan na nogama.", "hr": "Izmakni se dolje, pa se vrati gore i kreni ispočetka. Cijelo vrijeme ostani lagan na nogama.", "sr": "Izmakni se dole, pa se vrati gore i kreni ispočetka. Sve vreme ostani lagan na nogama.", "fr": "Esquive en passant dessous, puis remonte et recommence. Reste léger sur tes appuis tout du long.", "de": "Tauch ab, komm wieder hoch und fang von vorn an. Bleib die ganze Zeit leichtfüßig.", "es": "Agáchate, vuelve a subir y empieza de nuevo. Mantén los pies ligeros todo el tiempo."}
+        ],
+        "breathe": {"en": "Breathe out sharply through your mouth on every punch; keep breathing between them.", "bs": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "hr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "sr": "Oštro izdahni kroz usta pri svakom udarcu; između udaraca nastavi disati.", "fr": "Expire fort par la bouche à chaque coup ; continue à respirer entre les coups.", "de": "Atme bei jedem Schlag kräftig durch den Mund aus; atme zwischen den Schlägen weiter.", "es": "Exhala con fuerza por la boca en cada golpe; sigue respirando entre golpes."},
+        "mistakes": [
+          {"en": "Hands dropping as you tire", "bs": "Šake padaju kako se umaraš", "hr": "Šake padaju kako se umaraš", "sr": "Šake padaju kako se umaraš", "fr": "Mains qui baissent avec la fatigue", "de": "Hände sinken bei Müdigkeit", "es": "Bajar las manos al cansarte"},
+          {"en": "Holding your breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Die Luft anhalten", "es": "Aguantar la respiración"},
+          {"en": "Punching with locked elbows", "bs": "Udaranje sa zaključanim laktovima", "hr": "Udaranje sa zaključanim laktovima", "sr": "Udaranje sa zaključanim laktovima", "fr": "Frapper coudes verrouillés", "de": "Mit durchgedrückten Ellbogen schlagen", "es": "Golpear con los codos bloqueados"}
+        ],
+        "easier": {"en": "Shorten the round to 1 minute and slow down.", "bs": "Skrati rundu na 1 minutu i uspori.", "hr": "Skrati rundu na 1 minutu i uspori.", "sr": "Skrati rundu na 1 minutu i uspori.", "fr": "Raccourcis le round à 1 minute et ralentis.", "de": "Verkürze die Runde auf 1 Minute und mach langsamer.", "es": "Acorta el asalto a 1 minuto y ve más despacio."},
+        "harder": {"en": "Make the round 3 minutes, or rest only 30 seconds.", "bs": "Produži rundu na 3 minute ili se odmaraj samo 30 sekundi.", "hr": "Produži rundu na 3 minute ili se odmaraj samo 30 sekundi.", "sr": "Produži rundu na 3 minute ili se odmaraj samo 30 sekundi.", "fr": "Passe le round à 3 minutes, ou ne récupère que 30 secondes.", "de": "Mach die Runde 3 Minuten lang oder pausiere nur 30 Sekunden.", "es": "Alarga el asalto a 3 minutos o descansa solo 30 segundos."}
+      },
+      "anim": {
+        "cycle": 6,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Jab, cross", "bs": "Dva direkta", "hr": "Dva direkta", "sr": "Dva direkta", "fr": "Jab, cross", "de": "Jab, Cross", "es": "Jab, cross"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
+          {"t": 0.06, "label": {"en": "Jab, cross", "bs": "Dva direkta", "hr": "Dva direkta", "sr": "Dva direkta", "fr": "Jab, cross", "de": "Jab, Cross", "es": "Jab, cross"}, "face": "effort", "pose": {"torso": 12, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 86, "elbow_n": 4, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.14, "label": {"en": "Jab, cross", "bs": "Dva direkta", "hr": "Dva direkta", "sr": "Dva direkta", "fr": "Jab, cross", "de": "Jab, Cross", "es": "Jab, cross"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.21, "label": {"en": "Jab, cross", "bs": "Dva direkta", "hr": "Dva direkta", "sr": "Dva direkta", "fr": "Jab, cross", "de": "Jab, Cross", "es": "Jab, cross"}, "face": "effort", "pose": {"torso": 20, "spine": 6, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -11.9, "knee_f": 25.4, "footAbs_f": 44, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 86, "elbow_f": 4, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.3, "label": {"en": "Uppercuts", "bs": "Aperkati", "hr": "Aperkati", "sr": "Aperkati", "fr": "Uppercuts", "de": "Aufwärtshaken", "es": "Uppercuts"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 30, "hip_f": -8.4, "knee_f": 30, "footAbs_f": 28, "shoulder_n": 18, "elbow_n": 116, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.37, "label": {"en": "Uppercuts", "bs": "Aperkati", "hr": "Aperkati", "sr": "Aperkati", "fr": "Uppercuts", "de": "Aufwärtshaken", "es": "Uppercuts"}, "face": "effort", "pose": {"torso": 2, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 96, "elbow_n": 96, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.46, "label": {"en": "Uppercuts", "bs": "Aperkati", "hr": "Aperkati", "sr": "Aperkati", "fr": "Uppercuts", "de": "Aufwärtshaken", "es": "Uppercuts"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 30, "hip_f": -8.4, "knee_f": 30, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 14, "elbow_f": 120, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.53, "label": {"en": "Uppercuts", "bs": "Aperkati", "hr": "Aperkati", "sr": "Aperkati", "fr": "Uppercuts", "de": "Aufwärtshaken", "es": "Uppercuts"}, "face": "effort", "pose": {"torso": 4, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -14.1, "knee_f": 21.4, "footAbs_f": 40, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 100, "elbow_f": 92, "lift": 0, "slide": 0}, "step": 1},
+          {"t": 0.64, "label": {"en": "Duck", "bs": "Izmakni se", "hr": "Izmakni se", "sr": "Izmakni se", "fr": "Esquive", "de": "Abtauchen", "es": "Agáchate"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 2},
+          {"t": 0.76, "label": {"en": "Duck", "bs": "Izmakni se", "hr": "Izmakni se", "sr": "Izmakni se", "fr": "Esquive", "de": "Abtauchen", "es": "Agáchate"}, "face": "effort", "pose": {"torso": 44, "spine": 6, "neck": -24, "hip_n": 62, "knee_n": 70, "hip_f": -1.4, "knee_f": 69.9, "footAbs_f": 28, "shoulder_n": 66, "elbow_n": 128, "shoulder_f": 54, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 2},
+          {"t": 0.9, "label": {"en": "Duck", "bs": "Izmakni se", "hr": "Izmakni se", "sr": "Izmakni se", "fr": "Esquive", "de": "Abtauchen", "es": "Agáchate"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 2}
+        ],
+        "flow": true
+      }
+    },
+    {
+      "id": "jump-rope",
+      "name": {"en": "Jump rope (with or without a rope)", "bs": "Preskakanje vijače (s vijačom ili bez nje)", "hr": "Preskakanje vijače (s vijačom ili bez nje)", "sr": "Preskakanje vijače (sa vijačom ili bez nje)", "fr": "Corde à sauter (avec ou sans corde)", "de": "Seilspringen (mit oder ohne Seil)", "es": "Saltar la cuerda (con o sin cuerda)"},
+      "short": {"en": "Jump rope", "bs": "Preskakanje vijače", "hr": "Preskakanje vijače", "sr": "Preskakanje vijače", "fr": "Corde à sauter", "de": "Seilspringen", "es": "Saltar la cuerda"},
+      "discipline": "boxing",
+      "pattern": "jump",
+      "component": "cardio",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["calves"], "secondary": ["quadriceps", "shoulders", "forearms"]},
+      "joints": {"ankle": ["plantarflexion"], "wrist": []},
+      "dose": {"mode": "time", "sets": 3, "time": 60, "rest": 30},
+      "equipment": [],
+      "level": 2,
+      "easier": "pogo-hops",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand tall with your feet together, elbows by your sides and hands out at hip height, as if holding a rope.", "bs": "Stani uspravno, stopala skupljena, laktovi uz tijelo, a šake u visini kukova, kao da držiš vijaču.", "hr": "Stani uspravno, stopala skupljena, laktovi uz tijelo, a šake u visini kukova, kao da držiš vijaču.", "sr": "Stani uspravno, stopala skupljena, laktovi uz telo, a šake u visini kukova, kao da držiš vijaču.", "fr": "Tiens-toi droit, pieds joints, coudes le long du corps et mains écartées à hauteur des hanches, comme si tu tenais une corde.", "de": "Stell dich aufrecht hin, Füße geschlossen, Ellbogen am Körper und Hände seitlich auf Hüfthöhe, als hieltest du ein Seil.", "es": "Ponte de pie erguido con los pies juntos, los codos pegados al cuerpo y las manos separadas a la altura de la cadera, como si sujetaras una cuerda."},
+        "steps": [
+          {"en": "Hop just high enough to clear a rope, landing softly on the balls of your feet, while your wrists turn small circles.", "bs": "Poskakuj taman toliko visoko da preskočiš vijaču, mekano doskačući na prednji dio stopala, dok zglobovi šaka opisuju male krugove.", "hr": "Poskakuj taman toliko visoko da preskočiš vijaču, meko doskačući na prednji dio stopala, dok zapešća opisuju male krugove.", "sr": "Poskakuj taman toliko visoko da preskočiš vijaču, meko doskačući na prednji deo stopala, dok zglobovi šaka opisuju male krugove.", "fr": "Saute juste assez haut pour passer une corde, en te réceptionnant en douceur sur l’avant des pieds, pendant que tes poignets font de petits cercles.", "de": "Spring gerade so hoch, dass ein Seil durchpasst, und lande weich auf den Fußballen, während deine Handgelenke kleine Kreise drehen.", "es": "Salta solo lo justo para pasar la cuerda y aterriza suavemente sobre la parte delantera de los pies, mientras las muñecas dibujan pequeños círculos."}
+        ],
+        "breathe": {"en": "Breathe steadily; find a rhythm.", "bs": "Diši ravnomjerno; pronađi ritam.", "hr": "Diši ravnomjerno; pronađi ritam.", "sr": "Diši ravnomerno; pronađi ritam.", "fr": "Respire régulièrement ; trouve ton rythme.", "de": "Atme gleichmäßig; finde deinen Rhythmus.", "es": "Respira de forma constante; encuentra tu ritmo."},
+        "mistakes": [
+          {"en": "Jumping too high", "bs": "Previsoko skakanje", "hr": "Previsoko skakanje", "sr": "Previsoko skakanje", "fr": "Sauter trop haut", "de": "Zu hoch springen", "es": "Saltar demasiado alto"},
+          {"en": "Landing on the heels", "bs": "Doskok na pete", "hr": "Doskok na pete", "sr": "Doskok na pete", "fr": "Se réceptionner sur les talons", "de": "Auf den Fersen landen", "es": "Aterrizar sobre los talones"},
+          {"en": "Swinging the whole arm instead of the wrists", "bs": "Zamahivanje cijelom rukom umjesto zglobovima šaka", "hr": "Zamahivanje cijelom rukom umjesto zapešćima", "sr": "Zamahivanje celom rukom umesto zglobovima šaka", "fr": "Tourner tout le bras au lieu des poignets", "de": "Den ganzen Arm schwingen statt der Handgelenke", "es": "Mover todo el brazo en lugar de las muñecas"}
+        ],
+        "easier": {"en": "Do it without a rope, or step from foot to foot.", "bs": "Radi bez vijače ili prebacuj težinu s noge na nogu.", "hr": "Radi bez vijače ili prebacuj težinu s noge na nogu.", "sr": "Radi bez vijače ili prebacuj težinu sa noge na nogu.", "fr": "Fais-le sans corde, ou passe d’un pied sur l’autre.", "de": "Mach es ohne Seil oder tritt von einem Fuß auf den anderen.", "es": "Hazlo sin cuerda o pasa de un pie a otro."},
+        "harder": {"en": "Alternate feet like running in place, or try double turns with a rope.", "bs": "Mijenjaj noge kao da trčiš u mjestu ili s vijačom probaj dupli preskok.", "hr": "Izmjenjuj noge kao da trčiš na mjestu ili s vijačom probaj dvostruki preskok.", "sr": "Menjaj noge kao da trčiš u mestu ili sa vijačom probaj dupli preskok.", "fr": "Alterne les pieds comme une course sur place, ou essaie des doubles tours avec une corde.", "de": "Wechsle die Füße wie beim Laufen auf der Stelle oder versuch Doppeldurchschläge mit Seil.", "es": "Alterna los pies como si corrieras en el sitio, o prueba dobles saltos con cuerda."}
+      },
+      "anim": {
+        "cycle": 0.5,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.toe", "at": [208,-3]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Small quick hops", "bs": "Mali brzi poskoci", "hr": "Mali brzi poskoci", "sr": "Mali brzi poskoci", "fr": "Petits sauts rapides", "de": "Kleine, schnelle Sprünge", "es": "Saltitos rápidos"}, "face": "effort", "pose": {"torso": 0, "neck": 0, "hip": 2, "knee": 6, "footAbs": 28, "lift": 0, "shoulder": 14, "elbow": 60}},
+          {"t": 0.4, "label": {"en": "Small quick hops", "bs": "Mali brzi poskoci", "hr": "Mali brzi poskoci", "sr": "Mali brzi poskoci", "fr": "Petits sauts rapides", "de": "Kleine, schnelle Sprünge", "es": "Saltitos rápidos"}, "face": "effort", "pose": {"torso": 0, "neck": 0, "hip": 2, "knee": 6, "footAbs": 40, "lift": 9, "shoulder": 20, "elbow": 60}, "step": 0},
+          {"t": 0.75, "label": {"en": "Small quick hops", "bs": "Mali brzi poskoci", "hr": "Mali brzi poskoci", "sr": "Mali brzi poskoci", "fr": "Petits sauts rapides", "de": "Kleine, schnelle Sprünge", "es": "Saltitos rápidos"}, "face": "effort", "pose": {"torso": 0, "neck": 0, "hip": 2, "knee": 6, "footAbs": 22, "lift": 0, "shoulder": 12, "elbow": 60}, "step": 0}
+        ]
+      }
     }
   ]
 }

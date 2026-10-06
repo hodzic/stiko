@@ -185,6 +185,26 @@
       ]
     },
     {
+      "id": "starter-boxing",
+      "name": {"en": "Boxing conditioning", "bs": "Boksačka kondicija", "hr": "Boksačka kondicija", "sr": "Bokserska kondicija", "fr": "Préparation physique boxe", "de": "Box-Fitness", "es": "Acondicionamiento de boxeo"},
+      "items": [
+        {"ex": "jump-rope", "block": "warmup", "sets": 2, "time": 60, "rest": 30},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "boxing-bounce", "block": "warmup", "sets": 1, "time": 60, "rest": 15},
+        {"ex": "jab-cross", "block": "main", "sets": 3, "time": 60, "rest": 30},
+        {"ex": "uppercuts", "block": "main", "sets": 2, "time": 45, "rest": 30},
+        {"ex": "bob-and-weave", "block": "main", "sets": 2, "time": 45, "rest": 30},
+        {"ex": "step-in-step-out", "block": "main", "sets": 2, "time": 45, "rest": 20},
+        {"ex": "shadowboxing", "block": "main", "sets": 3, "time": 120, "rest": 60},
+        {"ex": "mountain-climber", "block": "main", "sets": 2, "time": 30, "rest": 30},
+        {"ex": "plank-shoulder-tap", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "triceps-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "hip-flexor-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 0}
+      ]
+    },
+    {
       "id": "starter-ski",
       "name": {"en": "Ski prep", "bs": "Priprema za skijanje", "hr": "Priprema za skijanje", "sr": "Priprema za skijanje", "fr": "Préparation ski", "de": "Ski-Vorbereitung", "es": "Preparación para esquí"},
       "sport": "alpine-skiing",
