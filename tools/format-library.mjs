@@ -2,7 +2,7 @@
 //   node tools/format-library.mjs [file]
 import fs from 'node:fs';
 
-const ORDER=['id','name','short','pattern','component','planes','position','laterality','chain','blocks','muscles','joints',
+const ORDER=['id','name','short','discipline','pattern','component','planes','position','laterality','chain','blocks','muscles','joints',
   'dose','equipment','level','easier','harder','howto','anim'];
 const HOWTO=['setup','steps','breathe','mistakes','easier','harder'];
 const ANIM=['cycle','floorWork','farShift','props','spec','frames','restPose'];

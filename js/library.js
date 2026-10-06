@@ -6,7 +6,7 @@ import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
 import {toast} from './ui.js';
 
-const MAIN=['family','component','region'];
+const MAIN=['discipline','family','component','region'];
 const MORE=['muscle','position','equipment','plane','laterality','level'];
 const GROUPS=[...MAIN,...MORE];
 // Filter state survives navigation to the player and back. Values are kept as strings (level is numeric).
