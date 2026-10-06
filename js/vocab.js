@@ -39,8 +39,8 @@ export const VOCAB = {
   component:  ['strength','stability','mobility','flexibility','balance','cardio'],
   region:     ['lower','upper','core','full'],
   muscle:     Object.keys(MUSCLES),
-  position:   ['standing','seated','kneeling','half-kneeling','quadruped','supine','prone','side-lying'],
-  equipment:  ['none','band','dumbbell','mat','chair','wall','step'],
+  position:   ['standing','seated','kneeling','half-kneeling','quadruped','supine','prone','side-lying','hanging'],
+  equipment:  ['none','band','dumbbell','mat','chair','wall','step','bar'],
   plane:      ['sagittal','frontal','transverse'],
   laterality: ['bilateral','unilateral','alternating'],
   chain:      ['closed','open'],
@@ -50,7 +50,7 @@ export const VOCAB = {
 // Sports a session can be built for (sessions only; exercises aren't sport-specific).
 export const SPORTS = ['alpine-skiing','hiking','road-cycling','mountain-biking','swimming','kayaking'];
 export const DOSE_MODES = ['reps','hold','time'];  // time = looping movement for a set duration (cardio, mobility)
-export const PROPS = ['chair','wall','step','dumbbell','band'];
+export const PROPS = ['chair','wall','step','dumbbell','band','bar'];
 export const FACES = ['smile','effort','puff'];
 // An empty equipment list means no equipment.
 export const equipmentOf = ex => ex.equipment.length ? ex.equipment : ['none'];

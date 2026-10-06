@@ -222,3 +222,4 @@ div.card{cursor:pointer}
 .db-bar{stroke:var(--prop);stroke-width:4;stroke-linecap:round}
 .bandp{fill:none;stroke:var(--bandp);stroke-width:3.5;stroke-linecap:round}
 .anchor{fill:var(--prop)}
+.barp{fill:var(--prop)} .barm{stroke:var(--prop);stroke-width:4}

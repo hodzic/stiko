@@ -14,11 +14,11 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | Body area | derived | lower, upper, core, full | Area of the primary muscles; "full" when they span several |
 | Joint actions | `joints` | joint → list of actions | Anatomical joint actions |
 | Plane of motion | `planes` | sagittal, frontal, transverse | Cardinal anatomical planes |
-| Position | `position` | standing, seated, kneeling, half-kneeling, quadruped, supine, prone, side-lying | Starting body position |
+| Position | `position` | standing, seated, kneeling, half-kneeling, quadruped, supine, prone, side-lying, hanging | Starting body position |
 | Laterality | `laterality` | bilateral, unilateral, alternating | Unilateral: all reps on one side, then the other. Alternating: sides swap every rep, counted per side |
 | Kinetic chain | `chain` | closed, open | Closed: the hands or feet are fixed against the floor or wall. Open: the moving limb is free |
 | Routine fit | `blocks` | warmup, main, cooldown | Which part of the three-part routine it suits |
-| Equipment | `equipment` | band, dumbbell, mat, chair, wall, step (empty = none) | |
+| Equipment | `equipment` | band, dumbbell, mat, chair, wall, step, bar (doorway pull-up bar; empty = none) | |
 | Level | `level`, `easier`, `harder` | 1–3, with links to a regression and a progression | Progression/regression chains |
 
 ## Movement patterns
@@ -32,7 +32,7 @@ filtering and for the editor's coverage check. The **pattern** is stored on the 
 | Hinge | hinge | glute bridge, hip hinge, Romanian deadlift, good morning |
 | Lunge | lunge (split stance or single leg) | reverse lunge, split squat, step-up |
 | Push | push-horizontal, push-vertical | wall/incline push-up; overhead press |
-| Pull | pull-horizontal, pull-vertical | band row; band pulldown |
+| Pull | pull-horizontal, pull-vertical | band row; band pulldown, negative pull-up, pull-up |
 | Core | anti-extension, anti-rotation, anti-lateral-flexion, rotation, trunk-flexion, trunk-extension | plank, dead bug; bird dog, shoulder taps; side plank; thread the needle; crunch; superman |
 | Carry | carry | farmer's or suitcase carry |
 | Locomotion | gait, jump | marching, step jacks; squat jump |

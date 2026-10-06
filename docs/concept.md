@@ -19,7 +19,7 @@ The MVP is an offline session runner: build named sessions from the library, edi
 | Library | Browse and filter exercises by the taxonomy; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |
 
-Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Twelve starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
+Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Thirteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
 
 ## Exercise library
 
@@ -33,18 +33,18 @@ Exercises are classified on several dimensions taken from exercise science and k
 | Body area | lower, upper, core, full body | Worked out from the main muscles |
 | Joint actions | Joint → actions, e.g. hip: extension; joints held still during isometric work | Kinesiology |
 | Plane of motion | sagittal, frontal, transverse | Anatomical planes |
-| Position | standing, seated, kneeling, half-kneeling, hands and knees, on back, face down, on side | |
+| Position | standing, seated, kneeling, half-kneeling, hands and knees, on back, face down, on side, hanging | |
 | Sides | both together, one side at a time, alternating | |
 | Kinetic chain | closed, open | |
 | Routine fit | warm-up, main, cool-down | Routine structure below |
 | Dosing mode | reps × sets, timed hold, timed movement (cardio and mobility rounds) | |
 | Sides | Unilateral exercises run one side, then "Switch sides" and the other side, with Stiko mirrored | |
-| Equipment | none, band, dumbbell, mat, chair, wall | |
+| Equipment | none, band, dumbbell, mat, chair, wall, step, pull-up bar | |
 | Level | 1–3, with links to an easier and a harder variant | Progressions and regressions |
 
 How hard an exercise is comes from its dose, not from the exercise itself, so strength and endurance aren't separate categories. Isolated mobility and stretching work may have no movement pattern; it's described by its joint actions instead.
 
-The library has 82 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
+The library has 88 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
 
 ```json
 { "id": "glute-bridge",
@@ -85,7 +85,7 @@ Stiko is a rigged SVG character, not a set of drawings: one renderer animates ev
 - **Look:** big round head (about 1/3 of height), dot eyes, sweatband, expression per phase (effort, smile, puffed cheeks on holds), idle sway and blink; far-side limbs drawn lighter.
 - **Views:** side by default; front view for frontal-plane moves (jacks, lateral lunge, side plank, lateral raise).
 - **Floor work:** root rotation, a bendable spine, pinning and two-bone IK for hands and feet, so contacts don't slide or sink.
-- **Props:** dumbbell, band, mat, chair, wall and step as SVG parts.
+- **Props:** dumbbell, band, mat, chair, wall, step and a doorway pull-up bar as SVG parts.
 - **Quality control:** a pose-check debug view in the player, a contact-sheet tool that renders every keyframe for review, and tests that catch unreachable hand or foot targets and limbs through the floor. Every animation gets a visual review, since a bad pose teaches bad form.
 
 ## Role of Claude
@@ -135,5 +135,6 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 5. Full library of 71 exercises with animations and classification, plus starter sessions (done).
 6. Use it: Dino and friends try the sessions; fix poses and copy from feedback; trainer or physiotherapist review of the classification and Bosnian terms.
 7. Sport prep: a sport tag on sessions, starter sessions for six sports, and 11 exercises they need (done).
-8. Next library expansions, in order: pull-up bar progressions; yoga with a breath-paced flow mode; healthy aging and Qigong-style tai chi; boxing conditioning.
-9. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
+8. Pull-up bar: dead hang → scapular pull-up → negative → band-assisted → pull-up, plus the hanging knee raise and a "Road to a pull-up" session (done).
+9. Next library expansions, in order: yoga with a breath-paced flow mode; healthy aging and Qigong-style tai chi; boxing conditioning.
+10. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.

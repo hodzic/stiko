@@ -198,7 +198,7 @@ export function headSVG(J,face,blink){
 }
 
 // ---- Props ----
-// Background props (drawn behind Stiko): chair, wall, step. Positions use floor-relative y like spec coordinates.
+// Background props (drawn behind Stiko): chair, wall, step, pull-up bar. Positions use floor-relative y like spec coordinates.
 export const SEAT_H=48;  // chair seat height above the floor, about knee height
 function backPropSVG(pr){
   if(pr.type==='chair'){
@@ -210,6 +210,11 @@ function backPropSVG(pr){
   if(pr.type==='wall'){
     const x=pr.x, side=pr.side||1, w=12;
     return `<rect class="wall" x="${side>0?x:x-w}" y="16" width="${w}" height="${FLOOR+8-16}" rx="2"/>`;
+  }
+  if(pr.type==='bar'){
+    // A doorway pull-up bar seen end-on (side view): the bar under the door frame's top.
+    const x=pr.x, y=FLOOR+pr.y;
+    return `<rect class="wall" x="${x-34}" y="${y-26}" width="68" height="12" rx="2"/><path class="barm" d="M${x} ${y-14} V${y}"/><circle class="barp" cx="${x}" cy="${y}" r="6"/>`;
   }
   if(pr.type==='step'){
     const w=pr.w||70, h=pr.h||22;
