@@ -2031,7 +2031,7 @@
         "spec": {"pin": {"point": "n.kn", "at": [168,-6]}, "footAbs": 180, "ik": {"hd_f": [222,-3]}},
         "frames": [
           {"t": 0, "label": {"en": "Reach up, open your chest", "bs": "Ruka gore, otvori grudi", "hr": "Ruka gore, otvori prsa", "sr": "Ruka gore, otvori grudi", "fr": "Bras vers le haut, ouvre la poitrine", "de": "Arm hoch, Brust öffnen", "es": "Brazo arriba, abre"}, "face": "smile", "pose": {"rot": 76, "torso": 0, "spine": -6, "neck": -55, "hip": 76, "knee": 90, "uaAbs_n": -104, "faAbs_n": -108}},
-          {"t": 0.5, "label": {"en": "Thread under", "bs": "Provuci ispod", "hr": "Provuci ispod", "sr": "Provuci ispod", "fr": "Passe le bras dessous", "de": "Unten durchfädeln", "es": "Pasa por debajo"}, "face": "smile", "pose": {"rot": 76, "torso": 0, "spine": 12, "neck": 38, "hip": 76, "knee": 90, "uaAbs_n": 128, "faAbs_n": 172}}
+          {"t": 0.5, "label": {"en": "Thread under", "bs": "Provuci ispod", "hr": "Provuci ispod", "sr": "Provuci ispod", "fr": "Passe le bras dessous", "de": "Unten durchfädeln", "es": "Pasa por debajo"}, "face": "smile", "pose": {"rot": 76, "torso": 0, "spine": 12, "neck": 38, "hip": 76, "knee": 90, "uaAbs_n": 120, "faAbs_n": 115}}
         ]
       }
     },
