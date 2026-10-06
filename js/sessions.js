@@ -96,13 +96,15 @@ export function mergeImport(existing,incoming){
   return {sessions:out, added, skipped};
 }
 
-// Give stored starter sessions their translations back (devices that saved only one language's name).
-// A session the user renamed keeps its own name.
+// Keep stored starter sessions' translations up to date with data/starters.json: devices that saved only one
+// language's name, and ones saved before a language was added. Renaming drops `names`, so a session without them
+// keeps its name unless it is still a starter name.
 export function attachNames(list,starters){
   let changed=false;
   const out=list.map(s=>{
     const st=starters.find(x=>x.id===s.id);
-    if(!st?.names||s.names||!Object.values(st.names).includes(s.name)) return s;
+    if(!st?.names||JSON.stringify(s.names)===JSON.stringify(st.names)) return s;
+    if(!s.names&&!Object.values(st.names).includes(s.name)) return s;
     changed=true; return {...s,names:st.names};
   });
   return {list:out,changed};

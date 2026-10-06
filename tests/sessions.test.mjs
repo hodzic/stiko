@@ -116,10 +116,13 @@ test('attachNames repairs stored starters but leaves renamed ones alone',()=>{
     {id:'starter-basics',name:'Three basics',items:[]},          // saved in English before translations were kept
     {id:'starter-desk-break',name:'My desk routine',items:[]},   // renamed by the user
     {id:'s-1',name:'Evening',items:[]},
+    {id:'starter-core-balance',name:'Core and balance',items:[],        // saved before Spanish was added
+      names:{en:'Core and balance',bs:'Trup i ravnoteža',fr:'Tronc et équilibre',de:'Rumpf und Gleichgewicht'}},
   ];
   const {list,changed}=S.attachNames(stored,starters);
   assert.equal(changed,true);
   assert.equal(S.nameOf(list[0],'fr'),'Les trois bases');
+  assert.equal(S.nameOf(list[3],'es'),'Tronco y equilibrio');
   assert.equal(list[1].names,undefined); assert.equal(list[2].names,undefined);
   assert.equal(S.attachNames(list,starters).changed,false,'second run changes nothing');
 });
