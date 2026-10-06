@@ -61,7 +61,7 @@ both sides and the dose counts per side.
 | `frames` | Keyframes `{t, label, face, pose, step?}`; `t` in [0, 1); every frame sets the same pose keys; `step` maps several keyframes to one instruction step |
 | `loopAdd` | Added to the first frame when the cycle wraps, e.g. `{"shoulder": 360}` for continuous circles |
 | `restPose` | `{spec, pose}` shown while getting ready and resting |
-| `props` | `chair {x, back}`, `wall {x, side}`, `step {x, w, h}`, `dumbbell {hands}`, `band {from, to}` |
+| `props` | `chair {x, back}`, `wall {x, side}`, `step {x, w, h}`, `dumbbell {hands}`, `band {from, to}`, `bar {x, y}` (doorway pull-up bar; pin `n.hd` to it) |
 | `floorWork`, `farShift` | Draw the mat; offset of the far-side limbs in side view |
 
 Pose keys are joint angles in degrees. Side view: `rot` (whole body), `torso` (lower trunk tilt), `spine` (upper-trunk

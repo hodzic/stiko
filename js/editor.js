@@ -2,7 +2,7 @@
 import {T, U, esc, tagLabel, getLang} from './i18n.js';
 import {MAIN_FAMILIES, familyOf, SPORTS} from './vocab.js';
 import * as S from './sessions.js';
-import {thumbSVG} from './library.js';
+import {thumbSVG, thumbBox} from './library.js';
 import {saveJSON, slug} from './ui.js';
 
 export function mountEditor(root,lib,id){
@@ -33,7 +33,7 @@ export function mountEditor(root,lib,id){
   function itemHTML(it,i){
     const ex=byId.get(it.ex);
     return `<li class="item">
-      <svg class="thumb sm" viewBox="20 70 360 210" aria-hidden="true">${thumbSVG(ex)}</svg>
+      <svg class="thumb sm" viewBox="${thumbBox(ex)}" aria-hidden="true">${thumbSVG(ex)}</svg>
       <div class="item-body">
         <div class="item-head"><a href="#/play/${encodeURIComponent(ex.id)}">${esc(T(ex.name))}</a>
           <span class="item-acts">

@@ -12,6 +12,8 @@ const GROUPS=[...MAIN,...MORE];
 // Filter state survives navigation to the player and back. Values are kept as strings (level is numeric).
 const sel=Object.fromEntries(GROUPS.map(g=>[g,new Set()]));
 const thumbs=new Map();
+// Thumbnails crop to the figure; hanging exercises reach higher, so they get a taller (zoomed-out) box.
+export const thumbBox=ex=>ex.position==='hanging'?'-40 4 480 280':'20 70 360 210';
 export function thumbSVG(ex){ if(!thumbs.has(ex.id)) thumbs.set(ex.id,stillSVG(ex,1)); return thumbs.get(ex.id); }
 
 // Within a group selected values are OR'ed; groups are AND'ed.
@@ -56,7 +58,7 @@ export function mountLibrary(root,lib,pick=null){
     const n=addedN.get(ex.id);
     const open=pick?`<div class="card" role="button" tabindex="0" data-add="${esc(ex.id)}">`:`<a class="card" href="#/play/${encodeURIComponent(ex.id)}">`;
     return `<li>${open}
-      <svg class="thumb" viewBox="20 70 360 210" aria-hidden="true">${thumbSVG(ex)}</svg>
+      <svg class="thumb" viewBox="${thumbBox(ex)}" aria-hidden="true">${thumbSVG(ex)}</svg>
       <div class="card-body">
         <h3>${esc(T(ex.name))}</h3>
         <p class="dose">${esc(ex.muscles.primary.map(m=>tagLabel('muscle',m)).join(', '))}</p>
