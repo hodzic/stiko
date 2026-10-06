@@ -1,5 +1,5 @@
 // Web Audio tones and speech synthesis. Both need a first user gesture to unlock.
-import {getLang} from './i18n.js';
+import {getLang, VOICE} from './i18n.js';
 import * as store from './store.js';
 
 export const prefs={sound:store.load('sound',true), voice:store.load('voice',true)};
@@ -34,8 +34,8 @@ export function tone(kind){
 
 export function pickVoice(){
   if(!synth) return null;
-  const vs=synth.getVoices(), prefsL=getLang()==='bs'?['bs','hr','sr']:['en'];
-  for(const p of prefsL){ const v=vs.find(v=>v.lang.toLowerCase().replace('_','-').startsWith(p)); if(v) return v; }
+  const vs=synth.getVoices();
+  for(const p of VOICE[getLang()].prefs){ const v=vs.find(v=>v.lang.toLowerCase().replace('_','-').startsWith(p)); if(v) return v; }
   return null;
 }
 export const voiceCount=()=>synth?synth.getVoices().length:0;
@@ -44,9 +44,9 @@ export function onVoicesChanged(cb){ voicesCb=cb; }
 if(synth) synth.onvoiceschanged=()=>voicesCb&&voicesCb();
 
 function utter(text){
-  const u=new SpeechSynthesisUtterance(text), v=pickVoice(), bs=getLang()==='bs';
-  if(v){u.voice=v;u.lang=v.lang;} else u.lang=bs?'bs-BA':'en-US';
-  u.rate=bs?0.95:1;
+  const u=new SpeechSynthesisUtterance(text), v=pickVoice(), cfg=VOICE[getLang()];
+  if(v){u.voice=v;u.lang=v.lang;} else u.lang=cfg.tag;
+  u.rate=cfg.rate;
   return u;
 }
 const held=[];

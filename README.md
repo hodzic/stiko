@@ -28,7 +28,7 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `js/rig.js` | Stiko rig: FK, pinning, rotation leveling, leg IK, SVG rendering (pure, unit-tested) |
 | `js/audio.js` | Web Audio tones and speech synthesis |
 | `js/vocab.js` | Exercise taxonomy vocabularies (see `docs/taxonomy.md`) |
-| `js/i18n.js`, `js/store.js` | UI strings and taxonomy labels (EN/BS), device preferences |
+| `js/i18n.js`, `js/store.js` | UI strings and taxonomy labels (EN/BS/FR/DE), voice settings per language, device preferences |
 | `data/library.json` | Exercise library |
 | `data/starters.json` | Starter sessions, offered once per device (same format as an export) |
 | `tools/` | `sheet.mjs` pose review sheets, `format-library.mjs` library formatter |
@@ -37,7 +37,7 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 ## Adding an exercise
 
 Add a record to `data/library.json`, run `npm run fmt:library` to normalise the layout, then `npm test`. Each record
-has bilingual (`{en, bs}`) text, a classification following [docs/taxonomy.md](docs/taxonomy.md), a dose, instructions,
+has text in every language (`{en, bs, fr, de}`), a classification following [docs/taxonomy.md](docs/taxonomy.md), a dose, instructions,
 and `anim`. The tests check the vocabulary, the text in both languages, the instruction steps against the keyframes,
 that IK targets are reachable and that no pose sinks through the floor.
 
@@ -91,3 +91,13 @@ Exports, shared sessions and `data/starters.json` share one format; import also 
 `block` is `warmup`, `main` or `cooldown`. Reps-based exercises take `reps`, hold-based ones `hold` (seconds).
 On import, values are clamped to valid ranges, unknown exercises are dropped, an identical session already on
 the device is skipped, and a different session with the same id is added under a new id.
+
+## Languages
+
+English, Bosnian, French and German. The non-English languages use the informal form (ti / tu / du). To add one:
+
+1. Add a dictionary to `UI` in `js/i18n.js` (copy `UI.en`, including the taxonomy label tables) and its `Object.assign` block of session strings.
+2. Add its voice settings to `VOICE` in `js/i18n.js`, and phone-language detection in `fromNav`.
+3. Add the language key to every text field in `data/library.json` (names, instructions, keyframe labels) and to the starter names in `data/starters.json`.
+
+`npm test` fails until every UI string, taxonomy label and exercise text has the new language.

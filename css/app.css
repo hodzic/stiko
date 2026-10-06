@@ -61,9 +61,10 @@ button:focus-visible,input:focus-visible,a:focus-visible,.stage:focus-visible{ou
 .stage{position:relative;background:var(--stage);border:2px solid var(--line);border-radius:28px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .stage svg{display:block;width:100%;height:auto}
 .hud{position:absolute;left:16px;right:16px;top:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;pointer-events:none}
-.cue-now{font:600 1.05rem/1.2 Fredoka,system-ui,sans-serif}
+.cue-now{font:600 1.05rem/1.2 Fredoka,system-ui,sans-serif;min-width:0}
 .count{text-align:right;font-variant-numeric:tabular-nums}
-.count b{display:block;font:600 1.4rem/1.1 Fredoka,system-ui,sans-serif}
+.count{flex:none;max-width:60%}
+.count b{display:block;font:600 1.4rem/1.1 Fredoka,system-ui,sans-serif;white-space:nowrap}
 .count span{color:var(--ink-soft);font-size:.85rem}
 .paused-ov{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:color-mix(in srgb,var(--stage) 55%,transparent);font:500 .95rem/1 Fredoka,system-ui,sans-serif;color:var(--ink)}
 .stage.paused .paused-ov{display:flex}

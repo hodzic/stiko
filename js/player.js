@@ -148,7 +148,7 @@ export function mountPlayer(root,queue,opts){
   function updateVoiceNote(){
     const n=$('voiceNote');
     if(!A.hasSpeech()){ n.textContent=U('noSpeech'); n.hidden=false; $('readBtn').disabled=true; return; }
-    n.textContent=U('noVoice'); n.hidden=!(getLang()==='bs'&&A.voiceCount()>0&&!A.pickVoice());
+    n.textContent=U('noVoice'); n.hidden=!(A.voiceCount()>0&&!A.pickVoice());
   }
   A.onVoicesChanged(updateVoiceNote);
 

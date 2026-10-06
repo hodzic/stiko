@@ -4,7 +4,7 @@
   "sessions": [
     {
       "id": "starter-full-body-beginner",
-      "name": {"en": "Full body: beginner", "bs": "Cijelo tijelo: početni"},
+      "name": {"en": "Full body: beginner", "bs": "Cijelo tijelo: početni", "fr": "Corps entier : débutant", "de": "Ganzkörper: Einsteiger"},
       "items": [
         {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
         {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
@@ -24,7 +24,7 @@
     },
     {
       "id": "starter-full-body-intermediate",
-      "name": {"en": "Full body: intermediate", "bs": "Cijelo tijelo: srednji nivo"},
+      "name": {"en": "Full body: intermediate", "bs": "Cijelo tijelo: srednji nivo", "fr": "Corps entier : intermédiaire", "de": "Ganzkörper: Fortgeschritten"},
       "items": [
         {"ex": "step-jacks", "block": "warmup", "sets": 1, "time": 90, "rest": 10},
         {"ex": "leg-swings", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
@@ -45,7 +45,7 @@
     },
     {
       "id": "starter-morning-mobility",
-      "name": {"en": "Morning mobility", "bs": "Jutarnja pokretljivost"},
+      "name": {"en": "Morning mobility", "bs": "Jutarnja pokretljivost", "fr": "Mobilité du matin", "de": "Morgenmobilität"},
       "items": [
         {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
         {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
@@ -62,7 +62,7 @@
     },
     {
       "id": "starter-core-balance",
-      "name": {"en": "Core and balance", "bs": "Trup i ravnoteža"},
+      "name": {"en": "Core and balance", "bs": "Trup i ravnoteža", "fr": "Tronc et équilibre", "de": "Rumpf und Gleichgewicht"},
       "items": [
         {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
         {"ex": "bird-dog", "block": "warmup", "sets": 1, "reps": 6, "rest": 15},
@@ -78,7 +78,7 @@
     },
     {
       "id": "starter-desk-break",
-      "name": {"en": "Desk break", "bs": "Pauza od sjedenja"},
+      "name": {"en": "Desk break", "bs": "Pauza od sjedenja", "fr": "Pause bureau", "de": "Schreibtischpause"},
       "items": [
         {"ex": "chest-opener", "block": "warmup", "sets": 1, "hold": 20, "rest": 5},
         {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 5},
@@ -90,7 +90,7 @@
     },
     {
       "id": "starter-basics",
-      "name": {"en": "Three basics", "bs": "Tri osnovne"},
+      "name": {"en": "Three basics", "bs": "Tri osnovne", "fr": "Les trois bases", "de": "Drei Grundübungen"},
       "items": [
         {"ex": "squat", "block": "main", "sets": 2, "reps": 10, "rest": 30},
         {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},

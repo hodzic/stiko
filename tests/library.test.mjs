@@ -3,14 +3,13 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, PROPS, regionOf, familyOf} from '../js/vocab.js';
-import {UI} from '../js/i18n.js';
+import {UI, LANGS} from '../js/i18n.js';
 
 const lib=JSON.parse(fs.readFileSync(new URL('../data/library.json',import.meta.url),'utf8'));
-const LANGS=['en','bs'];
 const ids=new Set(lib.exercises.map(e=>e.id));
 
 function bilingual(x,where){
-  assert.equal(typeof x,'object',`${where} must be {en,bs}`);
+  assert.equal(typeof x,'object',`${where} must be {${LANGS}}`);
   for(const l of LANGS) assert.ok(typeof x[l]==='string'&&x[l].trim(),`${where}.${l} missing`);
 }
 
@@ -75,11 +74,15 @@ for(const ex of lib.exercises){
   });
 }
 
-test('every taxonomy value has an EN and BS label',()=>{
+test('every taxonomy value has a label in every language',()=>{
   const groups={family:VOCAB.family,pattern:VOCAB.pattern,component:VOCAB.component,region:VOCAB.region,muscle:VOCAB.muscle,
     position:VOCAB.position,equipment:VOCAB.equipment,plane:VOCAB.plane,laterality:VOCAB.laterality,chain:VOCAB.chain,
     block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS};
-  for(const l of ['en','bs']) for(const [g,vals] of Object.entries(groups)) for(const v of vals)
+  for(const l of LANGS) for(const [g,vals] of Object.entries(groups)) for(const v of vals)
     assert.ok(UI[l][g]?.[v],`${l}.${g}.${v} missing`);
   for(const p of VOCAB.pattern) assert.ok(familyOf(p),`pattern ${p} has no family`);
+});
+
+test('every UI string exists in every language',()=>{
+  for(const l of LANGS) for(const k of Object.keys(UI.en)) assert.ok(k in UI[l],`UI.${l}.${k} missing`);
 });
