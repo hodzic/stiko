@@ -15,7 +15,7 @@ export const UI={
       family:{squat:'Squat',hinge:'Hinge',lunge:'Lunge',push:'Push',pull:'Pull',core:'Core',carry:'Carry',locomotion:'Locomotion'},
       pattern:{squat:'Squat',hinge:'Hip hinge',lunge:'Lunge / single leg','push-horizontal':'Horizontal push','push-vertical':'Vertical push',
         'pull-horizontal':'Horizontal pull','pull-vertical':'Vertical pull','anti-extension':'Anti-extension','anti-rotation':'Anti-rotation',
-        'anti-lateral-flexion':'Anti-lateral flexion',rotation:'Rotation','trunk-flexion':'Trunk flexion',carry:'Carry',gait:'Gait',jump:'Jump'},
+        'anti-lateral-flexion':'Anti-lateral flexion',rotation:'Rotation','trunk-flexion':'Trunk flexion','trunk-extension':'Trunk extension',carry:'Carry',gait:'Gait',jump:'Jump'},
       component:{strength:'Strength',stability:'Stability',mobility:'Mobility',flexibility:'Flexibility',balance:'Balance',cardio:'Cardio'},
       region:{lower:'Lower body',upper:'Upper body',core:'Core',full:'Full body'},
       muscle:{glutes:'Glutes',quadriceps:'Quadriceps',hamstrings:'Hamstrings',adductors:'Adductors','hip-abductors':'Hip abductors','hip-flexors':'Hip flexors',
@@ -23,7 +23,7 @@ export const UI={
         chest:'Chest',shoulders:'Shoulders','rotator-cuff':'Rotator cuff',biceps:'Biceps',triceps:'Triceps',forearms:'Forearms',neck:'Neck'},
       position:{standing:'Standing',seated:'Seated',kneeling:'Kneeling','half-kneeling':'Half-kneeling',quadruped:'Hands and knees',
         supine:'Lying on back',prone:'Face down','side-lying':'Lying on side'},
-      equipment:{none:'No equipment',band:'Band',dumbbell:'Dumbbell',mat:'Mat',chair:'Chair',wall:'Wall'},
+      equipment:{none:'No equipment',band:'Band',dumbbell:'Dumbbell',mat:'Mat',chair:'Chair',wall:'Wall',step:'Step or stair'},
       plane:{sagittal:'Sagittal',frontal:'Frontal',transverse:'Transverse'},
       laterality:{bilateral:'Both sides together',unilateral:'One side at a time',alternating:'Alternating'},
       chain:{closed:'Closed chain',open:'Open chain'},
@@ -39,7 +39,8 @@ export const UI={
       poseCheck:'Pose check',scrub:'Drag to step through one rep',tapPause:'Tap Stiko to pause or resume',
       tapResume:'Tap to resume',setup:'Setup',movement:'Movement',breathing:'Breathing',watch:'Watch out for',easier:'Easier',harder:'Harder',
       note:'Stop if you feel sharp or unusual pain.',debug:'Joint angles in degrees, relative to the parent segment. Red dots mark joints.',
-      doseReps:(a,b,c)=>`${a} set${a===1?'':'s'} of ${b} rep${b===1?'':'s'}, ${c} s rest`, doseHold:(a,b,c)=>`${a} hold${a===1?'':'s'} of ${b} s, ${c} s rest`,
+      doseReps:(a,b,c,ps)=>`${a} set${a===1?'':'s'} of ${b} rep${b===1?'':'s'}${ps?' each side':''}, ${c} s rest`, doseHold:(a,b,c,ps)=>`${a} hold${a===1?'':'s'} of ${b} s${ps?' each side':''}, ${c} s rest`,
+      doseTime:(a,b,c)=>`${a} round${a===1?'':'s'} of ${b} s, ${c} s rest`, switchSides:'Switch sides', sideOf:a=>`Side ${a} of 2`, timeS:'Time (s)',
       rep:(a,b)=>`Rep ${a} of ${b}`, left:a=>`${a} s left`, rest:a=>`Rest ${a} s`, set:(a,b)=>`Set ${a} of ${b}`,
       sound:'Sound', voice:'Voice', read:'Read aloud', stop:'Stop', step:'Step', ready:'Get ready', startsIn:a=>`Starts in ${a}`,
       setSay:a=>`Set ${a}`, restSay:a=>`Rest, ${a} seconds`, lastOne:'Last one', tenLeft:'10 seconds left', great:'Great work!',
@@ -58,7 +59,7 @@ export const UI={
       family:{squat:'Čučanj',hinge:'Pregib u kuku',lunge:'Iskorak',push:'Potisak',pull:'Povlačenje',core:'Trup',carry:'Nošenje',locomotion:'Kretanje'},
       pattern:{squat:'Čučanj',hinge:'Pregib u kuku',lunge:'Iskorak / jedna noga','push-horizontal':'Horizontalni potisak','push-vertical':'Vertikalni potisak',
         'pull-horizontal':'Horizontalno povlačenje','pull-vertical':'Vertikalno povlačenje','anti-extension':'Anti-ekstenzija','anti-rotation':'Anti-rotacija',
-        'anti-lateral-flexion':'Anti-lateralna fleksija',rotation:'Rotacija','trunk-flexion':'Fleksija trupa',carry:'Nošenje',gait:'Hod',jump:'Skok'},
+        'anti-lateral-flexion':'Anti-lateralna fleksija',rotation:'Rotacija','trunk-flexion':'Fleksija trupa','trunk-extension':'Ekstenzija trupa',carry:'Nošenje',gait:'Hod',jump:'Skok'},
       component:{strength:'Snaga',stability:'Stabilnost',mobility:'Pokretljivost',flexibility:'Fleksibilnost',balance:'Ravnoteža',cardio:'Kardio'},
       region:{lower:'Donji dio tijela',upper:'Gornji dio tijela',core:'Trup',full:'Cijelo tijelo'},
       muscle:{glutes:'Gluteusi',quadriceps:'Kvadricepsi',hamstrings:'Zadnja loža',adductors:'Aduktori','hip-abductors':'Abduktori kuka','hip-flexors':'Fleksori kuka',
@@ -66,7 +67,7 @@ export const UI={
         chest:'Grudni mišići',shoulders:'Ramena','rotator-cuff':'Rotatorna manžeta',biceps:'Biceps',triceps:'Triceps',forearms:'Podlaktice',neck:'Vrat'},
       position:{standing:'Stojeći',seated:'Sjedeći',kneeling:'Klečeći','half-kneeling':'Na jednom koljenu',quadruped:'Na sve četiri',
         supine:'Na leđima',prone:'Na stomaku','side-lying':'Na boku'},
-      equipment:{none:'Bez opreme',band:'Elastična traka',dumbbell:'Bučica',mat:'Prostirka',chair:'Stolica',wall:'Zid'},
+      equipment:{none:'Bez opreme',band:'Elastična traka',dumbbell:'Bučica',mat:'Prostirka',chair:'Stolica',wall:'Zid',step:'Stepenik'},
       plane:{sagittal:'Sagitalna',frontal:'Frontalna',transverse:'Transverzalna'},
       laterality:{bilateral:'Obostrano',unilateral:'Jednostrano',alternating:'Naizmjenično'},
       chain:{closed:'Zatvoreni lanac',open:'Otvoreni lanac'},
@@ -82,7 +83,8 @@ export const UI={
       poseCheck:'Provjera poze',scrub:'Povuci za pregled jednog ponavljanja',tapPause:'Dodirni Stika za pauzu ili nastavak',
       tapResume:'Dodirni za nastavak',setup:'Priprema',movement:'Pokret',breathing:'Disanje',watch:'Pazi na',easier:'Lakše',harder:'Teže',
       note:'Prekini ako osjetiš oštar ili neuobičajen bol.',debug:'Uglovi zglobova u stepenima, u odnosu na nadređeni segment. Crvene tačke označavaju zglobove.',
-      doseReps:(a,b,c)=>`${a} ${bsPlural(a,'serija','serije','serija')} po ${b} ${bsPlural(b,'ponavljanje','ponavljanja','ponavljanja')}, ${c} s odmora`, doseHold:(a,b,c)=>`${a} ${bsPlural(a,'serija','serije','serija')} po ${b} s držanja, ${c} s odmora`,
+      doseReps:(a,b,c,ps)=>`${a} ${bsPlural(a,'serija','serije','serija')} po ${b} ${bsPlural(b,'ponavljanje','ponavljanja','ponavljanja')}${ps?' na svaku stranu':''}, ${c} s odmora`, doseHold:(a,b,c,ps)=>`${a} ${bsPlural(a,'serija','serije','serija')} po ${b} s držanja${ps?' na svaku stranu':''}, ${c} s odmora`,
+      doseTime:(a,b,c)=>`${a} ${bsPlural(a,'runda','runde','rundi')} po ${b} s, ${c} s odmora`, switchSides:'Promijeni stranu', sideOf:a=>`Strana ${a} od 2`, timeS:'Vrijeme (s)',
       rep:(a,b)=>`Ponavljanje ${a} od ${b}`, left:a=>`Još ${a} s`, rest:a=>`Odmor ${a} s`, set:(a,b)=>`Serija ${a} od ${b}`,
       sound:'Zvuk', voice:'Glas', read:'Pročitaj naglas', stop:'Zaustavi', step:'Korak', ready:'Pripremi se', startsIn:a=>`Počinje za ${a}`,
       setSay:a=>`Serija ${a}`, restSay:a=>`Odmor, ${a} sekundi`, lastOne:'Još jedno', tenLeft:'Još 10 sekundi', great:'Odlično!',
@@ -136,5 +138,9 @@ export function setLang(l){ lang=UI[l]?l:'en'; store.save('lang',lang); }
 export const T=x=>x&&typeof x==='object'&&!Array.isArray(x)?(x[lang]??x.en):x;
 export const U=k=>UI[lang][k]??UI.en[k];
 export const tagLabel=(group,v)=>U(group)[v]??v;
-export const doseText=d=>d.mode==='reps'?U('doseReps')(d.sets,d.reps,d.rest):U('doseHold')(d.sets,d.hold,d.rest);
+// laterality: 'unilateral' and 'alternating' doses are per side.
+export const doseText=(d,laterality)=>{
+  const ps=laterality==='unilateral'||laterality==='alternating';
+  return d.mode==='reps'?U('doseReps')(d.sets,d.reps,d.rest,ps):d.mode==='hold'?U('doseHold')(d.sets,d.hold,d.rest,ps):U('doseTime')(d.sets,d.time,d.rest);
+};
 export const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

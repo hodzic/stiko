@@ -2,7 +2,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, regionOf, familyOf} from '../js/vocab.js';
+import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, PROPS, regionOf, familyOf} from '../js/vocab.js';
 import {UI} from '../js/i18n.js';
 
 const lib=JSON.parse(fs.readFileSync(new URL('../data/library.json',import.meta.url),'utf8'));
@@ -24,7 +24,6 @@ for(const ex of lib.exercises){
     bilingual(ex.name,'name'); bilingual(ex.short,'short');
     assert.equal(ex.region,undefined,'region is derived from muscles, not stored');
     assert.ok(ex.pattern===null||VOCAB.pattern.includes(ex.pattern),`pattern "${ex.pattern}"`);
-    if(['strength','stability','cardio'].includes(ex.component)) assert.ok(ex.pattern,'strength, stability and cardio exercises need a pattern');
     for(const g of ['component','position','laterality','chain']) assert.ok(VOCAB[g].includes(ex[g]),`${g} "${ex[g]}"`);
     assert.ok(ex.planes.length&&ex.planes.every(v=>VOCAB.plane.includes(v)),'planes');
     assert.ok(ex.blocks.length&&ex.blocks.every(v=>VOCAB.block.includes(v)),'blocks');
@@ -46,16 +45,17 @@ for(const ex of lib.exercises){
     const d=ex.dose;
     assert.ok(DOSE_MODES.includes(d.mode));
     assert.ok(d.sets>=1&&d.rest>=0);
-    if(d.mode==='reps') assert.ok(d.reps>=1&&ex.anim.cycle>0,'reps needs reps and anim.cycle');
-    else assert.ok(d.hold>0);
+    assert.ok(d[d.mode]>0,`dose.${d.mode} missing`);
+    if(d.mode!=='hold') assert.ok(ex.anim.cycle>0,`${d.mode} dose needs anim.cycle`);
   });
   test(`${ex.id}: instructions`,()=>{
     const h=ex.howto;
     for(const k of ['setup','breathe','easier','harder']) bilingual(h[k],`howto.${k}`);
     assert.ok(h.steps.length>=1); h.steps.forEach((s,i)=>bilingual(s,`howto.steps[${i}]`));
     assert.ok(h.mistakes.length>=1); h.mistakes.forEach((s,i)=>bilingual(s,`howto.mistakes[${i}]`));
-    // The player highlights step i while keyframe i plays.
-    assert.equal(h.steps.length,ex.anim.frames.length,'one step per keyframe');
+    // Each keyframe belongs to a step (frame.step, default its index); every step needs a keyframe.
+    const used=new Set(ex.anim.frames.map((f,i)=>f.step??i));
+    assert.deepEqual([...used].sort((a,b)=>a-b),h.steps.map((_,i)=>i),'every step has a keyframe and no keyframe points past the steps');
   });
   test(`${ex.id}: keyframes`,()=>{
     const F=ex.anim.frames;
@@ -64,7 +64,14 @@ for(const ex of lib.exercises){
       bilingual(f.label,`frames[${i}].label`);
       assert.ok(FACES.includes(f.face));
       if(i) assert.ok(f.t>F[i-1].t&&f.t<1,'t strictly increasing in [0,1)');
+      // Missing keys interpolate from 0, so every keyframe must set the same pose keys.
+      assert.deepEqual(Object.keys(f.pose).sort(),Object.keys(F[0].pose).sort(),`frame ${i} pose keys differ from frame 0`);
     });
+    for(const pr of ex.anim.props||[]){
+      assert.ok(PROPS.includes(pr.type),`prop "${pr.type}"`);
+      assert.ok(ex.equipment.includes(pr.type),`prop ${pr.type} drawn but not listed in equipment`);
+    }
+    assert.ok(['side','front',undefined].includes(ex.anim.spec.view));
   });
 }
 

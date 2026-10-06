@@ -5,6 +5,7 @@ import {T, U, doseText, esc, getLang, tagLabel} from './i18n.js';
 import {regionOf, familyOf} from './vocab.js';
 import * as A from './audio.js';
 import * as store from './store.js';
+import {SWITCH, workSeconds} from './sessions.js';
 
 const READY=5;
 const ICON_PREV='<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9 12z" fill="currentColor"/></svg>';
@@ -92,7 +93,7 @@ function kinHTML(ex){
   return rows.filter(r=>r[1]).map(([k,v])=>`<dt>${esc(U(k))}</dt><dd>${esc(v)}</dd>`).join('');
 }
 
-// queue: [{ex, dose, block?}]; opts: {back, backLabel, title}
+// queue: [{ex, dose, block?}]; opts: {back, backLabel, title, byId}
 export function mountPlayer(root,queue,opts){
   root.innerHTML=TPL;
   const $=id=>root.querySelector('#'+id);
@@ -112,8 +113,8 @@ export function mountPlayer(root,queue,opts){
   function loadItem(i,wait=READY){
     A.stopReading();
     idx=i; ({ex,dose:d}=queue[i]); a=ex.anim; h=ex.howto;
-    st={set:1,mode:'ready',t:0}; readyDur=wait; scrubPhase=null;
-    $('scrubWrap').hidden=d.mode!=='reps';
+    st={set:1,mode:'ready',t:0,side:0}; readyDur=wait; scrubPhase=null;
+    $('scrubWrap').hidden=!a.cycle;
     renderText();
   }
 
@@ -121,11 +122,13 @@ export function mountPlayer(root,queue,opts){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     $('backTxt').textContent=U(opts.backLabel);
     $('exName').textContent=T(ex.name);
-    $('exDose').textContent=doseText(d);
+    $('exDose').textContent=doseText(d,ex.laterality);
     $('hSetup').textContent=T(h.setup); $('hBreathe').textContent=T(h.breathe);
     $('hSteps').innerHTML=h.steps.map(t=>`<li>${esc(T(t))}</li>`).join('');
     $('hMistakes').innerHTML=h.mistakes.map(t=>`<li>${esc(T(t))}</li>`).join('');
-    $('hEasier').textContent=T(h.easier); $('hHarder').textContent=T(h.harder);
+    // Link the easier/harder variants when browsing a single exercise (not mid-session).
+    const vary=(text,id)=>{ const v=!multi&&id&&opts.byId?.get(id); return esc(T(text))+(v?` <a class="vlink" href="#/play/${encodeURIComponent(id)}">→ ${esc(T(v.name))}</a>`:''); };
+    $('hEasier').innerHTML=vary(h.easier,ex.easier); $('hHarder').innerHTML=vary(h.harder,ex.harder);
     $('kin').innerHTML=kinHTML(ex);
     $('stage').setAttribute('aria-label',U('stageLabel'));
     $('speedSeg').setAttribute('aria-label',U('speed'));
@@ -193,7 +196,7 @@ export function mountPlayer(root,queue,opts){
   // Read aloud: setup, each step (showing its pose), breathing.
   function setReadStep(i){
     highlight(i);
-    if(i>=0&&d.mode==='reps'){ scrubPhase=a.frames[i].t+0.01; if(st.mode!=='work'){st.mode='work';st.t=0;} }
+    if(i>=0&&a.cycle){ scrubPhase=(a.frames.find((f,k)=>(f.step??k)===i)??a.frames[0]).t+0.01; if(st.mode!=='work'){st.mode='work';st.t=0;} }
   }
   $('readBtn').onclick=()=>{
     A.unlockAudio();
@@ -207,37 +210,43 @@ export function mountPlayer(root,queue,opts){
     $('readBtn').classList.add('on'); $('readTxt').textContent=U('stop');
   };
 
+  // Unilateral exercises run each set on one side, then a short switch, then the other side (drawn mirrored).
+  const unilateral=()=>ex.laterality==='unilateral';
   function advance(dt){
     st.t+=dt;
-    if(st.mode==='ready'){ if(st.t>=readyDur){st.t-=readyDur; st.mode='work';} }
+    if(st.mode==='ready'){ if(st.t>=readyDur){st.t-=readyDur; st.mode='work'; st.side=0;} }
     else if(st.mode==='work'){
-      const dur=d.mode==='reps'?d.reps*a.cycle:d.hold;
+      const dur=workSeconds(d,ex);
       if(st.t>=dur){
         st.t-=dur;
-        if(st.set<d.sets) st.mode='rest';
+        if(unilateral()&&st.side===0){ st.mode='switch'; st.side=1; }
+        else if(st.set<d.sets) st.mode='rest';
         else if(idx<queue.length-1) loadItem(idx+1,Math.max(READY,d.rest));  // the rest becomes the next exercise's countdown
         else { st.mode='done'; syncWake(); }
       }
-    } else if(st.mode==='rest'){ if(st.t>=d.rest){st.t-=d.rest; st.mode='work'; st.set++;} }
+    } else if(st.mode==='switch'){ if(st.t>=SWITCH){st.t-=SWITCH; st.mode='work';} }
+    else if(st.mode==='rest'){ if(st.t>=d.rest){st.t-=d.rest; st.mode='work'; st.set++; st.side=0;} }
   }
 
   function cues(){
-    const key=idx+':'+st.mode;
+    const key=`${idx}:${st.mode}:${st.side}`;
     if(key!==ev.key){
       const from=ev.key&&ev.key.split(':')[1];
       if(st.mode==='ready') A.speak(`${idx>0?U('nextUp')(T(ex.name)):T(ex.name)}. ${U('ready')}.`);
       else if(st.mode==='work'){ A.tone('go'); if(from==='rest') A.speak(U('setSay')(st.set)); else if(d.mode==='hold') A.speak(T(a.frames[0].label)); }
       else if(st.mode==='rest'){ A.tone('done'); A.speak(U('restSay')(d.rest)); }
+      else if(st.mode==='switch'){ A.tone('done'); A.speak(U('switchSides')); }
       else if(st.mode==='done'){ A.tone('done'); A.speak(U('great')); }
       ev.key=key; ev.rep=-1; ev.frame=-1; ev.sec=-1;
     }
     if(st.mode==='work'&&d.mode==='reps'){
-      const r=Math.floor(st.t/a.cycle), fi=framesAt(a.frames,(st.t%a.cycle)/a.cycle).idx;
+      const r=Math.floor(st.t/a.cycle), fi=framesAt(a.frames,(st.t%a.cycle)/a.cycle,a.loopAdd).step;
       if(r!==ev.rep){ ev.rep=r; if(r>0&&r<d.reps){ A.tone('tick'); A.speak(r===d.reps-1?U('lastOne'):String(r+1)); } }
-      if(fi!==ev.frame){ ev.frame=fi; if(r===0&&st.set===1) A.speak(T(a.frames[fi].label)); }
+      if(fi!==ev.frame){ ev.frame=fi; if(r===0&&st.set===1&&st.side===0) A.speak(T(a.frames.find(f=>(f.step??a.frames.indexOf(f))===fi).label)); }
     }
     let left=null;
-    if(st.mode==='ready') left=readyDur-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='work'&&d.mode==='hold') left=d.hold-st.t;
+    if(st.mode==='ready') left=readyDur-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='switch') left=SWITCH-st.t;
+    else if(st.mode==='work'&&d.mode!=='reps') left=workSeconds(d,ex)-st.t;
     if(left!==null){
       const sec=Math.ceil(left);
       if(sec!==ev.sec){
@@ -249,43 +258,51 @@ export function mountPlayer(root,queue,opts){
 
   function draw(){
     let fr, spec=a.spec, main, sub=st.mode==='done'?'':U('set')(st.set,d.sets), phase=null;
+    if(unilateral()&&st.mode!=='done') sub+=' · '+U('sideOf')(st.side+1);
     const sway=Math.sin(clock*2.2);
-    if(scrubPhase!==null&&d.mode==='reps'){
-      phase=scrubPhase; fr=framesAt(a.frames,phase); main=U('paused');
+    if(scrubPhase!==null&&a.cycle){
+      phase=scrubPhase; fr=framesAt(a.frames,phase,a.loopAdd); main=U('paused');
     } else if(st.mode==='work'){
-      if(d.mode==='reps'){
-        phase=(st.t%a.cycle)/a.cycle; fr=framesAt(a.frames,phase);
-        main=U('rep')(Math.min(d.reps,Math.floor(st.t/a.cycle)+1),d.reps);
+      if(a.cycle){
+        // Reps and timed sets both loop the keyframe cycle.
+        phase=(st.t%a.cycle)/a.cycle; fr=framesAt(a.frames,phase,a.loopAdd);
+        main=d.mode==='reps'?U('rep')(Math.min(d.reps,Math.floor(st.t/a.cycle)+1),d.reps):U('left')(Math.max(0,Math.ceil(d.time-st.t)));
       } else {
         const base=a.frames[0];
-        fr={pose:{...base.pose, torso:(base.pose.torso||0)+0.8*sway}, face:base.face, label:base.label};
-        main=U('left')(Math.max(0,Math.ceil(d.hold-st.t)));
+        fr={pose:{...base.pose, torso:(base.pose.torso||0)+0.8*sway}, face:base.face, label:base.label, step:0};
+        main=U('left')(Math.max(0,Math.ceil(workSeconds(d,ex)-st.t)));
       }
     } else {
       if(a.restPose){ spec=a.restPose.spec; fr={pose:{...a.restPose.pose}, face:'smile', label:''}; }
       else { fr=framesAt(a.frames,0); fr.face='smile'; fr.pose.torso=(fr.pose.torso||0)+1.2*sway; }
       if(st.mode==='ready'){ fr.label=U('ready'); main=U('startsIn')(Math.max(1,Math.ceil(readyDur-st.t))); }
+      else if(st.mode==='switch'){ fr.label=U('switchSides'); main=U('startsIn')(Math.max(1,Math.ceil(SWITCH-st.t))); }
       else if(st.mode==='rest'){ fr.label=U('restLabel'); main=U('rest')(Math.max(0,Math.ceil(d.rest-st.t))); }
       else { fr.label=U('great'); main=multi?U('allDone'):U('done'); sub=U('again'); }
     }
-    const key=idx+':'+st.mode;
-    if(key!==lastKey){ if(lastJ){blendFrom=lastJ; blendStart=clock;} lastKey=key; }
+    const flip=st.side===1&&st.mode!=='rest'&&st.mode!=='done';
+    const key=`${idx}:${st.mode}:${flip}`;
+    if(key!==lastKey){
+      // Blend between poses, except across a side switch: the mirror would make the blend cross the stage.
+      if(lastJ&&lastKey.split(':')[2]===String(flip)){blendFrom=lastJ; blendStart=clock;} else blendFrom=null;
+      lastKey=key;
+    }
     let J=solve(spec,fr.pose);
     const bu=(clock-blendStart)/0.7;
-    if(blendFrom&&bu<1){ const e=0.5-0.5*Math.cos(Math.PI*bu); J=lerpJ(blendFrom,J,e); }
+    if(blendFrom&&bu<1&&blendFrom.view===J.view){ const e=0.5-0.5*Math.cos(Math.PI*bu); J=lerpJ(blendFrom,J,e); }
     lastJ=J;
     if(d.mode==='hold'&&st.mode==='work'&&playing){
       const effort=st.t/d.hold; if(effort>0.6) shift(J,0,(effort-0.6)*2.2*Math.sin(clock*38));
     }
     const blink=(clock%3.8)<0.13;
-    $('fig').innerHTML=figureSVG(J,fr.face,{blink,joints,floorWork:a.floorWork,farShift:a.farShift});
-    const want=(st.mode==='work'||scrubPhase!==null)?(fr.idx??0):-1;
+    $('fig').innerHTML=figureSVG(J,fr.face,{blink,joints,flip,floorWork:a.floorWork,farShift:a.farShift,props:a.props});
+    const want=(st.mode==='work'||scrubPhase!==null)?(fr.step??0):-1;
     if(!A.isReading()&&want!==activeStep) highlight(want);
     $('cueNow').textContent=T(fr.label); $('countMain').textContent=main; $('countSub').textContent=sub;
     if(phase!==null&&scrubPhase===null) $('scrub').value=Math.round(phase*1000);
     if(joints){
-      const p=fr.pose, keys=['rot','torso','neck','shoulder','elbow','hip','knee','uaAbs','faAbs'];
-      $('debugVals').textContent=keys.filter(k=>p[k]!==undefined).map(k=>`${k} ${Math.round(p[k])}°`).join('   ');
+      const p=fr.pose;
+      $('debugVals').textContent=Object.keys(p).sort().map(k=>`${k} ${Math.round(p[k])}°`).join('   ');
     }
   }
 

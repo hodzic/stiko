@@ -15,10 +15,10 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | Joint actions | `joints` | joint → list of actions | Anatomical joint actions |
 | Plane of motion | `planes` | sagittal, frontal, transverse | Cardinal anatomical planes |
 | Position | `position` | standing, seated, kneeling, half-kneeling, quadruped, supine, prone, side-lying | Starting body position |
-| Laterality | `laterality` | bilateral, unilateral, alternating | |
+| Laterality | `laterality` | bilateral, unilateral, alternating | Unilateral: all reps on one side, then the other. Alternating: sides swap every rep, counted per side |
 | Kinetic chain | `chain` | closed, open | Closed: the hands or feet are fixed against the floor or wall. Open: the moving limb is free |
 | Routine fit | `blocks` | warmup, main, cooldown | Which part of the three-part routine it suits |
-| Equipment | `equipment` | band, dumbbell, mat, chair, wall (empty = none) | |
+| Equipment | `equipment` | band, dumbbell, mat, chair, wall, step (empty = none) | |
 | Level | `level`, `easier`, `harder` | 1–3, with links to a regression and a progression | Progression/regression chains |
 
 ## Movement patterns
@@ -33,27 +33,27 @@ filtering and for the editor's coverage check. The **pattern** is stored on the 
 | Lunge | lunge (split stance or single leg) | reverse lunge, split squat, step-up |
 | Push | push-horizontal, push-vertical | wall/incline push-up; overhead press |
 | Pull | pull-horizontal, pull-vertical | band row; band pulldown |
-| Core | anti-extension, anti-rotation, anti-lateral-flexion, rotation, trunk-flexion | plank, dead bug; Pallof press, bird dog; side plank, suitcase hold; open book; crunch |
+| Core | anti-extension, anti-rotation, anti-lateral-flexion, rotation, trunk-flexion, trunk-extension | plank, dead bug; bird dog, shoulder taps; side plank; thread the needle; crunch; superman |
 | Carry | carry | farmer's or suitcase carry |
 | Locomotion | gait, jump | marching, step jacks; squat jump |
 
 A balanced main block covers the six families **squat, hinge, lunge, push, pull, core**, which matches the
 concept's 4–6 patterns. The session editor lists which families the main block covers and which are missing.
 
-`pattern` is required for strength, stability and cardio exercises. It can be `null` for mobility and
-flexibility work that isolates one joint (for example, a calf stretch). Those exercises are described by
-their joint actions instead.
+`pattern` is `null` for isolation exercises that work one joint (calf raise, biceps curl, lateral raise,
+side-lying leg raise) and for most stretches and balance drills. Those exercises are described by their joint
+actions instead.
 
 ## Fitness components
 
 | Component | Meaning | Typical dose | Typical block |
 | --- | --- | --- | --- |
-| strength | Muscles working against load through a range of motion | reps | main |
+| strength | Muscles working against load through a range of motion, or holding against it (wall sit) | reps or hold | main |
 | stability | Holding a position against a force that would move it (motor control, isometric core work) | hold or slow reps | main |
 | mobility | Moving a joint actively through its range of motion | reps | warm-up |
 | flexibility | Static stretching at end range | hold 30–60 s | cool-down |
 | balance | Controlling the body over a small or shifting base | hold or reps | warm-up or main |
-| cardio | Sustained rhythmic work that raises heart rate | interval | warm-up or main |
+| cardio | Sustained rhythmic work that raises heart rate | time | warm-up or main |
 
 How hard an exercise is depends on the dose (sets, reps, load), not the exercise itself. So strength and
 muscular endurance aren't separate components.

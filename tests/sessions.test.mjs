@@ -85,7 +85,8 @@ test('storage: create, put, duplicate, remove',()=>{
 test('starter sessions reference only library exercises',()=>{
   const r=S.parseImport(read('data/starters.json'),byId,'bs');
   assert.ok(r.sessions?.length>=1); assert.equal(r.dropped,0);
-  assert.equal(r.sessions[0].name,'Tri osnovne');
+  assert.equal(r.sessions.find(s=>s.id==='starter-basics').name,'Tri osnovne');
+  assert.ok(r.sessions.every(s=>s.items.length>=3),'every starter has at least 3 exercises');
 });
 
 test('service worker precaches every app file',()=>{

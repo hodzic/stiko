@@ -8,7 +8,7 @@ export const PATTERNS = {
   lunge:      ['lunge'],
   push:       ['push-horizontal','push-vertical'],
   pull:       ['pull-horizontal','pull-vertical'],
-  core:       ['anti-extension','anti-rotation','anti-lateral-flexion','rotation','trunk-flexion'],
+  core:       ['anti-extension','anti-rotation','anti-lateral-flexion','rotation','trunk-flexion','trunk-extension'],
   carry:      ['carry'],
   locomotion: ['gait','jump'],
 };
@@ -40,14 +40,15 @@ export const VOCAB = {
   region:     ['lower','upper','core','full'],
   muscle:     Object.keys(MUSCLES),
   position:   ['standing','seated','kneeling','half-kneeling','quadruped','supine','prone','side-lying'],
-  equipment:  ['none','band','dumbbell','mat','chair','wall'],
+  equipment:  ['none','band','dumbbell','mat','chair','wall','step'],
   plane:      ['sagittal','frontal','transverse'],
   laterality: ['bilateral','unilateral','alternating'],
   chain:      ['closed','open'],
   block:      ['warmup','main','cooldown'],
   level:      [1,2,3],
 };
-export const DOSE_MODES = ['reps','hold'];
+export const DOSE_MODES = ['reps','hold','time'];  // time = looping movement for a set duration (cardio, mobility)
+export const PROPS = ['chair','wall','step','dumbbell','band'];
 export const FACES = ['smile','effort','puff'];
 // An empty equipment list means no equipment.
 export const equipmentOf = ex => ex.equipment.length ? ex.equipment : ['none'];

@@ -2,16 +2,19 @@
   --bg:#EAF2F8; --surface:#FFFFFF; --stage:#F6FAFE; --ink:#23304A; --ink-soft:#5A6782; --far:#A6B3C7;
   --head:#FFFFFF; --band:#FFB627; --accent:#1F7A6A; --accent-ink:#FFFFFF; --mat:#CBE8DD; --floor:#C5D3E1;
   --cheek:#FF8F9B; --sweat:#5DB8EE; --line:#D6E1EC; --joint:#E2475B;
+  --prop:#8A6F55; --prop-soft:#E4D9CC; --bandp:#D9487A;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#111823; --surface:#1A2330; --stage:#16202C; --ink:#E7EEF8; --ink-soft:#A3B1C6; --far:#5C6C84;
     --head:#1A2330; --accent:#4CC3AB; --accent-ink:#0E1A17; --mat:#22443B; --floor:#34424F; --line:#2A3544;
+    --prop:#B39A80; --prop-soft:#3A342E; --bandp:#F06C9B;
   }
 }
 :root[data-theme="dark"]{
   --bg:#111823; --surface:#1A2330; --stage:#16202C; --ink:#E7EEF8; --ink-soft:#A3B1C6; --far:#5C6C84;
   --head:#1A2330; --accent:#4CC3AB; --accent-ink:#0E1A17; --mat:#22443B; --floor:#34424F; --line:#2A3544;
+  --prop:#B39A80; --prop-soft:#3A342E; --bandp:#F06C9B;
 }
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
 html{scroll-padding-top:env(safe-area-inset-top,0px);}
@@ -106,6 +109,7 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:6px 0 0}
 .steps li.on{background:var(--stage);box-shadow:inset 0 0 0 2px var(--band)}
 .steps li.on::before{background:var(--band);color:#23304A}
 .vary{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vlink{display:block;margin-top:4px;color:var(--accent);font-weight:600;text-decoration:none}
 .note{margin-top:16px !important;font-size:.85rem;color:var(--ink-soft)}
 @media (prefers-reduced-motion: reduce){.steps li{transition:none}}
 .debug{margin-top:18px;padding:12px 14px;border-radius:16px;background:var(--surface);border:2px dashed var(--line);font-size:.85rem;font-variant-numeric:tabular-nums;overflow-x:auto}
@@ -203,3 +207,10 @@ div.card{cursor:pointer}
 .mat{fill:var(--mat)}
 .shadow{fill:var(--floor);opacity:.6}
 .jt{fill:var(--joint)}
+.prop path{fill:none;stroke:var(--prop);stroke-width:5;stroke-linecap:round}
+.wall{fill:var(--prop-soft)}
+.step{fill:var(--prop-soft);stroke:var(--prop);stroke-width:2}
+.db{fill:var(--prop)} .db.far{fill:var(--far)}
+.db-bar{stroke:var(--prop);stroke-width:4;stroke-linecap:round}
+.bandp{fill:none;stroke:var(--bandp);stroke-width:3.5;stroke-linecap:round}
+.anchor{fill:var(--prop)}

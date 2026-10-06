@@ -5,6 +5,7 @@ import {mountPlayer} from './player.js';
 import {mountSessions} from './sessions-list.js';
 import {mountEditor} from './editor.js';
 import * as S from './sessions.js';
+import * as store from './store.js';
 
 const main=document.getElementById('view');
 const langSeg=document.getElementById('langSeg');
@@ -36,7 +37,7 @@ function mount(hash){
   if(p[0]==='library'){ tabs.hidden=false; return mountLibrary(main,lib); }
   if(p[0]==='play'&&lib.byId.has(p[1])){
     const ex=lib.byId.get(p[1]);
-    return mountPlayer(main,[{ex,dose:ex.dose}],{back:'#/library',backLabel:'back'});
+    return mountPlayer(main,[{ex,dose:ex.dose}],{back:'#/library',backLabel:'back',byId:lib.byId});
   }
   if(p[0]==='run'){
     const s=S.get(p[1]);
@@ -56,13 +57,17 @@ function route(){
   window.scrollTo(0,0);
 }
 
-// First run: seed the starter sessions so the app isn't empty.
+// Add starter sessions this device hasn't been offered yet. Starters someone deleted stay deleted.
 async function seed(){
-  if(S.hasStore()) return;
+  let offered=store.load('starters',null);
+  if(!offered) offered=S.hasStore()?['starter-basics']:[];  // devices from before starter tracking had only this one
   try{
     const r=S.parseImport(await (await fetch('data/starters.json')).text(),lib.byId,getLang());
-    S.saveAll(r.sessions||[]);
-  }catch(e){ S.saveAll([]); }
+    const fresh=(r.sessions||[]).filter(x=>!offered.includes(x.id));
+    if(fresh.length||!S.hasStore()) S.saveAll([...S.loadAll(),...fresh]);
+    offered=[...offered,...fresh.map(x=>x.id)];
+  }catch(e){ if(!S.hasStore()) S.saveAll([]); }
+  store.save('starters',offered);
 }
 
 async function start(){

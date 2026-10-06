@@ -7,7 +7,8 @@ Plain HTML/JS with ES modules, no build step, served from GitHub Pages.
 
 ```sh
 npm run serve      # python3 -m http.server 8000, then open http://localhost:8000
-npm test           # rig and library checks (Node 20+)
+npm test           # rig, library and session checks (Node 20+)
+npm run sheet      # pose review contact sheet (see below)
 ```
 
 The app fetches `data/library.json`, so open it over HTTP, not `file://`.
@@ -29,23 +30,51 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `js/vocab.js` | Exercise taxonomy vocabularies (see `docs/taxonomy.md`) |
 | `js/i18n.js`, `js/store.js` | UI strings and taxonomy labels (EN/BS), device preferences |
 | `data/library.json` | Exercise library |
-| `data/starters.json` | Starter sessions, added on first run (same format as an export) |
+| `data/starters.json` | Starter sessions, offered once per device (same format as an export) |
+| `tools/` | `sheet.mjs` pose review sheets, `format-library.mjs` library formatter |
 | `sw.js`, `manifest.webmanifest`, `icons/` | PWA. Bump `VERSION` in `sw.js` when the asset list changes |
 
 ## Adding an exercise
 
-Add a record to `data/library.json` and run `npm test`. Each record has bilingual (`{en, bs}`) text, a
-classification following [docs/taxonomy.md](docs/taxonomy.md) (movement pattern, fitness component, muscles,
-joint actions, plane, position, laterality, kinetic chain, routine fit), a dose (`reps` or `hold`), instructions
-with one movement step per keyframe, and `anim`:
+Add a record to `data/library.json`, run `npm run fmt:library` to normalise the layout, then `npm test`. Each record
+has bilingual (`{en, bs}`) text, a classification following [docs/taxonomy.md](docs/taxonomy.md), a dose, instructions,
+and `anim`. The tests check the vocabulary, the text in both languages, the instruction steps against the keyframes,
+that IK targets are reachable and that no pose sinks through the floor.
 
-- `spec.pin`: the joint pinned to the floor, `at: [x, y]` where y is relative to the floor line (negative = above).
-- `spec.level` (optional): solve whole-body rotation so a second joint sits at a given height (plank elbows).
-- `spec.ik` (optional): plant both ankles at a point and solve the knees (bridge).
-- `frames`: 1–4 keyframes of joint angles at phase `t` in [0, 1); the last eases back to the first.
-- `restPose` (optional): pose shown during rest and countdown.
+### Dose
 
-Use the player's Pose check toggle to read joint angles while tuning.
+`{"mode": "reps", "sets": 3, "reps": 10, "rest": 30}`, `"hold"` (seconds held still) or `"time"` (seconds of a looping
+movement, for cardio and mobility). For `unilateral` exercises the player runs each set on one side, announces
+"Switch sides", then runs the other side with Stiko mirrored. For `alternating` exercises one animation cycle covers
+both sides and the dose counts per side.
+
+### Animation (`anim`)
+
+| Field | Meaning |
+| --- | --- |
+| `cycle` | Seconds per rep (or per loop for `time` doses). Not needed for single-pose holds |
+| `spec.view` | `"side"` (default) or `"front"` for frontal-plane moves |
+| `spec.pin` | `{point, at:[x, y]}`: the joint held in place; y is relative to the floor line (negative = above) |
+| `spec.level` | Solve the body's rotation so a second joint sits at a given height (e.g. plank elbows on the floor) |
+| `spec.ik` | Two-bone IK targets: `an`/`hd` for both ankles/hands, or per side `an_n`, `hd_f`, `an_l`, … Knees bend forward, elbows back (outward in front view) |
+| `spec.footAbs` | Default absolute foot angle (0 = flat, pointing forward) |
+| `frames` | Keyframes `{t, label, face, pose, step?}`; `t` in [0, 1); every frame sets the same pose keys; `step` maps several keyframes to one instruction step |
+| `loopAdd` | Added to the first frame when the cycle wraps, e.g. `{"shoulder": 360}` for continuous circles |
+| `restPose` | `{spec, pose}` shown while getting ready and resting |
+| `props` | `chair {x, back}`, `wall {x, side}`, `step {x, w, h}`, `dumbbell {hands}`, `band {from, to}` |
+| `floorWork`, `farShift` | Draw the mat; offset of the far-side limbs in side view |
+
+Pose keys are joint angles in degrees. Side view: `rot` (whole body), `torso` (lower trunk tilt), `spine` (upper-trunk
+bend, + = flexion), `neck`, `shoulder`, `elbow`, `hip`, `knee`, `ankle`, or absolute segment angles `uaAbs`, `faAbs`,
+`footAbs`; `lift` raises the whole figure (jumps). Add `_n`/`_f` (side view) or `_l`/`_r` (front view) to set one side;
+in front view `shoulder` and `hip` are abduction and `torso`/`spine` are side bends.
+
+### Reviewing poses
+
+`npm run sheet -- <id-or-prefix ...>` writes `pose-sheets/sheet.html` with every keyframe, the midpoints between
+keyframes and the rest pose, with joints marked. Add `--png` to also render PNGs (needs Playwright). Every new or
+changed animation should be checked on a sheet before it ships: a wrong pose teaches bad form. In the app, the player's
+Pose check toggle shows the live joint angles.
 
 ## Sessions file format
 

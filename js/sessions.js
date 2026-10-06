@@ -8,17 +8,17 @@ const KEY='sessions';
 
 export const uid=()=>'s-'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const int=(v,lo,hi,def)=>{ const n=Math.round(Number(v)); return v!==''&&v!==null&&Number.isFinite(n)?Math.min(hi,Math.max(lo,n)):def; };
-export const LIMITS={sets:[1,10],reps:[1,100],hold:[5,600],rest:[0,600]};
+export const LIMITS={sets:[1,10],reps:[1,100],hold:[5,600],time:[10,600],rest:[0,600]};
 
 export function defaultItem(ex,block='main'){
   const d=ex.dose;
-  return {ex:ex.id, block, sets:d.sets, ...(d.mode==='reps'?{reps:d.reps}:{hold:d.hold}), rest:d.rest};
+  return {ex:ex.id, block, sets:d.sets, [d.mode]:d[d.mode], rest:d.rest};
 }
 // Coerce a raw item into a valid one; null if its exercise isn't in the library.
 export function cleanItem(raw,byId){
   const ex=raw&&byId.get(raw.ex); if(!ex) return null;
   const d=ex.dose, it={ex:ex.id, block:BLOCKS.includes(raw.block)?raw.block:'main', sets:int(raw.sets,...LIMITS.sets,d.sets)};
-  if(d.mode==='reps') it.reps=int(raw.reps,...LIMITS.reps,d.reps); else it.hold=int(raw.hold,...LIMITS.hold,d.hold);
+  it[d.mode]=int(raw[d.mode],...LIMITS[d.mode],d[d.mode]);  // reps, hold or time
   it.rest=int(raw.rest,...LIMITS.rest,d.rest);
   return it;
 }
@@ -34,15 +34,14 @@ export function cleanSession(raw,byId,lang='en'){
   return {session:{id:typeof raw.id==='string'&&raw.id?raw.id:uid(), name, items:sortItems(items)}, dropped};
 }
 
-export const itemDose=(it,ex)=>ex.dose.mode==='reps'
-  ?{mode:'reps',sets:it.sets,reps:it.reps,rest:it.rest}
-  :{mode:'hold',sets:it.sets,hold:it.hold,rest:it.rest};
+export const itemDose=(it,ex)=>({mode:ex.dose.mode, sets:it.sets, [ex.dose.mode]:it[ex.dose.mode], rest:it.rest});
 
-// Rough duration in seconds: get-ready countdown + work + rests between sets.
-export const READY=5;
+// Rough duration in seconds: get-ready countdown + work (both sides for unilateral) + rests between sets.
+export const READY=5, SWITCH=4;
+export function workSeconds(dose,ex){ return dose.mode==='reps'?dose.reps*ex.anim.cycle:dose[dose.mode]; }
 export function itemSeconds(it,ex){
-  const work=ex.dose.mode==='reps'?it.reps*ex.anim.cycle:it.hold;
-  return READY+it.sets*work+(it.sets-1)*it.rest;
+  const w=workSeconds(itemDose(it,ex),ex), set=ex.laterality==='unilateral'?2*w+SWITCH:w;
+  return READY+it.sets*set+(it.sets-1)*it.rest;
 }
 export function estimate(items,byId){
   const per=Object.fromEntries(BLOCKS.map(b=>[b,0]));

@@ -39,7 +39,7 @@ export function mountEditor(root,lib,id){
             <button class="icon" data-i="${i}" data-act="down" aria-label="${esc(U('moveDown'))}" ${S.canMove(s.items,i,1)?'':'disabled'}>↓</button>
             <button class="icon" data-i="${i}" data-act="rm" aria-label="${esc(U('remove'))}">✕</button>
           </span></div>
-        <div class="nums">${num(i,'sets',U('sets'))}${ex.dose.mode==='reps'?num(i,'reps',U('reps')):num(i,'hold',U('holdS'))}${num(i,'rest',U('restS'))}</div>
+        <div class="nums">${num(i,'sets',U('sets'))}${num(i,ex.dose.mode,U({reps:'reps',hold:'holdS',time:'timeS'}[ex.dose.mode]))}${num(i,'rest',U('restS'))}</div>
       </div></li>`;
   }
   function render(){
