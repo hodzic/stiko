@@ -1,0 +1,15 @@
+{
+  "kind": "stiko-sessions",
+  "version": 1,
+  "sessions": [
+    {
+      "id": "starter-basics",
+      "name": {"en": "Three basics", "bs": "Tri osnovne"},
+      "items": [
+        {"ex": "squat", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 20}
+      ]
+    }
+  ]
+}

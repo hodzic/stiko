@@ -1,17 +1,21 @@
-// Player screen: runs one exercise through ready → sets of work/rest → done, with Stiko, cues and instructions.
+// Player screen: runs a queue of exercises (a session, or one exercise from the library).
+// Each item goes get-ready → sets of work/rest; after the last item the player is done.
 import {solve, framesAt, figureSVG, lerpJ, shift} from './rig.js';
 import {T, U, doseText, esc, getLang} from './i18n.js';
 import * as A from './audio.js';
 import * as store from './store.js';
 
 const READY=5;
+const ICON_PREV='<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9 12z" fill="currentColor"/></svg>';
+const ICON_NEXT='<svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l11-7z" fill="currentColor"/></svg>';
 const ICON_PLAY='<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>';
 const ICON_PAUSE='<svg viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="currentColor"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="currentColor"/></svg>';
 const ICON_SPK='<path d="M3.5 9.5v5h4l5 4v-13l-5 4z" fill="currentColor"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
 const ICON_BUBBLE='<path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
 
 const TPL=`
-<a class="back" href="#/library">← <span data-i18n="back"></span></a>
+<a class="back" id="backLink">← <span id="backTxt"></span></a>
+<div class="prog" id="prog" hidden><b id="progTitle"></b><span id="progTxt"></span><span id="nextTxt"></span></div>
 <div class="layout">
   <div class="left">
     <div class="stage" id="stage" role="button" tabindex="0">
@@ -26,7 +30,9 @@ const TPL=`
       </div>
     </div>
     <div class="controls">
+      <button class="skip" id="prevBtn" hidden>${ICON_PREV}</button>
       <button class="play" id="playBtn"></button>
+      <button class="skip" id="nextBtn" hidden>${ICON_NEXT}</button>
       <div class="seg" role="group" id="speedSeg">
         <button data-s="0.5">0.5×</button><button data-s="1">1×</button><button data-s="2">2×</button>
       </div>
@@ -66,20 +72,34 @@ const TPL=`
   </section>
 </div>`;
 
-export function mountPlayer(root,ex){
+// queue: [{ex, dose, block?}]; opts: {back, backLabel, title}
+export function mountPlayer(root,queue,opts){
   root.innerHTML=TPL;
   const $=id=>root.querySelector('#'+id);
-  const a=ex.anim, d=ex.dose, h=ex.howto;
+  const multi=queue.length>1;
+  let idx=0, ex, a, d, h;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let playing=!reduce, speed=store.load('speed',1), joints=false, scrubPhase=null;
-  let st={set:1,mode:'ready',t:0}, clock=0, last=performance.now(), raf=0;
-  let activeStep=-2, lastJ=null, blendFrom=null, blendStart=-10, lastMode='ready';
-  const ev={mode:null,rep:-1,frame:-1,sec:-1};
+  let st={set:1,mode:'ready',t:0}, readyDur=READY, clock=0, last=performance.now(), raf=0;
+  let activeStep=-2, lastJ=null, blendFrom=null, blendStart=-10, lastKey='';
+  const ev={key:null,rep:-1,frame:-1,sec:-1};
+  $('backLink').href=opts.back;
+  $('prog').hidden=!multi; $('prevBtn').hidden=$('nextBtn').hidden=!multi;
 
   function highlight(i){ activeStep=i; [...$('hSteps').children].forEach((li,k)=>li.classList.toggle('on',k===i)); }
 
+  // Switch to queue item i, starting with a get-ready countdown of `wait` seconds.
+  function loadItem(i,wait=READY){
+    A.stopReading();
+    idx=i; ({ex,dose:d}=queue[i]); a=ex.anim; h=ex.howto;
+    st={set:1,mode:'ready',t:0}; readyDur=wait; scrubPhase=null;
+    $('scrubWrap').hidden=d.mode!=='reps';
+    renderText();
+  }
+
   function renderText(){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
+    $('backTxt').textContent=U(opts.backLabel);
     $('exName').textContent=T(ex.name);
     $('exDose').textContent=doseText(d);
     $('hSetup').textContent=T(h.setup); $('hBreathe').textContent=T(h.breathe);
@@ -89,9 +109,17 @@ export function mountPlayer(root,ex){
     $('stage').setAttribute('aria-label',U('stageLabel'));
     $('speedSeg').setAttribute('aria-label',U('speed'));
     $('scrub').setAttribute('aria-label',U('scrub'));
+    $('prevBtn').setAttribute('aria-label',U('prevEx')); $('nextBtn').setAttribute('aria-label',U('skipEx'));
+    $('prevBtn').disabled=idx===0; $('nextBtn').disabled=idx===queue.length-1;
+    if(multi){
+      const q=queue[idx], nx=queue[idx+1];
+      $('progTitle').textContent=opts.title;
+      $('progTxt').textContent=`${U('exOf')(idx+1,queue.length)}${q.block?' · '+U('b_'+q.block):''}`;
+      $('nextTxt').textContent=nx?U('nextUp')(T(nx.ex.short)):'';
+    }
     $('readTxt').textContent=A.isReading()?U('stop'):U('read');
     updateVoiceNote(); activeStep=-2; setPlaying(playing);
-    document.title=`${T(ex.short)} · Stiko`;
+    document.title=`${multi?opts.title:T(ex.short)} · Stiko`;
   }
   function updateVoiceNote(){
     const n=$('voiceNote');
@@ -100,20 +128,33 @@ export function mountPlayer(root,ex){
   }
   A.onVoicesChanged(updateVoiceNote);
 
+  // Keep the screen awake while a workout is playing.
+  let wake=null;
+  async function syncWake(){
+    const want=playing&&st.mode!=='done'&&document.visibilityState==='visible';
+    try{
+      if(want&&!wake&&navigator.wakeLock){ wake=await navigator.wakeLock.request('screen'); wake.addEventListener('release',()=>{wake=null;}); }
+      else if(!want&&wake){ const w=wake; wake=null; await w.release(); }
+    }catch(e){ wake=null; }
+  }
+  document.addEventListener('visibilitychange',syncWake);
+
   function setPlaying(v){
     if(v) A.stopReading();
     playing=v; if(v) scrubPhase=null;
     $('playBtn').innerHTML=v?ICON_PAUSE:ICON_PLAY; $('playBtn').setAttribute('aria-label',v?U('pause'):U('play'));
     $('stage').classList.toggle('paused',!v);
+    syncWake();
   }
-  function restart(){ st={set:1,mode:'ready',t:0}; ev.mode=null; }
   function toggle(){
-    if(st.mode==='done'){ restart(); setPlaying(true); return; }
+    if(st.mode==='done'){ loadItem(0); setPlaying(true); return; }
     setPlaying(!playing);
   }
   $('playBtn').onclick=toggle;
   $('stage').addEventListener('click',toggle);
   $('stage').addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+  $('prevBtn').onclick=()=>{ if(idx>0) loadItem(idx-1); };
+  $('nextBtn').onclick=()=>{ if(idx<queue.length-1) loadItem(idx+1); };
 
   const speedBtns=[...$('speedSeg').querySelectorAll('button')];
   const showSpeed=()=>speedBtns.forEach(x=>x.setAttribute('aria-pressed',+x.dataset.s===speed));
@@ -126,7 +167,6 @@ export function mountPlayer(root,ex){
   showToggles();
 
   $('jointsChk').onchange=e=>{joints=e.target.checked; $('debug').hidden=!joints;};
-  $('scrubWrap').hidden=d.mode!=='reps';
   $('scrub').oninput=e=>{A.stopReading(); setPlaying(false); scrubPhase=e.target.value/1000; if(st.mode!=='work'){st.mode='work';st.t=0;}};
 
   // Read aloud: setup, each step (showing its pose), breathing.
@@ -148,21 +188,27 @@ export function mountPlayer(root,ex){
 
   function advance(dt){
     st.t+=dt;
-    if(st.mode==='ready'){ if(st.t>=READY){st.t-=READY; st.mode='work';} }
+    if(st.mode==='ready'){ if(st.t>=readyDur){st.t-=readyDur; st.mode='work';} }
     else if(st.mode==='work'){
       const dur=d.mode==='reps'?d.reps*a.cycle:d.hold;
-      if(st.t>=dur){ st.t-=dur; st.mode=st.set>=d.sets?'done':'rest'; }
+      if(st.t>=dur){
+        st.t-=dur;
+        if(st.set<d.sets) st.mode='rest';
+        else if(idx<queue.length-1) loadItem(idx+1,Math.max(READY,d.rest));  // the rest becomes the next exercise's countdown
+        else { st.mode='done'; syncWake(); }
+      }
     } else if(st.mode==='rest'){ if(st.t>=d.rest){st.t-=d.rest; st.mode='work'; st.set++;} }
   }
 
   function cues(){
-    if(st.mode!==ev.mode){
-      const from=ev.mode;
-      if(st.mode==='ready') A.speak(`${T(ex.name)}. ${U('ready')}.`);
+    const key=idx+':'+st.mode;
+    if(key!==ev.key){
+      const from=ev.key&&ev.key.split(':')[1];
+      if(st.mode==='ready') A.speak(`${idx>0?U('nextUp')(T(ex.name)):T(ex.name)}. ${U('ready')}.`);
       else if(st.mode==='work'){ A.tone('go'); if(from==='rest') A.speak(U('setSay')(st.set)); else if(d.mode==='hold') A.speak(T(a.frames[0].label)); }
       else if(st.mode==='rest'){ A.tone('done'); A.speak(U('restSay')(d.rest)); }
       else if(st.mode==='done'){ A.tone('done'); A.speak(U('great')); }
-      ev.mode=st.mode; ev.rep=-1; ev.frame=-1; ev.sec=-1;
+      ev.key=key; ev.rep=-1; ev.frame=-1; ev.sec=-1;
     }
     if(st.mode==='work'&&d.mode==='reps'){
       const r=Math.floor(st.t/a.cycle), fi=framesAt(a.frames,(st.t%a.cycle)/a.cycle).idx;
@@ -170,7 +216,7 @@ export function mountPlayer(root,ex){
       if(fi!==ev.frame){ ev.frame=fi; if(r===0&&st.set===1) A.speak(T(a.frames[fi].label)); }
     }
     let left=null;
-    if(st.mode==='ready') left=READY-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='work'&&d.mode==='hold') left=d.hold-st.t;
+    if(st.mode==='ready') left=readyDur-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='work'&&d.mode==='hold') left=d.hold-st.t;
     if(left!==null){
       const sec=Math.ceil(left);
       if(sec!==ev.sec){
@@ -197,11 +243,12 @@ export function mountPlayer(root,ex){
     } else {
       if(a.restPose){ spec=a.restPose.spec; fr={pose:{...a.restPose.pose}, face:'smile', label:''}; }
       else { fr=framesAt(a.frames,0); fr.face='smile'; fr.pose.torso=(fr.pose.torso||0)+1.2*sway; }
-      if(st.mode==='ready'){ fr.label=U('ready'); main=U('startsIn')(Math.max(1,Math.ceil(READY-st.t))); }
+      if(st.mode==='ready'){ fr.label=U('ready'); main=U('startsIn')(Math.max(1,Math.ceil(readyDur-st.t))); }
       else if(st.mode==='rest'){ fr.label=U('restLabel'); main=U('rest')(Math.max(0,Math.ceil(d.rest-st.t))); }
-      else { fr.label=U('great'); main=U('done'); sub=U('again'); }
+      else { fr.label=U('great'); main=multi?U('allDone'):U('done'); sub=U('again'); }
     }
-    if(st.mode!==lastMode){ if(lastJ){blendFrom=lastJ; blendStart=clock;} lastMode=st.mode; }
+    const key=idx+':'+st.mode;
+    if(key!==lastKey){ if(lastJ){blendFrom=lastJ; blendStart=clock;} lastKey=key; }
     let J=solve(spec,fr.pose);
     const bu=(clock-blendStart)/0.7;
     if(blendFrom&&bu<1){ const e=0.5-0.5*Math.cos(Math.PI*bu); J=lerpJ(blendFrom,J,e); }
@@ -227,9 +274,12 @@ export function mountPlayer(root,ex){
     draw(); raf=requestAnimationFrame(tick);
   }
 
-  renderText(); raf=requestAnimationFrame(tick);
+  loadItem(0); raf=requestAnimationFrame(tick);
   return {
     relang:renderText,
-    destroy(){ cancelAnimationFrame(raf); A.onVoicesChanged(null); A.silence(); },
+    destroy(){
+      cancelAnimationFrame(raf); A.onVoicesChanged(null); A.silence();
+      document.removeEventListener('visibilitychange',syncWake); playing=false; syncWake();
+    },
   };
 }

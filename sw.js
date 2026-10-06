@@ -1,10 +1,11 @@
 // Offline support: precache the app shell, then serve from cache and refresh in the background.
 // Bump VERSION whenever the file list changes.
-const VERSION='stiko-v1';
+const VERSION='stiko-v2';
 const ASSETS=[
   './','index.html','manifest.webmanifest','css/app.css',
   'js/app.js','js/rig.js','js/i18n.js','js/store.js','js/vocab.js','js/audio.js','js/library.js','js/player.js',
-  'data/library.json','icons/icon.svg','icons/icon-192.png','icons/apple-touch-icon.png',
+  'js/sessions.js','js/sessions-list.js','js/editor.js','js/ui.js',
+  'data/library.json','data/starters.json','icons/icon.svg','icons/icon-192.png','icons/apple-touch-icon.png',
 ];
 const FONT_HOSTS=['fonts.googleapis.com','fonts.gstatic.com'];
 
