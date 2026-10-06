@@ -6,6 +6,7 @@ import {regionOf, familyOf} from './vocab.js';
 import * as A from './audio.js';
 import * as store from './store.js';
 import {SWITCH, workSeconds} from './sessions.js';
+import {countdownCue} from './cues.js';
 
 const READY=5;
 const ICON_PREV='<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9 12z" fill="currentColor"/></svg>';
@@ -250,7 +251,13 @@ export function mountPlayer(root,queue,opts){
     if(left!==null){
       const sec=Math.ceil(left);
       if(sec!==ev.sec){
-        if(ev.sec!==-1){ if(sec>=1&&sec<=3) A.tone('count'); if(st.mode==='work'&&sec===10) A.speak(U('tenLeft')); }
+        // The first second of each countdown is skipped: the mode announcement already covers it.
+        if(ev.sec!==-1){
+          const cue=countdownCue(sec);
+          if(cue==='beep') A.tone('count');
+          else if(cue==='tick') A.tone('soft');
+          else if(cue==='say'&&!A.speak(String(sec))) A.tone('mark');  // voice off: a chime marks the tens
+        }
         ev.sec=sec;
       }
     }
