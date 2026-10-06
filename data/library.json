@@ -444,11 +444,11 @@
         "cycle": 3.4,
         "floorWork": true,
         "farShift": [7,-2],
-        "spec": {"pin": {"point": "sh", "at": [150,-9]}, "ik": {"an_n": [266,-5]}, "footAbs": 0},
+        "spec": {"pin": {"point": "sh", "at": [150,-9]}, "ik": {"an_n": [266,-5]}},
         "frames": [
-          {"t": 0, "label": {"en": "Press up through your heel", "bs": "Podigni se preko pete", "hr": "Podigni se preko pete", "sr": "Podigni se preko pete", "fr": "Monte en poussant dans le talon", "de": "Über die Ferse hochdrücken", "es": "Sube con el talón"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "neck": 34, "shoulder": 0, "elbow": 0, "hip_f": 52, "knee_f": 0}},
-          {"t": 0.42, "label": {"en": "Squeeze, hips level", "bs": "Stegni, kukovi u ravnini", "hr": "Stegni, kukovi u ravnini", "sr": "Stegni, kukovi u ravni", "fr": "Serre, hanches à niveau", "de": "Anspannen, Hüfte waagerecht", "es": "Aprieta, cadera nivelada"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_f": 22, "knee_f": 0}},
-          {"t": 0.6, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_f": 22, "knee_f": 0}}
+          {"t": 0, "label": {"en": "Press up through your heel", "bs": "Podigni se preko pete", "hr": "Podigni se preko pete", "sr": "Podigni se preko pete", "fr": "Monte en poussant dans le talon", "de": "Über die Ferse hochdrücken", "es": "Sube con el talón"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "neck": 34, "shoulder": 0, "elbow": 0, "hip_f": 52, "knee_f": 0, "footAbs_n": 0, "ankle_f": 10}},
+          {"t": 0.42, "label": {"en": "Squeeze, hips level", "bs": "Stegni, kukovi u ravnini", "hr": "Stegni, kukovi u ravnini", "sr": "Stegni, kukovi u ravni", "fr": "Serre, hanches à niveau", "de": "Anspannen, Hüfte waagerecht", "es": "Aprieta, cadera nivelada"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_f": 22, "knee_f": 0, "footAbs_n": 0, "ankle_f": 10}},
+          {"t": 0.6, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_f": 22, "knee_f": 0, "footAbs_n": 0, "ankle_f": 10}}
         ]
       }
     },
@@ -584,10 +584,10 @@
         "cycle": 3.8,
         "floorWork": false,
         "farShift": [6,-1],
-        "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
+        "spec": {"pin": {"point": "n.an", "at": [214,-5]}},
         "frames": [
-          {"t": 0, "label": {"en": "Hinge, leg reaches back", "bs": "Nagni se, noga ide unazad", "hr": "Nagni se, noga ide unatrag", "sr": "Nagni se, noga ide unazad", "fr": "Penche-toi, jambe vers l’arrière", "de": "Vorbeugen, Bein nach hinten", "es": "Inclínate, pierna atrás"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 8, "hip_f": -6, "knee_f": 10, "uaAbs": 92, "faAbs": 90}},
-          {"t": 0.45, "label": {"en": "Squeeze and stand", "bs": "Stegni i uspravi se", "hr": "Stegni i uspravi se", "sr": "Stegni i uspravi se", "fr": "Serre et redresse-toi", "de": "Anspannen und aufrichten", "es": "Aprieta y sube"}, "face": "effort", "pose": {"torso": 78, "neck": -8, "hip_n": 8, "knee_n": 16, "hip_f": -80, "knee_f": 4, "uaAbs": 92, "faAbs": 90}}
+          {"t": 0, "label": {"en": "Hinge, leg reaches back", "bs": "Nagni se, noga ide unazad", "hr": "Nagni se, noga ide unatrag", "sr": "Nagni se, noga ide unazad", "fr": "Penche-toi, jambe vers l’arrière", "de": "Vorbeugen, Bein nach hinten", "es": "Inclínate, pierna atrás"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 8, "hip_f": -6, "knee_f": 10, "uaAbs": 92, "faAbs": 90, "footAbs_n": 0, "ankle_f": 10}},
+          {"t": 0.45, "label": {"en": "Squeeze and stand", "bs": "Stegni i uspravi se", "hr": "Stegni i uspravi se", "sr": "Stegni i uspravi se", "fr": "Serre et redresse-toi", "de": "Anspannen und aufrichten", "es": "Aprieta y sube"}, "face": "effort", "pose": {"torso": 78, "neck": -8, "hip_n": 8, "knee_n": 16, "hip_f": -80, "knee_f": 4, "uaAbs": 92, "faAbs": 90, "footAbs_n": 0, "ankle_f": 10}}
         ]
       }
     },
@@ -672,12 +672,12 @@
         "cycle": 3.6,
         "floorWork": false,
         "farShift": [6,-1],
-        "spec": {"pin": {"point": "n.an", "at": [232,-5]}, "footAbs": 0},
+        "spec": {"pin": {"point": "n.an", "at": [232,-5]}},
         "frames": [
-          {"t": 0, "label": {"en": "Step back and lower", "bs": "Iskorači unazad i spusti se", "hr": "Iskorači unatrag i spusti se", "sr": "Iskorači unazad i spusti se", "fr": "Recule et descends", "de": "Zurücktreten und absenken", "es": "Paso atrás y baja"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "hip_f": 0, "knee_f": 0, "ankle_f": 0, "shoulder": 8, "elbow": 14}},
-          {"t": 0.2, "label": {"en": "Step back and lower", "bs": "Iskorači unazad i spusti se", "hr": "Iskorači unatrag i spusti se", "sr": "Iskorači unazad i spusti se", "fr": "Recule et descends", "de": "Zurücktreten und absenken", "es": "Paso atrás y baja"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": 40, "knee_n": 42, "hip_f": -28, "knee_f": 40, "ankle_f": 30, "shoulder": 8, "elbow": 14}, "step": 0},
-          {"t": 0.45, "label": {"en": "Push through your front foot", "bs": "Odgurni se prednjim stopalom", "hr": "Odgurni se prednjim stopalom", "sr": "Odgurni se prednjim stopalom", "fr": "Pousse dans le pied avant", "de": "Über den vorderen Fuß drücken", "es": "Empuja con pie delantero"}, "face": "effort", "pose": {"torso": 4, "neck": 0, "hip_n": 84, "knee_n": 88, "hip_f": 20, "knee_f": 150, "ankle_f": 40, "shoulder": 8, "elbow": 14}, "step": 1},
-          {"t": 0.72, "label": {"en": "Push through your front foot", "bs": "Odgurni se prednjim stopalom", "hr": "Odgurni se prednjim stopalom", "sr": "Odgurni se prednjim stopalom", "fr": "Pousse dans le pied avant", "de": "Über den vorderen Fuß drücken", "es": "Empuja con pie delantero"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": 40, "knee_n": 42, "hip_f": -28, "knee_f": 40, "ankle_f": 30, "shoulder": 8, "elbow": 14}, "step": 1}
+          {"t": 0, "label": {"en": "Step back and lower", "bs": "Iskorači unazad i spusti se", "hr": "Iskorači unatrag i spusti se", "sr": "Iskorači unazad i spusti se", "fr": "Recule et descends", "de": "Zurücktreten und absenken", "es": "Paso atrás y baja"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "hip_f": 0, "knee_f": 0, "ankle_f": 0, "shoulder": 8, "elbow": 14, "footAbs_n": 0}},
+          {"t": 0.2, "label": {"en": "Step back and lower", "bs": "Iskorači unazad i spusti se", "hr": "Iskorači unatrag i spusti se", "sr": "Iskorači unazad i spusti se", "fr": "Recule et descends", "de": "Zurücktreten und absenken", "es": "Paso atrás y baja"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": 40, "knee_n": 42, "hip_f": -28, "knee_f": 40, "ankle_f": 30, "shoulder": 8, "elbow": 14, "footAbs_n": 0}, "step": 0},
+          {"t": 0.45, "label": {"en": "Push through your front foot", "bs": "Odgurni se prednjim stopalom", "hr": "Odgurni se prednjim stopalom", "sr": "Odgurni se prednjim stopalom", "fr": "Pousse dans le pied avant", "de": "Über den vorderen Fuß drücken", "es": "Empuja con pie delantero"}, "face": "effort", "pose": {"torso": 4, "neck": 0, "hip_n": 84, "knee_n": 88, "hip_f": -11, "knee_f": 93, "ankle_f": 0, "shoulder": 8, "elbow": 14, "footAbs_n": 0}, "step": 1},
+          {"t": 0.72, "label": {"en": "Push through your front foot", "bs": "Odgurni se prednjim stopalom", "hr": "Odgurni se prednjim stopalom", "sr": "Odgurni se prednjim stopalom", "fr": "Pousse dans le pied avant", "de": "Über den vorderen Fuß drücken", "es": "Empuja con pie delantero"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": 40, "knee_n": 42, "hip_f": -28, "knee_f": 40, "ankle_f": 30, "shoulder": 8, "elbow": 14, "footAbs_n": 0}, "step": 1}
         ]
       }
     },
@@ -2649,10 +2649,10 @@
         "floorWork": false,
         "spec": {"view": "front", "pin": {"point": "hip", "at": [200,-95]}},
         "frames": [
-          {"t": 0, "label": {"en": "Jump out, arms up", "bs": "Skok u raskorak, ruke gore", "hr": "Skok u raskorak, ruke gore", "sr": "Skok u raskorak, ruke gore", "fr": "Saute écarté, bras levés", "de": "Grätsche, Arme hoch", "es": "Salta, brazos arriba"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 3, "knee": 0, "shoulder": 8, "elbow": 10, "lift": 0, "footAbs": 0}},
-          {"t": 0.25, "label": {"en": "Jump out, arms up", "bs": "Skok u raskorak, ruke gore", "hr": "Skok u raskorak, ruke gore", "sr": "Skok u raskorak, ruke gore", "fr": "Saute écarté, bras levés", "de": "Grätsche, Arme hoch", "es": "Salta, brazos arriba"}, "face": "effort", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 11, "knee": 0, "shoulder": 95, "elbow": 10, "lift": 10, "footAbs": 0}, "step": 0},
-          {"t": 0.5, "label": {"en": "Jump back together", "bs": "Skok nazad zajedno", "hr": "Skok natrag zajedno", "sr": "Skok nazad zajedno", "fr": "Saute pieds joints", "de": "Zurück, Füße zusammen", "es": "Salta y junta"}, "face": "effort", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 20, "knee": 0, "shoulder": 158, "elbow": 10, "lift": -5.4, "footAbs": 0}, "step": 1},
-          {"t": 0.75, "label": {"en": "Jump back together", "bs": "Skok nazad zajedno", "hr": "Skok natrag zajedno", "sr": "Skok nazad zajedno", "fr": "Saute pieds joints", "de": "Zurück, Füße zusammen", "es": "Salta y junta"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 11, "knee": 0, "shoulder": 95, "elbow": 10, "lift": 10, "footAbs": 0}, "step": 1}
+          {"t": 0, "label": {"en": "Jump out, arms up", "bs": "Skok u raskorak, ruke gore", "hr": "Skok u raskorak, ruke gore", "sr": "Skok u raskorak, ruke gore", "fr": "Saute écarté, bras levés", "de": "Grätsche, Arme hoch", "es": "Salta, brazos arriba"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 3, "knee": 0, "shoulder": 8, "elbow": 10, "lift": 0}},
+          {"t": 0.25, "label": {"en": "Jump out, arms up", "bs": "Skok u raskorak, ruke gore", "hr": "Skok u raskorak, ruke gore", "sr": "Skok u raskorak, ruke gore", "fr": "Saute écarté, bras levés", "de": "Grätsche, Arme hoch", "es": "Salta, brazos arriba"}, "face": "effort", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 11, "knee": 0, "shoulder": 95, "elbow": 10, "lift": 10}, "step": 0},
+          {"t": 0.5, "label": {"en": "Jump back together", "bs": "Skok nazad zajedno", "hr": "Skok natrag zajedno", "sr": "Skok nazad zajedno", "fr": "Saute pieds joints", "de": "Zurück, Füße zusammen", "es": "Salta y junta"}, "face": "effort", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 20, "knee": 0, "shoulder": 158, "elbow": 10, "lift": -5.4}, "step": 1},
+          {"t": 0.75, "label": {"en": "Jump back together", "bs": "Skok nazad zajedno", "hr": "Skok natrag zajedno", "sr": "Skok nazad zajedno", "fr": "Saute pieds joints", "de": "Zurück, Füße zusammen", "es": "Salta y junta"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 11, "knee": 0, "shoulder": 95, "elbow": 10, "lift": 10}, "step": 1}
         ]
       }
     },
@@ -2879,8 +2879,8 @@
         "props": [{"type": "step", "x": 236, "w": 48, "h": 22},{"type": "wall", "x": 266, "side": 1}],
         "spec": {"pin": {"point": "n.toe", "at": [214,-27]}, "ik": {"hd": [262,-158]}},
         "frames": [
-          {"t": 0, "label": {"en": "Rise high", "bs": "Podigni se visoko", "hr": "Podigni se visoko", "sr": "Podigni se visoko", "fr": "Monte haut", "de": "Hoch hinauf", "es": "Sube alto"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip": 0, "knee_n": 0, "hip_f": -8, "knee_f": 80, "footAbs_f": 40, "footAbs_n": -16}},
-          {"t": 0.4, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": 0, "neck": 0, "hip": 0, "knee_n": 0, "hip_f": -8, "knee_f": 80, "footAbs_f": 40, "footAbs_n": 50}}
+          {"t": 0, "label": {"en": "Rise high", "bs": "Podigni se visoko", "hr": "Podigni se visoko", "sr": "Podigni se visoko", "fr": "Monte haut", "de": "Hoch hinauf", "es": "Sube alto"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip": 0, "knee_n": 0, "hip_f": -8, "knee_f": 80, "footAbs_n": -16, "ankle_f": 20}},
+          {"t": 0.4, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": 0, "neck": 0, "hip": 0, "knee_n": 0, "hip_f": -8, "knee_f": 80, "footAbs_n": 50, "ankle_f": 20}}
         ]
       }
     },
@@ -3231,10 +3231,10 @@
         "floorWork": false,
         "farShift": [6,-1],
         "props": [{"type": "chair", "x": 264, "back": -1}],
-        "spec": {"pin": {"point": "f.an", "at": [212,-5]}, "footAbs": 0, "ik": {"hd": [244,-94]}},
+        "spec": {"pin": {"point": "f.an", "at": [212,-5]}, "ik": {"hd": [244,-94]}},
         "frames": [
-          {"t": 0, "label": {"en": "Heel to your bottom", "bs": "Peta prema zadnjici", "hr": "Peta prema stražnjici", "sr": "Peta ka zadnjici", "fr": "Talon vers les fesses", "de": "Ferse zum Po", "es": "Talón al glúteo"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_f": 0, "knee_f": 0, "hip_n": 0, "knee_n": 0}},
-          {"t": 0.42, "label": {"en": "Lower slowly", "bs": "Polako spusti", "hr": "Polako spusti", "sr": "Polako spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": 2, "neck": 0, "hip_f": 0, "knee_f": 0, "hip_n": -6, "knee_n": 100}}
+          {"t": 0, "label": {"en": "Heel to your bottom", "bs": "Peta prema zadnjici", "hr": "Peta prema stražnjici", "sr": "Peta ka zadnjici", "fr": "Talon vers les fesses", "de": "Ferse zum Po", "es": "Talón al glúteo"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_f": 0, "knee_f": 0, "hip_n": 0, "knee_n": 0, "footAbs_f": 0, "ankle_n": 20}},
+          {"t": 0.42, "label": {"en": "Lower slowly", "bs": "Polako spusti", "hr": "Polako spusti", "sr": "Polako spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": 2, "neck": 0, "hip_f": 0, "knee_f": 0, "hip_n": -6, "knee_n": 100, "footAbs_f": 0, "ankle_n": 20}}
         ]
       }
     },
@@ -3892,9 +3892,9 @@
         "floorWork": false,
         "farShift": [6,-1],
         "props": [{"type": "wall", "x": 272, "side": 1}],
-        "spec": {"pin": {"point": "hip", "at": [196,-95]}, "footAbs": 0, "ik": {"hd_n": [174.78419896117026,-95.67345499558579], "hd_f": [259.2,-141.1]}},
+        "spec": {"pin": {"point": "hip", "at": [196,-95]}, "ik": {"hd_n": [174.78419896117026,-95.67345499558579], "hd_f": [259.2,-141.1]}},
         "frames": [
-          {"t": 0, "label": {"en": "Knees together, hips tucked", "bs": "Koljena zajedno, kukovi podvučeni", "hr": "Koljena zajedno, kukovi podvučeni", "sr": "Kolena zajedno, kukovi podvučeni", "fr": "Genoux côte à côte, bassin rentré", "de": "Knie zusammen, Becken eingekippt", "es": "Rodillas juntas, cadera metida"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": -6, "knee_n": 148, "ankle_n": 30, "hip_f": 0, "knee_f": 0}}
+          {"t": 0, "label": {"en": "Knees together, hips tucked", "bs": "Koljena zajedno, kukovi podvučeni", "hr": "Koljena zajedno, kukovi podvučeni", "sr": "Kolena zajedno, kukovi podvučeni", "fr": "Genoux côte à côte, bassin rentré", "de": "Knie zusammen, Becken eingekippt", "es": "Rodillas juntas, cadera metida"}, "face": "smile", "pose": {"torso": 2, "neck": 0, "hip_n": -6, "knee_n": 148, "ankle_n": 30, "hip_f": 0, "knee_f": 0, "footAbs_f": 0}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [196,-95]}, "footAbs": 0, "ik": {"hd_f": [259.2,-141.1]}}, "pose": {"torso": 0, "neck": 0, "hip": 0, "knee": 0, "shoulder": 8, "elbow": 14}}
       }
@@ -3979,9 +3979,9 @@
         "farShift": [6,-1],
         "spec": {"pin": {"point": "n.kn", "at": [168,-6]}, "footAbs": 180, "ik": {"an_f": [240,-5]}},
         "frames": [
-          {"t": 0, "label": {"en": "Tuck, squeeze, shift forward", "bs": "Podvuci, stegni, pomjeri se naprijed", "hr": "Podvuci, stegni, pomakni se naprijed", "sr": "Podvuci, stegni, pomeri se napred", "fr": "Bassin rentré, serre, avance", "de": "Einkippen, anspannen, nach vorn", "es": "Mete, aprieta, adelante"}, "face": "smile", "pose": {"rot": 0, "torso": -2, "neck": -4, "hip_n": -22, "knee_n": 68, "shoulder": 46, "elbow": 24}}
+          {"t": 0, "label": {"en": "Tuck, squeeze, shift forward", "bs": "Podvuci, stegni, pomjeri se naprijed", "hr": "Podvuci, stegni, pomakni se naprijed", "sr": "Podvuci, stegni, pomeri se napred", "fr": "Bassin rentré, serre, avance", "de": "Einkippen, anspannen, nach vorn", "es": "Mete, aprieta, adelante"}, "face": "smile", "pose": {"rot": 0, "torso": -2, "neck": -4, "hip_n": -22, "knee_n": 68, "shoulder": 46, "elbow": 24, "footAbs_f": 0}}
         ],
-        "restPose": {"spec": {"pin": {"point": "n.kn", "at": [168,-6]}, "footAbs": 180, "ik": {"an_f": [240,-5]}}, "pose": {"rot": 0, "torso": 0, "neck": 0, "hip_n": 0, "knee_n": 90, "shoulder": 8, "elbow": 14}}
+        "restPose": {"spec": {"pin": {"point": "n.kn", "at": [168,-6]}, "footAbs": 180, "ik": {"an_f": [240,-5]}}, "pose": {"rot": 0, "torso": 0, "neck": 0, "hip_n": 0, "knee_n": 90, "shoulder": 8, "elbow": 14, "footAbs_f": 0}}
       }
     },
     {

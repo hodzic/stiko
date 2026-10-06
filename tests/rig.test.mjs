@@ -33,6 +33,24 @@ for(const ex of lib.exercises){
       for(const s of sides) for(const k of ['kn','an','toe','hd','el']) assert.ok(J[s][k][1]<=FLOOR+8,`${s}.${k} below floor`);
     }
   });
+  test(`${ex.id}: feet point the way a foot can`,()=>{
+    // Side view: the foot's angle to the shin ranges from toes tucked (about -170, foot under the shin) through
+    // neutral (-90) to toes pointed in line with the shin (0); beyond that the foot points backward.
+    // Front view: feet point outward, or in line with the shin.
+    const ang=(a,b)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI, norm=d=>((d+540)%360)-180;
+    for(let ph=0;ph<1;ph+=0.05){
+      const J=solve(a.spec,framesAt(a.frames,ph,a.loopAdd).pose);
+      if(J.view==='quarter') continue;
+      for(const s of SIDES[J.view]){
+        const g=J[s], d=norm(ang(g.an,g.toe)-ang(g.kn,g.an));
+        if(J.view==='side') assert.ok(d>=-172&&d<=15,`${s} foot at ${d.toFixed(0)}° to the shin, phase ${ph.toFixed(2)}`);
+        else {
+          const outward=Math.cos((ang(g.an,g.toe)-(J.rot||0))*Math.PI/180)*(s==='r'?1:-1);
+          assert.ok(outward>=-0.3||Math.abs(d)<=25,`${s} foot points inward, phase ${ph.toFixed(2)}`);
+        }
+      }
+    }
+  });
   test(`${ex.id}: renders every phase`,()=>{
     for(let ph=0;ph<1;ph+=0.05){
       const fr=framesAt(a.frames,ph,a.loopAdd);
