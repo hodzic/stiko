@@ -39,7 +39,8 @@ export function mountLibrary(root,lib,pick=null){
   function groupHTML(g){
     const present=new Set(exs.flatMap(ex=>tagsOf(ex,g)).map(String));
     const vals=VOCAB[g].map(String).filter(v=>present.has(v));
-    if(vals.length<2&&!sel[g].size) return '';  // a filter with one option filters nothing
+    // A single option filters nothing when every exercise has it (it still narrows an optional field like discipline).
+    if(!vals.length||(vals.length<2&&!sel[g].size&&exs.every(ex=>tagsOf(ex,g).length))) return '';
     return `<div class="fgroup" role="group" aria-label="${esc(U('g_'+g))}"><span class="flabel">${esc(U('g_'+g))}</span>`+
       vals.map(v=>`<button class="chip" data-g="${g}" data-v="${esc(v)}" aria-pressed="${sel[g].has(v)}">${esc(tagLabel(g,v))}</button>`).join('')+'</div>';
   }
