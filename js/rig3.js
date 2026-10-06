@@ -16,6 +16,7 @@
 //   eo_*           elbow direction around the shoulder–hand line: 0 = down, 90 = out to the side, -90 = across
 //   af_*, aw_*, ay_*  ankle on the floor: forward, extra width, height above the floor
 //   toe_*          foot turned out (+) or in;  heel_*  heel raised, pivoting on the toes;  kn_*  knee turned out
+//   kup_*          knee direction tilted up from horizontal (90 = straight up, for legs bent while lying on the back)
 import {FLOOR, L, shift, getPt} from './rig.js';
 
 export const QUARTER_YAW=35;   // default facing: 35° from the side view toward the viewer
@@ -91,7 +92,8 @@ function world(spec,p){
     const foot=sum(mul(base.f,side(s,'af')),mul(base.r,sg*(HIP_W+side(s,'aw'))),[0,side(s,'ay'),0]);
     const toe=add(foot,mul(tdir,L.foot));
     const at=add(sub(toe,mul(tdir,L.foot*Math.cos(heel))),[0,L.foot*Math.sin(heel),0]);
-    const kdir=rotate(tdir,[0,1,0],-sg*side(s,'kn'));
+    const kh=rotate(tdir,[0,1,0],-sg*side(s,'kn')), ku=rad(side(s,'kup'));
+    const kdir=add(mul(kh,Math.cos(ku)),[0,Math.sin(ku),0]);  // kup tilts the knee up (lying on the back)
     const [kn,an]=twoBone3(hp,at,L.thigh,L.shin,kdir);
     W[s]={hp,sp,el,hd,kn,an,toe:add(an,mul(unit(sub(toe,at)),L.foot))};
   }
@@ -106,9 +108,16 @@ export function solveQuarter(spec,p){
   // The far side is fixed per exercise (from its base facing), so limbs don't swap shade as the body turns.
   const J={view:'quarter',far:Math.cos(rad(spec.yaw??QUARTER_YAW))>=0?'l':'r',hip:proj(W.hip),mid:proj(W.mid),sh:proj(W.sh),nk:proj(W.nk),hc:proj(W.hc),
     l:pr(W.l),r:pr(W.r),w:{...pts,N}};
-  const pin=getPt(J,spec.pin.point);
-  shift(J,spec.pin.at[0]-pin[0],FLOOR+spec.pin.at[1]-pin[1]);
+  // Pin a joint, or a spot on the floor ({floor:[forward, out]}): with the camera looking down, contacts nearer the
+  // viewer sit lower on screen, so floor work pins the nearest contact's spot.
+  const floorPt=(f,w,y=0)=>{ const b=frame(spec.yaw??QUARTER_YAW); return sum(mul(b.f,f),mul(b.r,w),[0,y,0]); };
+  const pin=spec.pin.floor?proj(floorPt(...spec.pin.floor)):getPt(J,spec.pin.point);
+  const dx=spec.pin.at[0]-pin[0], dy=FLOOR+spec.pin.at[1]-pin[1];
+  shift(J,dx,dy);
   if(p.lift||p.slide) shift(J,p.slide||0,-(p.lift||0));
+  // The mat as a rectangle on the floor plane (forward and sideways extents around the stance).
+  const [f0,f1_,w0,w1]=spec.mat||[-110,80,-28,28];
+  J.matPts=[[f0,w0],[f1_,w0],[f1_,w1],[f0,w1]].map(([f,w])=>{ const q=proj(floorPt(f,w,-6)); return {x:q[0]+dx,y:q[1]+dy}; });
   return J;
 }
 
@@ -157,7 +166,8 @@ function headQ(J,face,blink){
 // The side turned away from the viewer is drawn light, as in the side view.
 export function figureQuarterSVG(J,face,opt,{backProps,dumbbells,bands}){
   const W=J.w, D=depthOf, far=J.far;
-  let s=`<ellipse class="shadow" cx="${f1((J.l.an[0]+J.r.an[0])/2)}" cy="${FLOOR+3}" rx="38" ry="6"/>`;
+  let s=opt.floorWork?`<path class="mat" d="${J.matPts.map((q,i)=>(i?'L':'M')+f1(q.x)+' '+f1(q.y)).join(' ')}Z"/>`
+    :`<ellipse class="shadow" cx="${f1((J.l.an[0]+J.r.an[0])/2)}" cy="${FLOOR+3}" rx="38" ry="6"/>`;
   s+=`<line class="floor" x1="10" y1="${FLOOR+8}" x2="390" y2="${FLOOR+8}"/>`;
   s+=backProps;
   const items=[], bone=(a,b,cls,wa,wb)=>items.push({d:(D(wa)+D(wb))/2,svg:`<path class="${cls}" d="${pts(a,b)}"/>`});

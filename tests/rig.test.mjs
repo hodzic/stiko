@@ -20,9 +20,10 @@ for(const ex of lib.exercises){
     ...(a.restPose?[{spec:a.restPose.spec,pose:a.restPose.pose,face:'smile'}]:[])];
   test(`${ex.id}: pin, level and IK hold`,()=>{
     for(const {spec,pose} of poses){
-      const J=solve(spec,pose), p=getPt(J,spec.pin.point), sides=SIDES[J.view];
-      // lift and slide move the whole figure off its pin on purpose.
-      near(p[0]-(pose.slide||0),spec.pin.at[0]); near(p[1]+(pose.lift||0),FLOOR+spec.pin.at[1]);
+      const J=solve(spec,pose), sides=SIDES[J.view];
+      // lift and slide move the whole figure off its pin on purpose. (A quarter-view floor pin has no joint to check.)
+      if(spec.pin.point){ const p=getPt(J,spec.pin.point);
+        near(p[0]-(pose.slide||0),spec.pin.at[0]); near(p[1]+(pose.lift||0),FLOOR+spec.pin.at[1]); }
       if(spec.level) near(getPt(J,spec.level.point)[1],FLOOR+spec.level.y,1);
       // IK targets must be reachable: the hand or ankle lands on its target.
       for(const s of sides) for(const limb of ['an','hd']){
