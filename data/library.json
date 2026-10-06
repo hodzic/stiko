@@ -2069,11 +2069,11 @@
       },
       "anim": {
         "floorWork": true,
-        "spec": {"view": "front", "pin": {"point": "r.kn", "at": [150,-7]}, "footAbs": 0, "level": {"point": "r.el", "y": -6, "range": [30,89]}},
+        "spec": {"view": "front", "pin": {"point": "r.kn", "at": [150,-7]}, "footAbs": -90, "level": {"point": "r.el", "y": -6, "range": [30,89]}},
         "frames": [
           {"t": 0, "label": {"en": "Hips up, head to knees", "bs": "Kukovi gore, od glave do koljena", "hr": "Kukovi gore, od glave do koljena", "sr": "Kukovi gore, od glave do kolena", "fr": "Hanches hautes, de la tête aux genoux", "de": "Hüfte hoch, Kopf bis Knie", "es": "Cadera arriba, línea recta"}, "face": "puff", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 0, "knee_r": 100, "knee_l": -100, "uaAbs_r": 90, "faAbs_r": 4, "uaAbs_l": 150, "faAbs_l": 110}}
         ],
-        "restPose": {"spec": {"view": "front", "pin": {"point": "r.kn", "at": [150,-7]}, "footAbs": 0}, "pose": {"rot": 90, "torso": 0, "spine": 0, "neck": -20, "hip": 0, "knee_r": 100, "knee_l": -100, "uaAbs_r": 4, "faAbs_r": -60, "uaAbs_l": 150, "faAbs_l": 160}}
+        "restPose": {"spec": {"view": "front", "pin": {"point": "r.kn", "at": [150,-7]}, "footAbs": -90}, "pose": {"rot": 90, "torso": 0, "spine": 0, "neck": -20, "hip": 0, "knee_r": 100, "knee_l": -100, "uaAbs_r": 4, "faAbs_r": -60, "uaAbs_l": 150, "faAbs_l": 160}}
       }
     },
     {
