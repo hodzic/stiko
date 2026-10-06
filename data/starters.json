@@ -1,0 +1,101 @@
+{
+  "kind": "stiko-sessions",
+  "version": 1,
+  "sessions": [
+    {
+      "id": "starter-full-body-beginner",
+      "name": {"en": "Full body: beginner", "bs": "Cijelo tijelo: početni", "fr": "Corps entier : débutant", "de": "Ganzkörper: Einsteiger"},
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "hip-hinge", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "chair-squat", "block": "main", "sets": 2, "reps": 10, "rest": 45},
+        {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "wall-push-up", "block": "main", "sets": 2, "reps": 10, "rest": 45},
+        {"ex": "band-row", "block": "main", "sets": 2, "reps": 12, "rest": 45},
+        {"ex": "split-squat", "block": "main", "sets": 2, "reps": 6, "rest": 30},
+        {"ex": "dead-bug", "block": "main", "sets": 2, "reps": 6, "rest": 30},
+        {"ex": "knee-plank", "block": "main", "sets": 2, "hold": 20, "rest": 30},
+        {"ex": "seated-hamstring-stretch", "block": "cooldown", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "hip-flexor-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 40, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-full-body-intermediate",
+      "name": {"en": "Full body: intermediate", "bs": "Cijelo tijelo: srednji nivo", "fr": "Corps entier : intermédiaire", "de": "Ganzkörper: Fortgeschritten"},
+      "items": [
+        {"ex": "step-jacks", "block": "warmup", "sets": 1, "time": 90, "rest": 10},
+        {"ex": "leg-swings", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "inchworm", "block": "warmup", "sets": 1, "reps": 4, "rest": 15},
+        {"ex": "goblet-squat", "block": "main", "sets": 3, "reps": 10, "rest": 60},
+        {"ex": "dumbbell-rdl", "block": "main", "sets": 3, "reps": 10, "rest": 60},
+        {"ex": "knee-push-up", "block": "main", "sets": 3, "reps": 8, "rest": 60},
+        {"ex": "bent-over-row", "block": "main", "sets": 3, "reps": 10, "rest": 60},
+        {"ex": "reverse-lunge", "block": "main", "sets": 2, "reps": 8, "rest": 45},
+        {"ex": "shoulder-press", "block": "main", "sets": 2, "reps": 10, "rest": 45},
+        {"ex": "side-plank", "block": "main", "sets": 2, "hold": 20, "rest": 30},
+        {"ex": "farmer-carry", "block": "main", "sets": 2, "time": 40, "rest": 40},
+        {"ex": "standing-quad-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "calf-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "triceps-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-morning-mobility",
+      "name": {"en": "Morning mobility", "bs": "Jutarnja pokretljivost", "fr": "Mobilité du matin", "de": "Morgenmobilität"},
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "cat-cow", "block": "main", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "thread-the-needle", "block": "main", "sets": 1, "reps": 5, "rest": 10},
+        {"ex": "knee-hug", "block": "main", "sets": 1, "reps": 5, "rest": 10},
+        {"ex": "inchworm", "block": "main", "sets": 1, "reps": 4, "rest": 15},
+        {"ex": "lateral-lunge", "block": "main", "sets": 1, "reps": 5, "rest": 10},
+        {"ex": "deep-squat-hold", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "cobra-press-up", "block": "main", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "standing-side-bend", "block": "cooldown", "sets": 1, "hold": 20, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-core-balance",
+      "name": {"en": "Core and balance", "bs": "Trup i ravnoteža", "fr": "Tronc et équilibre", "de": "Rumpf und Gleichgewicht"},
+      "items": [
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "bird-dog", "block": "warmup", "sets": 1, "reps": 6, "rest": 15},
+        {"ex": "dead-bug", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 30},
+        {"ex": "knee-side-plank", "block": "main", "sets": 2, "hold": 20, "rest": 20},
+        {"ex": "superman", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "single-leg-stand", "block": "main", "sets": 2, "hold": 30, "rest": 10},
+        {"ex": "tandem-stance", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "cobra-press-up", "block": "cooldown", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "knees-to-chest", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-desk-break",
+      "name": {"en": "Desk break", "bs": "Pauza od sjedenja", "fr": "Pause bureau", "de": "Schreibtischpause"},
+      "items": [
+        {"ex": "chest-opener", "block": "warmup", "sets": 1, "hold": 20, "rest": 5},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 5},
+        {"ex": "chair-squat", "block": "main", "sets": 1, "reps": 10, "rest": 15},
+        {"ex": "calf-raise", "block": "main", "sets": 1, "reps": 15, "rest": 15},
+        {"ex": "standing-side-bend", "block": "cooldown", "sets": 1, "hold": 20, "rest": 5},
+        {"ex": "standing-quad-stretch", "block": "cooldown", "sets": 1, "hold": 20, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-basics",
+      "name": {"en": "Three basics", "bs": "Tri osnovne", "fr": "Les trois bases", "de": "Drei Grundübungen"},
+      "items": [
+        {"ex": "squat", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 20}
+      ]
+    }
+  ]
+}
