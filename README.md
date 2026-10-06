@@ -74,7 +74,9 @@ in front view `shoulder` and `hip` are abduction and `torso`/`spine` are side be
 The quarter view (`js/rig3.js`) is a 3D skeleton projected onto the screen and drawn back to front, with keys
 `_l`/`_r` for the figure's left and right: trunk `yaw`, `torso`, `spine`, `twist` (upper trunk on the pelvis), `bend`
 (side bend), `neck`, `look`; hips `drop`, `fwd`, `sway`; hands as polar targets from the shoulder `az`, `el`, `reach`
-(px) with the elbow direction `eo`, or `plant` (0–1) toward a fixed floor spot `px`, `pw`, `py` for a hand on the mat; feet `af`, `aw`, `ay` (px), `toe`, `heel`, `kn`. The file's header has the details.
+(px) with the elbow direction `eo`, or `plant` (0–1) toward a fixed floor spot `px`, `pw`, `py` for a hand on the mat; feet `af`, `aw`, `ay` (px), `toe`, `heel`, `kn`, `kup` (knee tilted up, lying on the back). In this view
+`spec.pin` can also be a floor spot, `{floor: [forward, out], at}`: with the camera looking down, contacts nearer the
+viewer sit lower on screen, so floor work pins its nearest contact; `spec.mat` sets the mat's extents. The file's header has the details.
 
 ### Reviewing poses
 
