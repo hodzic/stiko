@@ -1,7 +1,8 @@
 // Player screen: runs a queue of exercises (a session, or one exercise from the library).
 // Each item goes get-ready → sets of work/rest; after the last item the player is done.
 import {solve, framesAt, figureSVG, lerpJ, shift} from './rig.js';
-import {T, U, doseText, esc, getLang} from './i18n.js';
+import {T, U, doseText, esc, getLang, tagLabel} from './i18n.js';
+import {regionOf, familyOf} from './vocab.js';
 import * as A from './audio.js';
 import * as store from './store.js';
 
@@ -68,9 +69,28 @@ const TPL=`
       <div><h3 data-i18n="easier"></h3><p id="hEasier"></p></div>
       <div><h3 data-i18n="harder"></h3><p id="hHarder"></p></div>
     </div>
+    <details class="kin"><summary data-i18n="aboutEx"></summary><dl id="kin"></dl></details>
     <p class="note" data-i18n="note"></p>
   </section>
 </div>`;
+
+// Taxonomy summary shown under the instructions.
+function kinHTML(ex){
+  const list=(g,vals)=>vals.map(v=>tagLabel(g,v)).join(', ');
+  const rows=[
+    ['g_pattern', ex.pattern?[...new Set([tagLabel('family',familyOf(ex.pattern)),tagLabel('pattern',ex.pattern)])].join(' · '):''],
+    ['g_component', tagLabel('component',ex.component)],
+    ['g_region', tagLabel('region',regionOf(ex))],
+    ['g_primary', list('muscle',ex.muscles.primary)],
+    ['g_secondary', list('muscle',ex.muscles.secondary)],
+    ['g_joints', Object.entries(ex.joints).map(([j,a])=>`${tagLabel('joint',j)}: ${a.length?list('action',a):U('held')}`).join('; ')],
+    ['g_plane', list('plane',ex.planes)],
+    ['g_position', tagLabel('position',ex.position)],
+    ['g_laterality', tagLabel('laterality',ex.laterality)],
+    ['g_chain', tagLabel('chain',ex.chain)],
+  ];
+  return rows.filter(r=>r[1]).map(([k,v])=>`<dt>${esc(U(k))}</dt><dd>${esc(v)}</dd>`).join('');
+}
 
 // queue: [{ex, dose, block?}]; opts: {back, backLabel, title}
 export function mountPlayer(root,queue,opts){
@@ -106,6 +126,7 @@ export function mountPlayer(root,queue,opts){
     $('hSteps').innerHTML=h.steps.map(t=>`<li>${esc(T(t))}</li>`).join('');
     $('hMistakes').innerHTML=h.mistakes.map(t=>`<li>${esc(T(t))}</li>`).join('');
     $('hEasier').textContent=T(h.easier); $('hHarder').textContent=T(h.harder);
+    $('kin').innerHTML=kinHTML(ex);
     $('stage').setAttribute('aria-label',U('stageLabel'));
     $('speedSeg').setAttribute('aria-label',U('speed'));
     $('scrub').setAttribute('aria-label',U('scrub'));
@@ -114,7 +135,7 @@ export function mountPlayer(root,queue,opts){
     if(multi){
       const q=queue[idx], nx=queue[idx+1];
       $('progTitle').textContent=opts.title;
-      $('progTxt').textContent=`${U('exOf')(idx+1,queue.length)}${q.block?' · '+U('b_'+q.block):''}`;
+      $('progTxt').textContent=`${U('exOf')(idx+1,queue.length)}${q.block?' · '+tagLabel('block',q.block):''}`;
       $('nextTxt').textContent=nx?U('nextUp')(T(nx.ex.short)):'';
     }
     $('readTxt').textContent=A.isReading()?U('stop'):U('read');

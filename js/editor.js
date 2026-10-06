@@ -1,5 +1,6 @@
 // Session editor: name, three fixed blocks, per-item sets/reps/hold/rest, reorder, remove, share.
-import {T, U, esc} from './i18n.js';
+import {T, U, esc, tagLabel} from './i18n.js';
+import {MAIN_FAMILIES, familyOf} from './vocab.js';
 import * as S from './sessions.js';
 import {thumbSVG} from './library.js';
 import {saveJSON, slug} from './ui.js';
@@ -48,8 +49,9 @@ export function mountEditor(root,lib,id){
     $('blocks').innerHTML=S.BLOCKS.map(b=>{
       const rows=s.items.map((it,i)=>[it,i]).filter(([it])=>it.block===b);
       return `<section class="block">
-        <div class="block-head"><h3>${esc(U('b_'+b))}</h3><span class="dose" data-est="${b}"></span></div>
+        <div class="block-head"><h3>${esc(tagLabel('block',b))}</h3><span class="dose" data-est="${b}"></span></div>
         <p class="guide">${esc(U('guide_'+b))}</p>
+        ${b==='main'?'<p class="guide coverage" id="coverage"></p>':''}
         <ul class="items">${rows.map(([it,i])=>itemHTML(it,i)).join('')}</ul>
         <a class="add" href="#/sessions/${encodeURIComponent(s.id)}/add/${b}">+ ${esc(U('addEx'))}</a>
       </section>`;
@@ -58,6 +60,12 @@ export function mountEditor(root,lib,id){
   }
   function renderTotals(){
     const est=S.estimate(s.items,byId);
+    // Main-block balance: which movement-pattern families are covered.
+    const fams=new Set(s.items.filter(it=>it.block==='main').map(it=>familyOf(byId.get(it.ex)?.pattern)).filter(Boolean));
+    const have=MAIN_FAMILIES.filter(f=>fams.has(f)), miss=MAIN_FAMILIES.filter(f=>!fams.has(f));
+    const cov=root.querySelector('#coverage');
+    if(cov) cov.innerHTML=(have.length?`${esc(U('covered'))}: <b>${have.map(f=>esc(tagLabel('family',f))).join(', ')}</b>. `:'')+
+      (miss.length?`${esc(U('notYet'))}: ${miss.map(f=>esc(tagLabel('family',f))).join(', ')}.`:'');
     $('total').textContent=s.items.length?`${U('exCount')(s.items.length)} · ${U('mins')(S.minutes(est.total))}`:U('emptySession');
     for(const b of S.BLOCKS){ const el=root.querySelector(`[data-est="${b}"]`); if(el) el.textContent=est[b]?U('mins')(S.minutes(est[b])):''; }
     const pb=$('playBtn');

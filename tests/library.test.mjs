@@ -2,7 +2,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {VOCAB, DOSE_MODES, FACES} from '../js/vocab.js';
+import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, regionOf, familyOf} from '../js/vocab.js';
+import {UI} from '../js/i18n.js';
 
 const lib=JSON.parse(fs.readFileSync(new URL('../data/library.json',import.meta.url),'utf8'));
 const LANGS=['en','bs'];
@@ -19,9 +20,25 @@ test('ids are unique slugs',()=>{
 });
 
 for(const ex of lib.exercises){
-  test(`${ex.id}: tags and dose`,()=>{
+  test(`${ex.id}: taxonomy`,()=>{
     bilingual(ex.name,'name'); bilingual(ex.short,'short');
-    for(const g of ['pattern','region','type']) assert.ok(VOCAB[g].includes(ex[g]),`${g} "${ex[g]}"`);
+    assert.equal(ex.region,undefined,'region is derived from muscles, not stored');
+    assert.ok(ex.pattern===null||VOCAB.pattern.includes(ex.pattern),`pattern "${ex.pattern}"`);
+    if(['strength','stability','cardio'].includes(ex.component)) assert.ok(ex.pattern,'strength, stability and cardio exercises need a pattern');
+    for(const g of ['component','position','laterality','chain']) assert.ok(VOCAB[g].includes(ex[g]),`${g} "${ex[g]}"`);
+    assert.ok(ex.planes.length&&ex.planes.every(v=>VOCAB.plane.includes(v)),'planes');
+    assert.ok(ex.blocks.length&&ex.blocks.every(v=>VOCAB.block.includes(v)),'blocks');
+    const {primary,secondary}=ex.muscles;
+    assert.ok(primary.length>=1,'at least one primary muscle');
+    for(const m of [...primary,...secondary]) assert.ok(m in MUSCLES,`muscle "${m}"`);
+    assert.ok(!primary.some(m=>secondary.includes(m)),'a muscle is primary or secondary, not both');
+    assert.ok(Object.keys(ex.joints).length>=1,'at least one joint');
+    for(const [j,acts] of Object.entries(ex.joints)){
+      assert.ok(JOINTS.includes(j),`joint "${j}"`);
+      for(const a of acts) assert.ok(ACTIONS.includes(a),`action "${a}"`);
+    }
+    if(ex.dose.mode==='reps') assert.ok(Object.values(ex.joints).some(a=>a.length),'dynamic exercises list at least one joint action');
+    assert.ok(VOCAB.region.includes(regionOf(ex)));
     assert.ok(Array.isArray(ex.equipment));
     for(const e of ex.equipment) assert.ok(VOCAB.equipment.includes(e)&&e!=='none',`equipment "${e}"`);
     assert.ok([1,2,3].includes(ex.level));
@@ -50,3 +67,12 @@ for(const ex of lib.exercises){
     });
   });
 }
+
+test('every taxonomy value has an EN and BS label',()=>{
+  const groups={family:VOCAB.family,pattern:VOCAB.pattern,component:VOCAB.component,region:VOCAB.region,muscle:VOCAB.muscle,
+    position:VOCAB.position,equipment:VOCAB.equipment,plane:VOCAB.plane,laterality:VOCAB.laterality,chain:VOCAB.chain,
+    block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS};
+  for(const l of ['en','bs']) for(const [g,vals] of Object.entries(groups)) for(const v of vals)
+    assert.ok(UI[l][g]?.[v],`${l}.${g}.${v} missing`);
+  for(const p of VOCAB.pattern) assert.ok(familyOf(p),`pattern ${p} has no family`);
+});

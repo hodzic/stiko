@@ -164,6 +164,14 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:6px 0 0}
 .num input{width:76px;font:500 1rem/1.2 system-ui,sans-serif;color:var(--ink);background:var(--stage);border:2px solid var(--line);border-radius:10px;padding:6px 8px}
 .add{display:inline-block;margin-top:8px;font:600 .95rem/1 Fredoka,system-ui,sans-serif;color:var(--accent);text-decoration:none;padding:8px 0}
 .ed-foot{margin-top:26px}
+.coverage b{color:var(--ink);font-weight:600}
+details.more summary{cursor:pointer;font-size:.9rem;color:var(--accent);font-weight:600;padding:4px 0}
+details.more .filters{margin-top:8px}
+.kin{margin-top:16px;border-top:2px solid var(--line);padding-top:10px}
+.kin summary{cursor:pointer;font:600 1rem/1.3 Fredoka,system-ui,sans-serif}
+.kin dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;margin:10px 0 0;font-size:.9rem}
+.kin dt{color:var(--ink-soft)}
+.kin dd{margin:0}
 
 /* Library pick mode */
 .pickbar{position:sticky;top:calc(8px + env(safe-area-inset-top,0px));z-index:5;display:flex;justify-content:space-between;align-items:center;gap:10px;

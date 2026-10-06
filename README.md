@@ -26,15 +26,18 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `js/ui.js` | Toasts and saving/sharing JSON files |
 | `js/rig.js` | Stiko rig: FK, pinning, rotation leveling, leg IK, SVG rendering (pure, unit-tested) |
 | `js/audio.js` | Web Audio tones and speech synthesis |
-| `js/i18n.js`, `js/vocab.js`, `js/store.js` | UI strings (EN/BS), tag vocabulary, device preferences |
+| `js/vocab.js` | Exercise taxonomy vocabularies (see `docs/taxonomy.md`) |
+| `js/i18n.js`, `js/store.js` | UI strings and taxonomy labels (EN/BS), device preferences |
 | `data/library.json` | Exercise library |
 | `data/starters.json` | Starter sessions, added on first run (same format as an export) |
 | `sw.js`, `manifest.webmanifest`, `icons/` | PWA. Bump `VERSION` in `sw.js` when the asset list changes |
 
 ## Adding an exercise
 
-Add a record to `data/library.json` and run `npm test`. Each record has bilingual (`{en, bs}`) text, tags from
-`js/vocab.js`, a dose (`reps` or `hold`), instructions with one movement step per keyframe, and `anim`:
+Add a record to `data/library.json` and run `npm test`. Each record has bilingual (`{en, bs}`) text, a
+classification following [docs/taxonomy.md](docs/taxonomy.md) (movement pattern, fitness component, muscles,
+joint actions, plane, position, laterality, kinetic chain, routine fit), a dose (`reps` or `hold`), instructions
+with one movement step per keyframe, and `anim`:
 
 - `spec.pin`: the joint pinned to the floor, `at: [x, y]` where y is relative to the floor line (negative = above).
 - `spec.level` (optional): solve whole-body rotation so a second joint sits at a given height (plank elbows).
