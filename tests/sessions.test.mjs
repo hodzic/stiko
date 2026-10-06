@@ -137,6 +137,27 @@ test('attachNames repairs stored starters but leaves renamed ones alone',()=>{
   assert.equal(S.attachNames(list,starters).changed,false,'second run changes nothing');
 });
 
+test('refreshItems updates unedited starters and keeps edited ones',()=>{
+  const it=(ex,block='main')=>({ex,block,sets:2,time:45,rest:30});
+  const starter={id:'starter-x',name:'X',items:[it('jab-cross'),it('hooks'),it('uppercuts')]};
+  const old=[it('jab-cross'),it('uppercuts')], added={'starter-x':['hooks']};
+  // Older device, no record: the stored list is the new one minus what the starter gained.
+  let r=S.refreshItems([{id:'starter-x',name:'X',items:old}],[starter],{},added);
+  assert.equal(r.changed,true); assert.deepEqual(r.list[0].items.map(x=>x.ex),['jab-cross','hooks','uppercuts']);
+  assert.equal(r.seen['starter-x'],S.itemsKey(starter.items));
+  // The user removed an exercise: left alone, even though it is a subset of the new list.
+  const mine=[it('uppercuts')];
+  r=S.refreshItems([{id:'starter-x',name:'X',items:mine}],[starter],{},added);
+  assert.equal(r.changed,false); assert.deepEqual(r.list[0].items,mine);
+  // With a record: unchanged since last offered → updated; edited since → kept.
+  const seen={'starter-x':S.itemsKey(old)};
+  assert.equal(S.refreshItems([{id:'starter-x',name:'X',items:old}],[starter],seen).changed,true);
+  r=S.refreshItems([{id:'starter-x',name:'X',items:mine}],[starter],seen);
+  assert.equal(r.changed,false); assert.equal(r.seen['starter-x'],seen['starter-x']);
+  // User sessions are never touched.
+  assert.equal(S.refreshItems([{id:'s-1',name:'Mine',items:old}],[starter],{},added).changed,false);
+});
+
 test('a duplicate gets its own fixed name',()=>{
   mem.clear();
   const s=S.put({id:'starter-basics',name:'Three basics',names:{en:'Three basics',fr:'Les trois bases'},items:[]});

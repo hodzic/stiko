@@ -86,6 +86,8 @@ Pose check toggle shows the live joint angles.
 ## Sessions file format
 
 Exports, shared sessions and `data/starters.json` share one format; import also accepts a bare session or array.
+When a starter session gains exercises, list their ids in its `added` field: devices that saved the starter earlier
+get the new list, unless the user has edited that session.
 
 ```json
 { "kind": "stiko-sessions", "version": 1,
