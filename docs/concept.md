@@ -19,7 +19,7 @@ The MVP is an offline session runner: build named sessions from the library, edi
 | Library | Browse and filter exercises by the taxonomy; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |
 
-Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Fifteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
+Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Seventeen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, Healthy aging (strength and balance), Tai chi and qigong basics, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
 
 ## Exercise library
 
@@ -29,7 +29,7 @@ Exercises are classified on several dimensions taken from exercise science and k
 | --- | --- | --- |
 | Movement pattern | Families: squat, hinge, lunge, push, pull, core, carry, locomotion. Sub-patterns: horizontal and vertical push and pull; core anti-extension, anti-rotation, anti-lateral flexion, rotation, trunk flexion; gait and jump | Functional movement patterns (NSCA) |
 | Fitness component | strength, stability, mobility, flexibility, balance, cardio | ACSM components of fitness, with neuromotor fitness split into stability and balance |
-| Target muscles | Main (prime movers) and supporting muscles, from 19 muscle groups | Anatomy |
+| Target muscles | Main (prime movers) and supporting muscles, from 20 muscle groups | Anatomy |
 | Body area | lower, upper, core, full body | Worked out from the main muscles |
 | Joint actions | Joint → actions, e.g. hip: extension; joints held still during isometric work | Kinesiology |
 | Plane of motion | sagittal, frontal, transverse | Anatomical planes |
@@ -40,12 +40,12 @@ Exercises are classified on several dimensions taken from exercise science and k
 | Dosing mode | reps × sets, timed hold, timed movement (cardio and mobility rounds) | |
 | Sides | Unilateral exercises run one side, then "Switch sides" and the other side, with Stiko mirrored | |
 | Equipment | none, band, dumbbell, mat, chair, wall, step, pull-up bar | |
-| Discipline | yoga (optional) | |
+| Discipline | yoga, tai chi and qigong (optional) | |
 | Level | 1–3, with links to an easier and a harder variant | Progressions and regressions |
 
 How hard an exercise is comes from its dose, not from the exercise itself, so strength and endurance aren't separate categories. Isolated mobility and stretching work may have no movement pattern; it's described by its joint actions instead.
 
-The library has 100 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
+The library has 110 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
 
 ```json
 { "id": "glute-bridge",
@@ -138,5 +138,6 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 7. Sport prep: a sport tag on sessions, starter sessions for six sports, and 11 exercises they need (done).
 8. Pull-up bar: dead hang → scapular pull-up → negative → band-assisted → pull-up, plus the hanging knee raise and a "Road to a pull-up" session (done).
 9. Yoga: a Yoga style filter, 11 poses, a breath-paced sun salutation flow, and Morning and Evening yoga sessions (done).
-10. Next library expansions, in order: healthy aging and Qigong-style tai chi; boxing conditioning.
-11. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
+10. Healthy aging and tai chi: Otago-style strength and balance exercises (toe raise, hamstring curl and knee extension holding a chair, side-stepping) and six qigong / tai chi movements, with a session for each (done).
+11. Next library expansion: boxing conditioning.
+12. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
