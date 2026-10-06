@@ -42,7 +42,7 @@ function mount(hash){
   if(p[0]==='run'){
     const s=S.get(p[1]);
     const queue=s?s.items.filter(it=>lib.byId.has(it.ex)).map(it=>{ const ex=lib.byId.get(it.ex); return {ex,dose:S.itemDose(it,ex),block:it.block}; }):[];
-    if(queue.length) return mountPlayer(main,queue,{back:'#/sessions',backLabel:'sessions',title:s.name});
+    if(queue.length) return mountPlayer(main,queue,{back:'#/sessions',backLabel:'sessions',title:S.nameOf(s,getLang())});
     location.replace('#/sessions'); return null;
   }
   if(p[0]==='sessions'&&p[1]&&p[2]==='add') return mountLibrary(main,lib,{sessionId:p[1],block:p[3]});
@@ -64,7 +64,8 @@ async function seed(){
   try{
     const r=S.parseImport(await (await fetch('data/starters.json')).text(),lib.byId,getLang());
     const fresh=(r.sessions||[]).filter(x=>!offered.includes(x.id));
-    if(fresh.length||!S.hasStore()) S.saveAll([...S.loadAll(),...fresh]);
+    const {list,changed}=S.attachNames(S.loadAll(),r.sessions||[]);
+    if(fresh.length||changed||!S.hasStore()) S.saveAll([...list,...fresh]);
     offered=[...offered,...fresh.map(x=>x.id)];
   }catch(e){ if(!S.hasStore()) S.saveAll([]); }
   store.save('starters',offered);

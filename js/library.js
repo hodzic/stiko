@@ -1,7 +1,7 @@
 // Library screen: exercise cards with a still of Stiko, filtered by the taxonomy in vocab.js.
 // In pick mode (opened from the session editor) tapping a card adds the exercise to a session block.
 import {stillSVG} from './rig.js';
-import {T, U, tagLabel, doseText, esc} from './i18n.js';
+import {T, U, tagLabel, doseText, esc, getLang} from './i18n.js';
 import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
 import {toast} from './ui.js';
@@ -72,7 +72,7 @@ export function mountLibrary(root,lib,pick=null){
   function render(){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     document.title=`${U('exercises')} · Stiko`;
-    if(pick) $('pickTxt').textContent=`${U('addingTo')(tagLabel('block',pick.block))} · ${S.get(pick.sessionId)?.name??''}`;
+    if(pick) $('pickTxt').textContent=`${U('addingTo')(tagLabel('block',pick.block))} · ${S.get(pick.sessionId)?S.nameOf(S.get(pick.sessionId),getLang()):''}`;
     renderFilters(); renderCards();
   }
   $('filters').addEventListener('click',e=>{

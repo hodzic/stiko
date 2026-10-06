@@ -96,3 +96,37 @@ test('service worker precaches every app file',()=>{
   for(const f of fs.readdirSync(new URL('../js',import.meta.url))) assert.ok(sw.includes(`'js/${f}'`),`sw.js is missing js/${f}`);
   for(const f of ['data/library.json','data/starters.json','css/app.css','index.html']) assert.ok(sw.includes(`'${f}'`),`sw.js is missing ${f}`);
 });
+
+test('starter names follow the language until renamed',()=>{
+  const r=S.parseImport(read('data/starters.json'),byId,'en');
+  const basics=r.sessions.find(s=>s.id==='starter-basics');
+  assert.equal(S.nameOf(basics,'fr'),'Les trois bases');
+  assert.equal(S.nameOf(basics,'de'),'Drei Grundübungen');
+  assert.equal(S.nameOf(basics,'xx'),'Three basics','unknown language falls back to English');
+  assert.equal(S.nameOf({name:'Mine'},'fr'),'Mine','plain names are used as is');
+  // Export keeps the translations, and import restores them.
+  const back=S.parseImport(JSON.stringify(S.exportPayload([basics])),byId,'bs').sessions[0];
+  assert.deepEqual(back.names,basics.names);
+});
+
+test('attachNames repairs stored starters but leaves renamed ones alone',()=>{
+  const starters=S.parseImport(read('data/starters.json'),byId,'en').sessions;
+  const stored=[
+    {id:'starter-basics',name:'Three basics',items:[]},          // saved in English before translations were kept
+    {id:'starter-desk-break',name:'My desk routine',items:[]},   // renamed by the user
+    {id:'s-1',name:'Evening',items:[]},
+  ];
+  const {list,changed}=S.attachNames(stored,starters);
+  assert.equal(changed,true);
+  assert.equal(S.nameOf(list[0],'fr'),'Les trois bases');
+  assert.equal(list[1].names,undefined); assert.equal(list[2].names,undefined);
+  assert.equal(S.attachNames(list,starters).changed,false,'second run changes nothing');
+});
+
+test('a duplicate gets its own fixed name',()=>{
+  mem.clear();
+  const s=S.put({id:'starter-basics',name:'Three basics',names:{en:'Three basics',fr:'Les trois bases'},items:[]});
+  const c=S.duplicate(s.id,'Three basics (copy)');
+  assert.equal(c.names,undefined); assert.equal(S.nameOf(c,'fr'),'Three basics (copy)');
+  assert.ok(S.get(s.id).names,'the original keeps its translations');
+});

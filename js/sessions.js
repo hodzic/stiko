@@ -25,13 +25,24 @@ export function cleanItem(raw,byId){
 // Items are always kept grouped by block, in block order (stable within a block).
 export const sortItems=items=>items.map((it,i)=>[it,i]).sort((a,b)=>BLOCKS.indexOf(a[0].block)-BLOCKS.indexOf(b[0].block)||a[1]-b[1]).map(x=>x[0]);
 
+// A session name is plain text, or for starter sessions a set of translations ({en, bs, ...}) kept in `names`
+// so the name follows the app language until the user renames it.
+const cleanNames=v=>{
+  if(!v||typeof v!=='object'||Array.isArray(v)) return null;
+  const o={}; for(const [k,t] of Object.entries(v)) if(/^[a-z]{2}$/.test(k)&&typeof t==='string'&&t.trim()) o[k]=t.trim().slice(0,80);
+  return o.en?o:null;
+};
+export const nameOf=(s,lang='en')=>s.names?.[lang]??s.names?.en??s.name;
+
 export function cleanSession(raw,byId,lang='en'){
   if(!raw||typeof raw!=='object'||!Array.isArray(raw.items)) return null;
   const items=[]; let dropped=0;
   for(const r of raw.items){ const it=cleanItem(r,byId); it?items.push(it):dropped++; }
-  let name=raw.name&&typeof raw.name==='object'?(raw.name[lang]??raw.name.en):raw.name;
-  name=String(name??'').trim().slice(0,80)||'Session';
-  return {session:{id:typeof raw.id==='string'&&raw.id?raw.id:uid(), name, items:sortItems(items)}, dropped};
+  const names=cleanNames(raw.name)||cleanNames(raw.names);
+  const name=String((names?names[lang]??names.en:raw.name)??'').trim().slice(0,80)||'Session';
+  const session={id:typeof raw.id==='string'&&raw.id?raw.id:uid(), name, items:sortItems(items)};
+  if(names) session.names=names;
+  return {session, dropped};
 }
 
 export const itemDose=(it,ex)=>({mode:ex.dose.mode, sets:it.sets, [ex.dose.mode]:it[ex.dose.mode], rest:it.rest});
@@ -60,7 +71,7 @@ export function moveItem(items,i,dir){
 export const canMove=(items,i,dir)=>{ const it=items[i]; return !((dir<0&&i===0&&it.block===BLOCKS[0])||(dir>0&&i===items.length-1&&it.block===BLOCKS.at(-1))); };
 
 // ---- Import / export ----
-const strip=s=>({id:s.id, name:s.name, items:s.items});
+const strip=s=>({id:s.id, name:s.name, ...(s.names?{names:s.names}:{}), items:s.items});
 export const exportPayload=sessions=>({kind:FILE_KIND, version:1, exported:new Date().toISOString(), sessions:sessions.map(strip)});
 
 // Accepts an export file, a bare array of sessions, or a single session. Returns {sessions, dropped} or {error}.
@@ -73,7 +84,7 @@ export function parseImport(text,byId,lang){
   if(!sessions.length) return {error:'format'};
   return {sessions, dropped};
 }
-const same=(a,b)=>a.name===b.name&&JSON.stringify(a.items)===JSON.stringify(b.items);
+const same=(a,b)=>nameOf(a)===nameOf(b)&&JSON.stringify(a.items)===JSON.stringify(b.items);
 // Merge imported sessions: an identical copy already stored is skipped; an id clash with different content gets a new id.
 export function mergeImport(existing,incoming){
   const out=[...existing]; let added=0, skipped=0;
@@ -83,6 +94,18 @@ export function mergeImport(existing,incoming){
     out.push({...s, id:hit?uid():s.id}); added++;
   }
   return {sessions:out, added, skipped};
+}
+
+// Give stored starter sessions their translations back (devices that saved only one language's name).
+// A session the user renamed keeps its own name.
+export function attachNames(list,starters){
+  let changed=false;
+  const out=list.map(s=>{
+    const st=starters.find(x=>x.id===s.id);
+    if(!st?.names||s.names||!Object.values(st.names).includes(s.name)) return s;
+    changed=true; return {...s,names:st.names};
+  });
+  return {list:out,changed};
 }
 
 // ---- Storage ----
@@ -101,5 +124,6 @@ export function create(name){ return put({id:uid(), name, items:[]}); }
 export function duplicate(id,name){
   const list=loadAll(), i=list.findIndex(s=>s.id===id); if(i<0) return null;
   const copy={...list[i], id:uid(), name, items:list[i].items.map(x=>({...x}))};
+  delete copy.names;  // a copy is the user's own, with a fixed name
   list.splice(i+1,0,copy); saveAll(list); return copy;
 }
