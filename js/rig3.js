@@ -11,6 +11,8 @@
 //   az_*, el_*, reach_*  hand target from its shoulder: direction (az 0 = forward, 90 = out to the side, -90 = across;
 //                  el -90 = down, 0 = shoulder height, 90 = overhead) and distance (64 = arm straight). Polar keys so a
 //                  sweep between keyframes follows an arc instead of cutting a straight line past the shoulder.
+//   plant_*        0–1 blends the hand from its polar target to a fixed spot on the floor: px_* forward, pw_* out
+//                  from the midline, py_* height (a hand on the mat stays put while the trunk turns)
 //   eo_*           elbow direction around the shoulder–hand line: 0 = down, 90 = out to the side, -90 = across
 //   af_*, aw_*, ay_*  ankle on the floor: forward, extra width, height above the floor
 //   toe_*          foot turned out (+) or in;  heel_*  heel raised, pivoting on the toes;  kn_*  knee turned out
@@ -20,7 +22,7 @@ export const QUARTER_YAW=35;   // default facing: 35° from the side view toward
 const PITCH=20;                // the camera looks down slightly, so the floor plane reads
 const HIP_W=8, SH_W=14;  // broader than the front view so turns of the hips and shoulders read
 const hipH=()=>L.thigh+L.shin-2;  // a function: rig.js and this module import each other
-export const LEN_KEYS=new Set(['drop','fwd','sway','lift','slide','reach','af','aw','ay']);
+export const LEN_KEYS=new Set(['drop','fwd','sway','lift','slide','reach','af','aw','ay','px','pw','py']);
 
 const rad=d=>d*Math.PI/180;
 const add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]];
@@ -72,7 +74,12 @@ function world(spec,p){
     const sp=add(sh,mul(T2.r,sg*SH_W)), hp=add(hip,mul(P.r,sg*HIP_W));
     // Arm: the hand target rides with the upper trunk, so twisting carries the fists.
     const az=rad(side(s,'az')), ev=rad(side(s,'el',-90)), R=side(s,'reach',62);
-    const ht=sum(sp,mul(T2.f,R*Math.cos(ev)*Math.cos(az)),mul(T2.r,sg*R*Math.cos(ev)*Math.sin(az)),mul(T2.u,R*Math.sin(ev)));
+    let ht=sum(sp,mul(T2.f,R*Math.cos(ev)*Math.cos(az)),mul(T2.r,sg*R*Math.cos(ev)*Math.sin(az)),mul(T2.u,R*Math.sin(ev)));
+    const plant=Math.min(1,Math.max(0,side(s,'plant')));
+    if(plant>0){
+      const fixed=sum(mul(base.f,side(s,'px')),mul(base.r,sg*side(s,'pw')),[0,side(s,'py'),0]);
+      ht=add(mul(ht,1-plant),mul(fixed,plant));
+    }
     const ax=unit(sub(ht,sp)), down=mul(T2.u,-1);
     let ref=sub(down,mul(ax,dot(down,ax))); if(len(ref)<1e-3) ref=mul(T2.f,-1);
     ref=unit(ref); let lat=cross(ax,ref); if(dot(lat,mul(T2.r,sg))<0) lat=mul(lat,-1);
