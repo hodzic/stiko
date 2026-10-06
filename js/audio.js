@@ -30,6 +30,8 @@ export function tone(kind){
   else if(kind==='count') note(880,0,0.14,'sine',0.22);
   else if(kind==='go'){ note(1320,0,0.28,'sine',0.24); note(1760,0.02,0.22,'sine',0.08); }
   else if(kind==='done'){ note(660,0,0.18,'triangle',0.2); note(990,0.16,0.3,'triangle',0.2); }
+  else if(kind==='soft') note(1250,0,0.035,'sine',0.06);                                         // subtle countdown tick
+  else if(kind==='mark'){ note(990,0,0.12,'triangle',0.15); note(1320,0.11,0.14,'triangle',0.15); }  // tens, when voice is off
 }
 
 export function pickVoice(){
@@ -56,10 +58,11 @@ function say(u){
   if(synth.speaking||synth.pending){ synth.cancel(); setTimeout(()=>synth.speak(u),60); }  // speak right after cancel can be dropped
   else synth.speak(u);
 }
-// Short spoken cue; skipped while reading aloud.
+// Short spoken cue; skipped while reading aloud. Returns whether it was spoken.
 export function speak(text){
-  if(!prefs.voice||!synth||reading||!text) return;
+  if(!prefs.voice||!synth||reading||!text) return false;
   say(keep(utter(text)));
+  return true;
 }
 
 // Read-aloud: queue of {text, step}; onStep fires as each part starts, onEnd when finished or stopped.

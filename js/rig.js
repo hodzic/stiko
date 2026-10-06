@@ -266,11 +266,15 @@ export function figureSVG(J,face,opt={}){
     s+=dbs.filter(h=>h.startsWith('f.')).map(h=>dumbbellSVG(Jf,h)).join('');
     s+=`<path class="limb" d="${pts(J.hip,J.mid,J.sh,J.nk)}"/>`;
     s+=`<path class="limb" d="${pts(J.n.hp,J.n.kn,J.n.an,J.n.toe)}"/>`;
+  }
+  s+=headSVG(J,face,opt.blink);
+  // Side view: the near arm is closer to the camera than the head, so it is drawn on top of it
+  // (otherwise raised arms vanish behind the head). The far arm stays behind.
+  if(J.view!=='front'){
     s+=`<path class="limb" d="${pts(J.sh,J.n.el,J.n.hd)}"/>`;
     s+=`<circle class="hand" cx="${f1(J.n.hd[0])}" cy="${f1(J.n.hd[1])}" r="5"/>`;
     s+=db('n');
   }
-  s+=headSVG(J,face,opt.blink);
   for(const pr of props) if(pr.type==='band') s+=bandSVG(J,pr);
   if(opt.joints){
     const ks=J.view==='front'?['l','r']:['n'];

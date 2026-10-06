@@ -114,8 +114,8 @@ The [Stiko prototype](https://claude.ai/artifact/Ne2xNtAUdnKwNEcynjomXz) settled
 - **Layout:** portrait stacks Stiko above the instructions; landscape or wide screens show them side by side.
 - **Player controls:** tap Stiko to pause or resume; speed 0.5×, 1×, 2×; scrub through one rep; a 5-second "Get ready" countdown before each exercise. In a session, an exercise's rest becomes the countdown to the next one, and the screen stays awake while playing.
 - **Read aloud:** reads setup, steps and breathing with the phone's text-to-speech, highlighting each step and showing its pose.
-- **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "10 seconds left" on holds, "Next" between exercises, "Great work" at the end.
-- **Sounds:** generated with Web Audio, no audio files: rep tick, 3-2-1 countdown beeps, start tone, set-complete chime. Sound and voice toggle separately.
+- **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "Next" between exercises, "Great work" at the end. Every countdown (get ready, rest, switch sides, holds, timed rounds) speaks the tens ("twenty", "ten").
+- **Sounds:** generated with Web Audio, no audio files: rep tick, a subtle tick on every countdown second, 3-2-1 beeps, start tone, set-complete chime, and a two-note chime on the tens when voice is off. Sound and voice toggle separately.
 - **Pose check:** a debug toggle showing joints and angles, the seed of the pose editor.
 - **Constraints found:** audio and speech need a first tap to unlock; speech is missing in the Claude app's embedded view but works in Chrome and in an installed PWA; Bosnian speech needs a Bosnian or Croatian voice on the phone, and French and German speech need a voice for that language.
 
