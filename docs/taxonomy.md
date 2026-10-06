@@ -19,6 +19,7 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | Kinetic chain | `chain` | closed, open | Closed: the hands or feet are fixed against the floor or wall. Open: the moving limb is free |
 | Routine fit | `blocks` | warmup, main, cooldown | Which part of the three-part routine it suits |
 | Equipment | `equipment` | band, dumbbell, mat, chair, wall, step, bar (doorway pull-up bar; empty = none) | |
+| Discipline | `discipline` (optional) | yoga | Style the exercise belongs to; shown as a filter |
 | Level | `level`, `easier`, `harder` | 1–3, with links to a regression and a progression | Progression/regression chains |
 
 ## Movement patterns

@@ -40,6 +40,8 @@ for(const ex of lib.exercises){
     assert.ok(Array.isArray(ex.equipment));
     for(const e of ex.equipment) assert.ok(VOCAB.equipment.includes(e)&&e!=='none',`equipment "${e}"`);
     assert.ok([1,2,3].includes(ex.level));
+    assert.ok(ex.discipline===undefined||VOCAB.discipline.includes(ex.discipline),`discipline "${ex.discipline}"`);
+    if(ex.anim.flow) assert.equal(ex.dose.mode,'reps','a flow is dosed in rounds (reps)');
     for(const k of ['easier','harder']) assert.ok(ex[k]===null||ids.has(ex[k]),`${k} → unknown id ${ex[k]}`);
     const d=ex.dose;
     assert.ok(DOSE_MODES.includes(d.mode));
@@ -77,7 +79,7 @@ for(const ex of lib.exercises){
 test('every taxonomy value has a label in every language',()=>{
   const groups={family:VOCAB.family,pattern:VOCAB.pattern,component:VOCAB.component,region:VOCAB.region,muscle:VOCAB.muscle,
     position:VOCAB.position,equipment:VOCAB.equipment,plane:VOCAB.plane,laterality:VOCAB.laterality,chain:VOCAB.chain,
-    block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS,sport:SPORTS};
+    block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS,sport:SPORTS,discipline:VOCAB.discipline};
   for(const l of LANGS) for(const [g,vals] of Object.entries(groups)) for(const v of vals)
     assert.ok(UI[l][g]?.[v],`${l}.${g}.${v} missing`);
   for(const p of VOCAB.pattern) assert.ok(familyOf(p),`pattern ${p} has no family`);

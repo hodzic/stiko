@@ -81,6 +81,7 @@ function kinHTML(ex){
   const list=(g,vals)=>vals.map(v=>tagLabel(g,v)).join(', ');
   const rows=[
     ['g_pattern', ex.pattern?[...new Set([tagLabel('family',familyOf(ex.pattern)),tagLabel('pattern',ex.pattern)])].join(' · '):''],
+    ['g_discipline', ex.discipline?tagLabel('discipline',ex.discipline):''],
     ['g_component', tagLabel('component',ex.component)],
     ['g_region', tagLabel('region',regionOf(ex))],
     ['g_primary', list('muscle',ex.muscles.primary)],
@@ -242,8 +243,9 @@ export function mountPlayer(root,queue,opts){
     }
     if(st.mode==='work'&&d.mode==='reps'){
       const r=Math.floor(st.t/a.cycle), fi=framesAt(a.frames,(st.t%a.cycle)/a.cycle,a.loopAdd).step;
-      if(r!==ev.rep){ ev.rep=r; if(r>0&&r<d.reps){ A.tone('tick'); A.speak(r===d.reps-1?U('lastOne'):String(r+1)); } }
-      if(fi!==ev.frame){ ev.frame=fi; if(r===0&&st.set===1&&st.side===0) A.speak(T(a.frames.find(f=>(f.step??a.frames.indexOf(f))===fi).label)); }
+      // A flow (e.g. sun salutation) is paced by its step cues, so they are spoken on every round instead of rep numbers.
+      if(r!==ev.rep){ ev.rep=r; if(r>0&&r<d.reps){ A.tone('tick'); if(!a.flow) A.speak(r===d.reps-1?U('lastOne'):String(r+1)); } }
+      if(fi!==ev.frame){ ev.frame=fi; if(a.flow||(r===0&&st.set===1&&st.side===0)) A.speak(T(a.frames.find(f=>(f.step??a.frames.indexOf(f))===fi).label)); }
     }
     let left=null;
     if(st.mode==='ready') left=readyDur-st.t; else if(st.mode==='rest') left=d.rest-st.t; else if(st.mode==='switch') left=SWITCH-st.t;

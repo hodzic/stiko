@@ -1950,6 +1950,7 @@
       "id": "thread-the-needle",
       "name": {"en": "Thread the needle", "bs": "Provlačenje igle", "hr": "Provlačenje igle", "sr": "Provlačenje igle", "fr": "Passage de l’aiguille", "de": "Einfädeln", "es": "Enhebrar la aguja"},
       "short": {"en": "Thread the needle", "bs": "Provlačenje", "hr": "Provlačenje", "sr": "Provlačenje", "fr": "Passage de l’aiguille", "de": "Einfädeln", "es": "Enhebrar la aguja"},
+      "discipline": "yoga",
       "pattern": "rotation",
       "component": "mobility",
       "planes": ["transverse"],
@@ -3156,6 +3157,7 @@
       "id": "cat-cow",
       "name": {"en": "Cat-cow", "bs": "Mačka-krava", "hr": "Mačka-krava", "sr": "Mačka-krava", "fr": "Chat-vache", "de": "Katze-Kuh", "es": "Gato-vaca"},
       "short": {"en": "Cat-cow", "bs": "Mačka-krava", "hr": "Mačka-krava", "sr": "Mačka-krava", "fr": "Chat-vache", "de": "Katze-Kuh", "es": "Gato-vaca"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -3200,6 +3202,7 @@
       "id": "cobra-press-up",
       "name": {"en": "Cobra press-up", "bs": "Kobra", "hr": "Kobra", "sr": "Kobra", "fr": "Cobra", "de": "Kobra", "es": "Cobra"},
       "short": {"en": "Cobra", "bs": "Kobra", "hr": "Kobra", "sr": "Kobra", "fr": "Cobra", "de": "Kobra", "es": "Cobra"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -3420,6 +3423,7 @@
       "id": "childs-pose",
       "name": {"en": "Child’s pose", "bs": "Položaj djeteta", "hr": "Položaj djeteta", "sr": "Položaj deteta", "fr": "Posture de l’enfant", "de": "Kindhaltung", "es": "Postura del niño"},
       "short": {"en": "Child’s pose", "bs": "Položaj djeteta", "hr": "Položaj djeteta", "sr": "Položaj deteta", "fr": "Posture de l’enfant", "de": "Kindhaltung", "es": "Postura del niño"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -3461,6 +3465,7 @@
       "id": "knees-to-chest",
       "name": {"en": "Knees-to-chest stretch", "bs": "Koljena na grudi", "hr": "Koljena na prsa", "sr": "Kolena na grudi", "fr": "Genoux à la poitrine", "de": "Knie zur Brust", "es": "Rodillas al pecho"},
       "short": {"en": "Knees to chest", "bs": "Koljena na grudi", "hr": "Koljena na prsa", "sr": "Kolena na grudi", "fr": "Genoux à la poitrine", "de": "Knie zur Brust", "es": "Rodillas al pecho"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -3503,6 +3508,7 @@
       "id": "seated-hamstring-stretch",
       "name": {"en": "Seated forward fold", "bs": "Pretklon u sjedećem položaju", "hr": "Pretklon u sjedećem položaju", "sr": "Pretklon u sedećem položaju", "fr": "Flexion avant assise", "de": "Vorbeuge im Sitzen", "es": "Flexión hacia delante sentado"},
       "short": {"en": "Forward fold", "bs": "Pretklon", "hr": "Pretklon", "sr": "Pretklon", "fr": "Flexion avant", "de": "Vorbeuge", "es": "Flexión adelante"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -3756,6 +3762,7 @@
       "id": "butterfly-stretch",
       "name": {"en": "Butterfly stretch", "bs": "Leptir istezanje", "hr": "Leptir istezanje", "sr": "Leptir istezanje", "fr": "Étirement papillon", "de": "Schmetterlingsdehnung", "es": "Estiramiento de mariposa"},
       "short": {"en": "Butterfly", "bs": "Leptir", "hr": "Leptir", "sr": "Leptir", "fr": "Papillon", "de": "Schmetterling", "es": "Mariposa"},
+      "discipline": "yoga",
       "pattern": null,
       "component": "flexibility",
       "planes": ["frontal"],
@@ -3915,6 +3922,524 @@
           {"t": 0, "label": {"en": "Heel to toe, eyes forward", "bs": "Peta uz prste, pogled naprijed", "hr": "Peta uz prste, pogled naprijed", "sr": "Peta uz prste, pogled napred", "fr": "Talon contre orteils, regard devant", "de": "Ferse an Zehen, Blick nach vorn", "es": "Talón con punta"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 6, "knee_n": 0, "hip_f": -6, "knee_f": 0, "shoulder": 30, "elbow": 24}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0}, "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "hip_f": 0, "knee_f": 0, "shoulder": 8, "elbow": 14}}
+      }
+    },
+    {
+      "id": "downward-dog",
+      "name": {"en": "Downward-facing dog", "bs": "Pas licem prema dolje", "hr": "Pas licem prema dolje", "sr": "Pas licem nadole", "fr": "Chien tête en bas", "de": "Herabschauender Hund", "es": "Perro boca abajo"},
+      "short": {"en": "Downward dog", "bs": "Pas licem dolje", "hr": "Pas licem dolje", "sr": "Pas licem nadole", "fr": "Chien tête en bas", "de": "Herabschauender Hund", "es": "Perro boca abajo"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "flexibility",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "cooldown"],
+      "muscles": {"primary": ["hamstrings", "calves"], "secondary": ["shoulders", "lats", "back-extensors"]},
+      "joints": {"hip": ["flexion"], "ankle": ["dorsiflexion"], "shoulder": ["flexion"]},
+      "dose": {"mode": "hold", "sets": 2, "hold": 30, "rest": 15},
+      "equipment": ["mat"],
+      "level": 1,
+      "easier": "childs-pose",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Start on hands and knees, hands a little in front of your shoulders, toes tucked under.", "bs": "Počni na šakama i koljenima, šake malo ispred ramena, prsti stopala podvijeni.", "hr": "Počni na šakama i koljenima, šake malo ispred ramena, prsti stopala podvijeni.", "sr": "Počni na šakama i kolenima, šake malo ispred ramena, prsti stopala podvijeni.", "fr": "Commence à quatre pattes, mains un peu en avant des épaules, orteils retournés.", "de": "Starte im Vierfüßlerstand, Hände etwas vor den Schultern, Zehen aufgestellt.", "es": "Empieza en cuadrupedia, con las manos un poco por delante de los hombros y los dedos de los pies flexionados."},
+        "steps": [
+          {"en": "Lift your knees and push your hips up and back into an upside-down V. Press the floor away, let your head hang between your arms, and reach your heels toward the floor.", "bs": "Podigni koljena i gurni kukove gore i unazad u obrnuto slovo V. Odgurni pod, pusti da glava visi između ruku i spuštaj pete prema podu.", "hr": "Podigni koljena i gurni kukove gore i unatrag u obrnuto slovo V. Odgurni pod, pusti da glava visi između ruku i spuštaj pete prema podu.", "sr": "Podigni kolena i gurni kukove gore i unazad u obrnuto slovo V. Odgurni pod, pusti da glava visi između ruku i spuštaj pete ka podu.", "fr": "Décolle les genoux et pousse les hanches vers le haut et l’arrière pour former un V inversé. Repousse le sol, laisse la tête pendre entre les bras et dirige les talons vers le sol.", "de": "Heb die Knie an und schieb die Hüfte nach oben und hinten in ein umgedrehtes V. Drück den Boden weg, lass den Kopf zwischen den Armen hängen und streck die Fersen Richtung Boden.", "es": "Levanta las rodillas y empuja la cadera hacia arriba y atrás formando una V invertida. Empuja el suelo, deja la cabeza colgando entre los brazos y lleva los talones hacia el suelo."}
+        ],
+        "breathe": {"en": "Breathe slowly through your nose; let each exhale sink your heels a little.", "bs": "Diši polako kroz nos; sa svakim izdahom pusti da se pete malo spuste.", "hr": "Diši polako kroz nos; sa svakim izdahom pusti da se pete malo spuste.", "sr": "Diši polako kroz nos; sa svakim izdahom pusti da se pete malo spuste.", "fr": "Respire lentement par le nez ; à chaque expiration, laisse les talons descendre un peu.", "de": "Atme langsam durch die Nase; lass die Fersen mit jedem Ausatmen ein wenig sinken.", "es": "Respira despacio por la nariz; con cada exhalación, deja que los talones bajen un poco."},
+        "mistakes": [
+          {"en": "Rounding the back to force straight legs", "bs": "Zaobljavanje leđa da bi noge bile ispružene", "hr": "Zaobljavanje leđa da bi noge bile ispružene", "sr": "Zaobljavanje leđa da bi noge bile ispružene", "fr": "Arrondir le dos pour forcer les jambes tendues", "de": "Rücken runden, um die Beine durchzustrecken", "es": "Redondear la espalda para forzar las piernas estiradas"},
+          {"en": "Shrugging the shoulders to the ears", "bs": "Podizanje ramena prema ušima", "hr": "Podizanje ramena prema ušima", "sr": "Podizanje ramena ka ušima", "fr": "Hausser les épaules vers les oreilles", "de": "Schultern zu den Ohren ziehen", "es": "Encoger los hombros hacia las orejas"},
+          {"en": "Hands creeping forward", "bs": "Šake klize naprijed", "hr": "Šake klize naprijed", "sr": "Šake klize napred", "fr": "Mains qui glissent vers l’avant", "de": "Hände wandern nach vorn", "es": "Manos que se deslizan hacia delante"}
+        ],
+        "easier": {"en": "Keep your knees bent, or rest in child’s pose.", "bs": "Drži koljena savijena ili se odmori u položaju djeteta.", "hr": "Drži koljena savijena ili se odmori u položaju djeteta.", "sr": "Drži kolena savijena ili se odmori u položaju deteta.", "fr": "Garde les genoux pliés, ou repose-toi dans la posture de l’enfant.", "de": "Lass die Knie gebeugt oder ruh dich in der Kindhaltung aus.", "es": "Mantén las rodillas flexionadas o descansa en la postura del niño."},
+        "harder": {"en": "Pedal the feet, or lift one leg high behind you.", "bs": "Naizmjenično savijaj koljena kao da pedališ ili podigni jednu nogu visoko iza sebe.", "hr": "Naizmjenično savijaj koljena kao da voziš bicikl ili podigni jednu nogu visoko iza sebe.", "sr": "Naizmenično savijaj kolena kao da pedališ ili podigni jednu nogu visoko iza sebe.", "fr": "Pédale avec les pieds, ou lève une jambe haut derrière toi.", "de": "Tritt abwechselnd mit den Füßen oder heb ein Bein hoch nach hinten.", "es": "Pedalea con los pies o levanta una pierna bien alta por detrás."}
+      },
+      "anim": {
+        "floorWork": true,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.toe", "at": [120,-3]}, "footAbs": 28, "ik": {"hd": [262,-3]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Hips up and back", "bs": "Kukovi gore i unazad", "hr": "Kukovi gore i unatrag", "sr": "Kukovi gore i unazad", "fr": "Hanches en haut et en arrière", "de": "Hüfte hoch und zurück", "es": "Cadera arriba y atrás"}, "face": "puff", "pose": {"rot": 42, "torso": 76.8, "spine": 0, "neck": 18, "hip": 0, "knee": 0, "shoulder": 180, "elbow": 0}}
+        ]
+      }
+    },
+    {
+      "id": "standing-forward-fold",
+      "name": {"en": "Standing forward fold", "bs": "Pretklon u stojećem položaju", "hr": "Pretklon u stojećem položaju", "sr": "Pretklon u stojećem položaju", "fr": "Flexion avant debout", "de": "Vorwärtsbeuge im Stehen", "es": "Flexión hacia delante de pie"},
+      "short": {"en": "Forward fold", "bs": "Pretklon", "hr": "Pretklon", "sr": "Pretklon", "fr": "Flexion avant", "de": "Vorwärtsbeuge", "es": "Flexión adelante"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "flexibility",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "open",
+      "blocks": ["warmup", "cooldown"],
+      "muscles": {"primary": ["hamstrings"], "secondary": ["back-extensors", "calves"]},
+      "joints": {"hip": ["flexion"], "lumbar-spine": ["flexion"]},
+      "dose": {"mode": "hold", "sets": 1, "hold": 30, "rest": 15},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand with your feet hip-width apart, knees soft.", "bs": "Stani sa stopalima u širini kukova, koljena blago savijena.", "hr": "Stani sa stopalima u širini kukova, koljena blago savijena.", "sr": "Stani sa stopalima u širini kukova, kolena blago savijena.", "fr": "Debout, pieds à largeur de hanches, genoux souples.", "de": "Steh mit hüftbreiten Füßen, Knie locker.", "es": "Ponte de pie con los pies a la anchura de la cadera y las rodillas sueltas."},
+        "steps": [
+          {"en": "Fold forward from your hips and let your upper body and arms hang heavy toward the floor. Bend your knees as much as you need.", "bs": "Presavij se naprijed iz kukova i pusti da gornji dio tijela i ruke teško vise prema podu. Savij koljena koliko ti treba.", "hr": "Presavij se naprijed iz kukova i pusti da gornji dio tijela i ruke teško vise prema podu. Savij koljena koliko ti treba.", "sr": "Presavij se napred iz kukova i pusti da gornji deo tela i ruke teško vise ka podu. Savij kolena koliko ti treba.", "fr": "Penche-toi en avant depuis les hanches et laisse le haut du corps et les bras pendre lourdement vers le sol. Plie les genoux autant que nécessaire.", "de": "Beug dich aus der Hüfte nach vorn und lass Oberkörper und Arme schwer Richtung Boden hängen. Beug die Knie so weit wie nötig.", "es": "Inclínate hacia delante desde la cadera y deja que el tronco y los brazos cuelguen pesados hacia el suelo. Flexiona las rodillas todo lo que necesites."}
+        ],
+        "breathe": {"en": "Breathe slowly; relax a little more on each exhale.", "bs": "Diši polako; sa svakim izdahom se još malo opusti.", "hr": "Diši polako; sa svakim izdahom još se malo opusti.", "sr": "Diši polako; sa svakim izdahom se još malo opusti.", "fr": "Respire lentement ; relâche-toi un peu plus à chaque expiration.", "de": "Atme langsam; entspann dich mit jedem Ausatmen ein wenig mehr.", "es": "Respira despacio; relájate un poco más con cada exhalación."},
+        "mistakes": [
+          {"en": "Locking the knees", "bs": "Zaključavanje koljena", "hr": "Zaključavanje koljena", "sr": "Zaključavanje kolena", "fr": "Verrouiller les genoux", "de": "Knie durchdrücken", "es": "Bloquear las rodillas"},
+          {"en": "Bouncing to reach lower", "bs": "Trzanje radi dubljeg pretklona", "hr": "Trzanje radi dubljeg pretklona", "sr": "Trzanje radi dubljeg pretklona", "fr": "Faire des rebonds pour descendre plus bas", "de": "Wippen, um tiefer zu kommen", "es": "Dar rebotes para bajar más"},
+          {"en": "Holding your breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Luft anhalten", "es": "Contener la respiración"}
+        ],
+        "easier": {"en": "Bend your knees more, or rest your hands on your shins.", "bs": "Savij koljena više ili osloni šake na potkoljenice.", "hr": "Savij koljena više ili osloni šake na potkoljenice.", "sr": "Savij kolena više ili osloni šake na potkolenice.", "fr": "Plie davantage les genoux, ou pose les mains sur les tibias.", "de": "Beug die Knie stärker oder leg die Hände auf die Schienbeine.", "es": "Flexiona más las rodillas o apoya las manos en las espinillas."},
+        "harder": {"en": "Straighten your legs more and hold your elbows.", "bs": "Ispravi noge više i uhvati se za laktove.", "hr": "Ispravi noge više i uhvati se za laktove.", "sr": "Ispravi noge više i uhvati se za laktove.", "fr": "Tends davantage les jambes et tiens tes coudes.", "de": "Streck die Beine weiter und fass deine Ellbogen.", "es": "Estira más las piernas y sujétate los codos."}
+      },
+      "anim": {
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [200,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Fold and hang", "bs": "Presavij se, opusti", "hr": "Presavij se, opusti", "sr": "Presavij se, opusti", "fr": "Penche-toi et relâche", "de": "Beugen und hängen", "es": "Inclínate y cuelga"}, "face": "puff", "pose": {"torso": 104, "spine": 20, "neck": 8, "hip": 0, "knee": 14, "uaAbs": 96, "faAbs": 92}}
+        ]
+      }
+    },
+    {
+      "id": "chair-pose",
+      "name": {"en": "Chair pose", "bs": "Stolica", "hr": "Stolica", "sr": "Stolica", "fr": "Posture de la chaise", "de": "Stuhl", "es": "Postura de la silla"},
+      "short": {"en": "Chair pose", "bs": "Stolica", "hr": "Stolica", "sr": "Stolica", "fr": "Chaise", "de": "Stuhl", "es": "Silla"},
+      "discipline": "yoga",
+      "pattern": "squat",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["quadriceps", "glutes"], "secondary": ["shoulders", "back-extensors", "calves"]},
+      "joints": {"knee": [], "hip": [], "shoulder": []},
+      "dose": {"mode": "hold", "sets": 2, "hold": 20, "rest": 20},
+      "equipment": [],
+      "level": 2,
+      "easier": "wall-sit",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand with your feet together or hip-width apart.", "bs": "Stani sa stopalima skupljenim ili u širini kukova.", "hr": "Stani sa stopalima skupljenim ili u širini kukova.", "sr": "Stani sa stopalima skupljenim ili u širini kukova.", "fr": "Debout, pieds joints ou à largeur de hanches.", "de": "Steh mit geschlossenen oder hüftbreiten Füßen.", "es": "Ponte de pie con los pies juntos o a la anchura de la cadera."},
+        "steps": [
+          {"en": "Bend your knees and sit your hips back as if onto a chair, reaching your arms up alongside your ears. Keep your weight in your heels and hold.", "bs": "Savij koljena i spusti kukove unazad kao da sjedaš na stolicu, a ruke podigni uz uši. Drži težinu na petama i zadrži.", "hr": "Savij koljena i spusti kukove unatrag kao da sjedaš na stolicu, a ruke podigni uz uši. Drži težinu na petama i zadrži.", "sr": "Savij kolena i spusti kukove unazad kao da sedaš na stolicu, a ruke podigni uz uši. Drži težinu na petama i zadrži.", "fr": "Plie les genoux et recule les hanches comme pour t’asseoir sur une chaise, bras tendus vers le haut le long des oreilles. Garde le poids dans les talons et tiens.", "de": "Beug die Knie und schieb die Hüfte nach hinten, als würdest du dich auf einen Stuhl setzen, Arme neben den Ohren nach oben gestreckt. Halte das Gewicht auf den Fersen und halte.", "es": "Flexiona las rodillas y lleva la cadera atrás como si te sentaras en una silla, con los brazos estirados hacia arriba junto a las orejas. Mantén el peso en los talones y aguanta."}
+        ],
+        "breathe": {"en": "Breathe steadily; don’t hold your breath.", "bs": "Diši ravnomjerno; ne zadržavaj dah.", "hr": "Diši ravnomjerno; ne zadržavaj dah.", "sr": "Diši ravnomerno; ne zadržavaj dah.", "fr": "Respire régulièrement ; ne bloque pas ta respiration.", "de": "Atme gleichmäßig; halte nicht die Luft an.", "es": "Respira de forma constante; no contengas la respiración."},
+        "mistakes": [
+          {"en": "Knees drifting far past the toes", "bs": "Koljena prelaze daleko preko prstiju", "hr": "Koljena prelaze daleko preko prstiju", "sr": "Kolena prelaze daleko preko prstiju", "fr": "Genoux qui dépassent largement les orteils", "de": "Knie schieben sich weit über die Zehen", "es": "Rodillas que pasan mucho de las puntas de los pies"},
+          {"en": "Arching the lower back", "bs": "Izvijanje donjeg dijela leđa", "hr": "Izvijanje donjeg dijela leđa", "sr": "Izvijanje donjeg dela leđa", "fr": "Cambrer le bas du dos", "de": "Hohlkreuz machen", "es": "Arquear la zona lumbar"},
+          {"en": "Shoulders shrugged up", "bs": "Podignuta ramena", "hr": "Podignuta ramena", "sr": "Podignuta ramena", "fr": "Épaules haussées", "de": "Hochgezogene Schultern", "es": "Hombros encogidos"}
+        ],
+        "easier": {"en": "Sit higher, or keep your hands at your chest.", "bs": "Ne spuštaj se toliko nisko ili drži šake na grudima.", "hr": "Ne spuštaj se toliko nisko ili drži šake na prsima.", "sr": "Ne spuštaj se toliko nisko ili drži šake na grudima.", "fr": "Reste plus haut, ou garde les mains à la poitrine.", "de": "Bleib höher oder halte die Hände vor der Brust.", "es": "Quédate más arriba o mantén las manos en el pecho."},
+        "harder": {"en": "Sit lower and hold longer.", "bs": "Spusti se niže i zadrži duže.", "hr": "Spusti se niže i zadrži dulje.", "sr": "Spusti se niže i zadrži duže.", "fr": "Descends plus bas et tiens plus longtemps.", "de": "Geh tiefer und halte länger.", "es": "Baja más y mantén más tiempo."}
+      },
+      "anim": {
+        "floorWork": false,
+        "farShift": [7,-1],
+        "spec": {"pin": {"point": "n.an", "at": [205,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Sit back, arms up", "bs": "Sjedni unazad, ruke gore", "hr": "Sjedni unatrag, ruke gore", "sr": "Sedni unazad, ruke gore", "fr": "Hanches en arrière, bras en haut", "de": "Hüfte zurück, Arme hoch", "es": "Cadera atrás, brazos arriba"}, "face": "effort", "pose": {"torso": 34, "spine": 0, "neck": -20, "hip": 72, "knee": 84, "shoulder": 172, "elbow": 4}}
+        ]
+      }
+    },
+    {
+      "id": "warrior-1",
+      "name": {"en": "Warrior I", "bs": "Ratnik I", "hr": "Ratnik I", "sr": "Ratnik I", "fr": "Guerrier I", "de": "Krieger I", "es": "Guerrero I"},
+      "short": {"en": "Warrior I", "bs": "Ratnik I", "hr": "Ratnik I", "sr": "Ratnik I", "fr": "Guerrier I", "de": "Krieger I", "es": "Guerrero I"},
+      "discipline": "yoga",
+      "pattern": "lunge",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "unilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["quadriceps", "glutes"], "secondary": ["hip-flexors", "shoulders", "calves"]},
+      "joints": {"knee": [], "hip": [], "shoulder": []},
+      "dose": {"mode": "hold", "sets": 1, "hold": 30, "rest": 15},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": "warrior-3",
+      "howto": {
+        "setup": {"en": "Step one foot a long step back and turn its toes out a little, heel down.", "bs": "Zakorači jednom nogom dugim korakom unazad i okreni njene prste malo prema van, peta na podu.", "hr": "Zakorači jednom nogom dugim korakom unatrag i okreni njezine prste malo prema van, peta na podu.", "sr": "Zakorači jednom nogom dugim korakom unazad i okreni njene prste malo ka spolja, peta na podu.", "fr": "Fais un grand pas en arrière avec un pied et tourne ses orteils un peu vers l’extérieur, talon au sol.", "de": "Mach mit einem Fuß einen großen Schritt nach hinten und dreh die Zehen leicht nach außen, Ferse am Boden.", "es": "Da un paso largo hacia atrás con un pie y gira un poco los dedos hacia fuera, con el talón apoyado."},
+        "steps": [
+          {"en": "Bend your front knee over the ankle, square your hips to the front, and reach your arms up alongside your ears. Hold, then switch sides.", "bs": "Savij prednje koljeno iznad skočnog zgloba, okreni kukove prema naprijed i podigni ruke uz uši. Zadrži, pa promijeni stranu.", "hr": "Savij prednje koljeno iznad gležnja, okreni kukove prema naprijed i podigni ruke uz uši. Zadrži, pa promijeni stranu.", "sr": "Savij prednje koleno iznad skočnog zgloba, okreni kukove napred i podigni ruke uz uši. Zadrži, pa promeni stranu.", "fr": "Plie le genou avant au-dessus de la cheville, oriente les hanches vers l’avant et tends les bras vers le haut le long des oreilles. Tiens, puis change de côté.", "de": "Beug das vordere Knie über das Sprunggelenk, richte die Hüfte nach vorn aus und streck die Arme neben den Ohren nach oben. Halten, dann Seitenwechsel.", "es": "Flexiona la rodilla delantera sobre el tobillo, orienta la cadera hacia delante y estira los brazos hacia arriba junto a las orejas. Mantén y cambia de lado."}
+        ],
+        "breathe": {"en": "Breathe slowly and deeply.", "bs": "Diši polako i duboko.", "hr": "Diši polako i duboko.", "sr": "Diši polako i duboko.", "fr": "Respire lentement et profondément.", "de": "Atme langsam und tief.", "es": "Respira despacio y profundamente."},
+        "mistakes": [
+          {"en": "Front knee drifting inward", "bs": "Prednje koljeno pada prema unutra", "hr": "Prednje koljeno pada prema unutra", "sr": "Prednje koleno pada ka unutra", "fr": "Genou avant qui part vers l’intérieur", "de": "Vorderes Knie kippt nach innen", "es": "Rodilla delantera que se va hacia dentro"},
+          {"en": "Back heel lifting", "bs": "Zadnja peta se podiže", "hr": "Stražnja peta se podiže", "sr": "Zadnja peta se podiže", "fr": "Talon arrière qui se soulève", "de": "Hintere Ferse hebt ab", "es": "Talón trasero que se levanta"},
+          {"en": "Arching the lower back", "bs": "Izvijanje donjeg dijela leđa", "hr": "Izvijanje donjeg dijela leđa", "sr": "Izvijanje donjeg dela leđa", "fr": "Cambrer le bas du dos", "de": "Hohlkreuz machen", "es": "Arquear la zona lumbar"}
+        ],
+        "easier": {"en": "Take a shorter step or bend the front knee less.", "bs": "Napravi kraći korak ili manje savij prednje koljeno.", "hr": "Napravi kraći korak ili manje savij prednje koljeno.", "sr": "Napravi kraći korak ili manje savij prednje koleno.", "fr": "Fais un pas plus court ou plie moins le genou avant.", "de": "Mach einen kürzeren Schritt oder beug das vordere Knie weniger.", "es": "Da un paso más corto o flexiona menos la rodilla delantera."},
+        "harder": {"en": "Bend the front knee to 90 degrees.", "bs": "Savij prednje koljeno do 90 stepeni.", "hr": "Savij prednje koljeno do 90 stupnjeva.", "sr": "Savij prednje koleno do 90 stepeni.", "fr": "Plie le genou avant à 90 degrés.", "de": "Beug das vordere Knie auf 90 Grad.", "es": "Flexiona la rodilla delantera a 90 grados."}
+      },
+      "anim": {
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [248,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Front knee bent, arms up", "bs": "Prednje koljeno savijeno, ruke gore", "hr": "Prednje koljeno savijeno, ruke gore", "sr": "Prednje koleno savijeno, ruke gore", "fr": "Genou avant plié, bras en haut", "de": "Vorderes Knie gebeugt, Arme hoch", "es": "Rodilla delantera flexionada, brazos arriba"}, "face": "smile", "pose": {"torso": 0, "spine": -6, "neck": -8, "hip_n": 86, "knee_n": 86, "hip_f": -60, "knee_f": 0.2, "footAbs_f": -20, "shoulder": 174, "elbow": 4}}
+        ]
+      }
+    },
+    {
+      "id": "warrior-3",
+      "name": {"en": "Warrior III", "bs": "Ratnik III", "hr": "Ratnik III", "sr": "Ratnik III", "fr": "Guerrier III", "de": "Krieger III", "es": "Guerrero III"},
+      "short": {"en": "Warrior III", "bs": "Ratnik III", "hr": "Ratnik III", "sr": "Ratnik III", "fr": "Guerrier III", "de": "Krieger III", "es": "Guerrero III"},
+      "discipline": "yoga",
+      "pattern": "hinge",
+      "component": "balance",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "unilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["glutes", "hamstrings"], "secondary": ["back-extensors", "abdominals", "hip-abductors"]},
+      "joints": {"hip": [], "lumbar-spine": []},
+      "dose": {"mode": "hold", "sets": 1, "hold": 20, "rest": 15},
+      "equipment": [],
+      "level": 3,
+      "easier": "warrior-1",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand on one leg with a soft knee.", "bs": "Stani na jednu nogu, koljeno blago savijeno.", "hr": "Stani na jednu nogu, koljeno blago savijeno.", "sr": "Stani na jednu nogu, koleno blago savijeno.", "fr": "Tiens-toi sur une jambe, genou souple.", "de": "Steh auf einem Bein, Knie locker.", "es": "Ponte sobre una pierna con la rodilla suelta."},
+        "steps": [
+          {"en": "Tip forward from the hip while the other leg lifts behind you, until your body and back leg form a line parallel to the floor. Reach your arms forward and hold, then switch sides.", "bs": "Nagni se naprijed iz kuka dok se druga noga podiže iza tebe, sve dok tijelo i zadnja noga ne budu u liniji paralelnoj s podom. Ispruži ruke naprijed i zadrži, pa promijeni stranu.", "hr": "Nagni se naprijed iz kuka dok se druga noga podiže iza tebe, sve dok tijelo i stražnja noga ne budu u liniji paralelnoj s podom. Ispruži ruke naprijed i zadrži, pa promijeni stranu.", "sr": "Nagni se napred iz kuka dok se druga noga podiže iza tebe, sve dok telo i zadnja noga ne budu u liniji paralelnoj sa podom. Ispruži ruke napred i zadrži, pa promeni stranu.", "fr": "Bascule vers l’avant depuis la hanche pendant que l’autre jambe se lève derrière toi, jusqu’à ce que ton corps et ta jambe arrière forment une ligne parallèle au sol. Tends les bras vers l’avant et tiens, puis change de côté.", "de": "Kipp aus der Hüfte nach vorn, während sich das andere Bein hinter dir hebt, bis Körper und hinteres Bein eine Linie parallel zum Boden bilden. Streck die Arme nach vorn und halte, dann Seitenwechsel.", "es": "Inclínate hacia delante desde la cadera mientras la otra pierna sube por detrás, hasta que el cuerpo y la pierna trasera formen una línea paralela al suelo. Estira los brazos hacia delante y mantén; luego cambia de lado."}
+        ],
+        "breathe": {"en": "Breathe steadily; fix your eyes on a spot on the floor.", "bs": "Diši ravnomjerno; pogled usmjeri u jednu tačku na podu.", "hr": "Diši ravnomjerno; pogled usmjeri u jednu točku na podu.", "sr": "Diši ravnomerno; pogled usmeri u jednu tačku na podu.", "fr": "Respire régulièrement ; fixe ton regard sur un point au sol.", "de": "Atme gleichmäßig; richte den Blick auf einen Punkt am Boden.", "es": "Respira de forma constante; fija la mirada en un punto del suelo."},
+        "mistakes": [
+          {"en": "Hip of the lifted leg rolling open", "bs": "Kuk podignute noge se otvara u stranu", "hr": "Kuk podignute noge otvara se u stranu", "sr": "Kuk podignute noge se otvara u stranu", "fr": "Hanche de la jambe levée qui s’ouvre", "de": "Hüfte des gehobenen Beins dreht nach außen auf", "es": "Cadera de la pierna levantada que se abre"},
+          {"en": "Locking the standing knee", "bs": "Zaključavanje stajnog koljena", "hr": "Zaključavanje stajnog koljena", "sr": "Zaključavanje stajnog kolena", "fr": "Verrouiller le genou d’appui", "de": "Standknie durchdrücken", "es": "Bloquear la rodilla de apoyo"},
+          {"en": "Dropping the chest below the hips", "bs": "Spuštanje grudi ispod kukova", "hr": "Spuštanje prsa ispod kukova", "sr": "Spuštanje grudi ispod kukova", "fr": "Poitrine qui descend sous les hanches", "de": "Brust sinkt unter die Hüfte", "es": "Bajar el pecho por debajo de la cadera"}
+        ],
+        "easier": {"en": "Rest your hands on a chair, or tip forward less.", "bs": "Osloni šake na stolicu ili se manje nagni naprijed.", "hr": "Osloni šake na stolicu ili se manje nagni naprijed.", "sr": "Osloni šake na stolicu ili se manje nagni napred.", "fr": "Pose les mains sur une chaise, ou bascule moins vers l’avant.", "de": "Stütz die Hände auf einen Stuhl oder kipp weniger weit nach vorn.", "es": "Apoya las manos en una silla o inclínate menos hacia delante."},
+        "harder": {"en": "Hold longer, or reach your arms forward.", "bs": "Zadrži duže ili ispruži ruke naprijed.", "hr": "Zadrži dulje ili ispruži ruke naprijed.", "sr": "Zadrži duže ili ispruži ruke napred.", "fr": "Tiens plus longtemps, ou tends les bras vers l’avant.", "de": "Halte länger oder streck die Arme nach vorn.", "es": "Mantén más tiempo o estira los brazos hacia delante."}
+      },
+      "anim": {
+        "floorWork": false,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.an", "at": [200,-5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Body and leg in one line", "bs": "Tijelo i noga u liniji", "hr": "Tijelo i noga u liniji", "sr": "Telo i noga u liniji", "fr": "Corps et jambe alignés", "de": "Körper und Bein in einer Linie", "es": "Cuerpo y pierna en línea"}, "face": "effort", "pose": {"rot": 0, "torso": 84, "spine": 0, "neck": -6, "hip_n": 0, "knee_n": 6, "hip_f": -84, "knee_f": 0, "footAbs_f": 90, "shoulder": 180, "elbow": 0}}
+        ]
+      }
+    },
+    {
+      "id": "warrior-2",
+      "name": {"en": "Warrior II", "bs": "Ratnik II", "hr": "Ratnik II", "sr": "Ratnik II", "fr": "Guerrier II", "de": "Krieger II", "es": "Guerrero II"},
+      "short": {"en": "Warrior II", "bs": "Ratnik II", "hr": "Ratnik II", "sr": "Ratnik II", "fr": "Guerrier II", "de": "Krieger II", "es": "Guerrero II"},
+      "discipline": "yoga",
+      "pattern": "lunge",
+      "component": "strength",
+      "planes": ["frontal"],
+      "position": "standing",
+      "laterality": "unilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["quadriceps", "glutes"], "secondary": ["adductors", "hip-abductors", "shoulders"]},
+      "joints": {"knee": [], "hip": [], "shoulder": []},
+      "dose": {"mode": "hold", "sets": 1, "hold": 30, "rest": 15},
+      "equipment": [],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand with your feet wide apart. Turn one foot out to the side and the other slightly in.", "bs": "Stani sa stopalima široko razmaknutim. Okreni jedno stopalo u stranu, a drugo malo prema unutra.", "hr": "Stani sa stopalima široko razmaknutim. Okreni jedno stopalo u stranu, a drugo malo prema unutra.", "sr": "Stani sa stopalima široko razmaknutim. Okreni jedno stopalo u stranu, a drugo malo ka unutra.", "fr": "Debout, pieds bien écartés. Tourne un pied vers l’extérieur et l’autre légèrement vers l’intérieur.", "de": "Steh mit weit gegrätschten Füßen. Dreh einen Fuß zur Seite nach außen und den anderen leicht nach innen.", "es": "Ponte de pie con los pies bien separados. Gira un pie hacia fuera y el otro ligeramente hacia dentro."},
+        "steps": [
+          {"en": "Bend the knee of the turned-out leg over its ankle, stretch your arms out to the sides at shoulder height, and look past your front hand. Hold, then switch sides.", "bs": "Savij koljeno okrenute noge iznad skočnog zgloba, ispruži ruke u stranu u visini ramena i gledaj preko prednje šake. Zadrži, pa promijeni stranu.", "hr": "Savij koljeno okrenute noge iznad gležnja, ispruži ruke u stranu u visini ramena i gledaj preko prednje šake. Zadrži, pa promijeni stranu.", "sr": "Savij koleno okrenute noge iznad skočnog zgloba, ispruži ruke u stranu u visini ramena i gledaj preko prednje šake. Zadrži, pa promeni stranu.", "fr": "Plie le genou de la jambe tournée vers l’extérieur au-dessus de sa cheville, tends les bras sur les côtés à hauteur d’épaules et regarde au-delà de ta main avant. Tiens, puis change de côté.", "de": "Beug das Knie des ausgedrehten Beins über das Sprunggelenk, streck die Arme auf Schulterhöhe zur Seite und schau über die vordere Hand hinaus. Halten, dann Seitenwechsel.", "es": "Flexiona la rodilla de la pierna girada hacia fuera sobre su tobillo, estira los brazos a los lados a la altura de los hombros y mira más allá de la mano delantera. Mantén y cambia de lado."}
+        ],
+        "breathe": {"en": "Breathe slowly and deeply.", "bs": "Diši polako i duboko.", "hr": "Diši polako i duboko.", "sr": "Diši polako i duboko.", "fr": "Respire lentement et profondément.", "de": "Atme langsam und tief.", "es": "Respira despacio y profundamente."},
+        "mistakes": [
+          {"en": "Front knee caving inward", "bs": "Prednje koljeno upada prema unutra", "hr": "Prednje koljeno upada prema unutra", "sr": "Prednje koleno upada ka unutra", "fr": "Genou avant qui rentre vers l’intérieur", "de": "Vorderes Knie knickt nach innen", "es": "Rodilla delantera que se hunde hacia dentro"},
+          {"en": "Leaning the trunk toward the front leg", "bs": "Naginjanje trupa prema prednjoj nozi", "hr": "Naginjanje trupa prema prednjoj nozi", "sr": "Naginjanje trupa ka prednjoj nozi", "fr": "Pencher le buste vers la jambe avant", "de": "Oberkörper zum vorderen Bein neigen", "es": "Inclinar el tronco hacia la pierna delantera"},
+          {"en": "Arms drooping", "bs": "Ruke se spuštaju", "hr": "Ruke se spuštaju", "sr": "Ruke se spuštaju", "fr": "Bras qui tombent", "de": "Arme sinken ab", "es": "Brazos que caen"}
+        ],
+        "easier": {"en": "Narrow your stance and bend the knee less.", "bs": "Suzi stav i manje savij koljeno.", "hr": "Suzi stav i manje savij koljeno.", "sr": "Suzi stav i manje savij koleno.", "fr": "Rapproche les pieds et plie moins le genou.", "de": "Stell die Füße enger und beug das Knie weniger.", "es": "Junta un poco los pies y flexiona menos la rodilla."},
+        "harder": {"en": "Widen your stance and bend the front thigh toward parallel.", "bs": "Raširi stav i spuštaj prednju butinu dok ne bude skoro paralelna s podom.", "hr": "Raširi stav i spuštaj prednje bedro dok ne bude gotovo paralelno s podom.", "sr": "Raširi stav i spuštaj prednju butinu dok ne bude skoro paralelna sa podom.", "fr": "Écarte davantage les pieds et descends la cuisse avant vers l’horizontale.", "de": "Stell die Füße weiter auseinander und beug den vorderen Oberschenkel Richtung waagerecht.", "es": "Separa más los pies y baja el muslo delantero hacia la horizontal."}
+      },
+      "anim": {
+        "floorWork": false,
+        "spec": {"view": "front", "pin": {"point": "r.an", "at": [262,-5]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Knee over ankle, arms wide", "bs": "Koljeno iznad zgloba, ruke široko", "hr": "Koljeno iznad gležnja, ruke široko", "sr": "Koleno iznad zgloba, ruke široko", "fr": "Genou sur la cheville, bras écartés", "de": "Knie über Sprunggelenk, Arme weit", "es": "Rodilla sobre el tobillo, brazos abiertos"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip_r": 38, "knee_r": 38, "hip_l": 26.9, "knee_l": 0, "shoulder": 90, "elbow": 0}}
+        ]
+      }
+    },
+    {
+      "id": "triangle-pose",
+      "name": {"en": "Triangle pose", "bs": "Trokut", "hr": "Trokut", "sr": "Trougao", "fr": "Posture du triangle", "de": "Dreieck", "es": "Postura del triángulo"},
+      "short": {"en": "Triangle", "bs": "Trokut", "hr": "Trokut", "sr": "Trougao", "fr": "Triangle", "de": "Dreieck", "es": "Triángulo"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "flexibility",
+      "planes": ["frontal"],
+      "position": "standing",
+      "laterality": "unilateral",
+      "chain": "closed",
+      "blocks": ["main", "cooldown"],
+      "muscles": {"primary": ["hamstrings", "obliques"], "secondary": ["adductors", "hip-abductors"]},
+      "joints": {"lumbar-spine": ["lateral-flexion"], "hip": ["flexion", "abduction"]},
+      "dose": {"mode": "hold", "sets": 1, "hold": 30, "rest": 15},
+      "equipment": [],
+      "level": 2,
+      "easier": "standing-side-bend",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand with your feet wide apart, legs straight. Turn one foot out to the side.", "bs": "Stani sa stopalima široko razmaknutim, noge ispružene. Okreni jedno stopalo u stranu.", "hr": "Stani sa stopalima široko razmaknutim, noge ispružene. Okreni jedno stopalo u stranu.", "sr": "Stani sa stopalima široko razmaknutim, noge ispružene. Okreni jedno stopalo u stranu.", "fr": "Debout, pieds bien écartés, jambes tendues. Tourne un pied vers l’extérieur.", "de": "Steh mit weit gegrätschten Füßen, Beine gestreckt. Dreh einen Fuß zur Seite nach außen.", "es": "Ponte de pie con los pies bien separados y las piernas estiradas. Gira un pie hacia fuera."},
+        "steps": [
+          {"en": "Reach your arms out, then tip your trunk sideways over the turned-out leg. Rest your lower hand on your shin and reach the top arm to the ceiling. Hold, then switch sides.", "bs": "Ispruži ruke u stranu, a zatim nagni trup u stranu preko okrenute noge. Osloni donju šaku na potkoljenicu i ispruži gornju ruku prema plafonu. Zadrži, pa promijeni stranu.", "hr": "Ispruži ruke u stranu, a zatim nagni trup u stranu preko okrenute noge. Osloni donju šaku na potkoljenicu i ispruži gornju ruku prema stropu. Zadrži, pa promijeni stranu.", "sr": "Ispruži ruke u stranu, a zatim nagni trup u stranu preko okrenute noge. Osloni donju šaku na potkolenicu i ispruži gornju ruku ka plafonu. Zadrži, pa promeni stranu.", "fr": "Tends les bras sur les côtés, puis penche le buste sur le côté au-dessus de la jambe tournée vers l’extérieur. Pose la main du bas sur ton tibia et tends le bras du haut vers le plafond. Tiens, puis change de côté.", "de": "Streck die Arme zur Seite und neig dann den Oberkörper seitlich über das ausgedrehte Bein. Leg die untere Hand aufs Schienbein und streck den oberen Arm zur Decke. Halten, dann Seitenwechsel.", "es": "Estira los brazos a los lados e inclina el tronco lateralmente sobre la pierna girada hacia fuera. Apoya la mano de abajo en la espinilla y estira el brazo de arriba hacia el techo. Mantén y cambia de lado."}
+        ],
+        "breathe": {"en": "Breathe slowly into your side ribs.", "bs": "Diši polako u bočna rebra.", "hr": "Diši polako u bočna rebra.", "sr": "Diši polako u bočna rebra.", "fr": "Respire lentement dans les côtes latérales.", "de": "Atme langsam in die seitlichen Rippen.", "es": "Respira despacio hacia las costillas laterales."},
+        "mistakes": [
+          {"en": "Collapsing the chest toward the floor", "bs": "Propadanje grudi prema podu", "hr": "Propadanje prsa prema podu", "sr": "Propadanje grudi ka podu", "fr": "Poitrine qui s’affaisse vers le sol", "de": "Brust sackt Richtung Boden", "es": "Pecho que se hunde hacia el suelo"},
+          {"en": "Locking the front knee hard", "bs": "Snažno zaključavanje prednjeg koljena", "hr": "Snažno zaključavanje prednjeg koljena", "sr": "Snažno zaključavanje prednjeg kolena", "fr": "Verrouiller fort le genou avant", "de": "Vorderes Knie stark durchdrücken", "es": "Bloquear con fuerza la rodilla delantera"},
+          {"en": "Leaning on the lower hand", "bs": "Oslanjanje na donju šaku", "hr": "Oslanjanje na donju šaku", "sr": "Oslanjanje na donju šaku", "fr": "S’appuyer sur la main du bas", "de": "Sich auf die untere Hand stützen", "es": "Apoyar el peso en la mano de abajo"}
+        ],
+        "easier": {"en": "Rest your hand higher on your leg, or on a chair.", "bs": "Osloni šaku više na nogu ili na stolicu.", "hr": "Osloni šaku više na nogu ili na stolicu.", "sr": "Osloni šaku više na nogu ili na stolicu.", "fr": "Pose la main plus haut sur ta jambe, ou sur une chaise.", "de": "Leg die Hand höher am Bein ab oder auf einen Stuhl.", "es": "Apoya la mano más arriba en la pierna o en una silla."},
+        "harder": {"en": "Reach your lower hand toward the floor outside your foot.", "bs": "Spusti donju šaku prema podu s vanjske strane stopala.", "hr": "Spusti donju šaku prema podu s vanjske strane stopala.", "sr": "Spusti donju šaku ka podu sa spoljne strane stopala.", "fr": "Amène la main du bas vers le sol, à l’extérieur du pied.", "de": "Bring die untere Hand außen neben dem Fuß Richtung Boden.", "es": "Lleva la mano de abajo hacia el suelo, por fuera del pie."}
+      },
+      "anim": {
+        "floorWork": false,
+        "spec": {"view": "front", "pin": {"point": "l.an", "at": [132,-5]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Long sides, top arm up", "bs": "Izduženi bokovi, gornja ruka gore", "hr": "Izduženi bokovi, gornja ruka gore", "sr": "Izduženi bokovi, gornja ruka gore", "fr": "Côtés longs, bras en haut", "de": "Lange Flanken, Arm hoch", "es": "Costados largos, brazo arriba"}, "face": "puff", "pose": {"torso": 56, "spine": 8, "neck": -10, "hip_l": 26, "knee_l": 0, "hip_r": 26, "knee_r": 0, "uaAbs_l": -90, "faAbs_l": -90, "uaAbs_r": 90, "faAbs_r": 90}}
+        ]
+      }
+    },
+    {
+      "id": "tree-pose",
+      "name": {"en": "Tree pose", "bs": "Drvo", "hr": "Drvo", "sr": "Drvo", "fr": "Posture de l’arbre", "de": "Baum", "es": "Postura del árbol"},
+      "short": {"en": "Tree pose", "bs": "Drvo", "hr": "Drvo", "sr": "Drvo", "fr": "Arbre", "de": "Baum", "es": "Árbol"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "balance",
+      "planes": ["frontal"],
+      "position": "standing",
+      "laterality": "unilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["hip-abductors", "calves"], "secondary": ["glutes", "abdominals", "adductors"]},
+      "joints": {"ankle": [], "hip": ["abduction", "external-rotation"]},
+      "dose": {"mode": "hold", "sets": 1, "hold": 30, "rest": 10},
+      "equipment": [],
+      "level": 1,
+      "easier": "single-leg-stand",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand tall on one leg, eyes on a fixed spot.", "bs": "Stani uspravno na jednu nogu, pogled u jednu tačku.", "hr": "Stani uspravno na jednu nogu, pogled u jednu točku.", "sr": "Stani uspravno na jednu nogu, pogled u jednu tačku.", "fr": "Tiens-toi droit sur une jambe, regard sur un point fixe.", "de": "Steh aufrecht auf einem Bein, Blick auf einen festen Punkt.", "es": "Ponte erguido sobre una pierna, con la mirada en un punto fijo."},
+        "steps": [
+          {"en": "Place the sole of the other foot on the inside of your standing calf or thigh (not on the knee), let the knee open out, and press your palms together at your chest. Hold, then switch sides.", "bs": "Stavi taban druge noge na unutrašnju stranu lista ili butine stajne noge (ne na koljeno), pusti da se koljeno otvori u stranu i spoji dlanove ispred grudi. Zadrži, pa promijeni stranu.", "hr": "Stavi taban druge noge na unutarnju stranu lista ili bedra stajne noge (ne na koljeno), pusti da se koljeno otvori u stranu i spoji dlanove ispred prsa. Zadrži, pa promijeni stranu.", "sr": "Stavi taban druge noge na unutrašnju stranu lista ili butine stajne noge (ne na koleno), pusti da se koleno otvori u stranu i spoji dlanove ispred grudi. Zadrži, pa promeni stranu.", "fr": "Place la plante de l’autre pied à l’intérieur du mollet ou de la cuisse d’appui (pas sur le genou), laisse le genou s’ouvrir et joins les paumes devant la poitrine. Tiens, puis change de côté.", "de": "Setz die Fußsohle des anderen Beins an die Innenseite der Wade oder des Oberschenkels des Standbeins (nicht ans Knie), lass das Knie nach außen sinken und leg die Handflächen vor der Brust zusammen. Halten, dann Seitenwechsel.", "es": "Coloca la planta del otro pie en la cara interna de la pantorrilla o del muslo de apoyo (no en la rodilla), deja que la rodilla se abra y junta las palmas frente al pecho. Mantén y cambia de lado."}
+        ],
+        "breathe": {"en": "Breathe slowly and evenly.", "bs": "Diši polako i ravnomjerno.", "hr": "Diši polako i ravnomjerno.", "sr": "Diši polako i ravnomerno.", "fr": "Respire lentement et régulièrement.", "de": "Atme langsam und gleichmäßig.", "es": "Respira despacio y de forma regular."},
+        "mistakes": [
+          {"en": "Pressing the foot into the knee joint", "bs": "Pritiskanje stopala u zglob koljena", "hr": "Pritiskanje stopala u zglob koljena", "sr": "Pritiskanje stopala u zglob kolena", "fr": "Appuyer le pied contre l’articulation du genou", "de": "Fuß gegen das Kniegelenk drücken", "es": "Apoyar el pie contra la articulación de la rodilla"},
+          {"en": "Standing hip pushed out to the side", "bs": "Kuk stajne noge izbačen u stranu", "hr": "Kuk stajne noge izbačen u stranu", "sr": "Kuk stajne noge izbačen u stranu", "fr": "Hanche d’appui qui part sur le côté", "de": "Standhüfte schiebt zur Seite", "es": "Cadera de apoyo que se desplaza hacia el lado"},
+          {"en": "Holding your breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Luft anhalten", "es": "Contener la respiración"}
+        ],
+        "easier": {"en": "Rest your foot on your ankle with the toes on the floor, hands at your chest.", "bs": "Osloni stopalo na skočni zglob, s prstima na podu, a šake drži ispred grudi.", "hr": "Osloni stopalo na gležanj, s prstima na podu, a šake drži ispred prsa.", "sr": "Osloni stopalo na skočni zglob, sa prstima na podu, a šake drži ispred grudi.", "fr": "Pose le pied contre la cheville, orteils au sol, mains à la poitrine.", "de": "Setz den Fuß an den Knöchel, Zehen am Boden, Hände vor der Brust.", "es": "Apoya el pie en el tobillo con los dedos en el suelo y las manos en el pecho."},
+        "harder": {"en": "Reach your arms overhead, or close your eyes for a few breaths.", "bs": "Podigni ruke iznad glave ili zatvori oči na nekoliko udaha.", "hr": "Podigni ruke iznad glave ili zatvori oči na nekoliko udaha.", "sr": "Podigni ruke iznad glave ili zatvori oči na nekoliko udaha.", "fr": "Tends les bras au-dessus de la tête, ou ferme les yeux quelques respirations.", "de": "Streck die Arme über den Kopf oder schließ die Augen für ein paar Atemzüge.", "es": "Estira los brazos por encima de la cabeza o cierra los ojos durante unas respiraciones."}
+      },
+      "anim": {
+        "floorWork": false,
+        "spec": {"view": "front", "pin": {"point": "l.an", "at": [200,-5]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Foot to inner leg, hands together", "bs": "Stopalo uz nogu, dlanovi spojeni", "hr": "Stopalo uz nogu, dlanovi spojeni", "sr": "Stopalo uz nogu, dlanovi spojeni", "fr": "Pied à l’intérieur, mains jointes", "de": "Fuß ans Bein, Hände zusammen", "es": "Pie en la pierna, manos juntas"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip_l": 2, "knee_l": 0, "hip_r": 52, "knee_r": 124, "uaAbs_l": 116, "faAbs_l": -14, "uaAbs_r": 64, "faAbs_r": 194}}
+        ]
+      }
+    },
+    {
+      "id": "boat-pose",
+      "name": {"en": "Boat pose", "bs": "Čamac", "hr": "Čamac", "sr": "Čamac", "fr": "Posture du bateau", "de": "Boot", "es": "Postura del barco"},
+      "short": {"en": "Boat pose", "bs": "Čamac", "hr": "Čamac", "sr": "Čamac", "fr": "Bateau", "de": "Boot", "es": "Barco"},
+      "discipline": "yoga",
+      "pattern": "anti-extension",
+      "component": "stability",
+      "planes": ["sagittal"],
+      "position": "seated",
+      "laterality": "bilateral",
+      "chain": "open",
+      "blocks": ["main"],
+      "muscles": {"primary": ["abdominals", "hip-flexors"], "secondary": ["back-extensors", "quadriceps"]},
+      "joints": {"hip": [], "lumbar-spine": []},
+      "dose": {"mode": "hold", "sets": 2, "hold": 20, "rest": 20},
+      "equipment": ["mat"],
+      "level": 2,
+      "easier": "hollow-hold",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Sit with your knees bent and feet on the floor, hands behind your thighs.", "bs": "Sjedni sa savijenim koljenima i stopalima na podu, šake iza butina.", "hr": "Sjedni sa savijenim koljenima i stopalima na podu, šake iza bedara.", "sr": "Sedi sa savijenim kolenima i stopalima na podu, šake iza butina.", "fr": "Assis, genoux pliés et pieds au sol, mains derrière les cuisses.", "de": "Setz dich mit gebeugten Knien und Füßen am Boden, Hände hinter den Oberschenkeln.", "es": "Siéntate con las rodillas flexionadas y los pies en el suelo, con las manos detrás de los muslos."},
+        "steps": [
+          {"en": "Lean back with a long spine and lift your feet until your shins are parallel to the floor. Reach your arms forward and hold.", "bs": "Nagni se unazad s izduženom kičmom i podigni stopala dok potkoljenice ne budu paralelne s podom. Ispruži ruke naprijed i zadrži.", "hr": "Nagni se unatrag s izduženom kralježnicom i podigni stopala dok potkoljenice ne budu paralelne s podom. Ispruži ruke naprijed i zadrži.", "sr": "Nagni se unazad sa izduženom kičmom i podigni stopala dok potkolenice ne budu paralelne sa podom. Ispruži ruke napred i zadrži.", "fr": "Penche-toi en arrière, dos long, et lève les pieds jusqu’à ce que tes tibias soient parallèles au sol. Tends les bras vers l’avant et tiens.", "de": "Lehn dich mit langer Wirbelsäule zurück und heb die Füße, bis die Schienbeine parallel zum Boden sind. Streck die Arme nach vorn und halte.", "es": "Inclínate hacia atrás con la columna larga y levanta los pies hasta que las espinillas queden paralelas al suelo. Estira los brazos hacia delante y mantén."}
+        ],
+        "breathe": {"en": "Breathe steadily; don’t hold your breath.", "bs": "Diši ravnomjerno; ne zadržavaj dah.", "hr": "Diši ravnomjerno; ne zadržavaj dah.", "sr": "Diši ravnomerno; ne zadržavaj dah.", "fr": "Respire régulièrement ; ne bloque pas ta respiration.", "de": "Atme gleichmäßig; halte nicht die Luft an.", "es": "Respira de forma constante; no contengas la respiración."},
+        "mistakes": [
+          {"en": "Rounding the lower back", "bs": "Zaobljavanje donjeg dijela leđa", "hr": "Zaobljavanje donjeg dijela leđa", "sr": "Zaobljavanje donjeg dela leđa", "fr": "Arrondir le bas du dos", "de": "Unteren Rücken runden", "es": "Redondear la zona lumbar"},
+          {"en": "Sinking the chest", "bs": "Propadanje grudi", "hr": "Propadanje prsa", "sr": "Propadanje grudi", "fr": "Poitrine qui s’affaisse", "de": "Brust sinkt ein", "es": "Hundir el pecho"},
+          {"en": "Holding the breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Luft anhalten", "es": "Contener la respiración"}
+        ],
+        "easier": {"en": "Keep your hands behind your thighs, or your toes on the floor.", "bs": "Drži šake iza butina ili prste stopala na podu.", "hr": "Drži šake iza bedara ili prste stopala na podu.", "sr": "Drži šake iza butina ili prste stopala na podu.", "fr": "Garde les mains derrière les cuisses, ou les orteils au sol.", "de": "Lass die Hände hinter den Oberschenkeln oder die Zehen am Boden.", "es": "Mantén las manos detrás de los muslos o los dedos de los pies en el suelo."},
+        "harder": {"en": "Straighten your legs into a V.", "bs": "Ispruži noge u oblik slova V.", "hr": "Ispruži noge u oblik slova V.", "sr": "Ispruži noge u oblik slova V.", "fr": "Tends les jambes pour former un V.", "de": "Streck die Beine zu einem V.", "es": "Estira las piernas formando una V."}
+      },
+      "anim": {
+        "floorWork": true,
+        "farShift": [6,-2],
+        "spec": {"pin": {"point": "hip", "at": [200,-12]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Long spine, shins up", "bs": "Izdužena kičma, potkoljenice gore", "hr": "Izdužena kralježnica, potkoljenice gore", "sr": "Izdužena kičma, potkolenice gore", "fr": "Dos long, tibias en haut", "de": "Langer Rücken, Schienbeine hoch", "es": "Columna larga, espinillas arriba"}, "face": "effort", "pose": {"rot": 0, "torso": -40, "spine": 4, "neck": 16, "hip": 135, "knee": 45, "uaAbs": 0, "faAbs": 0, "footAbs": -20}}
+        ]
+      }
+    },
+    {
+      "id": "happy-baby",
+      "name": {"en": "Happy baby", "bs": "Sretna beba", "hr": "Sretna beba", "sr": "Srećna beba", "fr": "Bébé heureux", "de": "Glückliches Baby", "es": "Bebé feliz"},
+      "short": {"en": "Happy baby", "bs": "Sretna beba", "hr": "Sretna beba", "sr": "Srećna beba", "fr": "Bébé heureux", "de": "Glückliches Baby", "es": "Bebé feliz"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "flexibility",
+      "planes": ["sagittal"],
+      "position": "supine",
+      "laterality": "bilateral",
+      "chain": "open",
+      "blocks": ["cooldown"],
+      "muscles": {"primary": ["adductors", "glutes"], "secondary": ["hamstrings", "back-extensors"]},
+      "joints": {"hip": ["flexion", "abduction"]},
+      "dose": {"mode": "hold", "sets": 1, "hold": 40, "rest": 10},
+      "equipment": ["mat"],
+      "level": 1,
+      "easier": "knees-to-chest",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Lie on your back and draw your knees toward your armpits.", "bs": "Lezi na leđa i privuci koljena prema pazusima.", "hr": "Lezi na leđa i privuci koljena prema pazusima.", "sr": "Lezi na leđa i privuci kolena ka pazusima.", "fr": "Allongé sur le dos, ramène les genoux vers les aisselles.", "de": "Leg dich auf den Rücken und zieh die Knie Richtung Achseln.", "es": "Túmbate boca arriba y lleva las rodillas hacia las axilas."},
+        "steps": [
+          {"en": "Hold the outsides of your feet (or your shins) with the soles facing the ceiling, and gently pull your knees down toward the floor. Rock a little from side to side if it feels good.", "bs": "Uhvati vanjske strane stopala (ili potkoljenice) tako da tabani gledaju prema plafonu i nježno povlači koljena prema podu. Lagano se ljuljaj lijevo-desno ako ti prija.", "hr": "Uhvati vanjske strane stopala (ili potkoljenice) tako da tabani gledaju prema stropu i nježno povlači koljena prema podu. Lagano se njiši lijevo-desno ako ti godi.", "sr": "Uhvati spoljne strane stopala (ili potkolenice) tako da tabani gledaju ka plafonu i nežno povlači kolena ka podu. Lagano se ljuljaj levo-desno ako ti prija.", "fr": "Attrape l’extérieur des pieds (ou les tibias), plantes de pied vers le plafond, et tire doucement les genoux vers le sol. Balance-toi un peu d’un côté à l’autre si ça te fait du bien.", "de": "Fass die Außenkanten der Füße (oder die Schienbeine), Fußsohlen zur Decke, und zieh die Knie sanft Richtung Boden. Schaukel ein wenig von Seite zu Seite, wenn es sich gut anfühlt.", "es": "Sujeta el borde exterior de los pies (o las espinillas) con las plantas hacia el techo y lleva suavemente las rodillas hacia el suelo. Balancéate un poco de lado a lado si te sienta bien."}
+        ],
+        "breathe": {"en": "Breathe slowly into your belly.", "bs": "Diši polako u stomak.", "hr": "Diši polako u trbuh.", "sr": "Diši polako u stomak.", "fr": "Respire lentement dans le ventre.", "de": "Atme langsam in den Bauch.", "es": "Respira despacio hacia el abdomen."},
+        "mistakes": [
+          {"en": "Lifting the head and shoulders", "bs": "Podizanje glave i ramena", "hr": "Podizanje glave i ramena", "sr": "Podizanje glave i ramena", "fr": "Décoller la tête et les épaules", "de": "Kopf und Schultern anheben", "es": "Levantar la cabeza y los hombros"},
+          {"en": "Lower back peeling off the floor", "bs": "Donji dio leđa se odvaja od poda", "hr": "Donji dio leđa odvaja se od poda", "sr": "Donji deo leđa se odvaja od poda", "fr": "Bas du dos qui se décolle du sol", "de": "Unterer Rücken löst sich vom Boden", "es": "Zona lumbar que se despega del suelo"},
+          {"en": "Forcing the knees down", "bs": "Forsiranje koljena prema dolje", "hr": "Forsiranje koljena prema dolje", "sr": "Forsiranje kolena ka dole", "fr": "Forcer les genoux vers le bas", "de": "Knie nach unten zwingen", "es": "Forzar las rodillas hacia abajo"}
+        ],
+        "easier": {"en": "Hold your shins or the backs of your thighs.", "bs": "Drži potkoljenice ili zadnju stranu butina.", "hr": "Drži potkoljenice ili stražnju stranu bedara.", "sr": "Drži potkolenice ili zadnju stranu butina.", "fr": "Tiens tes tibias ou l’arrière de tes cuisses.", "de": "Halte die Schienbeine oder die Rückseite der Oberschenkel.", "es": "Sujétate las espinillas o la parte posterior de los muslos."},
+        "harder": {"en": "Straighten your legs a little more.", "bs": "Ispravi noge još malo.", "hr": "Ispravi noge još malo.", "sr": "Ispravi noge još malo.", "fr": "Tends un peu plus les jambes.", "de": "Streck die Beine etwas mehr.", "es": "Estira un poco más las piernas."}
+      },
+      "anim": {
+        "floorWork": true,
+        "farShift": [6,-2],
+        "spec": {"pin": {"point": "sh", "at": [140,-9]}, "ik": {"hd": [180,-53]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Knees toward the floor", "bs": "Koljena prema podu", "hr": "Koljena prema podu", "sr": "Kolena ka podu", "fr": "Genoux vers le sol", "de": "Knie Richtung Boden", "es": "Rodillas hacia el suelo"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 24, "hip": 130, "knee": 96, "shoulder": 0, "elbow": 0, "footAbs": -90}}
+        ]
+      }
+    },
+    {
+      "id": "corpse-pose",
+      "name": {"en": "Corpse pose (relaxation)", "bs": "Položaj mrtvaca (opuštanje)", "hr": "Položaj mrtvaca (opuštanje)", "sr": "Položaj mrtvaca (opuštanje)", "fr": "Posture du cadavre (relaxation)", "de": "Totenstellung (Entspannung)", "es": "Postura del cadáver (relajación)"},
+      "short": {"en": "Relaxation", "bs": "Opuštanje", "hr": "Opuštanje", "sr": "Opuštanje", "fr": "Relaxation", "de": "Entspannung", "es": "Relajación"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "flexibility",
+      "planes": ["sagittal"],
+      "position": "supine",
+      "laterality": "bilateral",
+      "chain": "open",
+      "blocks": ["cooldown"],
+      "muscles": {"primary": ["back-extensors"], "secondary": []},
+      "joints": {"lumbar-spine": []},
+      "dose": {"mode": "hold", "sets": 1, "hold": 90, "rest": 0},
+      "equipment": ["mat"],
+      "level": 1,
+      "easier": null,
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Lie on your back with your legs long and arms a little away from your sides, palms up.", "bs": "Lezi na leđa s ispruženim nogama i rukama malo odmaknutim od tijela, dlanovi prema gore.", "hr": "Lezi na leđa s ispruženim nogama i rukama malo odmaknutim od tijela, dlanovi prema gore.", "sr": "Lezi na leđa sa ispruženim nogama i rukama malo odmaknutim od tela, dlanovi nagore.", "fr": "Allongé sur le dos, jambes allongées et bras un peu écartés du corps, paumes vers le haut.", "de": "Leg dich auf den Rücken, Beine lang, Arme etwas vom Körper entfernt, Handflächen nach oben.", "es": "Túmbate boca arriba con las piernas estiradas y los brazos algo separados del cuerpo, con las palmas hacia arriba."},
+        "steps": [
+          {"en": "Close your eyes and let your whole body grow heavy. Let your breath be natural and simply rest.", "bs": "Zatvori oči i pusti da ti cijelo tijelo postane teško. Neka dah bude prirodan i jednostavno se odmaraj.", "hr": "Zatvori oči i pusti da ti cijelo tijelo postane teško. Neka dah bude prirodan i jednostavno se odmaraj.", "sr": "Zatvori oči i pusti da ti celo telo postane teško. Neka dah bude prirodan i jednostavno se odmaraj.", "fr": "Ferme les yeux et laisse tout ton corps devenir lourd. Laisse ta respiration naturelle et repose-toi, tout simplement.", "de": "Schließ die Augen und lass deinen ganzen Körper schwer werden. Lass den Atem natürlich fließen und ruh dich einfach aus.", "es": "Cierra los ojos y deja que todo tu cuerpo se vuelva pesado. Deja que la respiración sea natural y simplemente descansa."}
+        ],
+        "breathe": {"en": "Breathe naturally; notice each exhale.", "bs": "Diši prirodno; primijeti svaki izdah.", "hr": "Diši prirodno; primijeti svaki izdah.", "sr": "Diši prirodno; primeti svaki izdah.", "fr": "Respire naturellement ; observe chaque expiration.", "de": "Atme natürlich; nimm jedes Ausatmen wahr.", "es": "Respira con naturalidad; observa cada exhalación."},
+        "mistakes": [
+          {"en": "Fidgeting", "bs": "Vrpoljenje", "hr": "Vrpoljenje", "sr": "Vrpoljenje", "fr": "Gigoter", "de": "Herumzappeln", "es": "Moverse inquieto"},
+          {"en": "Holding tension in the jaw or shoulders", "bs": "Napetost u vilici ili ramenima", "hr": "Napetost u čeljusti ili ramenima", "sr": "Napetost u vilici ili ramenima", "fr": "Garder des tensions dans la mâchoire ou les épaules", "de": "Spannung im Kiefer oder in den Schultern halten", "es": "Mantener tensión en la mandíbula o los hombros"},
+          {"en": "Rushing to get up", "bs": "Žurba da ustaneš", "hr": "Žurba da ustaneš", "sr": "Žurba da ustaneš", "fr": "Se relever trop vite", "de": "Zu schnell aufstehen", "es": "Levantarse con prisa"}
+        ],
+        "easier": {"en": "Put a pillow under your knees.", "bs": "Stavi jastuk ispod koljena.", "hr": "Stavi jastuk ispod koljena.", "sr": "Stavi jastuk ispod kolena.", "fr": "Place un coussin sous tes genoux.", "de": "Leg ein Kissen unter die Knie.", "es": "Pon un cojín bajo las rodillas."},
+        "harder": {"en": "Stay for 3 to 5 minutes.", "bs": "Ostani 3 do 5 minuta.", "hr": "Ostani 3 do 5 minuta.", "sr": "Ostani 3 do 5 minuta.", "fr": "Reste 3 à 5 minutes.", "de": "Bleib 3 bis 5 Minuten liegen.", "es": "Quédate de 3 a 5 minutos."}
+      },
+      "anim": {
+        "floorWork": true,
+        "farShift": [6,-2],
+        "spec": {"pin": {"point": "sh", "at": [118,-9]}, "footAbs": -80},
+        "frames": [
+          {"t": 0, "label": {"en": "Rest and let go", "bs": "Odmori se i opusti", "hr": "Odmori se i opusti", "sr": "Odmori se i opusti", "fr": "Repose-toi et lâche prise", "de": "Ruhen und loslassen", "es": "Descansa y suelta"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 6, "hip": 0, "knee": 4, "shoulder": -2, "elbow": 0}}
+        ]
+      }
+    },
+    {
+      "id": "sun-salutation",
+      "name": {"en": "Sun salutation", "bs": "Pozdrav suncu", "hr": "Pozdrav suncu", "sr": "Pozdrav suncu", "fr": "Salutation au soleil", "de": "Sonnengruß", "es": "Saludo al sol"},
+      "short": {"en": "Sun salutation", "bs": "Pozdrav suncu", "hr": "Pozdrav suncu", "sr": "Pozdrav suncu", "fr": "Salutation au soleil", "de": "Sonnengruß", "es": "Saludo al sol"},
+      "discipline": "yoga",
+      "pattern": null,
+      "component": "mobility",
+      "planes": ["sagittal"],
+      "position": "standing",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["hamstrings", "shoulders"], "secondary": ["back-extensors", "chest", "triceps", "abdominals", "calves"]},
+      "joints": {"hip": ["flexion", "extension"], "lumbar-spine": ["flexion", "extension"], "shoulder": ["flexion"]},
+      "dose": {"mode": "reps", "sets": 1, "reps": 3, "rest": 15},
+      "equipment": ["mat"],
+      "level": 2,
+      "easier": "cat-cow",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Stand at the back of your mat, feet hip-width apart, arms by your sides. Move with your breath: one movement per inhale or exhale.", "bs": "Stani na zadnji kraj prostirke, stopala u širini kukova, ruke uz tijelo. Kreći se u ritmu daha: jedan pokret na svaki udah ili izdah.", "hr": "Stani na stražnji kraj podloge, stopala u širini kukova, ruke uz tijelo. Kreći se u ritmu daha: jedan pokret na svaki udah ili izdah.", "sr": "Stani na zadnji kraj prostirke, stopala u širini kukova, ruke uz telo. Kreći se u ritmu daha: jedan pokret na svaki udah ili izdah.", "fr": "Debout à l’arrière de ton tapis, pieds à largeur de hanches, bras le long du corps. Bouge au rythme de ta respiration : un mouvement par inspiration ou expiration.", "de": "Steh am hinteren Ende deiner Matte, Füße hüftbreit, Arme neben dem Körper. Beweg dich mit dem Atem: eine Bewegung pro Ein- oder Ausatmen.", "es": "Ponte de pie en la parte de atrás de la esterilla, con los pies a la anchura de la cadera y los brazos a los lados. Muévete con la respiración: un movimiento por cada inhalación o exhalación."},
+        "steps": [
+          {"en": "Inhale and reach your arms up overhead.", "bs": "Udahni i podigni ruke iznad glave.", "hr": "Udahni i podigni ruke iznad glave.", "sr": "Udahni i podigni ruke iznad glave.", "fr": "Inspire et tends les bras au-dessus de la tête.", "de": "Einatmen und die Arme über den Kopf strecken.", "es": "Inhala y estira los brazos por encima de la cabeza."},
+          {"en": "Exhale and fold forward, bending your knees as needed.", "bs": "Izdahni i presavij se naprijed, savijajući koljena koliko treba.", "hr": "Izdahni i presavij se naprijed, savijajući koljena koliko treba.", "sr": "Izdahni i presavij se napred, savijajući kolena koliko treba.", "fr": "Expire et penche-toi en avant, en pliant les genoux si besoin.", "de": "Ausatmen und nach vorn beugen, die Knie nach Bedarf gebeugt.", "es": "Exhala e inclínate hacia delante, flexionando las rodillas si lo necesitas."},
+          {"en": "Inhale and lift your chest halfway with a long back, hands on your shins.", "bs": "Udahni i podigni grudi do pola, izduženih leđa, šake na potkoljenicama.", "hr": "Udahni i podigni prsa do pola, izduženih leđa, šake na potkoljenicama.", "sr": "Udahni i podigni grudi do pola, izduženih leđa, šake na potkolenicama.", "fr": "Inspire et redresse la poitrine à mi-hauteur, dos long, mains sur les tibias.", "de": "Einatmen und die Brust mit langem Rücken halb anheben, Hände an den Schienbeinen.", "es": "Inhala y eleva el pecho a media altura con la espalda larga y las manos en las espinillas."},
+          {"en": "Exhale, plant your hands and walk or step back to a plank.", "bs": "Izdahni, osloni šake na pod i hodajući ili iskorakom pređi unazad u upor.", "hr": "Izdahni, osloni šake na pod i hodajući ili iskorakom prijeđi unatrag u upor.", "sr": "Izdahni, osloni šake na pod i hodajući ili iskorakom pređi unazad u upor.", "fr": "Expire, pose les mains au sol et recule en marchant ou d’un pas jusqu’à la planche.", "de": "Ausatmen, die Hände aufsetzen und nach hinten in den Stütz gehen oder springen.", "es": "Exhala, apoya las manos y camina o da un paso atrás hasta la plancha."},
+          {"en": "Lower your knees, chest and then your belly to the floor.", "bs": "Spusti koljena, grudi, a zatim stomak na pod.", "hr": "Spusti koljena, prsa, a zatim trbuh na pod.", "sr": "Spusti kolena, grudi, a zatim stomak na pod.", "fr": "Pose les genoux, la poitrine puis le ventre au sol.", "de": "Senk Knie, Brust und dann den Bauch auf den Boden.", "es": "Baja las rodillas, el pecho y luego el abdomen al suelo."},
+          {"en": "Inhale and lift your chest into a low cobra.", "bs": "Udahni i podigni grudi u nisku kobru.", "hr": "Udahni i podigni prsa u nisku kobru.", "sr": "Udahni i podigni grudi u nisku kobru.", "fr": "Inspire et lève la poitrine en cobra bas.", "de": "Einatmen und die Brust in eine niedrige Kobra heben.", "es": "Inhala y eleva el pecho en una cobra baja."},
+          {"en": "Exhale, tuck your toes and lift your hips into downward dog. Stay for a few breaths.", "bs": "Izdahni, podvij prste stopala i podigni kukove u psa licem prema dolje. Ostani nekoliko udaha.", "hr": "Izdahni, podvij prste stopala i podigni kukove u psa licem prema dolje. Ostani nekoliko udaha.", "sr": "Izdahni, podvij prste stopala i podigni kukove u psa licem nadole. Ostani nekoliko udaha.", "fr": "Expire, retourne les orteils et lève les hanches en chien tête en bas. Reste quelques respirations.", "de": "Ausatmen, die Zehen aufstellen und die Hüfte in den herabschauenden Hund heben. Bleib ein paar Atemzüge.", "es": "Exhala, flexiona los dedos de los pies y eleva la cadera al perro boca abajo. Quédate unas respiraciones."},
+          {"en": "Walk your feet to your hands and fold.", "bs": "Hodajući dovedi stopala do šaka i presavij se.", "hr": "Hodajući dovedi stopala do šaka i presavij se.", "sr": "Hodajući dovedi stopala do šaka i presavij se.", "fr": "Avance les pieds jusqu’aux mains et penche-toi en avant.", "de": "Geh mit den Füßen zu den Händen und beug dich nach vorn.", "es": "Camina con los pies hasta las manos e inclínate hacia delante."}
+        ],
+        "breathe": {"en": "Inhale as you open or lift, exhale as you fold or lower. Keep the breath slow.", "bs": "Udahni dok se otvaraš ili podižeš, izdahni dok se presavijaš ili spuštaš. Diši polako.", "hr": "Udahni dok se otvaraš ili podižeš, izdahni dok se presavijaš ili spuštaš. Diši polako.", "sr": "Udahni dok se otvaraš ili podižeš, izdahni dok se presavijaš ili spuštaš. Diši polako.", "fr": "Inspire quand tu t’ouvres ou te soulèves, expire quand tu te penches ou descends. Garde une respiration lente.", "de": "Einatmen beim Öffnen oder Heben, ausatmen beim Beugen oder Absenken. Atme langsam.", "es": "Inhala al abrirte o subir y exhala al inclinarte o bajar. Mantén la respiración lenta."},
+        "mistakes": [
+          {"en": "Rushing ahead of the breath", "bs": "Pokreti brži od daha", "hr": "Pokreti brži od daha", "sr": "Pokreti brži od daha", "fr": "Aller plus vite que la respiration", "de": "Dem Atem vorauseilen", "es": "Ir más rápido que la respiración"},
+          {"en": "Sagging hips in the plank", "bs": "Propadanje kukova u uporu", "hr": "Propadanje kukova u uporu", "sr": "Propadanje kukova u uporu", "fr": "Hanches qui s’affaissent dans la planche", "de": "Hüfte hängt im Stütz durch", "es": "Cadera hundida en la plancha"},
+          {"en": "Pushing too high in the cobra", "bs": "Previsoko podizanje u kobri", "hr": "Previsoko podizanje u kobri", "sr": "Previsoko podizanje u kobri", "fr": "Monter trop haut dans le cobra", "de": "In der Kobra zu hoch drücken", "es": "Subir demasiado en la cobra"}
+        ],
+        "easier": {"en": "Lower your knees in the plank, and keep your knees bent in the folds.", "bs": "Spusti koljena u uporu i drži koljena savijena u pretklonima.", "hr": "Spusti koljena u uporu i drži koljena savijena u pretklonima.", "sr": "Spusti kolena u uporu i drži kolena savijena u pretklonima.", "fr": "Pose les genoux dans la planche, et garde les genoux pliés dans les flexions avant.", "de": "Setz im Stütz die Knie ab und lass die Knie in den Vorwärtsbeugen gebeugt.", "es": "Apoya las rodillas en la plancha y mantenlas flexionadas en las flexiones hacia delante."},
+        "harder": {"en": "Lower slowly from plank in a push-up instead of dropping your knees.", "bs": "Iz upora se polako spusti kao u skleku umjesto da spustiš koljena.", "hr": "Iz upora se polako spusti kao u skleku umjesto da spustiš koljena.", "sr": "Iz upora se polako spusti kao u skleku umesto da spustiš kolena.", "fr": "Descends lentement de la planche comme une pompe au lieu de poser les genoux.", "de": "Senk dich aus dem Stütz langsam wie beim Liegestütz ab, statt die Knie abzusetzen.", "es": "Baja despacio desde la plancha como en una flexión en lugar de apoyar las rodillas."}
+      },
+      "anim": {
+        "cycle": 40,
+        "floorWork": true,
+        "farShift": [6,-1],
+        "spec": {"pin": {"point": "n.toe", "at": [110,-3]}, "ik": {"hd": [268,-3]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Inhale, reach up", "bs": "Udah, ruke gore", "hr": "Udah, ruke gore", "sr": "Udah, ruke gore", "fr": "Inspire, bras en haut", "de": "Einatmen, Arme hoch", "es": "Inhala, brazos arriba"}, "face": "smile", "pose": {"rot": 0, "torso": 0, "spine": -10, "neck": -14, "hip": 0, "knee": 0, "shoulder": 172, "elbow": 4, "footAbs": 0, "free_hd_n": 1, "free_hd_f": 1}},
+          {"t": 0.09, "label": {"en": "Exhale, fold", "bs": "Izdah, pretklon", "hr": "Izdah, pretklon", "sr": "Izdah, pretklon", "fr": "Expire, penche-toi", "de": "Ausatmen, beugen", "es": "Exhala, inclínate"}, "face": "puff", "pose": {"rot": 0, "torso": 104, "spine": 20, "neck": 8, "hip": 0, "knee": 14, "shoulder": -8, "elbow": 0, "footAbs": 0, "free_hd_n": 1, "free_hd_f": 1}},
+          {"t": 0.18, "label": {"en": "Inhale, half lift", "bs": "Udah, do pola gore", "hr": "Udah, do pola gore", "sr": "Udah, do pola gore", "fr": "Inspire, mi-hauteur", "de": "Einatmen, halb heben", "es": "Inhala, media altura"}, "face": "smile", "pose": {"rot": 0, "torso": 92, "spine": -4, "neck": -12, "hip": 0, "knee": 8, "shoulder": -2, "elbow": 0, "footAbs": 0, "free_hd_n": 1, "free_hd_f": 1}},
+          {"t": 0.28, "label": {"en": "Exhale, step back to plank", "bs": "Izdah, korak nazad u upor", "hr": "Izdah, korak natrag u upor", "sr": "Izdah, korak nazad u upor", "fr": "Expire, recule en planche", "de": "Ausatmen, zurück in den Stütz", "es": "Exhala, atrás a plancha"}, "face": "effort", "pose": {"rot": 73.1, "torso": -4, "spine": 0, "neck": -6, "hip": 0, "knee": 0, "shoulder": 0, "elbow": 0, "footAbs": 68, "free_hd_n": 0, "free_hd_f": 0}},
+          {"t": 0.4, "label": {"en": "Lower to the floor", "bs": "Spusti se na pod", "hr": "Spusti se na pod", "sr": "Spusti se na pod", "fr": "Descends au sol", "de": "Zum Boden absenken", "es": "Baja al suelo"}, "face": "effort", "pose": {"rot": 91, "torso": 0, "spine": -6, "neck": -20, "hip": 0, "knee": 0, "shoulder": 0, "elbow": 0, "footAbs": 170, "free_hd_n": 0, "free_hd_f": 0}},
+          {"t": 0.5, "label": {"en": "Inhale, cobra", "bs": "Udah, kobra", "hr": "Udah, kobra", "sr": "Udah, kobra", "fr": "Inspire, cobra", "de": "Einatmen, Kobra", "es": "Inhala, cobra"}, "face": "smile", "pose": {"rot": 91, "torso": -6, "spine": -46, "neck": -8, "hip": 0, "knee": 0, "shoulder": 0, "elbow": 0, "footAbs": 170, "free_hd_n": 0, "free_hd_f": 0}},
+          {"t": 0.6, "label": {"en": "Exhale, downward dog", "bs": "Izdah, pas licem dolje", "hr": "Izdah, pas licem dolje", "sr": "Izdah, pas licem nadole", "fr": "Expire, chien tête en bas", "de": "Ausatmen, herabschauender Hund", "es": "Exhala, perro boca abajo"}, "face": "puff", "pose": {"rot": 55.3, "torso": 52.8, "spine": 0, "neck": 18, "hip": 0, "knee": 0, "shoulder": 0, "elbow": 0, "footAbs": 28, "free_hd_n": 0, "free_hd_f": 0}},
+          {"t": 0.78, "label": {"en": "Walk forward and fold", "bs": "Hodaj naprijed, pretklon", "hr": "Hodaj naprijed, pretklon", "sr": "Hodaj napred, pretklon", "fr": "Avance et penche-toi", "de": "Nach vorn gehen und beugen", "es": "Camina adelante e inclínate"}, "face": "puff", "pose": {"rot": 0, "torso": 104, "spine": 20, "neck": 8, "hip": 0, "knee": 14, "shoulder": -8, "elbow": 0, "footAbs": 0, "free_hd_n": 1, "free_hd_f": 1}},
+          {"t": 0.88, "label": {"en": "Inhale, reach up", "bs": "Udah, ruke gore", "hr": "Udah, ruke gore", "sr": "Udah, ruke gore", "fr": "Inspire, bras en haut", "de": "Einatmen, Arme hoch", "es": "Inhala, brazos arriba"}, "face": "smile", "pose": {"rot": 0, "torso": 0, "spine": -10, "neck": -14, "hip": 0, "knee": 0, "shoulder": 172, "elbow": 4, "footAbs": 0, "free_hd_n": 1, "free_hd_f": 1}, "step": 0}
+        ],
+        "flow": true
       }
     }
   ]

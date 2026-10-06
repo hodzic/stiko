@@ -43,3 +43,10 @@ for(const ex of lib.exercises){
     }
   });
 }
+
+test('a partly freed limb blends between its free and IK positions',()=>{
+  const spec={pin:{point:'hip',at:[200,-95]},ik:{hd:[236,-120]}};
+  const pose={shoulder:0,elbow:0};
+  const ik=solve(spec,pose).n.hd, free=solve(spec,{...pose,free_hd_n:1}).n.hd, half=solve(spec,{...pose,free_hd_n:0.5}).n.hd;
+  near(ik[0],236); near(half[0],(ik[0]+free[0])/2); near(half[1],(ik[1]+free[1])/2);
+});

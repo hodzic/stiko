@@ -117,6 +117,40 @@
       ]
     },
     {
+      "id": "starter-morning-yoga",
+      "name": {"en": "Morning yoga", "bs": "Jutarnja joga", "hr": "Jutarnja joga", "sr": "Jutarnja joga", "fr": "Yoga du matin", "de": "Morgenyoga", "es": "Yoga matutino"},
+      "items": [
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "sun-salutation", "block": "warmup", "sets": 1, "reps": 3, "rest": 15},
+        {"ex": "warrior-1", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "warrior-2", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "triangle-pose", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "tree-pose", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "chair-pose", "block": "main", "sets": 2, "hold": 20, "rest": 20},
+        {"ex": "downward-dog", "block": "main", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "boat-pose", "block": "main", "sets": 2, "hold": 20, "rest": 20},
+        {"ex": "standing-forward-fold", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 10},
+        {"ex": "corpse-pose", "block": "cooldown", "sets": 1, "hold": 90, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-evening-yoga",
+      "name": {"en": "Evening yoga", "bs": "Večernja joga", "hr": "Večernja joga", "sr": "Večernja joga", "fr": "Yoga du soir", "de": "Abendyoga", "es": "Yoga para la noche"},
+      "items": [
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "thread-the-needle", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "downward-dog", "block": "main", "sets": 2, "hold": 30, "rest": 15},
+        {"ex": "hip-flexor-stretch", "block": "main", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "seated-hamstring-stretch", "block": "main", "sets": 1, "hold": 45, "rest": 10},
+        {"ex": "butterfly-stretch", "block": "main", "sets": 1, "hold": 45, "rest": 10},
+        {"ex": "knees-to-chest", "block": "cooldown", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "happy-baby", "block": "cooldown", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "figure-four-stretch", "block": "cooldown", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "corpse-pose", "block": "cooldown", "sets": 1, "hold": 120, "rest": 0}
+      ]
+    },
+    {
       "id": "starter-ski",
       "name": {"en": "Ski prep", "bs": "Priprema za skijanje", "hr": "Priprema za skijanje", "sr": "Priprema za skijanje", "fr": "Préparation ski", "de": "Ski-Vorbereitung", "es": "Preparación para esquí"},
       "sport": "alpine-skiing",

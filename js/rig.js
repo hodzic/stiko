@@ -115,7 +115,8 @@ function limbIK(J,s,limb,target,footAbs){
 }
 // Solve a pose: pin one point, optionally solve whole-body rotation to level a second point, optionally IK the legs.
 // spec.ik: ankle targets {an} for both legs or per side {an_n, an_f} / {an_l, an_r}; hand targets likewise {hd, hd_n, ...}.
-// A pose can release one limb from IK for that frame with free_an_n: 1 (etc.).
+// A pose can release one limb from IK for that frame with free_an_n: 1 (etc.); values in between blend the IK result
+// toward the free (FK) position, so a flow can move a hand from the air to the floor without a snap.
 export function solve(spec,pose){
   let p=pose;
   if(spec.level){
@@ -128,8 +129,11 @@ export function solve(spec,pose){
   }
   const J=place(spec,p);
   if(spec.ik) for(const s of SIDES[J.view]) for(const limb of ['an','hd']){
-    const t=spec.ik[limb+'_'+s]??spec.ik[limb];
-    if(t&&!p['free_'+limb+'_'+s]) limbIK(J,s,limb,atFloor(t),p['footAbs_'+s]??p.footAbs??spec.footAbs);
+    const t=spec.ik[limb+'_'+s]??spec.ik[limb], free=Math.min(1,Math.max(0,p['free_'+limb+'_'+s]||0));
+    if(!t||free>=1) continue;
+    const keys=limb==='an'?['kn','an','toe']:['el','hd'], fkPts=keys.map(k=>[...J[s][k]]);
+    limbIK(J,s,limb,atFloor(t),p['footAbs_'+s]??p.footAbs??spec.footAbs);
+    if(free>0) keys.forEach((k,i)=>{ J[s][k]=[J[s][k][0]+(fkPts[i][0]-J[s][k][0])*free, J[s][k][1]+(fkPts[i][1]-J[s][k][1])*free]; });
   }
   // lift raises the whole figure (jumps); slide moves it sideways (skater hops, side steps).
   if(p.lift||p.slide) shift(J,p.slide||0,-(p.lift||0));
