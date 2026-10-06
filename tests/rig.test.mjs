@@ -51,6 +51,18 @@ for(const ex of lib.exercises){
       }
     }
   });
+  test(`${ex.id}: elbows bend the way an elbow can`,()=>{
+    // Side view: elbow flexion from slight hyperextension to fully folded (lying on the forearms).
+    const ang=(a,b)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI, norm=d=>((d+540)%360)-180;
+    for(let ph=0;ph<1;ph+=0.05){
+      const J=solve(a.spec,framesAt(a.frames,ph,a.loopAdd).pose);
+      if(J.view!=='side') continue;
+      for(const s of ['n','f']){
+        const e=norm(ang(J.sh,J[s].el)-ang(J[s].el,J[s].hd));
+        assert.ok(e>=-30&&e<=178,`${s} elbow at ${e.toFixed(0)}°, phase ${ph.toFixed(2)}`);
+      }
+    }
+  });
   test(`${ex.id}: renders every phase`,()=>{
     for(let ph=0;ph<1;ph+=0.05){
       const fr=framesAt(a.frames,ph,a.loopAdd);
