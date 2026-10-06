@@ -112,6 +112,24 @@ export function attachNames(list,starters){
   return {list:out,changed};
 }
 
+// Bring stored starter sessions' exercises up to date when data/starters.json changes, unless the user edited them.
+// seen maps a starter id to the item list this device last got. Without a record (older devices), a stored list
+// counts as unedited when it is the new list minus the exercises the starter just gained (its "added" list).
+const itemKey=it=>[it.ex,it.block,it.sets,it.reps,it.time,it.hold,it.rest].join(':');
+export const itemsKey=items=>items.map(itemKey).join('|');
+export function refreshItems(list,starters,seen={},added={}){
+  let changed=false; const next={...seen};
+  const out=list.map(s=>{
+    const st=starters.find(x=>x.id===s.id); if(!st) return s;
+    const mine=itemsKey(s.items), theirs=itemsKey(st.items), was=seen[s.id];
+    const prev=was??itemsKey(st.items.filter(x=>!(added[s.id]||[]).includes(x.ex)));
+    if(mine===theirs){ next[s.id]=theirs; return s; }
+    if(mine!==prev) return s;  // edited by the user: keep it
+    next[s.id]=theirs; changed=true; return {...s,items:st.items.map(x=>({...x}))};
+  });
+  return {list:out,seen:next,changed};
+}
+
 // ---- Storage ----
 export const hasStore=()=>store.load(KEY,null)!==null;
 export const loadAll=()=>{ const v=store.load(KEY,[]); return Array.isArray(v)?v:[]; };

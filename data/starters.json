@@ -186,6 +186,7 @@
     },
     {
       "id": "starter-boxing",
+      "added": ["hooks", "slips"],
       "name": {"en": "Boxing conditioning", "bs": "Boksačka kondicija", "hr": "Boksačka kondicija", "sr": "Bokserska kondicija", "fr": "Préparation physique boxe", "de": "Box-Fitness", "es": "Acondicionamiento de boxeo"},
       "items": [
         {"ex": "jump-rope", "block": "warmup", "sets": 2, "time": 60, "rest": 30},
@@ -193,6 +194,8 @@
         {"ex": "boxing-bounce", "block": "warmup", "sets": 1, "time": 60, "rest": 15},
         {"ex": "jab-cross", "block": "main", "sets": 3, "time": 60, "rest": 30},
         {"ex": "uppercuts", "block": "main", "sets": 2, "time": 45, "rest": 30},
+        {"ex": "hooks", "block": "main", "sets": 2, "time": 45, "rest": 30},
+        {"ex": "slips", "block": "main", "sets": 2, "time": 45, "rest": 30},
         {"ex": "bob-and-weave", "block": "main", "sets": 2, "time": 45, "rest": 30},
         {"ex": "step-in-step-out", "block": "main", "sets": 2, "time": 45, "rest": 20},
         {"ex": "shadowboxing", "block": "main", "sets": 3, "time": 120, "rest": 60},

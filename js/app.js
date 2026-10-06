@@ -59,10 +59,13 @@ async function seed(){
   let offered=store.load('starters',null);
   if(!offered) offered=S.hasStore()?['starter-basics']:[];  // devices from before starter tracking had only this one
   try{
-    const r=S.parseImport(await (await fetch('data/starters.json')).text(),lib.byId,getLang());
+    const text=await (await fetch('data/starters.json')).text(), r=S.parseImport(text,lib.byId,getLang());
+    const added=Object.fromEntries((JSON.parse(text).sessions||[]).filter(x=>x.added).map(x=>[x.id,x.added]));
     const fresh=(r.sessions||[]).filter(x=>!offered.includes(x.id));
-    const {list,changed}=S.attachNames(S.loadAll(),r.sessions||[]);
-    if(fresh.length||changed||!S.hasStore()) S.saveAll([...list,...fresh]);
+    const named=S.attachNames(S.loadAll(),r.sessions||[]);
+    const upd=S.refreshItems(named.list,r.sessions||[],store.load('starterItems',{}),added);
+    if(fresh.length||named.changed||upd.changed||!S.hasStore()) S.saveAll([...upd.list,...fresh]);
+    store.save('starterItems',upd.seen);
     offered=[...offered,...fresh.map(x=>x.id)];
   }catch(e){ if(!S.hasStore()) S.saveAll([]); }
   store.save('starters',offered);
