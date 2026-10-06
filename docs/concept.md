@@ -8,15 +8,17 @@ An offline-capable phone app that builds balanced home workouts from a classifie
 
 Inspired by Hinge Health's guided routines, but positioned as general fitness, not physical therapy. The library's classification borrows the vocabulary of exercise science and kinesiology, so it makes sense to trainers and physical therapists, but the app gives no clinical advice. First user is Dino; then friends and others who want to exercise on their own.
 
+Beyond general strength and mobility, the library covers sport preparation (skiing, hiking, cycling, mountain biking, swimming, kayaking), pull-up progressions, yoga, healthy aging (strength and balance for fall prevention), tai chi and qigong, and boxing conditioning, all with the same stick figure and the same session player.
+
 ## MVP scope
 
 The MVP is an offline session runner: build named sessions from the library, edit them, and play them. No AI at run time, no API key, no backend.
 
 | Screen | Purpose |
 | --- | --- |
-| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time; start, create, edit, duplicate, delete; export a backup, import |
-| Session editor | Name; warm-up, main and cool-down blocks; add exercises from the library, reorder them, set sets, reps or hold, and rest per item; time estimate per block; main-block pattern coverage; share |
-| Library | Browse and filter exercises by the taxonomy; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
+| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time, filterable by sport; start, create, edit, duplicate, delete; export a backup, import |
+| Session editor | Name and optional sport; warm-up, main and cool-down blocks; add exercises from the library, reorder them, set sets, reps or hold, and rest per item; time estimate per block; main-block pattern coverage; share |
+| Library | Browse and filter exercises by style (yoga, tai chi and qigong, boxing), movement pattern, fitness component and body area, with more filters behind a toggle; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |
 
 Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Eighteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, Healthy aging (strength and balance), Tai chi and qigong basics, Boxing conditioning, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
@@ -34,18 +36,29 @@ Exercises are classified on several dimensions taken from exercise science and k
 | Joint actions | Joint → actions, e.g. hip: extension; joints held still during isometric work | Kinesiology |
 | Plane of motion | sagittal, frontal, transverse | Anatomical planes |
 | Position | standing, seated, kneeling, half-kneeling, hands and knees, on back, face down, on side, hanging | |
-| Sides | both together, one side at a time, alternating | |
+| Sides | both together, one side at a time, alternating. Unilateral exercises run one side, then "Switch sides" and the other side, with Stiko mirrored | |
 | Kinetic chain | closed, open | |
 | Routine fit | warm-up, main, cool-down | Routine structure below |
-| Dosing mode | reps × sets, timed hold, timed movement (cardio and mobility rounds) | |
-| Sides | Unilateral exercises run one side, then "Switch sides" and the other side, with Stiko mirrored | |
+| Dosing mode | reps × sets, timed hold, timed movement (cardio, mobility, tai chi). A flow (sun salutation, shadowboxing round) strings several poses into one round with a spoken cue for each | |
 | Equipment | none, band, dumbbell, mat, chair, wall, step, pull-up bar | |
-| Discipline | yoga, tai chi and qigong, boxing (optional) | |
+| Discipline (style) | yoga, tai chi and qigong, boxing (optional) | |
 | Level | 1–3, with links to an easier and a harder variant | Progressions and regressions |
 
 How hard an exercise is comes from its dose, not from the exercise itself, so strength and endurance aren't separate categories. Isolated mobility and stretching work may have no movement pattern; it's described by its joint actions instead.
 
 The library has 117 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
+
+| Group | Exercises | Examples |
+| --- | --- | --- |
+| General strength, mobility, stretching and balance | 71 | squat, glute bridge, push-up variations, band rows, planks, cat-cow, stretches, single-leg stand |
+| Sport prep | 11 | step-down, skater hop, pogo hops, lateral band walk, straight-arm pulldown, hinge hold |
+| Pull-up bar | 6 | dead hang → scapular pull-up → negative → band-assisted → pull-up; hanging knee raise |
+| Yoga | 12 | downward dog, warriors I–III, triangle, tree, boat, happy baby, corpse pose, sun salutation flow |
+| Healthy aging | 4 | toe raise and hamstring curl holding a chair, seated knee extension, side-stepping |
+| Tai chi and qigong | 6 | raising the arms, holding up the sky, drawing the bow, separating heaven and earth, cloud hands, golden rooster |
+| Boxing conditioning | 7 | jab-cross, uppercuts, bob and weave, footwork, shadowboxing round, jump rope |
+
+Seven existing poses (cat-cow, cobra, child's pose and others) are also tagged as yoga. Sport is a property of sessions, not exercises: a squat isn't a skiing exercise, but a session can be built for skiing.
 
 ```json
 { "id": "glute-bridge",
@@ -77,23 +90,26 @@ Every routine uses a fixed three-part shape in the MVP.
 2. Main block, 15–30 min: strength and stability, covering 4–6 movement-pattern families out of squat, hinge, lunge, push, pull and core. The editor shows which are covered and which are missing.
 3. Cool-down, 3–5 min: static stretches, 30–60 s holds.
 
+Yoga, tai chi and boxing sessions use the same three blocks; the pattern-coverage check matters mainly for strength sessions.
+
 ## Stiko
 
 Stiko is a rigged SVG character, not a set of drawings: one renderer animates every exercise from a few keyframes of joint angles stored in the library.
 
 - **Skeleton:** hip root; torso, neck, head; per side upper arm, forearm, thigh, shin, foot. Each joint is an angle relative to its parent.
-- **Animation:** 2–4 keyframes per exercise (e.g. top and bottom of a squat), tweened with easing; tempo comes from the dose (reps, holds, intervals).
+- **Animation:** 2–4 keyframes per exercise (e.g. top and bottom of a squat), up to about 11 for a flow, tweened with easing; tempo comes from the dose (reps, holds, intervals).
 - **Look:** big round head (about 1/3 of height), dot eyes, sweatband, expression per phase (effort, smile, puffed cheeks on holds), idle sway and blink; far-side limbs drawn lighter.
 - **Views:** side by default; front view for frontal-plane moves (jacks, lateral lunge, side plank, lateral raise).
-- **Floor work:** root rotation, a bendable spine, pinning and two-bone IK for hands and feet, so contacts don't slide or sink.
+- **Floor work:** root rotation, a bendable spine, pinning and two-bone IK for hands and feet, so contacts don't slide or sink. A limb can blend between free and IK-held, so a flow moves the hands from the air to the floor without a snap. The whole figure can lift (jumps) and slide sideways (skater hops, side steps, footwork).
 - **Props:** dumbbell, band, mat, chair, wall, step and a doorway pull-up bar as SVG parts.
+- **Limits:** the side and front views can't show a limb turning toward or away from the camera, so hooks, slips, shoulder external rotation and waist turns are left out or simplified, and in front view the big head hides arms raised straight overhead. A three-quarter view would remove most of these limits.
 - **Quality control:** a pose-check debug view in the player, a contact-sheet tool that renders every keyframe for review, and tests that catch unreachable hand or foot targets and limbs through the floor. Every animation gets a visual review, since a bad pose teaches bad form.
 
 ## Role of Claude
 
 In the MVP Claude is a build-time tool only; the app itself never calls Claude.
 
-- **Build time (MVP):** writes the library (selection, classification, dosing, cues, progressions), authors Stiko keyframes, and writes a few starter sessions shipped with the app.
+- **Build time (MVP):** writes the library (selection, classification, dosing, cues, progressions), authors and reviews Stiko keyframes on contact sheets, translates all text into the seven languages, and writes the starter sessions shipped with the app.
 - **Later, optional:** a run-time coach that generates and adjusts sessions from goals and feedback. This needs a small API proxy, since a static page can't hold an API key.
 
 ## Tech stack
@@ -115,7 +131,7 @@ The [Stiko prototype](https://claude.ai/artifact/Ne2xNtAUdnKwNEcynjomXz) settled
 - **Layout:** portrait stacks Stiko above the instructions; landscape or wide screens show them side by side.
 - **Player controls:** tap Stiko to pause or resume; speed 0.5×, 1×, 2×; scrub through one rep; a 5-second "Get ready" countdown before each exercise. In a session, an exercise's rest becomes the countdown to the next one, and the screen stays awake while playing.
 - **Read aloud:** reads setup, steps and breathing with the phone's text-to-speech, highlighting each step and showing its pose.
-- **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "Next" between exercises, "Great work" at the end. Every countdown (get ready, rest, switch sides, holds, timed rounds) speaks the tens ("twenty", "ten").
+- **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "Next" between exercises, "Great work" at the end. Flows speak their step cues every round instead ("Inhale, reach up", "Jab, cross"). Every countdown (get ready, rest, switch sides, holds, timed rounds) speaks the tens ("twenty", "ten").
 - **Sounds:** generated with Web Audio, no audio files: rep tick, a subtle tick on every countdown second, 3-2-1 beeps, start tone, set-complete chime, and a two-note chime on the tens when voice is off. Sound and voice toggle separately.
 - **Pose check:** a debug toggle showing joints and angles, the seed of the pose editor.
 - **Constraints found:** audio and speech need a first tap to unlock; speech is missing in the Claude app's embedded view but works in Chrome and in an installed PWA; Bosnian, Croatian and Serbian speech use any of the three voices the phone has (they're mutually intelligible), and German, Spanish and French speech need a voice for that language.
@@ -127,6 +143,8 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 - **Liability:** frame as fitness, not rehab; a disclaimer is shown in the library; the app advises seeing a professional for pain or injury. The kinesiology classification is descriptive, not a prescription. Joint-load flags (e.g. "avoid knee load") would be useful but edge toward clinical advice, so they wait for a deliberate decision.
 - **Animation accuracy:** wrong poses teach bad form; mitigated by the pose editor and review.
 - **Classification and translation accuracy:** muscles and joint actions should be checked by a trainer or physiotherapist, and the translated exercise text by native speakers, ideally with fitness background.
+- **Style authenticity:** yoga, tai chi and boxing content should be checked by an instructor of each; the boxing exercises are conditioning, not technique coaching.
+- **Older users:** the healthy-aging exercises use a chair or counter for support and advise starting small; falls are the main risk, so the wording stays cautious.
 - **Scope creep:** nothing beyond the four MVP screens until they're used.
 
 1. Stiko prototype: squat, glute bridge, plank, with instructions, EN/BS, voice and sounds (done).
@@ -134,10 +152,10 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 3. Sessions list and session editor, on-device storage, JSON export and import (done).
 4. Kinesiology-based exercise taxonomy, with filters, a Kinesiology panel and pattern coverage (done).
 5. Full library of 71 exercises with animations and classification, plus starter sessions (done).
-6. Use it: Dino and friends try the sessions; fix poses and copy from feedback; trainer or physiotherapist review of the classification and Bosnian terms.
+6. Use it (next): Dino and friends try the sessions; fix poses and copy from feedback; trainer or physiotherapist review of the classification; native-speaker review of the translations; instructor review of the yoga, tai chi and boxing content.
 7. Sport prep: a sport tag on sessions, starter sessions for six sports, and 11 exercises they need (done).
 8. Pull-up bar: dead hang → scapular pull-up → negative → band-assisted → pull-up, plus the hanging knee raise and a "Road to a pull-up" session (done).
 9. Yoga: a Yoga style filter, 11 poses, a breath-paced sun salutation flow, and Morning and Evening yoga sessions (done).
 10. Healthy aging and tai chi: Otago-style strength and balance exercises (toe raise, hamstring curl and knee extension holding a chair, side-stepping) and six qigong / tai chi movements, with a session for each (done).
 11. Boxing conditioning: stance bounce, jab-cross, uppercuts, bob and weave, footwork, shadowboxing rounds and jump rope, with a session (done). Hooks and slips need a 3/4 view and wait for it.
-12. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
+12. Later: three-quarter view for Stiko (hooks, slips, rotations), workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
