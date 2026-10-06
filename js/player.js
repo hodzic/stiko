@@ -94,7 +94,7 @@ function kinHTML(ex){
   return rows.filter(r=>r[1]).map(([k,v])=>`<dt>${esc(U(k))}</dt><dd>${esc(v)}</dd>`).join('');
 }
 
-// queue: [{ex, dose, block?}]; opts: {back, backLabel, title, byId}
+// queue: [{ex, dose, block?}]; opts: {back, backLabel, title (a function, so it follows the language), byId}
 export function mountPlayer(root,queue,opts){
   root.innerHTML=TPL;
   const $=id=>root.querySelector('#'+id);
@@ -138,13 +138,13 @@ export function mountPlayer(root,queue,opts){
     $('prevBtn').disabled=idx===0; $('nextBtn').disabled=idx===queue.length-1;
     if(multi){
       const q=queue[idx], nx=queue[idx+1];
-      $('progTitle').textContent=opts.title;
+      $('progTitle').textContent=opts.title();
       $('progTxt').textContent=`${U('exOf')(idx+1,queue.length)}${q.block?' · '+tagLabel('block',q.block):''}`;
       $('nextTxt').textContent=nx?U('nextUp')(T(nx.ex.short)):'';
     }
     $('readTxt').textContent=A.isReading()?U('stop'):U('read');
     updateVoiceNote(); activeStep=-2; setPlaying(playing);
-    document.title=`${multi?opts.title:T(ex.short)} · Stiko`;
+    document.title=`${multi?opts.title():T(ex.short)} · Stiko`;
   }
   function updateVoiceNote(){
     const n=$('voiceNote');

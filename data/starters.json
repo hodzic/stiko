@@ -98,6 +98,25 @@
       ]
     },
     {
+      "id": "starter-pull-up",
+      "name": {"en": "Road to a pull-up", "bs": "Put do zgiba", "hr": "Put do zgiba", "sr": "Put do zgiba", "fr": "Objectif traction", "de": "Weg zum Klimmzug", "es": "Camino a la dominada"},
+      "items": [
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "wall-slide", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "dead-hang", "block": "main", "sets": 3, "hold": 20, "rest": 40},
+        {"ex": "scapular-pull-up", "block": "main", "sets": 2, "reps": 8, "rest": 40},
+        {"ex": "negative-pull-up", "block": "main", "sets": 3, "reps": 4, "rest": 60},
+        {"ex": "band-pulldown", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "knee-push-up", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "hanging-knee-raise", "block": "main", "sets": 2, "reps": 8, "rest": 45},
+        {"ex": "hollow-hold", "block": "main", "sets": 2, "hold": 20, "rest": 30},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 10},
+        {"ex": "triceps-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
       "id": "starter-ski",
       "name": {"en": "Ski prep", "bs": "Priprema za skijanje", "hr": "Priprema za skijanje", "sr": "Priprema za skijanje", "fr": "Préparation ski", "de": "Ski-Vorbereitung", "es": "Preparación para esquí"},
       "sport": "alpine-skiing",

@@ -33,7 +33,7 @@
           {"en": "Chest dropping or back rounding", "bs": "Grudi padaju ili se leđa savijaju", "hr": "Prsa padaju ili se leđa savijaju", "sr": "Grudi padaju ili se leđa savijaju", "fr": "Poitrine qui tombe ou dos qui s’arrondit", "de": "Brust sinkt oder Rücken wird rund", "es": "Pecho que cae o espalda redondeada"}
         ],
         "easier": {"en": "Squat to a chair and tap it lightly each rep.", "bs": "Spuštaj se do stolice i lagano je dodirni pri svakom ponavljanju.", "hr": "Spuštaj se do stolice i lagano je dotakni pri svakom ponavljanju.", "sr": "Spuštaj se do stolice i lagano je dodirni pri svakom ponavljanju.", "fr": "Descends jusqu’à une chaise et touche-la légèrement à chaque répétition.", "de": "Geh bis zu einem Stuhl hinunter und tippe ihn bei jeder Wiederholung leicht an.", "es": "Haz la sentadilla hasta una silla y tócala suavemente en cada repetición."},
-        "harder": {"en": "Hold a dumbbell at your chest (goblet squat), or take 3 seconds to lower.", "bs": "Drži bučicu na grudima (goblet čučanj) ili se spuštaj 3 sekunde.", "hr": "Drži bučicu na prsima (goblet čučanj) ili se spuštaj 3 sekunde.", "sr": "Drži teg na grudima (goblet čučanj) ili se spuštaj 3 sekunde.", "fr": "Tiens un haltère contre ta poitrine (goblet squat) ou descends en 3 secondes.", "de": "Halte eine Kurzhantel vor der Brust (Goblet Squat) oder senke dich 3 Sekunden lang ab.", "es": "Sujeta una mancuerna junto al pecho (sentadilla goblet) o tarda 3 segundos en bajar."}
+        "harder": {"en": "Hold a dumbbell at your chest (goblet squat), or take 3 seconds to lower.", "bs": "Drži bučicu na grudima (čučanj s bučicom) ili se spuštaj 3 sekunde.", "hr": "Drži bučicu na prsima (čučanj s bučicom) ili se spuštaj 3 sekunde.", "sr": "Drži teg na grudima (čučanj sa tegom) ili se spuštaj 3 sekunde.", "fr": "Tiens un haltère contre ta poitrine (goblet squat) ou descends en 3 secondes.", "de": "Halte eine Kurzhantel vor der Brust (Goblet Squat) oder senke dich 3 Sekunden lang ab.", "es": "Sujeta una mancuerna junto al pecho (sentadilla goblet) o tarda 3 segundos en bajar."}
       },
       "anim": {
         "cycle": 3.2,
@@ -96,8 +96,8 @@
     },
     {
       "id": "goblet-squat",
-      "name": {"en": "Goblet squat", "bs": "Goblet čučanj", "hr": "Goblet čučanj", "sr": "Goblet čučanj", "fr": "Goblet squat", "de": "Goblet Squat", "es": "Sentadilla goblet"},
-      "short": {"en": "Goblet squat", "bs": "Goblet čučanj", "hr": "Goblet čučanj", "sr": "Goblet čučanj", "fr": "Goblet squat", "de": "Goblet Squat", "es": "Sentadilla goblet"},
+      "name": {"en": "Goblet squat", "bs": "Čučanj s bučicom na grudima", "hr": "Čučanj s bučicom na prsima", "sr": "Čučanj sa tegom na grudima", "fr": "Goblet squat", "de": "Goblet Squat", "es": "Sentadilla goblet"},
+      "short": {"en": "Goblet squat", "bs": "Čučanj s bučicom", "hr": "Čučanj s bučicom", "sr": "Čučanj sa tegom", "fr": "Goblet squat", "de": "Goblet Squat", "es": "Sentadilla goblet"},
       "pattern": "squat",
       "component": "strength",
       "planes": ["sagittal"],
@@ -520,17 +520,17 @@
         "setup": {"en": "Stand tall with feet hip-width apart.", "bs": "Stani uspravno sa stopalima u širini kukova.", "hr": "Stani uspravno sa stopalima u širini kukova.", "sr": "Stani uspravno sa stopalima u širini kukova.", "fr": "Debout, pieds à largeur de hanches.", "de": "Steh aufrecht, Füße hüftbreit.", "es": "Ponte de pie con los pies a la anchura de la cadera."},
         "steps": [
           {"en": "Hinge forward and put your hands on the floor, bending your knees as much as you need.", "bs": "Nagni se naprijed i stavi šake na pod, savijajući koljena koliko ti treba.", "hr": "Nagni se naprijed i stavi šake na pod, savijajući koljena koliko ti treba.", "sr": "Nagni se napred i stavi šake na pod, savijajući kolena koliko ti treba.", "fr": "Penche-toi en avant et pose les mains au sol, en pliant les genoux autant que nécessaire.", "de": "Beug dich nach vorn und setz die Hände auf den Boden, Knie so weit wie nötig gebeugt.", "es": "Inclínate hacia delante y apoya las manos en el suelo, flexionando las rodillas lo que necesites."},
-          {"en": "Walk your hands out to a high plank.", "bs": "Hodaj šakama naprijed do visokog planka.", "hr": "Hodaj šakama naprijed do visokog planka.", "sr": "Hodaj šakama napred do visokog planka.", "fr": "Avance les mains jusqu’à une planche haute.", "de": "Lauf mit den Händen nach vorn bis in den hohen Stütz.", "es": "Camina con las manos hasta una plancha alta."},
+          {"en": "Walk your hands out to a high plank.", "bs": "Hodaj šakama naprijed do visokog upora.", "hr": "Hodaj šakama naprijed do visokog upora.", "sr": "Hodaj šakama napred do visokog upora.", "fr": "Avance les mains jusqu’à une planche haute.", "de": "Lauf mit den Händen nach vorn bis in den hohen Stütz.", "es": "Camina con las manos hasta una plancha alta."},
           {"en": "Walk your hands back to your feet and roll up to standing.", "bs": "Vrati šake do stopala i polako se uspravi.", "hr": "Vrati šake do stopala i polako se uspravi.", "sr": "Vrati šake do stopala i polako se uspravi.", "fr": "Ramène les mains vers tes pieds et déroule-toi jusqu’à la position debout.", "de": "Lauf mit den Händen zurück zu den Füßen und roll dich auf.", "es": "Camina con las manos de vuelta hacia los pies y sube enrollando la espalda."}
         ],
         "breathe": {"en": "Breathe steadily as you walk your hands.", "bs": "Diši ravnomjerno dok hodaš šakama.", "hr": "Diši ravnomjerno dok hodaš šakama.", "sr": "Diši ravnomerno dok hodaš šakama.", "fr": "Respire régulièrement pendant que tu avances les mains.", "de": "Atme gleichmäßig, während du mit den Händen läufst.", "es": "Respira de forma constante mientras caminas con las manos."},
         "mistakes": [
-          {"en": "Hips sagging in the plank", "bs": "Kukovi propadaju u planku", "hr": "Kukovi propadaju u planku", "sr": "Kukovi propadaju u planku", "fr": "Hanches qui s’affaissent en planche", "de": "Hüfte hängt im Stütz durch", "es": "Cadera hundida en la plancha"},
+          {"en": "Hips sagging in the plank", "bs": "Kukovi propadaju u uporu", "hr": "Kukovi propadaju u uporu", "sr": "Kukovi propadaju u uporu", "fr": "Hanches qui s’affaissent en planche", "de": "Hüfte hängt im Stütz durch", "es": "Cadera hundida en la plancha"},
           {"en": "Locking your knees to reach the floor", "bs": "Zaključavanje koljena da dosegneš pod", "hr": "Zaključavanje koljena kako bi dosegnuo pod", "sr": "Zaključavanje kolena da bi dohvatio pod", "fr": "Verrouiller les genoux pour toucher le sol", "de": "Knie durchdrücken, um den Boden zu erreichen", "es": "Bloquear las rodillas para llegar al suelo"},
           {"en": "Rushing", "bs": "Žurba", "hr": "Žurba", "sr": "Žurba", "fr": "Aller trop vite", "de": "Zu schnell", "es": "Ir con prisa"}
         ],
         "easier": {"en": "Walk out only partway.", "bs": "Hodaj šakama samo dio puta.", "hr": "Hodaj šakama samo dio puta.", "sr": "Hodaj šakama samo deo puta.", "fr": "N’avance les mains qu’à mi-chemin.", "de": "Lauf nur ein Stück nach vorn.", "es": "Avanza solo una parte del recorrido."},
-        "harder": {"en": "Add a push-up in the plank.", "bs": "Dodaj sklek u planku.", "hr": "Dodaj sklek u planku.", "sr": "Dodaj sklek u planku.", "fr": "Ajoute une pompe en planche.", "de": "Füg im Stütz einen Liegestütz ein.", "es": "Añade una flexión en la plancha."}
+        "harder": {"en": "Add a push-up in the plank.", "bs": "Dodaj sklek u uporu.", "hr": "Dodaj sklek u uporu.", "sr": "Dodaj sklek u uporu.", "fr": "Ajoute une pompe en planche.", "de": "Füg im Stütz einen Liegestütz ein.", "es": "Añade una flexión en la plancha."}
       },
       "anim": {
         "cycle": 6,
@@ -539,8 +539,8 @@
         "spec": {"pin": {"point": "n.toe", "at": [92,-3]}},
         "frames": [
           {"t": 0, "label": {"en": "Hands to the floor", "bs": "Šake na pod", "hr": "Šake na pod", "sr": "Šake na pod", "fr": "Mains au sol", "de": "Hände auf den Boden", "es": "Manos al suelo"}, "face": "smile", "pose": {"rot": 0, "torso": 0, "spine": 0, "hip": 0, "knee": 0, "neck": 0, "uaAbs": 92, "faAbs": 92, "footAbs": 0}},
-          {"t": 0.2, "label": {"en": "Walk out to a plank", "bs": "Hodaj do planka", "hr": "Hodaj do planka", "sr": "Hodaj do planka", "fr": "Avance jusqu’à la planche", "de": "Bis in den Stütz laufen", "es": "Avanza a plancha"}, "face": "smile", "pose": {"rot": 0, "torso": 108.2, "spine": 20, "hip": 0, "knee": 0, "neck": 30, "uaAbs": 92, "faAbs": 92, "footAbs": 0}, "step": 1},
-          {"t": 0.35, "label": {"en": "Walk out to a plank", "bs": "Hodaj do planka", "hr": "Hodaj do planka", "sr": "Hodaj do planka", "fr": "Avance jusqu’à la planche", "de": "Bis in den Stütz laufen", "es": "Avanza a plancha"}, "face": "smile", "pose": {"rot": 38, "torso": 64.2, "spine": 8, "hip": 0, "knee": 0, "neck": 15, "uaAbs": 92, "faAbs": 92, "footAbs": 35}, "step": 1},
+          {"t": 0.2, "label": {"en": "Walk out to a plank", "bs": "Hodaj do upora", "hr": "Hodaj do upora", "sr": "Hodaj do upora", "fr": "Avance jusqu’à la planche", "de": "Bis in den Stütz laufen", "es": "Avanza a plancha"}, "face": "smile", "pose": {"rot": 0, "torso": 108.2, "spine": 20, "hip": 0, "knee": 0, "neck": 30, "uaAbs": 92, "faAbs": 92, "footAbs": 0}, "step": 1},
+          {"t": 0.35, "label": {"en": "Walk out to a plank", "bs": "Hodaj do upora", "hr": "Hodaj do upora", "sr": "Hodaj do upora", "fr": "Avance jusqu’à la planche", "de": "Bis in den Stütz laufen", "es": "Avanza a plancha"}, "face": "smile", "pose": {"rot": 38, "torso": 64.2, "spine": 8, "hip": 0, "knee": 0, "neck": 15, "uaAbs": 92, "faAbs": 92, "footAbs": 35}, "step": 1},
           {"t": 0.5, "label": {"en": "Walk back and roll up", "bs": "Vrati se i uspravi", "hr": "Vrati se i uspravi", "sr": "Vrati se i uspravi", "fr": "Reviens et déroule-toi", "de": "Zurücklaufen und aufrollen", "es": "Vuelve y sube"}, "face": "effort", "pose": {"rot": 70, "torso": 0, "spine": 0, "hip": 0, "knee": 0, "neck": -6, "uaAbs": 92, "faAbs": 92, "footAbs": 68}, "step": 2},
           {"t": 0.65, "label": {"en": "Walk back and roll up", "bs": "Vrati se i uspravi", "hr": "Vrati se i uspravi", "sr": "Vrati se i uspravi", "fr": "Reviens et déroule-toi", "de": "Zurücklaufen und aufrollen", "es": "Vuelve y sube"}, "face": "smile", "pose": {"rot": 38, "torso": 64.2, "spine": 8, "hip": 0, "knee": 0, "neck": 15, "uaAbs": 92, "faAbs": 92, "footAbs": 35}, "step": 2},
           {"t": 0.8, "label": {"en": "Walk back and roll up", "bs": "Vrati se i uspravi", "hr": "Vrati se i uspravi", "sr": "Vrati se i uspravi", "fr": "Reviens et déroule-toi", "de": "Zurücklaufen und aufrollen", "es": "Vuelve y sube"}, "face": "smile", "pose": {"rot": 0, "torso": 108.2, "spine": 20, "hip": 0, "knee": 0, "neck": 30, "uaAbs": 92, "faAbs": 92, "footAbs": 0}, "step": 2}
@@ -550,7 +550,7 @@
     {
       "id": "single-leg-rdl",
       "name": {"en": "Single-leg Romanian deadlift", "bs": "Rumunsko dizanje na jednoj nozi", "hr": "Rumunjsko dizanje na jednoj nozi", "sr": "Rumunsko dizanje na jednoj nozi", "fr": "Soulevé de terre roumain sur une jambe", "de": "Einbeiniges rumänisches Kreuzheben", "es": "Peso muerto rumano a una pierna"},
-      "short": {"en": "Single-leg RDL", "bs": "RDL na jednoj nozi", "hr": "RDL na jednoj nozi", "sr": "RDL na jednoj nozi", "fr": "Soulevé une jambe", "de": "Einbeiniges Kreuzheben", "es": "Peso muerto unilateral"},
+      "short": {"en": "Single-leg RDL", "bs": "Dizanje na jednoj nozi", "hr": "Dizanje na jednoj nozi", "sr": "Dizanje na jednoj nozi", "fr": "Soulevé une jambe", "de": "Einbeiniges Kreuzheben", "es": "Peso muerto unilateral"},
       "pattern": "hinge",
       "component": "strength",
       "planes": ["sagittal"],
@@ -1016,7 +1016,7 @@
       "easier": "wall-push-up",
       "harder": "knee-push-up",
       "howto": {
-        "setup": {"en": "Place a sturdy chair against a wall. Hands on the front of the seat, walk your feet back into a straight plank.", "bs": "Prisloni stabilnu stolicu uz zid. Šake na prednji dio sjedišta, pa koracima unazad zauzmi ravan plank.", "hr": "Prisloni stabilnu stolicu uz zid. Šake na prednji dio sjedala, pa koracima unatrag zauzmi ravan plank.", "sr": "Prisloni stabilnu stolicu uz zid. Šake na prednji deo sedišta, pa koracima unazad zauzmi ravan plank.", "fr": "Place une chaise stable contre un mur. Mains sur l’avant de l’assise, recule les pieds jusqu’à une planche bien droite.", "de": "Stell einen stabilen Stuhl an eine Wand. Hände vorn auf die Sitzfläche, Füße nach hinten bis in einen geraden Stütz.", "es": "Coloca una silla firme contra una pared. Con las manos en el borde del asiento, lleva los pies atrás hasta una plancha recta."},
+        "setup": {"en": "Place a sturdy chair against a wall. Hands on the front of the seat, walk your feet back into a straight plank.", "bs": "Prisloni stabilnu stolicu uz zid. Šake na prednji dio sjedišta, pa koracima unazad zauzmi ravan upor.", "hr": "Prisloni stabilnu stolicu uz zid. Šake na prednji dio sjedala, pa koracima unatrag zauzmi ravan upor.", "sr": "Prisloni stabilnu stolicu uz zid. Šake na prednji deo sedišta, pa koracima unazad zauzmi ravan upor.", "fr": "Place une chaise stable contre un mur. Mains sur l’avant de l’assise, recule les pieds jusqu’à une planche bien droite.", "de": "Stell einen stabilen Stuhl an eine Wand. Hände vorn auf die Sitzfläche, Füße nach hinten bis in einen geraden Stütz.", "es": "Coloca una silla firme contra una pared. Con las manos en el borde del asiento, lleva los pies atrás hasta una plancha recta."},
         "steps": [
           {"en": "Lower your chest to the edge of the seat, elbows angled back.", "bs": "Spusti grudi do ruba sjedišta, laktovi ukoso unazad.", "hr": "Spusti prsa do ruba sjedala, laktovi ukoso unatrag.", "sr": "Spusti grudi do ivice sedišta, laktovi ukoso unazad.", "fr": "Descends la poitrine vers le bord de l’assise, coudes orientés vers l’arrière.", "de": "Senk die Brust zur Sitzkante, Ellbogen schräg nach hinten.", "es": "Baja el pecho hasta el borde del asiento, con los codos hacia atrás."},
           {"en": "Push back up to straight arms, keeping your body in one line.", "bs": "Odgurni se do ispruženih ruku, tijelo u jednoj liniji.", "hr": "Odgurni se do ispruženih ruku, tijelo u jednoj liniji.", "sr": "Odgurni se do ispruženih ruku, telo u jednoj liniji.", "fr": "Repousse jusqu’aux bras tendus, le corps bien aligné.", "de": "Drück dich zurück bis zu gestreckten Armen, Körper in einer Linie.", "es": "Empuja hasta estirar los brazos, con el cuerpo en línea recta."}
@@ -1150,7 +1150,7 @@
       "easier": "knee-push-up",
       "harder": null,
       "howto": {
-        "setup": {"en": "Start in a high plank: hands a little wider than your shoulders, body in a straight line from head to heels.", "bs": "Počni u visokom planku: šake malo šire od ramena, tijelo u ravnoj liniji od glave do peta.", "hr": "Počni u visokom planku: šake malo šire od ramena, tijelo u ravnoj liniji od glave do peta.", "sr": "Počni u visokom planku: šake malo šire od ramena, telo u pravoj liniji od glave do peta.", "fr": "Commence en planche haute : mains un peu plus larges que les épaules, corps aligné de la tête aux talons.", "de": "Starte im hohen Stütz: Hände etwas breiter als schulterbreit, Körper vom Kopf bis zu den Fersen in einer Linie.", "es": "Empieza en plancha alta: manos algo más separadas que los hombros y cuerpo en línea recta de la cabeza a los talones."},
+        "setup": {"en": "Start in a high plank: hands a little wider than your shoulders, body in a straight line from head to heels.", "bs": "Počni u visokom uporu: šake malo šire od ramena, tijelo u ravnoj liniji od glave do peta.", "hr": "Počni u visokom uporu: šake malo šire od ramena, tijelo u ravnoj liniji od glave do peta.", "sr": "Počni u visokom uporu: šake malo šire od ramena, telo u pravoj liniji od glave do peta.", "fr": "Commence en planche haute : mains un peu plus larges que les épaules, corps aligné de la tête aux talons.", "de": "Starte im hohen Stütz: Hände etwas breiter als schulterbreit, Körper vom Kopf bis zu den Fersen in einer Linie.", "es": "Empieza en plancha alta: manos algo más separadas que los hombros y cuerpo en línea recta de la cabeza a los talones."},
         "steps": [
           {"en": "Bend your elbows to lower your chest close to the floor, elbows angled back.", "bs": "Savij laktove i spusti grudi blizu poda, laktovi ukoso unazad.", "hr": "Savij laktove i spusti prsa blizu poda, laktovi ukoso unatrag.", "sr": "Savij laktove i spusti grudi blizu poda, laktovi ukoso unazad.", "fr": "Plie les coudes pour descendre la poitrine près du sol, coudes orientés vers l’arrière.", "de": "Beug die Ellbogen und senk die Brust nah an den Boden, Ellbogen schräg nach hinten.", "es": "Flexiona los codos para bajar el pecho cerca del suelo, con los codos hacia atrás."},
           {"en": "Push the floor away to straight arms.", "bs": "Odgurni pod dok se ruke ne isprave.", "hr": "Odgurni pod dok se ruke ne isprave.", "sr": "Odgurni pod dok se ruke ne isprave.", "fr": "Repousse le sol jusqu’aux bras tendus.", "de": "Drück den Boden weg, bis die Arme gestreckt sind.", "es": "Empuja el suelo hasta estirar los brazos."}
@@ -1194,14 +1194,14 @@
       "easier": "shoulder-press",
       "harder": null,
       "howto": {
-        "setup": {"en": "From a high plank, walk your feet in and lift your hips high so your body makes an upside-down V.", "bs": "Iz visokog planka približi stopala i podigni kukove visoko, tako da tijelo čini obrnuto slovo V.", "hr": "Iz visokog planka približi stopala i podigni kukove visoko, tako da tijelo čini obrnuto slovo V.", "sr": "Iz visokog planka približi stopala i podigni kukove visoko, tako da telo čini obrnuto slovo V.", "fr": "Depuis une planche haute, rapproche les pieds et monte les hanches pour former un V inversé.", "de": "Geh aus dem hohen Stütz mit den Füßen näher und schieb die Hüfte hoch, sodass dein Körper ein umgedrehtes V bildet.", "es": "Desde una plancha alta, acerca los pies y eleva la cadera para que el cuerpo forme una V invertida."},
+        "setup": {"en": "From a high plank, walk your feet in and lift your hips high so your body makes an upside-down V.", "bs": "Iz visokog upora približi stopala i podigni kukove visoko, tako da tijelo čini obrnuto slovo V.", "hr": "Iz visokog upora približi stopala i podigni kukove visoko, tako da tijelo čini obrnuto slovo V.", "sr": "Iz visokog upora približi stopala i podigni kukove visoko, tako da telo čini obrnuto slovo V.", "fr": "Depuis une planche haute, rapproche les pieds et monte les hanches pour former un V inversé.", "de": "Geh aus dem hohen Stütz mit den Füßen näher und schieb die Hüfte hoch, sodass dein Körper ein umgedrehtes V bildet.", "es": "Desde una plancha alta, acerca los pies y eleva la cadera para que el cuerpo forme una V invertida."},
         "steps": [
           {"en": "Bend your elbows to lower the top of your head toward the floor between your hands.", "bs": "Savij laktove i spusti tjeme prema podu između šaka.", "hr": "Savij laktove i spusti tjeme prema podu između šaka.", "sr": "Savij laktove i spusti teme ka podu između šaka.", "fr": "Plie les coudes pour descendre le sommet de la tête vers le sol entre tes mains.", "de": "Beug die Ellbogen und senk den Scheitel zwischen den Händen Richtung Boden.", "es": "Flexiona los codos para bajar la coronilla hacia el suelo, entre las manos."},
           {"en": "Press back up to straight arms.", "bs": "Potisni se nazad do ispruženih ruku.", "hr": "Potisni se natrag do ispruženih ruku.", "sr": "Potisni se nazad do ispruženih ruku.", "fr": "Repousse jusqu’aux bras tendus.", "de": "Drück dich zurück bis zu gestreckten Armen.", "es": "Empuja hasta estirar los brazos."}
         ],
         "breathe": {"en": "Breathe in as you lower, out as you press.", "bs": "Udahni dok se spuštaš, izdahni dok potiskuješ.", "hr": "Udahni dok se spuštaš, izdahni dok potiskuješ.", "sr": "Udahni dok se spuštaš, izdahni dok potiskuješ.", "fr": "Inspire en descendant, expire en poussant.", "de": "Beim Absenken einatmen, beim Hochdrücken ausatmen.", "es": "Inhala al bajar y exhala al empujar."},
         "mistakes": [
-          {"en": "Hips dropping toward a plank", "bs": "Kukovi padaju prema planku", "hr": "Kukovi padaju prema planku", "sr": "Kukovi padaju ka planku", "fr": "Hanches qui redescendent vers la planche", "de": "Hüfte sinkt Richtung Stütz", "es": "Cadera que baja hacia una plancha"},
+          {"en": "Hips dropping toward a plank", "bs": "Kukovi padaju prema uporu", "hr": "Kukovi padaju prema uporu", "sr": "Kukovi padaju ka uporu", "fr": "Hanches qui redescendent vers la planche", "de": "Hüfte sinkt Richtung Stütz", "es": "Cadera que baja hacia una plancha"},
           {"en": "Elbows flaring wide", "bs": "Laktovi široko u stranu", "hr": "Laktovi široko u stranu", "sr": "Laktovi široko u stranu", "fr": "Coudes très écartés", "de": "Ellbogen weit gespreizt", "es": "Codos muy abiertos"},
           {"en": "Dropping fast onto your head", "bs": "Brzo spuštanje na glavu", "hr": "Brzo spuštanje na glavu", "sr": "Brzo spuštanje na glavu", "fr": "Tomber vite sur la tête", "de": "Schnell auf den Kopf fallen", "es": "Dejarse caer rápido sobre la cabeza"}
         ],
@@ -1283,7 +1283,7 @@
       "equipment": ["band", "mat"],
       "level": 1,
       "easier": null,
-      "harder": null,
+      "harder": "negative-pull-up",
       "howto": {
         "setup": {"en": "Anchor a band high, for example over the top of a closed door. Kneel facing it and hold the band with arms reaching up.", "bs": "Učvrsti traku visoko, npr. preko vrha zatvorenih vrata. Klekni licem prema njoj i drži traku ispruženim rukama gore.", "hr": "Učvrsti traku visoko, npr. preko vrha zatvorenih vrata. Klekni licem prema njoj i drži traku ispruženim rukama gore.", "sr": "Učvrsti traku visoko, npr. preko vrha zatvorenih vrata. Klekni licem prema njoj i drži traku ispruženim rukama gore.", "fr": "Fixe un élastique en hauteur, par exemple en haut d’une porte fermée. Mets-toi à genoux face à elle et tiens l’élastique bras tendus vers le haut.", "de": "Befestige ein Band weit oben, zum Beispiel oben an einer geschlossenen Tür. Knie dich davor und halte das Band mit nach oben gestreckten Armen.", "es": "Ancla una banda elástica en alto, por ejemplo sobre una puerta cerrada. Arrodíllate de frente y sujeta la banda con los brazos estirados hacia arriba."},
         "steps": [
@@ -1355,6 +1355,230 @@
           {"t": 0, "label": {"en": "Sweep your arms down", "bs": "Povuci ruke dolje", "hr": "Povuci ruke dolje", "sr": "Povuci ruke dole", "fr": "Bras vers le bas", "de": "Arme nach unten ziehen", "es": "Brazos abajo"}, "face": "smile", "pose": {"torso": 22, "hip": 18, "knee": 14, "neck": -6, "shoulder": 132, "elbow": 6}},
           {"t": 0.4, "label": {"en": "Arms back up slowly", "bs": "Polako ruke nazad gore", "hr": "Polako ruke natrag gore", "sr": "Polako ruke nazad gore", "fr": "Bras qui remontent lentement", "de": "Arme langsam nach oben", "es": "Brazos arriba despacio"}, "face": "effort", "pose": {"torso": 22, "hip": 18, "knee": 14, "neck": -6, "shoulder": -8, "elbow": 6}},
           {"t": 0.55, "label": {"en": "Arms back up slowly", "bs": "Polako ruke nazad gore", "hr": "Polako ruke natrag gore", "sr": "Polako ruke nazad gore", "fr": "Bras qui remontent lentement", "de": "Arme langsam nach oben", "es": "Brazos arriba despacio"}, "face": "smile", "pose": {"torso": 22, "hip": 18, "knee": 14, "neck": -6, "shoulder": -8, "elbow": 6}, "step": 1}
+        ]
+      }
+    },
+    {
+      "id": "dead-hang",
+      "name": {"en": "Dead hang", "bs": "Mrtvi vis", "hr": "Mrtvi vis", "sr": "Mrtvi vis", "fr": "Suspension à la barre", "de": "Dead Hang", "es": "Suspensión en barra"},
+      "short": {"en": "Dead hang", "bs": "Mrtvi vis", "hr": "Mrtvi vis", "sr": "Mrtvi vis", "fr": "Suspension", "de": "Dead Hang", "es": "Suspensión"},
+      "pattern": null,
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["forearms"], "secondary": ["lats", "shoulders", "upper-back"]},
+      "joints": {"wrist": [], "shoulder": []},
+      "dose": {"mode": "hold", "sets": 3, "hold": 20, "rest": 40},
+      "equipment": ["bar"],
+      "level": 1,
+      "easier": null,
+      "harder": "scapular-pull-up",
+      "howto": {
+        "setup": {"en": "Grip the bar a little wider than your shoulders, palms facing away. Use a chair or step to reach it.", "bs": "Uhvati šipku malo šire od ramena, dlanovi okrenuti naprijed. Koristi stolicu ili klupicu da je dohvatiš.", "hr": "Uhvati šipku malo šire od ramena, dlanovi okrenuti naprijed. Upotrijebi stolicu ili klupicu da je dohvatiš.", "sr": "Uhvati šipku malo šire od ramena, dlanovi okrenuti napred. Koristi stolicu ili klupicu da je dohvatiš.", "fr": "Saisis la barre un peu plus large que les épaules, paumes vers l’avant. Utilise une chaise ou une marche pour l’atteindre.", "de": "Greif die Stange etwas weiter als schulterbreit, Handflächen nach vorn. Nimm einen Stuhl oder eine Stufe, um sie zu erreichen.", "es": "Agarra la barra un poco más abierta que los hombros, con las palmas hacia delante. Usa una silla o un escalón para llegar."},
+        "steps": [
+          {"en": "Hang with straight arms, knees slightly bent, feet off the floor. Keep your shoulders active, not shrugged up to your ears, and hold.", "bs": "Visi ispruženih ruku, koljena blago savijena, stopala od poda. Drži ramena aktivna, ne podignuta do ušiju, i zadrži.", "hr": "Visi ispruženih ruku, koljena blago savijena, stopala od poda. Drži ramena aktivna, ne podignuta do ušiju, i zadrži.", "sr": "Visi ispruženih ruku, kolena blago savijena, stopala od poda. Drži ramena aktivna, ne podignuta do ušiju, i zadrži.", "fr": "Suspends-toi bras tendus, genoux légèrement pliés, pieds décollés du sol. Garde les épaules actives, pas remontées vers les oreilles, et tiens la position.", "de": "Häng dich mit gestreckten Armen an die Stange, Knie leicht gebeugt, Füße in der Luft. Halte die Schultern aktiv, nicht zu den Ohren hochgezogen, und halte die Position.", "es": "Cuélgate con los brazos estirados, las rodillas un poco flexionadas y los pies sin tocar el suelo. Mantén los hombros activos, sin subirlos hacia las orejas, y aguanta."}
+        ],
+        "breathe": {"en": "Breathe slowly and steadily.", "bs": "Diši polako i ravnomjerno.", "hr": "Diši polako i ravnomjerno.", "sr": "Diši polako i ravnomerno.", "fr": "Respire lentement et régulièrement.", "de": "Atme langsam und gleichmäßig.", "es": "Respira de forma lenta y constante."},
+        "mistakes": [
+          {"en": "Shoulders shrugged up to the ears", "bs": "Ramena podignuta do ušiju", "hr": "Ramena podignuta do ušiju", "sr": "Ramena podignuta do ušiju", "fr": "Épaules remontées vers les oreilles", "de": "Schultern zu den Ohren hochgezogen", "es": "Hombros subidos hacia las orejas"},
+          {"en": "Swinging", "bs": "Ljuljanje", "hr": "Ljuljanje", "sr": "Ljuljanje", "fr": "Se balancer", "de": "Schwingen", "es": "Balancearse"},
+          {"en": "Hanging longer than your grip can hold safely", "bs": "Visenje duže nego što stisak može sigurno izdržati", "hr": "Visenje dulje nego što stisak može sigurno izdržati", "sr": "Visenje duže nego što stisak može bezbedno da izdrži", "fr": "Rester suspendu plus longtemps que ta prise ne le permet en sécurité", "de": "Länger hängen, als dein Griff sicher halten kann", "es": "Colgarse más tiempo del que tu agarre aguanta con seguridad"}
+        ],
+        "easier": {"en": "Keep your toes on a chair to take some of your weight.", "bs": "Drži prste stopala na stolici da preuzmu dio težine.", "hr": "Drži prste stopala na stolici da preuzmu dio težine.", "sr": "Drži prste stopala na stolici da preuzmu deo težine.", "fr": "Garde les orteils sur une chaise pour soulager une partie de ton poids.", "de": "Lass die Zehen auf einem Stuhl, um einen Teil deines Gewichts abzugeben.", "es": "Apoya las puntas de los pies en una silla para quitarte parte del peso."},
+        "harder": {"en": "Hang longer, or move on to scapular pull-ups.", "bs": "Visi duže ili pređi na skapularne zgibove.", "hr": "Visi dulje ili prijeđi na skapularne zgibove.", "sr": "Visi duže ili pređi na skapularne zgibove.", "fr": "Reste suspendu plus longtemps, ou passe aux tractions scapulaires.", "de": "Häng länger oder geh zu Schulterblatt-Klimmzügen über.", "es": "Aguanta más tiempo o pasa a las dominadas escapulares."}
+      },
+      "anim": {
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Hang, shoulders active", "bs": "Visi, ramena aktivna", "hr": "Visi, ramena aktivna", "sr": "Visi, ramena aktivna", "fr": "Suspendu, épaules actives", "de": "Hängen, Schultern aktiv", "es": "Cuelga, hombros activos"}, "face": "puff", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 14, "knee": 52}}
+        ]
+      }
+    },
+    {
+      "id": "scapular-pull-up",
+      "name": {"en": "Scapular pull-up", "bs": "Skapularni zgib", "hr": "Skapularni zgib", "sr": "Skapularni zgib", "fr": "Traction scapulaire", "de": "Schulterblatt-Klimmzug", "es": "Dominada escapular"},
+      "short": {"en": "Scapular pull-up", "bs": "Skapularni zgib", "hr": "Skapularni zgib", "sr": "Skapularni zgib", "fr": "Traction scapulaire", "de": "Schulterblatt-Klimmzug", "es": "Dominada escapular"},
+      "pattern": "pull-vertical",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["warmup", "main"],
+      "muscles": {"primary": ["upper-back", "lats"], "secondary": ["forearms", "shoulders"]},
+      "joints": {"scapula": ["depression", "retraction"]},
+      "dose": {"mode": "reps", "sets": 2, "reps": 8, "rest": 40},
+      "equipment": ["bar"],
+      "level": 1,
+      "easier": "dead-hang",
+      "harder": "negative-pull-up",
+      "howto": {
+        "setup": {"en": "Hang from the bar with straight arms, hands a little wider than your shoulders.", "bs": "Visi na šipki ispruženih ruku, šake malo šire od ramena.", "hr": "Visi na šipki ispruženih ruku, šake malo šire od ramena.", "sr": "Visi na šipki ispruženih ruku, šake malo šire od ramena.", "fr": "Suspends-toi à la barre bras tendus, mains un peu plus larges que les épaules.", "de": "Häng dich mit gestreckten Armen an die Stange, Hände etwas weiter als schulterbreit.", "es": "Cuélgate de la barra con los brazos estirados y las manos un poco más abiertas que los hombros."},
+        "steps": [
+          {"en": "Without bending your elbows, pull your shoulder blades down and back so your body rises a little and your chest lifts.", "bs": "Bez savijanja laktova povuci lopatice dolje i nazad tako da se tijelo malo podigne, a grudi odignu.", "hr": "Bez savijanja laktova povuci lopatice dolje i unatrag tako da se tijelo malo podigne, a prsa odignu.", "sr": "Bez savijanja laktova povuci lopatice dole i nazad tako da se telo malo podigne, a grudi odignu.", "fr": "Sans plier les coudes, tire les omoplates vers le bas et l’arrière pour que ton corps monte un peu et que ta poitrine se soulève.", "de": "Zieh die Schulterblätter ohne die Ellbogen zu beugen nach hinten unten, sodass dein Körper etwas nach oben kommt und die Brust sich hebt.", "es": "Sin doblar los codos, lleva las escápulas hacia abajo y atrás para que el cuerpo suba un poco y el pecho se eleve."},
+          {"en": "Slowly let your shoulders rise back to a full hang.", "bs": "Polako pusti ramena nazad gore do punog visa.", "hr": "Polako pusti ramena natrag gore do punog visa.", "sr": "Polako pusti ramena nazad gore do punog visa.", "fr": "Laisse lentement les épaules remonter jusqu’à la suspension complète.", "de": "Lass die Schultern langsam wieder hochkommen, bis du ganz hängst.", "es": "Deja que los hombros vuelvan a subir despacio hasta quedar colgado del todo."}
+        ],
+        "breathe": {"en": "Breathe out as you pull your shoulders down, in as you return.", "bs": "Izdahni dok spuštaš ramena, udahni dok se vraćaš.", "hr": "Izdahni dok spuštaš ramena, udahni dok se vraćaš.", "sr": "Izdahni dok spuštaš ramena, udahni dok se vraćaš.", "fr": "Expire en abaissant les épaules, inspire en revenant.", "de": "Beim Runterziehen der Schultern ausatmen, beim Zurückgehen einatmen.", "es": "Exhala al bajar los hombros e inhala al volver."},
+        "mistakes": [
+          {"en": "Bending the elbows", "bs": "Savijanje laktova", "hr": "Savijanje laktova", "sr": "Savijanje laktova", "fr": "Plier les coudes", "de": "Ellbogen beugen", "es": "Doblar los codos"},
+          {"en": "Swinging the legs to help", "bs": "Zamahivanje nogama kao pomoć", "hr": "Zamahivanje nogama kao pomoć", "sr": "Zamahivanje nogama kao pomoć", "fr": "Balancer les jambes pour s’aider", "de": "Mit den Beinen Schwung holen", "es": "Balancear las piernas para ayudarse"},
+          {"en": "Dropping fast into the hang", "bs": "Brzo padanje u vis", "hr": "Brzo padanje u vis", "sr": "Brzo padanje u vis", "fr": "Retomber vite en suspension", "de": "Schnell zurück in den Hang fallen", "es": "Dejarse caer rápido al colgar"}
+        ],
+        "easier": {"en": "Keep your toes on a chair, or do the dead hang.", "bs": "Drži prste stopala na stolici ili radi mrtvi vis.", "hr": "Drži prste stopala na stolici ili radi mrtvi vis.", "sr": "Drži prste stopala na stolici ili radi mrtvi vis.", "fr": "Garde les orteils sur une chaise, ou fais la suspension à la barre.", "de": "Lass die Zehen auf einem Stuhl oder mach den Dead Hang.", "es": "Apoya las puntas de los pies en una silla o haz la suspensión en barra."},
+        "harder": {"en": "Pause 3 seconds at the top, or do negative pull-ups.", "bs": "Zastani 3 sekunde na vrhu ili radi negativne zgibove.", "hr": "Zastani 3 sekunde na vrhu ili radi negativne zgibove.", "sr": "Zastani 3 sekunde na vrhu ili radi negativne zgibove.", "fr": "Marque une pause de 3 secondes en haut, ou fais des tractions négatives.", "de": "Halte oben 3 Sekunden oder mach negative Klimmzüge.", "es": "Haz una pausa de 3 segundos arriba o haz dominadas negativas."}
+      },
+      "anim": {
+        "cycle": 2.8,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Shoulders down and back", "bs": "Ramena dolje i nazad", "hr": "Ramena dolje i unatrag", "sr": "Ramena dole i nazad", "fr": "Épaules en bas et en arrière", "de": "Schultern nach hinten unten", "es": "Hombros abajo y atrás"}, "face": "smile", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 14, "knee": 52}},
+          {"t": 0.45, "label": {"en": "Slowly back to a hang", "bs": "Polako nazad u vis", "hr": "Polako natrag u vis", "sr": "Polako nazad u vis", "fr": "Redescends lentement", "de": "Langsam zurück in den Hang", "es": "Vuelve despacio"}, "face": "effort", "pose": {"torso": -18, "spine": -10, "neck": -12, "shoulder": 144, "elbow": 0, "hip": 14, "knee": 52}}
+        ]
+      }
+    },
+    {
+      "id": "negative-pull-up",
+      "name": {"en": "Negative pull-up", "bs": "Negativni zgib", "hr": "Negativni zgib", "sr": "Negativni zgib", "fr": "Traction négative", "de": "Negativer Klimmzug", "es": "Dominada negativa"},
+      "short": {"en": "Negative pull-up", "bs": "Negativni zgib", "hr": "Negativni zgib", "sr": "Negativni zgib", "fr": "Traction négative", "de": "Negativer Klimmzug", "es": "Dominada negativa"},
+      "pattern": "pull-vertical",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["lats"], "secondary": ["biceps", "upper-back", "forearms", "abdominals"]},
+      "joints": {"shoulder": ["adduction", "extension"], "scapula": ["depression", "downward-rotation"], "elbow": ["flexion"]},
+      "dose": {"mode": "reps", "sets": 3, "reps": 4, "rest": 60},
+      "equipment": ["bar"],
+      "level": 2,
+      "easier": "scapular-pull-up",
+      "harder": "band-assisted-pull-up",
+      "howto": {
+        "setup": {"en": "Stand on a chair under the bar. Grip it a little wider than your shoulders and step or jump up so your chin is above the bar.", "bs": "Stani na stolicu ispod šipke. Uhvati je malo šire od ramena i odgurni se ili skoči gore tako da ti brada bude iznad šipke.", "hr": "Stani na stolicu ispod šipke. Uhvati je malo šire od ramena i odgurni se ili skoči gore tako da ti brada bude iznad šipke.", "sr": "Stani na stolicu ispod šipke. Uhvati je malo šire od ramena i odgurni se ili skoči gore tako da ti brada bude iznad šipke.", "fr": "Monte sur une chaise sous la barre. Saisis-la un peu plus large que les épaules et monte ou saute pour avoir le menton au-dessus de la barre.", "de": "Stell dich auf einen Stuhl unter der Stange. Greif sie etwas weiter als schulterbreit und steig oder spring hoch, bis dein Kinn über der Stange ist.", "es": "Súbete a una silla debajo de la barra. Agárrala un poco más abierta que los hombros y sube o salta hasta tener la barbilla por encima de la barra."},
+        "steps": [
+          {"en": "Take your feet off the chair and lower yourself as slowly as you can, about 4 seconds, to a full hang.", "bs": "Skloni stopala sa stolice i spuštaj se što sporije možeš, oko 4 sekunde, do punog visa.", "hr": "Skloni stopala sa stolice i spuštaj se što sporije možeš, oko 4 sekunde, do punog visa.", "sr": "Skloni stopala sa stolice i spuštaj se što sporije možeš, oko 4 sekunde, do punog visa.", "fr": "Retire les pieds de la chaise et descends aussi lentement que possible, environ 4 secondes, jusqu’à la suspension complète.", "de": "Nimm die Füße vom Stuhl und lass dich so langsam wie möglich, etwa 4 Sekunden, ab, bis du ganz hängst.", "es": "Quita los pies de la silla y baja lo más despacio que puedas, unos 4 segundos, hasta quedar colgado del todo."},
+          {"en": "Step back up onto the chair to the top position for the next rep.", "bs": "Ponovo stani na stolicu u gornji položaj za sljedeće ponavljanje.", "hr": "Ponovno stani na stolicu u gornji položaj za sljedeće ponavljanje.", "sr": "Ponovo stani na stolicu u gornji položaj za sledeće ponavljanje.", "fr": "Remonte sur la chaise jusqu’à la position haute pour la répétition suivante.", "de": "Steig wieder auf den Stuhl in die obere Position für die nächste Wiederholung.", "es": "Vuelve a subirte a la silla hasta la posición de arriba para la siguiente repetición."}
+        ],
+        "breathe": {"en": "Breathe out slowly as you lower.", "bs": "Polako izdiši dok se spuštaš.", "hr": "Polako izdiši dok se spuštaš.", "sr": "Polako izdiši dok se spuštaš.", "fr": "Expire lentement en descendant.", "de": "Beim Absenken langsam ausatmen.", "es": "Exhala despacio al bajar."},
+        "mistakes": [
+          {"en": "Dropping the last part of the way", "bs": "Propadanje u zadnjem dijelu spuštanja", "hr": "Propadanje u zadnjem dijelu spuštanja", "sr": "Propadanje u poslednjem delu spuštanja", "fr": "Se laisser tomber à la fin de la descente", "de": "Am Ende einfach fallen lassen", "es": "Dejarse caer en el último tramo"},
+          {"en": "Shrugging at the bottom", "bs": "Podizanje ramena na dnu", "hr": "Podizanje ramena na dnu", "sr": "Podizanje ramena na dnu", "fr": "Hausser les épaules en bas", "de": "Unten die Schultern hochziehen", "es": "Encoger los hombros abajo"},
+          {"en": "Kicking or swinging", "bs": "Udaranje nogama ili ljuljanje", "hr": "Udaranje nogama ili ljuljanje", "sr": "Udaranje nogama ili ljuljanje", "fr": "Donner des coups de pied ou se balancer", "de": "Strampeln oder schwingen", "es": "Patalear o balancearse"}
+        ],
+        "easier": {"en": "Lower for 2 seconds, or do scapular pull-ups.", "bs": "Spuštaj se 2 sekunde ili radi skapularne zgibove.", "hr": "Spuštaj se 2 sekunde ili radi skapularne zgibove.", "sr": "Spuštaj se 2 sekunde ili radi skapularne zgibove.", "fr": "Descends en 2 secondes, ou fais des tractions scapulaires.", "de": "Lass dich in 2 Sekunden ab oder mach Schulterblatt-Klimmzüge.", "es": "Baja en 2 segundos o haz dominadas escapulares."},
+        "harder": {"en": "Lower for 6 to 8 seconds, or try band-assisted pull-ups.", "bs": "Spuštaj se 6 do 8 sekundi ili probaj zgibove uz pomoć trake.", "hr": "Spuštaj se 6 do 8 sekundi ili probaj zgibove uz pomoć trake.", "sr": "Spuštaj se 6 do 8 sekundi ili probaj zgibove uz pomoć trake.", "fr": "Descends en 6 à 8 secondes, ou essaie les tractions assistées à l’élastique.", "de": "Lass dich in 6 bis 8 Sekunden ab oder probier Klimmzüge mit Bandunterstützung.", "es": "Baja en 6 a 8 segundos o prueba las dominadas asistidas con banda."}
+      },
+      "anim": {
+        "cycle": 5,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Lower slowly", "bs": "Polako se spuštaj", "hr": "Polako se spuštaj", "sr": "Polako se spuštaj", "fr": "Descends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -16, "spine": -6, "neck": -4, "shoulder": 51, "elbow": 141, "hip": 14, "knee": 52}},
+          {"t": 0.7, "label": {"en": "Back to the top", "bs": "Nazad na vrh", "hr": "Natrag na vrh", "sr": "Nazad na vrh", "fr": "Retour en haut", "de": "Zurück nach oben", "es": "Vuelve arriba"}, "face": "smile", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 14, "knee": 52}}
+        ]
+      }
+    },
+    {
+      "id": "band-assisted-pull-up",
+      "name": {"en": "Band-assisted pull-up", "bs": "Zgib uz pomoć trake", "hr": "Zgib uz pomoć trake", "sr": "Zgib uz pomoć trake", "fr": "Traction assistée à l’élastique", "de": "Klimmzug mit Bandunterstützung", "es": "Dominada asistida con banda"},
+      "short": {"en": "Assisted pull-up", "bs": "Potpomognuti zgib", "hr": "Potpomognuti zgib", "sr": "Potpomognuti zgib", "fr": "Traction assistée", "de": "Assistierter Klimmzug", "es": "Dominada asistida"},
+      "pattern": "pull-vertical",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["lats"], "secondary": ["biceps", "upper-back", "forearms", "abdominals"]},
+      "joints": {"shoulder": ["adduction", "extension"], "scapula": ["depression", "downward-rotation"], "elbow": ["flexion"]},
+      "dose": {"mode": "reps", "sets": 3, "reps": 5, "rest": 60},
+      "equipment": ["bar", "band"],
+      "level": 2,
+      "easier": "negative-pull-up",
+      "harder": "pull-up",
+      "howto": {
+        "setup": {"en": "Loop a strong band over the bar and put one knee (or foot) in the loop. Grip the bar a little wider than your shoulders and hang.", "bs": "Prebaci jaku traku preko šipke i stavi jedno koljeno (ili stopalo) u petlju. Uhvati šipku malo šire od ramena i visi.", "hr": "Prebaci jaku traku preko šipke i stavi jedno koljeno (ili stopalo) u petlju. Uhvati šipku malo šire od ramena i visi.", "sr": "Prebaci jaku traku preko šipke i stavi jedno koleno (ili stopalo) u petlju. Uhvati šipku malo šire od ramena i visi.", "fr": "Passe un élastique solide autour de la barre et mets un genou (ou un pied) dans la boucle. Saisis la barre un peu plus large que les épaules et suspends-toi.", "de": "Leg ein kräftiges Band um die Stange und stell ein Knie (oder einen Fuß) in die Schlaufe. Greif die Stange etwas weiter als schulterbreit und häng dich daran.", "es": "Pasa una banda resistente por la barra y mete una rodilla (o un pie) en el lazo. Agarra la barra un poco más abierta que los hombros y cuélgate."},
+        "steps": [
+          {"en": "Pull your elbows down toward your ribs until your chin is above the bar.", "bs": "Povuci laktove dolje prema rebrima dok ti brada ne pređe iznad šipke.", "hr": "Povuci laktove dolje prema rebrima dok ti brada ne prijeđe iznad šipke.", "sr": "Povuci laktove dole ka rebrima dok ti brada ne pređe iznad šipke.", "fr": "Tire les coudes vers tes côtes jusqu’à ce que ton menton passe au-dessus de la barre.", "de": "Zieh die Ellbogen zu den Rippen, bis dein Kinn über der Stange ist.", "es": "Tira de los codos hacia las costillas hasta que la barbilla quede por encima de la barra."},
+          {"en": "Lower yourself slowly to a full hang.", "bs": "Polako se spusti do punog visa.", "hr": "Polako se spusti do punog visa.", "sr": "Polako se spusti do punog visa.", "fr": "Redescends lentement jusqu’à la suspension complète.", "de": "Lass dich langsam ab, bis du ganz hängst.", "es": "Baja despacio hasta quedar colgado del todo."}
+        ],
+        "breathe": {"en": "Breathe out as you pull up, in as you lower.", "bs": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "hr": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "sr": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "fr": "Expire en montant, inspire en descendant.", "de": "Beim Hochziehen ausatmen, beim Absenken einatmen.", "es": "Exhala al subir e inhala al bajar."},
+        "mistakes": [
+          {"en": "Bouncing out of the bottom on the band", "bs": "Odbijanje od trake na dnu", "hr": "Odbijanje od trake na dnu", "sr": "Odbijanje od trake na dnu", "fr": "Rebondir sur l’élastique en bas", "de": "Unten vom Band abfedern lassen", "es": "Rebotar con la banda abajo"},
+          {"en": "Craning the neck to get the chin over", "bs": "Istezanje vrata da bi brada prešla šipku", "hr": "Istezanje vrata da bi brada prešla šipku", "sr": "Istezanje vrata da bi brada prešla šipku", "fr": "Tendre le cou pour passer le menton", "de": "Den Hals recken, um das Kinn rüberzubringen", "es": "Estirar el cuello para pasar la barbilla"},
+          {"en": "Half reps without a full hang", "bs": "Pola ponavljanja bez punog visa", "hr": "Pola ponavljanja bez punog visa", "sr": "Pola ponavljanja bez punog visa", "fr": "Demi-répétitions sans suspension complète", "de": "Halbe Wiederholungen ohne ganz zu hängen", "es": "Medias repeticiones sin colgar del todo"}
+        ],
+        "easier": {"en": "Use a stronger band, or do negative pull-ups.", "bs": "Koristi jaču traku ili radi negativne zgibove.", "hr": "Koristi jaču traku ili radi negativne zgibove.", "sr": "Koristi jaču traku ili radi negativne zgibove.", "fr": "Prends un élastique plus fort, ou fais des tractions négatives.", "de": "Nimm ein stärkeres Band oder mach negative Klimmzüge.", "es": "Usa una banda más fuerte o haz dominadas negativas."},
+        "harder": {"en": "Use a lighter band, or do pull-ups.", "bs": "Koristi lakšu traku ili radi zgibove.", "hr": "Koristi lakšu traku ili radi zgibove.", "sr": "Koristi lakšu traku ili radi zgibove.", "fr": "Prends un élastique plus léger, ou fais des tractions.", "de": "Nimm ein leichteres Band oder mach Klimmzüge.", "es": "Usa una banda más ligera o haz dominadas."}
+      },
+      "anim": {
+        "cycle": 3.6,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212},{"type": "band", "from": "n.kn", "to": [200,-212]}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Pull up", "bs": "Povuci se gore", "hr": "Povuci se gore", "sr": "Povuci se gore", "fr": "Monte", "de": "Hochziehen", "es": "Sube"}, "face": "smile", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 14, "knee": 52}},
+          {"t": 0.4, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -16, "spine": -6, "neck": -4, "shoulder": 51, "elbow": 141, "hip": 14, "knee": 52}},
+          {"t": 0.5, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -16, "spine": -6, "neck": -4, "shoulder": 51, "elbow": 141, "hip": 14, "knee": 52}, "step": 1}
+        ]
+      }
+    },
+    {
+      "id": "pull-up",
+      "name": {"en": "Pull-up", "bs": "Zgib", "hr": "Zgib", "sr": "Zgib", "fr": "Traction", "de": "Klimmzug", "es": "Dominada"},
+      "short": {"en": "Pull-up", "bs": "Zgib", "hr": "Zgib", "sr": "Zgib", "fr": "Traction", "de": "Klimmzug", "es": "Dominada"},
+      "pattern": "pull-vertical",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["lats"], "secondary": ["biceps", "upper-back", "forearms", "abdominals"]},
+      "joints": {"shoulder": ["adduction", "extension"], "scapula": ["depression", "downward-rotation"], "elbow": ["flexion"]},
+      "dose": {"mode": "reps", "sets": 3, "reps": 5, "rest": 90},
+      "equipment": ["bar"],
+      "level": 3,
+      "easier": "band-assisted-pull-up",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Grip the bar a little wider than your shoulders, palms facing away, and hang with straight arms.", "bs": "Uhvati šipku malo šire od ramena, dlanovi okrenuti naprijed, i visi ispruženih ruku.", "hr": "Uhvati šipku malo šire od ramena, dlanovi okrenuti naprijed i visi ispruženih ruku.", "sr": "Uhvati šipku malo šire od ramena, dlanovi okrenuti napred, i visi ispruženih ruku.", "fr": "Saisis la barre un peu plus large que les épaules, paumes vers l’avant, et suspends-toi bras tendus.", "de": "Greif die Stange etwas weiter als schulterbreit, Handflächen nach vorn, und häng dich mit gestreckten Armen daran.", "es": "Agarra la barra un poco más abierta que los hombros, con las palmas hacia delante, y cuélgate con los brazos estirados."},
+        "steps": [
+          {"en": "Pull your elbows down toward your ribs until your chin is above the bar.", "bs": "Povuci laktove dolje prema rebrima dok ti brada ne pređe iznad šipke.", "hr": "Povuci laktove dolje prema rebrima dok ti brada ne prijeđe iznad šipke.", "sr": "Povuci laktove dole ka rebrima dok ti brada ne pređe iznad šipke.", "fr": "Tire les coudes vers tes côtes jusqu’à ce que ton menton passe au-dessus de la barre.", "de": "Zieh die Ellbogen zu den Rippen, bis dein Kinn über der Stange ist.", "es": "Tira de los codos hacia las costillas hasta que la barbilla quede por encima de la barra."},
+          {"en": "Lower yourself slowly to a full hang.", "bs": "Polako se spusti do punog visa.", "hr": "Polako se spusti do punog visa.", "sr": "Polako se spusti do punog visa.", "fr": "Redescends lentement jusqu’à la suspension complète.", "de": "Lass dich langsam ab, bis du ganz hängst.", "es": "Baja despacio hasta quedar colgado del todo."}
+        ],
+        "breathe": {"en": "Breathe out as you pull up, in as you lower.", "bs": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "hr": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "sr": "Izdahni dok se povlačiš gore, udahni dok se spuštaš.", "fr": "Expire en montant, inspire en descendant.", "de": "Beim Hochziehen ausatmen, beim Absenken einatmen.", "es": "Exhala al subir e inhala al bajar."},
+        "mistakes": [
+          {"en": "Kicking or swinging to get up", "bs": "Udaranje nogama ili ljuljanje da se popneš", "hr": "Udaranje nogama ili ljuljanje da se popneš", "sr": "Udaranje nogama ili ljuljanje da se popneš", "fr": "Donner des coups de pied ou se balancer pour monter", "de": "Strampeln oder schwingen, um hochzukommen", "es": "Patalear o balancearse para subir"},
+          {"en": "Craning the neck to get the chin over", "bs": "Istezanje vrata da bi brada prešla šipku", "hr": "Istezanje vrata da bi brada prešla šipku", "sr": "Istezanje vrata da bi brada prešla šipku", "fr": "Tendre le cou pour passer le menton", "de": "Den Hals recken, um das Kinn rüberzubringen", "es": "Estirar el cuello para pasar la barbilla"},
+          {"en": "Half reps without a full hang", "bs": "Pola ponavljanja bez punog visa", "hr": "Pola ponavljanja bez punog visa", "sr": "Pola ponavljanja bez punog visa", "fr": "Demi-répétitions sans suspension complète", "de": "Halbe Wiederholungen ohne ganz zu hängen", "es": "Medias repeticiones sin colgar del todo"}
+        ],
+        "easier": {"en": "Do band-assisted or negative pull-ups.", "bs": "Radi zgibove uz pomoć trake ili negativne zgibove.", "hr": "Radi zgibove uz pomoć trake ili negativne zgibove.", "sr": "Radi zgibove uz pomoć trake ili negativne zgibove.", "fr": "Fais des tractions assistées à l’élastique ou des tractions négatives.", "de": "Mach Klimmzüge mit Bandunterstützung oder negative Klimmzüge.", "es": "Haz dominadas asistidas con banda o dominadas negativas."},
+        "harder": {"en": "Pause with your chin over the bar, or add reps.", "bs": "Zastani s bradom iznad šipke ili dodaj ponavljanja.", "hr": "Zastani s bradom iznad šipke ili dodaj ponavljanja.", "sr": "Zastani sa bradom iznad šipke ili dodaj ponavljanja.", "fr": "Marque une pause le menton au-dessus de la barre, ou ajoute des répétitions.", "de": "Halte kurz mit dem Kinn über der Stange oder mach mehr Wiederholungen.", "es": "Haz una pausa con la barbilla por encima de la barra o añade repeticiones."}
+      },
+      "anim": {
+        "cycle": 3.4,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Pull up", "bs": "Povuci se gore", "hr": "Povuci se gore", "sr": "Povuci se gore", "fr": "Monte", "de": "Hochziehen", "es": "Sube"}, "face": "smile", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 14, "knee": 52}},
+          {"t": 0.4, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -16, "spine": -6, "neck": -4, "shoulder": 51, "elbow": 141, "hip": 14, "knee": 52}},
+          {"t": 0.5, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -16, "spine": -6, "neck": -4, "shoulder": 51, "elbow": 141, "hip": 14, "knee": 52}, "step": 1}
         ]
       }
     },
@@ -1453,8 +1677,8 @@
     },
     {
       "id": "knee-plank",
-      "name": {"en": "Kneeling plank", "bs": "Plank na koljenima", "hr": "Plank na koljenima", "sr": "Plank na kolenima", "fr": "Planche sur les genoux", "de": "Unterarmstütz auf den Knien", "es": "Plancha de rodillas"},
-      "short": {"en": "Knee plank", "bs": "Plank na koljenima", "hr": "Plank na koljenima", "sr": "Plank na kolenima", "fr": "Planche genoux", "de": "Knie-Plank", "es": "Plancha de rodillas"},
+      "name": {"en": "Kneeling plank", "bs": "Upor na koljenima", "hr": "Upor na koljenima", "sr": "Upor na kolenima", "fr": "Planche sur les genoux", "de": "Unterarmstütz auf den Knien", "es": "Plancha de rodillas"},
+      "short": {"en": "Knee plank", "bs": "Upor na koljenima", "hr": "Upor na koljenima", "sr": "Upor na kolenima", "fr": "Planche genoux", "de": "Knie-Plank", "es": "Plancha de rodillas"},
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -1481,7 +1705,7 @@
           {"en": "Head dropping toward the floor", "bs": "Glava pada prema podu", "hr": "Glava pada prema podu", "sr": "Glava pada ka podu", "fr": "Tête qui tombe vers le sol", "de": "Kopf fällt zum Boden", "es": "Cabeza que cae hacia el suelo"}
         ],
         "easier": {"en": "Hold for shorter rounds, like 10 seconds.", "bs": "Drži kraće, npr. 10 sekundi.", "hr": "Drži kraće, npr. 10 sekundi.", "sr": "Drži kraće, npr. 10 sekundi.", "fr": "Tiens moins longtemps, par exemple 10 secondes.", "de": "Halte kürzer, etwa 10 Sekunden.", "es": "Haz series más cortas, de unos 10 segundos."},
-        "harder": {"en": "Lift your knees for a full forearm plank.", "bs": "Podigni koljena za puni plank na podlakticama.", "hr": "Podigni koljena za puni plank na podlakticama.", "sr": "Podigni kolena za pun plank na podlakticama.", "fr": "Décolle les genoux pour une planche complète sur les avant-bras.", "de": "Heb die Knie für einen vollen Unterarmstütz.", "es": "Levanta las rodillas para hacer una plancha completa sobre antebrazos."}
+        "harder": {"en": "Lift your knees for a full forearm plank.", "bs": "Podigni koljena za puni upor na podlakticama.", "hr": "Podigni koljena za puni upor na podlakticama.", "sr": "Podigni kolena za pun upor na podlakticama.", "fr": "Décolle les genoux pour une planche complète sur les avant-bras.", "de": "Heb die Knie für einen vollen Unterarmstütz.", "es": "Levanta las rodillas para hacer una plancha completa sobre antebrazos."}
       },
       "anim": {
         "floorWork": true,
@@ -1632,9 +1856,54 @@
       }
     },
     {
+      "id": "hanging-knee-raise",
+      "name": {"en": "Hanging knee raise", "bs": "Podizanje koljena u visu", "hr": "Podizanje koljena u visu", "sr": "Podizanje kolena u visu", "fr": "Relevé de genoux suspendu", "de": "Hängendes Knieheben", "es": "Elevación de rodillas colgado"},
+      "short": {"en": "Hanging knee raise", "bs": "Koljena u visu", "hr": "Koljena u visu", "sr": "Kolena u visu", "fr": "Relevé de genoux", "de": "Knieheben hängend", "es": "Elevación de rodillas"},
+      "pattern": "trunk-flexion",
+      "component": "strength",
+      "planes": ["sagittal"],
+      "position": "hanging",
+      "laterality": "bilateral",
+      "chain": "closed",
+      "blocks": ["main"],
+      "muscles": {"primary": ["abdominals", "hip-flexors"], "secondary": ["forearms", "lats", "obliques"]},
+      "joints": {"hip": ["flexion"], "lumbar-spine": ["flexion"]},
+      "dose": {"mode": "reps", "sets": 2, "reps": 8, "rest": 45},
+      "equipment": ["bar"],
+      "level": 2,
+      "easier": "dead-bug",
+      "harder": null,
+      "howto": {
+        "setup": {"en": "Hang from the bar with straight arms, shoulders active, legs straight down.", "bs": "Visi na šipki ispruženih ruku, ramena aktivna, noge ispružene prema dolje.", "hr": "Visi na šipki ispruženih ruku, ramena aktivna, noge ispružene prema dolje.", "sr": "Visi na šipki ispruženih ruku, ramena aktivna, noge ispružene ka dole.", "fr": "Suspends-toi à la barre bras tendus, épaules actives, jambes tendues vers le bas.", "de": "Häng dich mit gestreckten Armen an die Stange, Schultern aktiv, Beine gerade nach unten.", "es": "Cuélgate de la barra con los brazos estirados, los hombros activos y las piernas rectas hacia abajo."},
+        "steps": [
+          {"en": "Lift your knees toward your chest, curling your pelvis up at the top.", "bs": "Podigni koljena prema grudima i na vrhu zarolaj karlicu prema gore.", "hr": "Podigni koljena prema prsima i na vrhu zarolaj zdjelicu prema gore.", "sr": "Podigni kolena ka grudima i na vrhu zarolaj karlicu ka gore.", "fr": "Monte les genoux vers ta poitrine en enroulant le bassin vers le haut à la fin.", "de": "Zieh die Knie zur Brust und roll oben das Becken ein.", "es": "Sube las rodillas hacia el pecho y, arriba, enrolla la pelvis hacia arriba."},
+          {"en": "Lower your legs slowly without swinging.", "bs": "Polako spusti noge bez ljuljanja.", "hr": "Polako spusti noge bez ljuljanja.", "sr": "Polako spusti noge bez ljuljanja.", "fr": "Redescends les jambes lentement sans te balancer.", "de": "Senk die Beine langsam ab, ohne zu schwingen.", "es": "Baja las piernas despacio sin balancearte."}
+        ],
+        "breathe": {"en": "Breathe out as your knees rise, in as you lower.", "bs": "Izdahni dok se koljena podižu, udahni dok ih spuštaš.", "hr": "Izdahni dok se koljena podižu, udahni dok ih spuštaš.", "sr": "Izdahni dok se kolena podižu, udahni dok ih spuštaš.", "fr": "Expire en montant les genoux, inspire en descendant.", "de": "Beim Anheben der Knie ausatmen, beim Absenken einatmen.", "es": "Exhala al subir las rodillas e inhala al bajar."},
+        "mistakes": [
+          {"en": "Swinging the body to lift the legs", "bs": "Zamahivanje tijelom da bi se podigle noge", "hr": "Zamahivanje tijelom da bi se podigle noge", "sr": "Zamahivanje telom da bi se podigle noge", "fr": "Balancer le corps pour lever les jambes", "de": "Mit dem Körper Schwung holen, um die Beine zu heben", "es": "Balancear el cuerpo para subir las piernas"},
+          {"en": "Dropping the legs quickly", "bs": "Brzo spuštanje nogu", "hr": "Brzo spuštanje nogu", "sr": "Brzo spuštanje nogu", "fr": "Laisser retomber les jambes vite", "de": "Die Beine schnell fallen lassen", "es": "Dejar caer las piernas rápido"},
+          {"en": "Shoulders shrugged to the ears", "bs": "Ramena podignuta do ušiju", "hr": "Ramena podignuta do ušiju", "sr": "Ramena podignuta do ušiju", "fr": "Épaules remontées vers les oreilles", "de": "Schultern zu den Ohren hochgezogen", "es": "Hombros subidos hacia las orejas"}
+        ],
+        "easier": {"en": "Lift your knees only to hip height, or do the dead bug.", "bs": "Podiži koljena samo do visine kukova ili radi mrtvu bubu.", "hr": "Podiži koljena samo do visine kukova ili radi mrtvu bubu.", "sr": "Podiži kolena samo do visine kukova ili radi mrtvu bubu.", "fr": "Monte les genoux seulement à hauteur de hanches, ou fais le dead bug.", "de": "Heb die Knie nur bis auf Hüfthöhe oder mach den Dead Bug.", "es": "Sube las rodillas solo hasta la altura de la cadera o haz el bicho muerto."},
+        "harder": {"en": "Lift straight legs, or pause 2 seconds at the top.", "bs": "Podiži ispružene noge ili zastani 2 sekunde na vrhu.", "hr": "Podiži ispružene noge ili zastani 2 sekunde na vrhu.", "sr": "Podiži ispružene noge ili zastani 2 sekunde na vrhu.", "fr": "Lève les jambes tendues, ou marque une pause de 2 secondes en haut.", "de": "Heb die Beine gestreckt oder halte oben 2 Sekunden.", "es": "Sube las piernas rectas o haz una pausa de 2 segundos arriba."}
+      },
+      "anim": {
+        "cycle": 3,
+        "floorWork": false,
+        "farShift": [6,-1],
+        "props": [{"type": "bar", "x": 200, "y": -212}],
+        "spec": {"pin": {"point": "n.hd", "at": [200,-212]}, "footAbs": 30},
+        "frames": [
+          {"t": 0, "label": {"en": "Knees up", "bs": "Koljena gore", "hr": "Koljena gore", "sr": "Kolena gore", "fr": "Genoux en haut", "de": "Knie hoch", "es": "Rodillas arriba"}, "face": "smile", "pose": {"torso": -12, "spine": -4, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 8, "knee": 34}},
+          {"t": 0.42, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"torso": -4, "spine": 10, "neck": -10, "shoulder": 152, "elbow": 0, "hip": 112, "knee": 110}}
+        ]
+      }
+    },
+    {
       "id": "superman",
-      "name": {"en": "Superman", "bs": "Supermen", "hr": "Superman", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
-      "short": {"en": "Superman", "bs": "Supermen", "hr": "Superman", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
+      "name": {"en": "Superman", "bs": "Supermen", "hr": "Supermen", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
+      "short": {"en": "Superman", "bs": "Supermen", "hr": "Supermen", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
       "pattern": "trunk-extension",
       "component": "strength",
       "planes": ["sagittal"],
@@ -1723,7 +1992,7 @@
     },
     {
       "id": "knee-side-plank",
-      "name": {"en": "Kneeling side plank", "bs": "Bočni plank na koljenima", "hr": "Bočni plank na koljenima", "sr": "Bočni plank na kolenima", "fr": "Planche latérale sur les genoux", "de": "Seitstütz auf den Knien", "es": "Plancha lateral de rodillas"},
+      "name": {"en": "Kneeling side plank", "bs": "Bočni upor na koljenima", "hr": "Bočni upor na koljenima", "sr": "Bočni upor na kolenima", "fr": "Planche latérale sur les genoux", "de": "Seitstütz auf den Knien", "es": "Plancha lateral de rodillas"},
       "short": {"en": "Knee side plank", "bs": "Bočni na koljenima", "hr": "Bočni na koljenima", "sr": "Bočni na kolenima", "fr": "Planche latérale genoux", "de": "Knie-Seitstütz", "es": "Plancha lateral rodillas"},
       "pattern": "anti-lateral-flexion",
       "component": "stability",
@@ -1751,7 +2020,7 @@
           {"en": "Holding your breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Luft anhalten", "es": "Contener la respiración"}
         ],
         "easier": {"en": "Hold for shorter rounds.", "bs": "Drži kraće.", "hr": "Drži kraće.", "sr": "Drži kraće.", "fr": "Tiens moins longtemps.", "de": "Halte kürzer.", "es": "Haz series más cortas."},
-        "harder": {"en": "Straighten your legs into a full side plank.", "bs": "Ispruži noge u puni bočni plank.", "hr": "Ispruži noge u puni bočni plank.", "sr": "Ispruži noge u pun bočni plank.", "fr": "Tends les jambes pour une planche latérale complète.", "de": "Streck die Beine zum vollen Seitstütz.", "es": "Estira las piernas para hacer una plancha lateral completa."}
+        "harder": {"en": "Straighten your legs into a full side plank.", "bs": "Ispruži noge u puni bočni upor.", "hr": "Ispruži noge u puni bočni upor.", "sr": "Ispruži noge u pun bočni upor.", "fr": "Tends les jambes pour une planche latérale complète.", "de": "Streck die Beine zum vollen Seitstütz.", "es": "Estira las piernas para hacer una plancha lateral completa."}
       },
       "anim": {
         "floorWork": true,
@@ -1764,8 +2033,8 @@
     },
     {
       "id": "forearm-plank",
-      "name": {"en": "Forearm plank", "bs": "Plank na podlakticama", "hr": "Plank na podlakticama", "sr": "Plank na podlakticama", "fr": "Planche sur les avant-bras", "de": "Unterarmstütz", "es": "Plancha sobre antebrazos"},
-      "short": {"en": "Plank", "bs": "Plank", "hr": "Plank", "sr": "Plank", "fr": "Planche", "de": "Plank", "es": "Plancha"},
+      "name": {"en": "Forearm plank", "bs": "Upor na podlakticama", "hr": "Upor na podlakticama", "sr": "Upor na podlakticama", "fr": "Planche sur les avant-bras", "de": "Unterarmstütz", "es": "Plancha sobre antebrazos"},
+      "short": {"en": "Plank", "bs": "Upor", "hr": "Upor", "sr": "Upor", "fr": "Planche", "de": "Plank", "es": "Plancha"},
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -1806,8 +2075,8 @@
     },
     {
       "id": "side-plank",
-      "name": {"en": "Side plank", "bs": "Bočni plank", "hr": "Bočni plank", "sr": "Bočni plank", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
-      "short": {"en": "Side plank", "bs": "Bočni plank", "hr": "Bočni plank", "sr": "Bočni plank", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
+      "name": {"en": "Side plank", "bs": "Bočni upor", "hr": "Bočni upor", "sr": "Bočni upor", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
+      "short": {"en": "Side plank", "bs": "Bočni upor", "hr": "Bočni upor", "sr": "Bočni upor", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
       "pattern": "anti-lateral-flexion",
       "component": "stability",
       "planes": ["frontal"],
@@ -1847,7 +2116,7 @@
     },
     {
       "id": "plank-shoulder-tap",
-      "name": {"en": "Plank shoulder tap", "bs": "Plank s dodirom ramena", "hr": "Plank s dodirom ramena", "sr": "Plank sa dodirom ramena", "fr": "Planche avec touches d’épaule", "de": "Plank mit Schultertippen", "es": "Plancha con toque de hombro"},
+      "name": {"en": "Plank shoulder tap", "bs": "Upor s dodirom ramena", "hr": "Upor s dodirom ramena", "sr": "Upor sa dodirom ramena", "fr": "Planche avec touches d’épaule", "de": "Plank mit Schultertippen", "es": "Plancha con toque de hombro"},
       "short": {"en": "Shoulder taps", "bs": "Dodir ramena", "hr": "Dodir ramena", "sr": "Dodir ramena", "fr": "Touches d’épaule", "de": "Schultertippen", "es": "Toques de hombro"},
       "pattern": "anti-rotation",
       "component": "stability",
@@ -1864,7 +2133,7 @@
       "easier": "forearm-plank",
       "harder": null,
       "howto": {
-        "setup": {"en": "Start in a high plank: hands under shoulders, arms straight, feet a little wider than hip-width.", "bs": "Počni u visokom planku: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "hr": "Počni u visokom planku: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "sr": "Počni u visokom planku: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "fr": "Commence en planche haute : mains sous les épaules, bras tendus, pieds un peu plus écartés que les hanches.", "de": "Starte im hohen Stütz: Hände unter den Schultern, Arme gestreckt, Füße etwas breiter als hüftbreit.", "es": "Empieza en plancha alta: manos bajo los hombros, brazos estirados y pies algo más separados que la cadera."},
+        "setup": {"en": "Start in a high plank: hands under shoulders, arms straight, feet a little wider than hip-width.", "bs": "Počni u visokom uporu: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "hr": "Počni u visokom uporu: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "sr": "Počni u visokom uporu: šake ispod ramena, ruke ispružene, stopala malo šire od kukova.", "fr": "Commence en planche haute : mains sous les épaules, bras tendus, pieds un peu plus écartés que les hanches.", "de": "Starte im hohen Stütz: Hände unter den Schultern, Arme gestreckt, Füße etwas breiter als hüftbreit.", "es": "Empieza en plancha alta: manos bajo los hombros, brazos estirados y pies algo más separados que la cadera."},
         "steps": [
           {"en": "Lift one hand and tap the opposite shoulder without letting your hips rock.", "bs": "Podigni jednu ruku i dodirni suprotno rame, a da se kukovi ne zaljuljaju.", "hr": "Podigni jednu ruku i dotakni suprotno rame, a da se kukovi ne zaljuljaju.", "sr": "Podigni jednu ruku i dodirni suprotno rame, a da se kukovi ne zaljuljaju.", "fr": "Lève une main et touche l’épaule opposée sans laisser les hanches bouger.", "de": "Heb eine Hand und tippe auf die gegenüberliegende Schulter, ohne dass die Hüfte wackelt.", "es": "Levanta una mano y toca el hombro contrario sin que la cadera se balancee."},
           {"en": "Put the hand down and tap with the other hand.", "bs": "Spusti ruku i dodirni drugom rukom.", "hr": "Spusti ruku i dotakni drugom rukom.", "sr": "Spusti ruku i dodirni drugom rukom.", "fr": "Repose la main et touche avec l’autre main.", "de": "Setz die Hand ab und tippe mit der anderen Hand.", "es": "Apoya la mano y toca con la otra."}
@@ -1952,7 +2221,7 @@
       "easier": null,
       "harder": null,
       "howto": {
-        "setup": {"en": "Start in a high plank with hands under your shoulders.", "bs": "Počni u visokom planku sa šakama ispod ramena.", "hr": "Počni u visokom planku sa šakama ispod ramena.", "sr": "Počni u visokom planku sa šakama ispod ramena.", "fr": "Commence en planche haute, mains sous les épaules.", "de": "Starte im hohen Stütz, Hände unter den Schultern.", "es": "Empieza en plancha alta con las manos bajo los hombros."},
+        "setup": {"en": "Start in a high plank with hands under your shoulders.", "bs": "Počni u visokom uporu sa šakama ispod ramena.", "hr": "Počni u visokom uporu sa šakama ispod ramena.", "sr": "Počni u visokom uporu sa šakama ispod ramena.", "fr": "Commence en planche haute, mains sous les épaules.", "de": "Starte im hohen Stütz, Hände unter den Schultern.", "es": "Empieza en plancha alta con las manos bajo los hombros."},
         "steps": [
           {"en": "Drive one knee toward your chest.", "bs": "Privuci jedno koljeno prema grudima.", "hr": "Privuci jedno koljeno prema prsima.", "sr": "Privuci jedno koleno ka grudima.", "fr": "Ramène un genou vers ta poitrine.", "de": "Zieh ein Knie zur Brust.", "es": "Lleva una rodilla hacia el pecho."},
           {"en": "Switch legs in a steady rhythm, hips staying low.", "bs": "Mijenjaj noge u ujednačenom ritmu, kukovi ostaju nisko.", "hr": "Mijenjaj noge u ujednačenom ritmu, kukovi ostaju nisko.", "sr": "Menjaj noge u ujednačenom ritmu, kukovi ostaju nisko.", "fr": "Alterne les jambes à un rythme régulier, hanches basses.", "de": "Wechsle die Beine in gleichmäßigem Rhythmus, Hüfte bleibt tief.", "es": "Cambia de pierna a un ritmo constante, con la cadera baja."}
@@ -2393,8 +2662,8 @@
     },
     {
       "id": "pogo-hops",
-      "name": {"en": "Pogo hops", "bs": "Pogo poskoci", "hr": "Pogo poskoci", "sr": "Pogo poskoci", "fr": "Sauts pogo", "de": "Pogo-Sprünge", "es": "Saltos pogo"},
-      "short": {"en": "Pogo hops", "bs": "Pogo poskoci", "hr": "Pogo poskoci", "sr": "Pogo poskoci", "fr": "Sauts pogo", "de": "Pogo-Sprünge", "es": "Saltos pogo"},
+      "name": {"en": "Pogo hops", "bs": "Poskoci na prstima", "hr": "Poskoci na prstima", "sr": "Poskoci na prstima", "fr": "Sauts pogo", "de": "Pogo-Sprünge", "es": "Saltos pogo"},
+      "short": {"en": "Pogo hops", "bs": "Poskoci na prstima", "hr": "Poskoci na prstima", "sr": "Poskoci na prstima", "fr": "Sauts pogo", "de": "Pogo-Sprünge", "es": "Saltos pogo"},
       "pattern": "jump",
       "component": "cardio",
       "planes": ["sagittal"],
