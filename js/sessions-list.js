@@ -28,7 +28,7 @@ export function mountSessions(root,lib){
       const est=S.estimate(s.items,byId);
       return `<li class="scard" data-id="${esc(s.id)}">
         <a class="scard-main" href="#/sessions/${encodeURIComponent(s.id)}">
-          <h3>${esc(s.name)}</h3>
+          <h3>${esc(S.nameOf(s,getLang()))}</h3>
           <p class="dose">${esc(U('exCount')(s.items.length))}${s.items.length?' · '+esc(U('mins')(S.minutes(est.total))):''}</p>
         </a>
         <div class="row">
@@ -50,8 +50,9 @@ export function mountSessions(root,lib){
   $('list').addEventListener('click',e=>{
     const b=e.target.closest('button[data-act]'); if(!b) return;
     const id=b.closest('[data-id]').dataset.id, s=S.get(id); if(!s) return;
-    if(b.dataset.act==='dup') S.duplicate(id,U('copyName')(s.name));
-    else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(s.name))) S.remove(id);
+    const name=S.nameOf(s,getLang());
+    if(b.dataset.act==='dup') S.duplicate(id,U('copyName')(name));
+    else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))) S.remove(id);
     render();
   });
   $('exportBtn').onclick=()=>saveJSON(`stiko-sessions-${new Date().toISOString().slice(0,10)}.json`,S.exportPayload(S.loadAll()));

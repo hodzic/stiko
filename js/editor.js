@@ -1,5 +1,5 @@
 // Session editor: name, three fixed blocks, per-item sets/reps/hold/rest, reorder, remove, share.
-import {T, U, esc, tagLabel} from './i18n.js';
+import {T, U, esc, tagLabel, getLang} from './i18n.js';
 import {MAIN_FAMILIES, familyOf} from './vocab.js';
 import * as S from './sessions.js';
 import {thumbSVG} from './library.js';
@@ -23,6 +23,7 @@ export function mountEditor(root,lib,id){
   </section>`;
   const $=x=>root.querySelector('#'+x);
   const save=()=>{ s=S.put(s); renderTotals(); };
+  const nm=()=>S.nameOf(s,getLang());
 
   function num(i,key,label){
     const [lo,hi]=S.LIMITS[key];
@@ -44,8 +45,8 @@ export function mountEditor(root,lib,id){
   }
   function render(){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
-    document.title=`${s.name} · Stiko`;
-    $('nameIn').value=s.name;
+    document.title=`${nm()} · Stiko`;
+    $('nameIn').value=nm();
     $('blocks').innerHTML=S.BLOCKS.map(b=>{
       const rows=s.items.map((it,i)=>[it,i]).filter(([it])=>it.block===b);
       return `<section class="block">
@@ -74,7 +75,8 @@ export function mountEditor(root,lib,id){
     else { pb.removeAttribute('href'); pb.setAttribute('aria-disabled','true'); }
   }
 
-  $('nameIn').addEventListener('change',e=>{ s.name=e.target.value.trim().slice(0,80)||U('newSession'); e.target.value=s.name; save(); document.title=`${s.name} · Stiko`; });
+  // Typing a name makes it the user's own: it no longer follows the app language.
+  $('nameIn').addEventListener('change',e=>{ s.name=e.target.value.trim().slice(0,80)||U('newSession'); delete s.names; e.target.value=s.name; save(); document.title=`${s.name} · Stiko`; });
   $('blocks').addEventListener('change',e=>{
     const t=e.target; if(!t.dataset.k) return;
     const i=+t.dataset.i, it=S.cleanItem({...s.items[i],[t.dataset.k]:t.value},byId);
@@ -89,9 +91,9 @@ export function mountEditor(root,lib,id){
     save(); render();
     if(act!=='rm') root.querySelector(`button[data-act="${act}"][data-i="${j}"]`)?.focus();
   });
-  $('shareBtn').onclick=()=>saveJSON(`stiko-${slug(s.name)}.json`,S.exportPayload([s]),true);
-  $('dupBtn').onclick=()=>{ const c=S.duplicate(s.id,U('copyName')(s.name)); location.hash=`#/sessions/${encodeURIComponent(c.id)}`; };
-  $('delBtn').onclick=()=>{ if(confirm(U('confirmDelete')(s.name))){ S.remove(s.id); location.hash='#/sessions'; } };
+  $('shareBtn').onclick=()=>saveJSON(`stiko-${slug(nm())}.json`,S.exportPayload([s]),true);
+  $('dupBtn').onclick=()=>{ const c=S.duplicate(s.id,U('copyName')(nm())); location.hash=`#/sessions/${encodeURIComponent(c.id)}`; };
+  $('delBtn').onclick=()=>{ if(confirm(U('confirmDelete')(nm()))){ S.remove(s.id); location.hash='#/sessions'; } };
 
   render();
   return {relang:render, destroy(){}};
