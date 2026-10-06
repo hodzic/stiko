@@ -62,6 +62,7 @@
     },
     {
       "id": "starter-core-balance",
+      "added": ["woodchop"],
       "name": {"en": "Core and balance", "bs": "Trup i ravnoteža", "hr": "Trup i ravnoteža", "sr": "Trup i ravnoteža", "fr": "Tronc et équilibre", "de": "Rumpf und Gleichgewicht", "es": "Tronco y equilibrio"},
       "items": [
         {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
@@ -70,6 +71,7 @@
         {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 30},
         {"ex": "knee-side-plank", "block": "main", "sets": 2, "hold": 20, "rest": 20},
         {"ex": "superman", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "woodchop", "block": "main", "sets": 2, "reps": 8, "rest": 30},
         {"ex": "single-leg-stand", "block": "main", "sets": 2, "hold": 30, "rest": 10},
         {"ex": "tandem-stance", "block": "main", "sets": 1, "hold": 30, "rest": 10},
         {"ex": "cobra-press-up", "block": "cooldown", "sets": 1, "reps": 6, "rest": 10},
