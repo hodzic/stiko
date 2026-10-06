@@ -20,7 +20,7 @@ export const UI={
       component:{strength:'Strength',stability:'Stability',mobility:'Mobility',flexibility:'Flexibility',balance:'Balance',cardio:'Cardio'},
       region:{lower:'Lower body',upper:'Upper body',core:'Core',full:'Full body'},
       muscle:{glutes:'Glutes',quadriceps:'Quadriceps',hamstrings:'Hamstrings',adductors:'Adductors','hip-abductors':'Hip abductors','hip-flexors':'Hip flexors',
-        calves:'Calves',abdominals:'Abdominals',obliques:'Obliques','back-extensors':'Back extensors',lats:'Lats','upper-back':'Upper back',
+        calves:'Calves',shins:'Shins',abdominals:'Abdominals',obliques:'Obliques','back-extensors':'Back extensors',lats:'Lats','upper-back':'Upper back',
         chest:'Chest',shoulders:'Shoulders','rotator-cuff':'Rotator cuff',biceps:'Biceps',triceps:'Triceps',forearms:'Forearms',neck:'Neck'},
       position:{standing:'Standing',seated:'Seated',kneeling:'Kneeling','half-kneeling':'Half-kneeling',quadruped:'Hands and knees',
         supine:'Lying on back',prone:'Face down','side-lying':'Lying on side',hanging:'Hanging'},
@@ -64,7 +64,7 @@ export const UI={
       component:{strength:'Snaga',stability:'Stabilnost',mobility:'Pokretljivost',flexibility:'Fleksibilnost',balance:'Ravnoteža',cardio:'Kardio'},
       region:{lower:'Donji dio tijela',upper:'Gornji dio tijela',core:'Trup',full:'Cijelo tijelo'},
       muscle:{glutes:'Gluteusi',quadriceps:'Kvadricepsi',hamstrings:'Zadnja loža',adductors:'Aduktori','hip-abductors':'Abduktori kuka','hip-flexors':'Fleksori kuka',
-        calves:'Listovi',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Ispravljači kičme',lats:'Široki leđni mišić','upper-back':'Gornji dio leđa',
+        calves:'Listovi',shins:'Prednji dio potkoljenice',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Ispravljači kičme',lats:'Široki leđni mišić','upper-back':'Gornji dio leđa',
         chest:'Grudni mišići',shoulders:'Ramena','rotator-cuff':'Rotatorna manžeta',biceps:'Biceps',triceps:'Triceps',forearms:'Podlaktice',neck:'Vrat'},
       position:{standing:'Stojeći',seated:'Sjedeći',kneeling:'Klečeći','half-kneeling':'Na jednom koljenu',quadruped:'Na sve četiri',
         supine:'Na leđima',prone:'Na stomaku','side-lying':'Na boku',hanging:'U visu'},
@@ -109,7 +109,7 @@ UI.fr={exercises:'Exercices', back:'Tous les exercices', clear:'Effacer les filt
       component:{strength:'Force',stability:'Stabilité',mobility:'Mobilité',flexibility:'Souplesse',balance:'Équilibre',cardio:'Cardio'},
       region:{lower:'Bas du corps',upper:'Haut du corps',core:'Tronc',full:'Corps entier'},
       muscle:{glutes:'Fessiers',quadriceps:'Quadriceps',hamstrings:'Ischio-jambiers',adductors:'Adducteurs','hip-abductors':'Abducteurs de hanche','hip-flexors':'Fléchisseurs de hanche',
-        calves:'Mollets',abdominals:'Abdominaux',obliques:'Obliques','back-extensors':'Érecteurs du rachis',lats:'Grand dorsal','upper-back':'Haut du dos',
+        calves:'Mollets',shins:'Jambier antérieur',abdominals:'Abdominaux',obliques:'Obliques','back-extensors':'Érecteurs du rachis',lats:'Grand dorsal','upper-back':'Haut du dos',
         chest:'Pectoraux',shoulders:'Épaules','rotator-cuff':'Coiffe des rotateurs',biceps:'Biceps',triceps:'Triceps',forearms:'Avant-bras',neck:'Cou'},
       position:{standing:'Debout',seated:'Assis',kneeling:'À genoux','half-kneeling':'Un genou au sol',quadruped:'À quatre pattes',
         supine:'Sur le dos',prone:'Sur le ventre','side-lying':'Sur le côté',hanging:'Suspendu'},
@@ -153,7 +153,7 @@ UI.de={exercises:'Übungen', back:'Alle Übungen', clear:'Filter zurücksetzen',
       component:{strength:'Kraft',stability:'Stabilität',mobility:'Mobilität',flexibility:'Flexibilität',balance:'Gleichgewicht',cardio:'Cardio'},
       region:{lower:'Unterkörper',upper:'Oberkörper',core:'Rumpf',full:'Ganzkörper'},
       muscle:{glutes:'Gesäß',quadriceps:'Quadrizeps',hamstrings:'Hintere Oberschenkel',adductors:'Adduktoren','hip-abductors':'Hüftabduktoren','hip-flexors':'Hüftbeuger',
-        calves:'Waden',abdominals:'Bauchmuskeln',obliques:'Schräge Bauchmuskeln','back-extensors':'Rückenstrecker',lats:'Latissimus','upper-back':'Oberer Rücken',
+        calves:'Waden',shins:'Schienbeinmuskel',abdominals:'Bauchmuskeln',obliques:'Schräge Bauchmuskeln','back-extensors':'Rückenstrecker',lats:'Latissimus','upper-back':'Oberer Rücken',
         chest:'Brust',shoulders:'Schultern','rotator-cuff':'Rotatorenmanschette',biceps:'Bizeps',triceps:'Trizeps',forearms:'Unterarme',neck:'Nacken'},
       position:{standing:'Stehend',seated:'Sitzend',kneeling:'Kniend','half-kneeling':'Halb kniend',quadruped:'Vierfüßlerstand',
         supine:'Rückenlage',prone:'Bauchlage','side-lying':'Seitenlage',hanging:'Hängend'},
@@ -198,7 +198,7 @@ UI.hr={exercises:'Vježbe', back:'Sve vježbe', clear:'Poništi filtre', empty:'
       component:{strength:'Snaga',stability:'Stabilnost',mobility:'Pokretljivost',flexibility:'Fleksibilnost',balance:'Ravnoteža',cardio:'Kardio'},
       region:{lower:'Donji dio tijela',upper:'Gornji dio tijela',core:'Trup',full:'Cijelo tijelo'},
       muscle:{glutes:'Gluteusi',quadriceps:'Kvadricepsi',hamstrings:'Stražnja loža',adductors:'Aduktori','hip-abductors':'Abduktori kuka','hip-flexors':'Fleksori kuka',
-        calves:'Listovi',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Ispravljači kralježnice',lats:'Široki leđni mišić','upper-back':'Gornji dio leđa',
+        calves:'Listovi',shins:'Prednji dio potkoljenice',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Ispravljači kralježnice',lats:'Široki leđni mišić','upper-back':'Gornji dio leđa',
         chest:'Prsni mišići',shoulders:'Ramena','rotator-cuff':'Rotatorna manšeta',biceps:'Biceps',triceps:'Triceps',forearms:'Podlaktice',neck:'Vrat'},
       position:{standing:'Stojeći',seated:'Sjedeći',kneeling:'Klečeći','half-kneeling':'Na jednom koljenu',quadruped:'Na sve četiri',
         supine:'Na leđima',prone:'Na trbuhu','side-lying':'Na boku',hanging:'U visu'},
@@ -242,7 +242,7 @@ UI.sr={exercises:'Vežbe', back:'Sve vežbe', clear:'Poništi filtere', empty:'N
       component:{strength:'Snaga',stability:'Stabilnost',mobility:'Pokretljivost',flexibility:'Fleksibilnost',balance:'Ravnoteža',cardio:'Kardio'},
       region:{lower:'Donji deo tela',upper:'Gornji deo tela',core:'Trup',full:'Celo telo'},
       muscle:{glutes:'Gluteusi',quadriceps:'Kvadricepsi',hamstrings:'Zadnja loža',adductors:'Aduktori','hip-abductors':'Abduktori kuka','hip-flexors':'Fleksori kuka',
-        calves:'Listovi',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Opružači leđa',lats:'Široki leđni mišić','upper-back':'Gornji deo leđa',
+        calves:'Listovi',shins:'Prednji deo potkolenice',abdominals:'Trbušni mišići',obliques:'Kosi trbušni mišići','back-extensors':'Opružači leđa',lats:'Široki leđni mišić','upper-back':'Gornji deo leđa',
         chest:'Grudni mišići',shoulders:'Ramena','rotator-cuff':'Rotatorna manžetna',biceps:'Biceps',triceps:'Triceps',forearms:'Podlaktice',neck:'Vrat'},
       position:{standing:'Stojeći',seated:'Sedeći',kneeling:'Klečeći','half-kneeling':'Na jednom kolenu',quadruped:'Na sve četiri',
         supine:'Na leđima',prone:'Na stomaku','side-lying':'Na boku',hanging:'U visu'},
@@ -286,7 +286,7 @@ UI.es={exercises:'Ejercicios', back:'Todos los ejercicios', clear:'Quitar filtro
       component:{strength:'Fuerza',stability:'Estabilidad',mobility:'Movilidad',flexibility:'Flexibilidad',balance:'Equilibrio',cardio:'Cardio'},
       region:{lower:'Tren inferior',upper:'Tren superior',core:'Tronco',full:'Cuerpo completo'},
       muscle:{glutes:'Glúteos',quadriceps:'Cuádriceps',hamstrings:'Isquiotibiales',adductors:'Aductores','hip-abductors':'Abductores de cadera','hip-flexors':'Flexores de cadera',
-        calves:'Gemelos',abdominals:'Abdominales',obliques:'Oblicuos','back-extensors':'Erectores de la columna',lats:'Dorsal ancho','upper-back':'Espalda alta',
+        calves:'Gemelos',shins:'Tibial anterior',abdominals:'Abdominales',obliques:'Oblicuos','back-extensors':'Erectores de la columna',lats:'Dorsal ancho','upper-back':'Espalda alta',
         chest:'Pectorales',shoulders:'Hombros','rotator-cuff':'Manguito rotador',biceps:'Bíceps',triceps:'Tríceps',forearms:'Antebrazos',neck:'Cuello'},
       position:{standing:'De pie',seated:'Sentado',kneeling:'De rodillas','half-kneeling':'Una rodilla en el suelo',quadruped:'En cuadrupedia',
         supine:'Boca arriba',prone:'Boca abajo','side-lying':'De lado',hanging:'Colgado'},
@@ -319,7 +319,7 @@ UI.es={exercises:'Ejercicios', back:'Todos los ejercicios', clear:'Quitar filtro
 
 // Sessions, editor and session player.
 Object.assign(UI.en,{
-  g_discipline:'Style', discipline:{yoga:'Yoga'},
+  g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai chi & qigong'},
   g_sport:'Sport', noSport:'General fitness', allSessions:'All',
   sport:{'alpine-skiing':'Alpine skiing',hiking:'Hiking','road-cycling':'Road cycling','mountain-biking':'Mountain biking',swimming:'Swimming',kayaking:'Kayaking'},
   sessions:'Sessions', newSession:'New session', more:'More actions', start:'Start', edit:'Edit', duplicate:'Duplicate', del:'Delete',
@@ -338,7 +338,7 @@ Object.assign(UI.en,{
   exOf:(a,b)=>`Exercise ${a} of ${b}`, nextUp:x=>`Next: ${x}`, prevEx:'Previous exercise', skipEx:'Skip exercise', allDone:'Session complete',
 });
 Object.assign(UI.bs,{
-  g_discipline:'Stil', discipline:{yoga:'Joga'},
+  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong'},
   g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliciraj', del:'Obriši',
@@ -357,7 +357,7 @@ Object.assign(UI.bs,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.fr,{
-  g_discipline:'Style', discipline:{yoga:'Yoga'},
+  g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai-chi et qi gong'},
   g_sport:'Sport', noSport:'Forme générale', allSessions:'Tout',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Randonnée','road-cycling':'Vélo de route','mountain-biking':'VTT',swimming:'Natation',kayaking:'Kayak'},
   sessions:'Séances', newSession:'Nouvelle séance', more:'Plus d’actions', start:'Commencer', edit:'Modifier', duplicate:'Dupliquer', del:'Supprimer',
@@ -376,7 +376,7 @@ Object.assign(UI.fr,{
   exOf:(a,b)=>`Exercice ${a} sur ${b}`, nextUp:x=>`Ensuite : ${x}`, prevEx:'Exercice précédent', skipEx:'Passer l’exercice', allDone:'Séance terminée',
 });
 Object.assign(UI.de,{
-  g_discipline:'Stil', discipline:{yoga:'Yoga'},
+  g_discipline:'Stil', discipline:{yoga:'Yoga','tai-chi':'Tai-Chi & Qigong'},
   g_sport:'Sportart', noSport:'Allgemeine Fitness', allSessions:'Alle',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Wandern','road-cycling':'Rennrad','mountain-biking':'Mountainbike',swimming:'Schwimmen',kayaking:'Kajak'},
   sessions:'Trainings', newSession:'Neues Training', more:'Weitere Aktionen', start:'Starten', edit:'Bearbeiten', duplicate:'Duplizieren', del:'Löschen',
@@ -395,7 +395,7 @@ Object.assign(UI.de,{
   exOf:(a,b)=>`Übung ${a} von ${b}`, nextUp:x=>`Als Nächstes: ${x}`, prevEx:'Vorherige Übung', skipEx:'Übung überspringen', allDone:'Training abgeschlossen',
 });
 Object.assign(UI.hr,{
-  g_discipline:'Stil', discipline:{yoga:'Joga'},
+  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong'},
   g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Kopiraj', del:'Obriši',
@@ -414,7 +414,7 @@ Object.assign(UI.hr,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.sr,{
-  g_discipline:'Stil', discipline:{yoga:'Joga'},
+  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai či i ći gong'},
   g_sport:'Sport', noSport:'Opšta kondicija', allSessions:'Sve',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Drumski biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliraj', del:'Obriši',
@@ -433,7 +433,7 @@ Object.assign(UI.sr,{
   exOf:(a,b)=>`Vežba ${a} od ${b}`, nextUp:x=>`Sledeće: ${x}`, prevEx:'Prethodna vežba', skipEx:'Preskoči vežbu', allDone:'Trening završen',
 });
 Object.assign(UI.es,{
-  g_discipline:'Estilo', discipline:{yoga:'Yoga'},
+  g_discipline:'Estilo', discipline:{yoga:'Yoga','tai-chi':'Taichí y qigong'},
   g_sport:'Deporte', noSport:'Forma física general', allSessions:'Todas',
   sport:{'alpine-skiing':'Esquí alpino',hiking:'Senderismo','road-cycling':'Ciclismo de carretera','mountain-biking':'Ciclismo de montaña',swimming:'Natación',kayaking:'Kayak'},
   sessions:'Sesiones', newSession:'Nueva sesión', more:'Más acciones', start:'Empezar', edit:'Editar', duplicate:'Duplicar', del:'Eliminar',

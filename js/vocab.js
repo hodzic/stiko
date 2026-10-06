@@ -18,7 +18,7 @@ export const MAIN_FAMILIES = ['squat','hinge','lunge','push','pull','core'];
 
 // Muscle groups and the body area each belongs to.
 export const MUSCLES = {
-  glutes:'lower', quadriceps:'lower', hamstrings:'lower', adductors:'lower', 'hip-abductors':'lower', 'hip-flexors':'lower', calves:'lower',
+  glutes:'lower', quadriceps:'lower', hamstrings:'lower', adductors:'lower', 'hip-abductors':'lower', 'hip-flexors':'lower', calves:'lower', shins:'lower',
   abdominals:'core', obliques:'core', 'back-extensors':'core',
   lats:'upper', 'upper-back':'upper', chest:'upper', shoulders:'upper', 'rotator-cuff':'upper', biceps:'upper', triceps:'upper', forearms:'upper', neck:'upper',
 };
@@ -46,7 +46,7 @@ export const VOCAB = {
   chain:      ['closed','open'],
   block:      ['warmup','main','cooldown'],
   level:      [1,2,3],
-  discipline: ['yoga'],  // optional style an exercise belongs to
+  discipline: ['yoga','tai-chi'],  // optional style an exercise belongs to
 };
 // Sports a session can be built for (sessions only; exercises aren't sport-specific).
 export const SPORTS = ['alpine-skiing','hiking','road-cycling','mountain-biking','swimming','kayaking'];

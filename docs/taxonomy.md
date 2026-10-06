@@ -10,7 +10,7 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | --- | --- | --- | --- |
 | Movement pattern | `pattern` | see below; families group them | Functional movement patterns used in strength and conditioning (NSCA) |
 | Fitness component | `component` | strength, stability, mobility, flexibility, balance, cardio | ACSM components of health-related fitness, with neuromotor fitness split into stability and balance |
-| Target muscles | `muscles.primary`, `muscles.secondary` | 19 muscle groups | Prime movers vs. synergists and stabilizers |
+| Target muscles | `muscles.primary`, `muscles.secondary` | 20 muscle groups | Prime movers vs. synergists and stabilizers |
 | Body area | derived | lower, upper, core, full | Area of the primary muscles; "full" when they span several |
 | Joint actions | `joints` | joint → list of actions | Anatomical joint actions |
 | Plane of motion | `planes` | sagittal, frontal, transverse | Cardinal anatomical planes |
@@ -19,7 +19,7 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | Kinetic chain | `chain` | closed, open | Closed: the hands or feet are fixed against the floor or wall. Open: the moving limb is free |
 | Routine fit | `blocks` | warmup, main, cooldown | Which part of the three-part routine it suits |
 | Equipment | `equipment` | band, dumbbell, mat, chair, wall, step, bar (doorway pull-up bar; empty = none) | |
-| Discipline | `discipline` (optional) | yoga | Style the exercise belongs to; shown as a filter |
+| Discipline | `discipline` (optional) | yoga, tai-chi (tai chi and qigong) | Style the exercise belongs to; shown as a filter |
 | Level | `level`, `easier`, `harder` | 1–3, with links to a regression and a progression | Progression/regression chains |
 
 ## Movement patterns
@@ -66,7 +66,7 @@ synergists and stabilizers that work noticeably. A muscle appears in one list, n
 
 | Area | Muscle groups |
 | --- | --- |
-| Lower | glutes, quadriceps, hamstrings, adductors, hip abductors, hip flexors, calves |
+| Lower | glutes, quadriceps, hamstrings, adductors, hip abductors, hip flexors, calves, shins (tibialis anterior) |
 | Core | abdominals, obliques, back extensors |
 | Upper | lats, upper back (rhomboids, middle and lower trapezius), chest, shoulders (deltoids), rotator cuff, biceps, triceps, forearms, neck |
 
