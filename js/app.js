@@ -1,5 +1,5 @@
 // App shell: loads the library, routes between screens, handles language and the service worker.
-import {U, getLang, setLang, LANGS} from './i18n.js';
+import {U, getLang, setLang, LANGS, LANG_NAMES} from './i18n.js';
 import {mountLibrary} from './library.js';
 import {mountPlayer} from './player.js';
 import {mountSessions} from './sessions-list.js';
@@ -8,20 +8,17 @@ import * as S from './sessions.js';
 import * as store from './store.js';
 
 const main=document.getElementById('view');
-const langSeg=document.getElementById('langSeg');
+const langSel=document.getElementById('langSel');
 const tabs=document.getElementById('tabs');
 let lib=null, view=null;
 
 function showLang(){
   document.documentElement.lang=getLang();
-  langSeg.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===getLang()));
+  langSel.value=getLang();
   tabs.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
 }
-langSeg.innerHTML=LANGS.map(l=>`<button data-l="${l}">${l.toUpperCase()}</button>`).join('');
-langSeg.addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b) return;
-  setLang(b.dataset.l); showLang(); view?.relang();
-});
+langSel.innerHTML=LANGS.map(l=>`<option value="${l}" lang="${l}">${LANG_NAMES[l]}</option>`).join('');
+langSel.addEventListener('change',()=>{ setLang(langSel.value); showLang(); view?.relang(); });
 
 // Routes:
 //   #/sessions                    sessions list (home)
