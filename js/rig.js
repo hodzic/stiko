@@ -131,8 +131,8 @@ export function solve(spec,pose){
     const t=spec.ik[limb+'_'+s]??spec.ik[limb];
     if(t&&!p['free_'+limb+'_'+s]) limbIK(J,s,limb,atFloor(t),p['footAbs_'+s]??p.footAbs??spec.footAbs);
   }
-  // lift raises the whole figure (jumps).
-  if(p.lift) shift(J,0,-p.lift);
+  // lift raises the whole figure (jumps); slide moves it sideways (skater hops, side steps).
+  if(p.lift||p.slide) shift(J,p.slide||0,-(p.lift||0));
   return J;
 }
 export function lerpJ(a,b,u){

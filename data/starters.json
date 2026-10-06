@@ -96,6 +96,130 @@
         {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
         {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 20}
       ]
+    },
+    {
+      "id": "starter-ski",
+      "name": {"en": "Ski prep", "bs": "Priprema za skijanje", "hr": "Priprema za skijanje", "sr": "Priprema za skijanje", "fr": "Préparation ski", "de": "Ski-Vorbereitung", "es": "Preparación para esquí"},
+      "sport": "alpine-skiing",
+      "items": [
+        {"ex": "step-jacks", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "leg-swings", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "lateral-band-walk", "block": "warmup", "sets": 1, "reps": 10, "rest": 15},
+        {"ex": "squat", "block": "main", "sets": 3, "reps": 12, "rest": 45},
+        {"ex": "wall-sit", "block": "main", "sets": 3, "hold": 45, "rest": 30},
+        {"ex": "lateral-lunge", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "step-down", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "skater-hop", "block": "main", "sets": 3, "time": 30, "rest": 30},
+        {"ex": "single-leg-rdl", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "side-plank", "block": "main", "sets": 2, "hold": 25, "rest": 20},
+        {"ex": "standing-quad-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "hip-flexor-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "figure-four-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-hiking",
+      "name": {"en": "Hiking prep", "bs": "Priprema za planinarenje", "hr": "Priprema za planinarenje", "sr": "Priprema za planinarenje", "fr": "Préparation randonnée", "de": "Wander-Vorbereitung", "es": "Preparación para senderismo"},
+      "sport": "hiking",
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "leg-swings", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "calf-raise", "block": "warmup", "sets": 1, "reps": 15, "rest": 10},
+        {"ex": "step-up", "block": "main", "sets": 3, "reps": 10, "rest": 45},
+        {"ex": "step-down", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "reverse-lunge", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "single-leg-calf-raise", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "farmer-carry", "block": "main", "sets": 3, "time": 40, "rest": 40},
+        {"ex": "glute-bridge-march", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "single-leg-stand", "block": "main", "sets": 2, "hold": 30, "rest": 10},
+        {"ex": "calf-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "standing-quad-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "seated-hamstring-stretch", "block": "cooldown", "sets": 1, "hold": 40, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-road-cycling",
+      "name": {"en": "Road cycling prep", "bs": "Priprema za cestovni biciklizam", "hr": "Priprema za cestovni biciklizam", "sr": "Priprema za drumski biciklizam", "fr": "Préparation vélo de route", "de": "Rennrad-Vorbereitung", "es": "Preparación para ciclismo de carretera"},
+      "sport": "road-cycling",
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "thoracic-extension", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "leg-swings", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "bulgarian-split-squat", "block": "main", "sets": 2, "reps": 8, "rest": 45},
+        {"ex": "single-leg-rdl", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "squat-jump", "block": "main", "sets": 3, "reps": 6, "rest": 45},
+        {"ex": "pogo-hops", "block": "main", "sets": 2, "time": 20, "rest": 40},
+        {"ex": "glute-bridge-march", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "forearm-plank", "block": "main", "sets": 2, "hold": 30, "rest": 20},
+        {"ex": "prone-y-raise", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "hip-flexor-stretch", "block": "cooldown", "sets": 1, "hold": 40, "rest": 10},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "figure-four-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-mountain-biking",
+      "name": {"en": "Mountain bike prep", "bs": "Priprema za brdski biciklizam", "hr": "Priprema za brdski biciklizam", "sr": "Priprema za brdski biciklizam", "fr": "Préparation VTT", "de": "Mountainbike-Vorbereitung", "es": "Preparación para ciclismo de montaña"},
+      "sport": "mountain-biking",
+      "items": [
+        {"ex": "step-jacks", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "inchworm", "block": "warmup", "sets": 1, "reps": 5, "rest": 15},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "hinge-hold", "block": "main", "sets": 3, "hold": 30, "rest": 30},
+        {"ex": "goblet-squat", "block": "main", "sets": 3, "reps": 10, "rest": 45},
+        {"ex": "reverse-lunge", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "push-up", "block": "main", "sets": 3, "reps": 8, "rest": 45},
+        {"ex": "bent-over-row", "block": "main", "sets": 3, "reps": 10, "rest": 45},
+        {"ex": "plank-shoulder-tap", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "farmer-carry", "block": "main", "sets": 2, "time": 40, "rest": 40},
+        {"ex": "skater-hop", "block": "main", "sets": 2, "time": 30, "rest": 30},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "hip-flexor-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-swimming",
+      "name": {"en": "Swim prep", "bs": "Priprema za plivanje", "hr": "Priprema za plivanje", "sr": "Priprema za plivanje", "fr": "Préparation natation", "de": "Schwimm-Vorbereitung", "es": "Preparación para natación"},
+      "sport": "swimming",
+      "items": [
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "wall-slide", "block": "warmup", "sets": 1, "reps": 10, "rest": 10},
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "straight-arm-pulldown", "block": "main", "sets": 3, "reps": 12, "rest": 30},
+        {"ex": "band-pulldown", "block": "main", "sets": 3, "reps": 12, "rest": 30},
+        {"ex": "band-row", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "prone-y-raise", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "knee-push-up", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "hollow-hold", "block": "main", "sets": 3, "hold": 20, "rest": 30},
+        {"ex": "superman", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "squat-jump", "block": "main", "sets": 2, "reps": 6, "rest": 45},
+        {"ex": "triceps-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 0}
+      ]
+    },
+    {
+      "id": "starter-kayaking",
+      "name": {"en": "Kayak prep", "bs": "Priprema za kajak", "hr": "Priprema za kajak", "sr": "Priprema za kajak", "fr": "Préparation kayak", "de": "Kajak-Vorbereitung", "es": "Preparación para kayak"},
+      "sport": "kayaking",
+      "items": [
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "thoracic-extension", "block": "warmup", "sets": 1, "reps": 8, "rest": 10},
+        {"ex": "thread-the-needle", "block": "warmup", "sets": 1, "reps": 6, "rest": 10},
+        {"ex": "band-row", "block": "main", "sets": 3, "reps": 12, "rest": 30},
+        {"ex": "single-arm-row", "block": "main", "sets": 3, "reps": 10, "rest": 45},
+        {"ex": "straight-arm-pulldown", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "push-up", "block": "main", "sets": 2, "reps": 8, "rest": 45},
+        {"ex": "plank-shoulder-tap", "block": "main", "sets": 3, "reps": 10, "rest": 30},
+        {"ex": "side-plank", "block": "main", "sets": 2, "hold": 25, "rest": 20},
+        {"ex": "bird-dog", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "standing-side-bend", "block": "cooldown", "sets": 1, "hold": 20, "rest": 10},
+        {"ex": "figure-four-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
     }
   ]
 }

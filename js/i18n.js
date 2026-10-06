@@ -319,6 +319,8 @@ UI.es={exercises:'Ejercicios', back:'Todos los ejercicios', clear:'Quitar filtro
 
 // Sessions, editor and session player.
 Object.assign(UI.en,{
+  g_sport:'Sport', noSport:'General fitness', allSessions:'All',
+  sport:{'alpine-skiing':'Alpine skiing',hiking:'Hiking','road-cycling':'Road cycling','mountain-biking':'Mountain biking',swimming:'Swimming',kayaking:'Kayaking'},
   sessions:'Sessions', newSession:'New session', more:'More actions', start:'Start', edit:'Edit', duplicate:'Duplicate', del:'Delete',
   confirmDelete:n=>`Delete “${n}”?`, copyName:n=>`${n} (copy)`,
   noSessions:'No sessions yet. Create one, then add exercises from the library.',
@@ -335,6 +337,8 @@ Object.assign(UI.en,{
   exOf:(a,b)=>`Exercise ${a} of ${b}`, nextUp:x=>`Next: ${x}`, prevEx:'Previous exercise', skipEx:'Skip exercise', allDone:'Session complete',
 });
 Object.assign(UI.bs,{
+  g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
+  sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliciraj', del:'Obriši',
   confirmDelete:n=>`Obrisati „${n}“?`, copyName:n=>`${n} (kopija)`,
   noSessions:'Još nema treninga. Napravi jedan, pa dodaj vježbe iz biblioteke.',
@@ -351,6 +355,8 @@ Object.assign(UI.bs,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.fr,{
+  g_sport:'Sport', noSport:'Forme générale', allSessions:'Tout',
+  sport:{'alpine-skiing':'Ski alpin',hiking:'Randonnée','road-cycling':'Vélo de route','mountain-biking':'VTT',swimming:'Natation',kayaking:'Kayak'},
   sessions:'Séances', newSession:'Nouvelle séance', more:'Plus d’actions', start:'Commencer', edit:'Modifier', duplicate:'Dupliquer', del:'Supprimer',
   confirmDelete:n=>`Supprimer « ${n} » ?`, copyName:n=>`${n} (copie)`,
   noSessions:'Aucune séance pour l’instant. Crées-en une, puis ajoute des exercices depuis la bibliothèque.',
@@ -367,6 +373,8 @@ Object.assign(UI.fr,{
   exOf:(a,b)=>`Exercice ${a} sur ${b}`, nextUp:x=>`Ensuite : ${x}`, prevEx:'Exercice précédent', skipEx:'Passer l’exercice', allDone:'Séance terminée',
 });
 Object.assign(UI.de,{
+  g_sport:'Sportart', noSport:'Allgemeine Fitness', allSessions:'Alle',
+  sport:{'alpine-skiing':'Ski alpin',hiking:'Wandern','road-cycling':'Rennrad','mountain-biking':'Mountainbike',swimming:'Schwimmen',kayaking:'Kajak'},
   sessions:'Trainings', newSession:'Neues Training', more:'Weitere Aktionen', start:'Starten', edit:'Bearbeiten', duplicate:'Duplizieren', del:'Löschen',
   confirmDelete:n=>`„${n}“ löschen?`, copyName:n=>`${n} (Kopie)`,
   noSessions:'Noch keine Trainings. Erstelle eins und füge Übungen aus der Bibliothek hinzu.',
@@ -383,6 +391,8 @@ Object.assign(UI.de,{
   exOf:(a,b)=>`Übung ${a} von ${b}`, nextUp:x=>`Als Nächstes: ${x}`, prevEx:'Vorherige Übung', skipEx:'Übung überspringen', allDone:'Training abgeschlossen',
 });
 Object.assign(UI.hr,{
+  g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
+  sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Kopiraj', del:'Obriši',
   confirmDelete:n=>`Obrisati „${n}“?`, copyName:n=>`${n} (kopija)`,
   noSessions:'Još nema treninga. Napravi jedan, pa dodaj vježbe iz popisa.',
@@ -399,6 +409,8 @@ Object.assign(UI.hr,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.sr,{
+  g_sport:'Sport', noSport:'Opšta kondicija', allSessions:'Sve',
+  sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Drumski biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliraj', del:'Obriši',
   confirmDelete:n=>`Obrisati „${n}“?`, copyName:n=>`${n} (kopija)`,
   noSessions:'Još nema treninga. Napravi jedan, pa dodaj vežbe iz biblioteke.',
@@ -415,6 +427,8 @@ Object.assign(UI.sr,{
   exOf:(a,b)=>`Vežba ${a} od ${b}`, nextUp:x=>`Sledeće: ${x}`, prevEx:'Prethodna vežba', skipEx:'Preskoči vežbu', allDone:'Trening završen',
 });
 Object.assign(UI.es,{
+  g_sport:'Deporte', noSport:'Forma física general', allSessions:'Todas',
+  sport:{'alpine-skiing':'Esquí alpino',hiking:'Senderismo','road-cycling':'Ciclismo de carretera','mountain-biking':'Ciclismo de montaña',swimming:'Natación',kayaking:'Kayak'},
   sessions:'Sesiones', newSession:'Nueva sesión', more:'Más acciones', start:'Empezar', edit:'Editar', duplicate:'Duplicar', del:'Eliminar',
   confirmDelete:n=>`¿Eliminar «${n}»?`, copyName:n=>`${n} (copia)`,
   noSessions:'Aún no hay sesiones. Crea una y añade ejercicios de la biblioteca.',

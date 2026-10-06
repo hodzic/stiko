@@ -1,5 +1,7 @@
 // Sessions screen: list of named sessions with start, edit, duplicate, delete; backup export and import.
-import {U, esc, getLang} from './i18n.js';
+import {U, esc, getLang, tagLabel} from './i18n.js';
+import {SPORTS} from './vocab.js';
+import * as store from './store.js';
 import * as S from './sessions.js';
 import {toast, saveJSON} from './ui.js';
 
@@ -7,6 +9,7 @@ export function mountSessions(root,lib){
   const byId=lib.byId;
   root.innerHTML=`<section>
     <div class="lib-head"><h2 data-i18n="sessions"></h2><button class="btn primary" id="newBtn" data-i18n="newSession"></button></div>
+    <div class="fgroup sport-filter" id="sportFilter" role="group"></div>
     <ul class="cards" id="list"></ul>
     <div class="backup">
       <p class="note" data-i18n="storageNote"></p>
@@ -21,15 +24,24 @@ export function mountSessions(root,lib){
   function render(){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     document.title=`${U('sessions')} · Stiko`;
-    const list=S.loadAll();
-    $('exportBtn').disabled=!list.length;
+    const all=S.loadAll();
+    $('exportBtn').disabled=!all.length;
+    // Sport filter: only when some session has a sport. 'all', 'none' (general fitness) or a sport.
+    const sports=SPORTS.filter(sp=>all.some(s=>s.sport===sp));
+    let pick=store.load('sessionSport','all');
+    if(pick!=='all'&&pick!=='none'&&!sports.includes(pick)) pick='all';
+    const opts=sports.length?['all','none',...sports]:[];
+    $('sportFilter').hidden=!opts.length;
+    $('sportFilter').setAttribute('aria-label',U('g_sport'));
+    $('sportFilter').innerHTML=opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
+    const list=opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all;
     if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U('noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map(s=>{
       const est=S.estimate(s.items,byId);
       return `<li class="scard" data-id="${esc(s.id)}">
         <a class="scard-main" href="#/sessions/${encodeURIComponent(s.id)}">
           <h3>${esc(S.nameOf(s,getLang()))}</h3>
-          <p class="dose">${esc(U('exCount')(s.items.length))}${s.items.length?' · '+esc(U('mins')(S.minutes(est.total))):''}</p>
+          <p class="dose">${s.sport?esc(tagLabel('sport',s.sport))+' · ':''}${esc(U('exCount')(s.items.length))}${s.items.length?' · '+esc(U('mins')(S.minutes(est.total))):''}</p>
         </a>
         <div class="row">
           ${s.items.length?`<a class="btn primary" href="#/run/${encodeURIComponent(s.id)}">▶ ${esc(U('start'))}</a>`:''}
@@ -43,6 +55,10 @@ export function mountSessions(root,lib){
     }).join('');
   }
 
+  $('sportFilter').addEventListener('click',e=>{
+    const b=e.target.closest('button[data-sport]'); if(!b) return;
+    store.save('sessionSport',b.dataset.sport); render();
+  });
   $('newBtn').onclick=()=>{ const s=S.create(U('newSession')); location.hash=`#/sessions/${encodeURIComponent(s.id)}`; };
   // Close an open ⋯ menu when tapping anywhere else.
   const closeMenus=e=>root.querySelectorAll('details.menu[open]').forEach(d=>{ if(!d.contains(e.target)) d.open=false; });

@@ -1,6 +1,6 @@
 // Session editor: name, three fixed blocks, per-item sets/reps/hold/rest, reorder, remove, share.
 import {T, U, esc, tagLabel, getLang} from './i18n.js';
-import {MAIN_FAMILIES, familyOf} from './vocab.js';
+import {MAIN_FAMILIES, familyOf, SPORTS} from './vocab.js';
 import * as S from './sessions.js';
 import {thumbSVG} from './library.js';
 import {saveJSON, slug} from './ui.js';
@@ -13,6 +13,7 @@ export function mountEditor(root,lib,id){
   root.innerHTML=`<a class="back" href="#/sessions">← <span data-i18n="sessions"></span></a>
   <section class="editor">
     <label class="field"><span class="flabel" data-i18n="name"></span><input id="nameIn" maxlength="80" autocomplete="off"></label>
+    <label class="field"><span class="flabel" data-i18n="g_sport"></span><select id="sportIn"></select></label>
     <div class="ed-sum"><span class="dose" id="total"></span><a class="btn primary" id="playBtn"></a></div>
     <div id="blocks"></div>
     <div class="row ed-foot">
@@ -47,6 +48,8 @@ export function mountEditor(root,lib,id){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     document.title=`${nm()} · Stiko`;
     $('nameIn').value=nm();
+    $('sportIn').innerHTML=['',...SPORTS].map(v=>`<option value="${v}">${esc(v?tagLabel('sport',v):U('noSport'))}</option>`).join('');
+    $('sportIn').value=s.sport||'';
     $('blocks').innerHTML=S.BLOCKS.map(b=>{
       const rows=s.items.map((it,i)=>[it,i]).filter(([it])=>it.block===b);
       return `<section class="block">
@@ -77,6 +80,7 @@ export function mountEditor(root,lib,id){
 
   // Typing a name makes it the user's own: it no longer follows the app language.
   $('nameIn').addEventListener('change',e=>{ s.name=e.target.value.trim().slice(0,80)||U('newSession'); delete s.names; e.target.value=s.name; save(); document.title=`${s.name} · Stiko`; });
+  $('sportIn').addEventListener('change',e=>{ if(e.target.value) s.sport=e.target.value; else delete s.sport; save(); });
   $('blocks').addEventListener('change',e=>{
     const t=e.target; if(!t.dataset.k) return;
     const i=+t.dataset.i, it=S.cleanItem({...s.items[i],[t.dataset.k]:t.value},byId);
