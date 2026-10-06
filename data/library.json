@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "exercises": [
+    {
+      "id": "squat",
+      "name": {"en": "Bodyweight squat", "bs": "Čučanj"},
+      "short": {"en": "Squat", "bs": "Čučanj"},
+      "pattern": "squat", "region": "lower", "type": "strength",
+      "dose": {"mode": "reps", "sets": 3, "reps": 10, "rest": 30},
+      "equipment": [], "level": 1,
+      "easier": null, "harder": null,
+      "howto": {
+        "setup": {"en": "Stand tall, feet about shoulder-width apart, toes turned out slightly. Arms relaxed at your sides.",
+                  "bs": "Stani uspravno, stopala otprilike u širini ramena, prsti blago okrenuti prema van. Ruke opuštene uz tijelo."},
+        "steps": [
+          {"en": "Push your hips back and bend your knees, lowering as if sitting into a chair. Reach your arms forward for balance.",
+           "bs": "Gurni kukove unazad i savij koljena, spuštajući se kao da sjedaš na stolicu. Ispruži ruke naprijed radi ravnoteže."},
+          {"en": "Pause when your thighs are about parallel to the floor, or as low as is comfortable.",
+           "bs": "Zastani kad su ti butine otprilike paralelne s podom, ili onoliko nisko koliko ti je ugodno."},
+          {"en": "Press through your whole foot, especially your heels, to stand back up. Squeeze your glutes at the top.",
+           "bs": "Pritisni cijelim stopalom, naročito petama, i vrati se u stojeći položaj. Na vrhu stegni gluteuse."}
+        ],
+        "breathe": {"en": "Breathe in on the way down, out as you stand up.", "bs": "Udahni dok se spuštaš, izdahni dok se podižeš."},
+        "mistakes": [
+          {"en": "Knees caving inward", "bs": "Koljena padaju prema unutra"},
+          {"en": "Heels lifting off the floor", "bs": "Pete se odižu od poda"},
+          {"en": "Chest dropping or back rounding", "bs": "Grudi padaju ili se leđa savijaju"}
+        ],
+        "easier": {"en": "Squat to a chair and tap it lightly each rep.", "bs": "Spuštaj se do stolice i lagano je dodirni pri svakom ponavljanju."},
+        "harder": {"en": "Hold a dumbbell at your chest (goblet squat), or take 3 seconds to lower.", "bs": "Drži bučicu na grudima (goblet čučanj) ili se spuštaj 3 sekunde."}
+      },
+      "anim": {
+        "cycle": 3.2, "floorWork": false, "farShift": [7, -1],
+        "spec": {"pin": {"point": "n.an", "at": [205, -5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Sit back and down", "bs": "Spusti se unazad i dolje"}, "face": "smile",
+           "pose": {"torso": 0, "hip": 0, "knee": 0, "shoulder": 8, "elbow": 14, "neck": 0}},
+          {"t": 0.45, "label": {"en": "Pause at the bottom", "bs": "Zastani na dnu"}, "face": "effort",
+           "pose": {"torso": 38, "hip": 84, "knee": 112, "shoulder": 128, "elbow": 4, "neck": -22}},
+          {"t": 0.58, "label": {"en": "Drive up through your heels", "bs": "Podigni se preko peta"}, "face": "effort",
+           "pose": {"torso": 38, "hip": 84, "knee": 112, "shoulder": 128, "elbow": 4, "neck": -22}}
+        ]
+      }
+    },
+    {
+      "id": "glute-bridge",
+      "name": {"en": "Glute bridge", "bs": "Glutealni most"},
+      "short": {"en": "Bridge", "bs": "Most"},
+      "pattern": "hinge", "region": "lower", "type": "strength",
+      "dose": {"mode": "reps", "sets": 3, "reps": 12, "rest": 30},
+      "equipment": ["mat"], "level": 1,
+      "easier": null, "harder": null,
+      "howto": {
+        "setup": {"en": "Lie on your back, knees bent, feet flat and hip-width apart, heels about a hand’s length from your hips. Arms by your sides, palms down.",
+                  "bs": "Lezi na leđa, koljena savijena, stopala ravno na podu u širini kukova, pete otprilike jedan dlan udaljene od kukova. Ruke uz tijelo, dlanovi okrenuti prema podu."},
+        "steps": [
+          {"en": "Press through your heels and lift your hips off the floor.", "bs": "Pritisni petama i podigni kukove od poda."},
+          {"en": "Squeeze your glutes at the top. Shoulders, hips and knees form a straight line.", "bs": "Na vrhu stegni gluteuse. Ramena, kukovi i koljena čine ravnu liniju."},
+          {"en": "Lower slowly back to the floor.", "bs": "Polako se spusti nazad na pod."}
+        ],
+        "breathe": {"en": "Breathe out as you lift, in as you lower.", "bs": "Izdahni dok podižeš kukove, udahni dok se spuštaš."},
+        "mistakes": [
+          {"en": "Arching the lower back instead of using your glutes", "bs": "Izvijanje donjeg dijela leđa umjesto rada gluteusa"},
+          {"en": "Pushing through your toes", "bs": "Guranje preko prstiju"},
+          {"en": "Knees falling in or out", "bs": "Koljena padaju prema unutra ili prema van"}
+        ],
+        "easier": {"en": "Lift only halfway.", "bs": "Podigni kukove samo do pola."},
+        "harder": {"en": "Single-leg bridge, or hold the top for 3 seconds each rep.", "bs": "Most na jednoj nozi, ili zadrži vrh 3 sekunde pri svakom ponavljanju."}
+      },
+      "anim": {
+        "cycle": 3.4, "floorWork": true, "farShift": [7, -2],
+        "spec": {"pin": {"point": "sh", "at": [150, -9]}, "ik": {"an": [266, -5]}, "footAbs": 0},
+        "frames": [
+          {"t": 0, "label": {"en": "Press your hips up", "bs": "Podigni kukove"}, "face": "smile",
+           "pose": {"rot": -90, "torso": 0, "neck": 34, "shoulder": 0, "elbow": 0}},
+          {"t": 0.42, "label": {"en": "Squeeze at the top", "bs": "Stegni gluteuse na vrhu"}, "face": "effort",
+           "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0}},
+          {"t": 0.6, "label": {"en": "Lower slowly", "bs": "Polako se spusti"}, "face": "effort",
+           "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0}}
+        ]
+      }
+    },
+    {
+      "id": "forearm-plank",
+      "name": {"en": "Forearm plank", "bs": "Plank na podlakticama"},
+      "short": {"en": "Plank", "bs": "Plank"},
+      "pattern": "core-stability", "region": "core", "type": "strength",
+      "dose": {"mode": "hold", "sets": 3, "hold": 30, "rest": 20},
+      "equipment": ["mat"], "level": 1,
+      "easier": null, "harder": null,
+      "howto": {
+        "setup": {"en": "Start on hands and knees. Put your forearms on the floor, elbows directly under your shoulders. Step your feet back one at a time, toes tucked.",
+                  "bs": "Počni na šakama i koljenima. Spusti podlaktice na pod, laktove direktno ispod ramena. Jednu po jednu nogu pomjeri unazad, s osloncem na prstima."},
+        "steps": [
+          {"en": "Brace your belly and squeeze your glutes. Hold one straight line from head to heels, eyes on the floor.",
+           "bs": "Zategni stomak i stegni gluteuse. Drži tijelo u jednoj ravnoj liniji od glave do peta, pogled usmjeren u pod."}
+        ],
+        "breathe": {"en": "Keep breathing slowly and steadily. Don’t hold your breath.", "bs": "Diši polako i ravnomjerno. Ne zadržavaj dah."},
+        "mistakes": [
+          {"en": "Hips sagging toward the floor", "bs": "Kukovi propadaju prema podu"},
+          {"en": "Hips piked up high", "bs": "Kukovi podignuti previsoko"},
+          {"en": "Shoulders creeping up toward your ears", "bs": "Ramena se podižu prema ušima"}
+        ],
+        "easier": {"en": "Drop to your knees, keeping a straight line from head to knees.", "bs": "Spusti koljena na pod, zadržavajući ravnu liniju od glave do koljena."},
+        "harder": {"en": "Lift one foot a few inches, alternating every few seconds.", "bs": "Podigni jedno stopalo nekoliko centimetara, naizmjenično svakih nekoliko sekundi."}
+      },
+      "anim": {
+        "floorWork": true, "farShift": [6, -3],
+        "spec": {"pin": {"point": "n.toe", "at": [92, -3]}, "footAbs": 75, "level": {"point": "n.el", "y": -5, "range": [55, 105]}},
+        "frames": [
+          {"t": 0, "label": {"en": "Hold a straight line", "bs": "Drži ravnu liniju"}, "face": "puff",
+           "pose": {"rot": 80, "torso": 0, "neck": 4, "hip": 0, "knee": 0, "uaAbs": 90, "faAbs": 0}}
+        ],
+        "restPose": {
+          "spec": {"pin": {"point": "n.toe", "at": [80, -4]}, "footAbs": 180},
+          "pose": {"rot": 90, "torso": 0, "neck": -32, "hip": 0, "knee": 0, "uaAbs": 178, "faAbs": 180}
+        }
+      }
+    }
+  ]
+}
