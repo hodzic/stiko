@@ -27,10 +27,6 @@ const TPL=`
         <div class="cue-now" id="cueNow"></div>
         <div class="count"><b id="countMain"></b><span id="countSub"></span></div>
       </div>
-      <div class="paused-ov" aria-hidden="true">
-        <div class="pbub">${ICON_PLAY}</div>
-        <span data-i18n="tapResume"></span>
-      </div>
     </div>
     <div class="controls">
       <button class="skip" id="prevBtn" hidden>${ICON_PREV}</button>
