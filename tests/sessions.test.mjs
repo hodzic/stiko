@@ -3,6 +3,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {LANGS} from '../js/i18n.js';
+import {SPORTS} from '../js/vocab.js';
 
 // In-memory localStorage for store.js.
 const mem=new Map();
@@ -90,6 +91,15 @@ test('starter sessions reference only library exercises',()=>{
   const raw=JSON.parse(read('data/starters.json'));
   for(const s of raw.sessions) for(const l of LANGS) assert.ok(s.name[l],`${s.id} name.${l} missing`);
   assert.ok(r.sessions.every(s=>s.items.length>=3),'every starter has at least 3 exercises');
+  for(const s of raw.sessions) if('sport' in s) assert.ok(SPORTS.includes(s.sport),`${s.id} sport "${s.sport}"`);
+  for(const sp of SPORTS) assert.ok(r.sessions.some(s=>s.sport===sp),`no starter session for ${sp}`);
+});
+
+test('a session keeps a known sport through export and import, and drops an unknown one',()=>{
+  const ok=S.parseImport(JSON.stringify(S.exportPayload([{id:'s-1',name:'Ski',sport:'alpine-skiing',items:[{ex:'squat',block:'main',sets:2,reps:8,rest:30}]}])),byId,'en');
+  assert.equal(ok.sessions[0].sport,'alpine-skiing');
+  const bad=S.parseImport(JSON.stringify({name:'X',sport:'curling',items:[{ex:'squat'}]}),byId,'en');
+  assert.equal(bad.sessions[0].sport,undefined);
 });
 
 test('service worker precaches every app file',()=>{

@@ -2,7 +2,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, PROPS, regionOf, familyOf} from '../js/vocab.js';
+import {VOCAB, DOSE_MODES, FACES, JOINTS, ACTIONS, MUSCLES, PROPS, SPORTS, regionOf, familyOf} from '../js/vocab.js';
 import {UI, LANGS} from '../js/i18n.js';
 
 const lib=JSON.parse(fs.readFileSync(new URL('../data/library.json',import.meta.url),'utf8'));
@@ -77,7 +77,7 @@ for(const ex of lib.exercises){
 test('every taxonomy value has a label in every language',()=>{
   const groups={family:VOCAB.family,pattern:VOCAB.pattern,component:VOCAB.component,region:VOCAB.region,muscle:VOCAB.muscle,
     position:VOCAB.position,equipment:VOCAB.equipment,plane:VOCAB.plane,laterality:VOCAB.laterality,chain:VOCAB.chain,
-    block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS};
+    block:VOCAB.block,level:VOCAB.level,joint:JOINTS,action:ACTIONS,sport:SPORTS};
   for(const l of LANGS) for(const [g,vals] of Object.entries(groups)) for(const v of vals)
     assert.ok(UI[l][g]?.[v],`${l}.${g}.${v} missing`);
   for(const p of VOCAB.pattern) assert.ok(familyOf(p),`pattern ${p} has no family`);

@@ -19,7 +19,7 @@ The MVP is an offline session runner: build named sessions from the library, edi
 | Library | Browse and filter exercises by the taxonomy; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |
 
-Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Six starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, and Three basics.
+Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Twelve starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
 
 ## Exercise library
 
@@ -44,7 +44,7 @@ Exercises are classified on several dimensions taken from exercise science and k
 
 How hard an exercise is comes from its dose, not from the exercise itself, so strength and endurance aren't separate categories. Isolated mobility and stretching work may have no movement pattern; it's described by its joint actions instead.
 
-The v1 library has 71 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
+The library has 82 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
 
 ```json
 { "id": "glute-bridge",
@@ -134,4 +134,6 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 4. Kinesiology-based exercise taxonomy, with filters, a Kinesiology panel and pattern coverage (done).
 5. Full library of 71 exercises with animations and classification, plus starter sessions (done).
 6. Use it: Dino and friends try the sessions; fix poses and copy from feedback; trainer or physiotherapist review of the classification and Bosnian terms.
-7. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
+7. Sport prep: a sport tag on sessions, starter sessions for six sports, and 11 exercises they need (done).
+8. Next library expansions, in order: pull-up bar progressions; yoga with a breath-paced flow mode; healthy aging and Qigong-style tai chi; boxing conditioning.
+9. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.

@@ -66,7 +66,7 @@ both sides and the dose counts per side.
 
 Pose keys are joint angles in degrees. Side view: `rot` (whole body), `torso` (lower trunk tilt), `spine` (upper-trunk
 bend, + = flexion), `neck`, `shoulder`, `elbow`, `hip`, `knee`, `ankle`, or absolute segment angles `uaAbs`, `faAbs`,
-`footAbs`; `lift` raises the whole figure (jumps). Add `_n`/`_f` (side view) or `_l`/`_r` (front view) to set one side;
+`footAbs`; `lift` raises the whole figure (jumps) and `slide` moves it sideways (skater hops, side steps). Add `_n`/`_f` (side view) or `_l`/`_r` (front view) to set one side;
 in front view `shoulder` and `hip` are abduction and `torso`/`spine` are side bends.
 
 ### Reviewing poses
@@ -83,12 +83,13 @@ Exports, shared sessions and `data/starters.json` share one format; import also 
 ```json
 { "kind": "stiko-sessions", "version": 1,
   "sessions": [
-    { "id": "s-abc123", "name": "Morning mobility",
+    { "id": "s-abc123", "name": "Morning mobility", "sport": "hiking",
       "items": [ { "ex": "squat", "block": "main", "sets": 3, "reps": 10, "rest": 30 },
                  { "ex": "forearm-plank", "block": "main", "sets": 3, "hold": 30, "rest": 20 } ] } ] }
 ```
 
-`block` is `warmup`, `main` or `cooldown`. Reps-based exercises take `reps`, hold-based ones `hold` (seconds).
+`block` is `warmup`, `main` or `cooldown`. `sport` is optional (`alpine-skiing`, `hiking`, `road-cycling`,
+`mountain-biking`, `swimming`, `kayaking`); the Sessions screen filters by it. Reps-based exercises take `reps`, hold-based ones `hold` (seconds).
 On import, values are clamped to valid ranges, unknown exercises are dropped, an identical session already on
 the device is skipped, and a different session with the same id is added under a new id.
 

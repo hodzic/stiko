@@ -103,6 +103,13 @@ retraction, elevation, depression, and upward and downward rotation.
 - **Player:** a collapsible "Kinesiology" panel shows the full classification.
 - **Session editor:** shows which movement-pattern families the main block covers.
 
+## Sports
+
+Exercises aren't tagged by sport: a squat isn't a skiing exercise, but a session can be built for skiing. Sessions
+carry an optional `sport` (`SPORTS` in `js/vocab.js`): alpine skiing, hiking, road cycling, mountain biking, swimming
+and kayaking. Each has a starter session that picks exercises for the sport's demands, for example eccentric quad
+strength and lateral power for skiing, step-downs and carries for hiking, and shoulder and lat work for swimming.
+
 ## Possible extensions
 
 - **Joint-load flags** (for example `loads: ["knee", "wrist"]`) so people can filter out exercises that load

@@ -47,6 +47,8 @@ export const VOCAB = {
   block:      ['warmup','main','cooldown'],
   level:      [1,2,3],
 };
+// Sports a session can be built for (sessions only; exercises aren't sport-specific).
+export const SPORTS = ['alpine-skiing','hiking','road-cycling','mountain-biking','swimming','kayaking'];
 export const DOSE_MODES = ['reps','hold','time'];  // time = looping movement for a set duration (cardio, mobility)
 export const PROPS = ['chair','wall','step','dumbbell','band'];
 export const FACES = ['smile','effort','puff'];
