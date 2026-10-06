@@ -1,5 +1,6 @@
 // Stiko rig: forward kinematics, pinning, leg IK and SVG rendering.
 // Pure module (no DOM access) so it can be unit-tested in Node.
+import {solveQuarter, figureQuarterSVG} from './rig3.js';
 
 export const FLOOR = 262;
 export const L = {torso:56, neck:5, head:27, ua:33, fa:31, thigh:46, shin:44, foot:15};
@@ -73,7 +74,7 @@ function fkFront(p){
   }
   return J;
 }
-export const SIDES={side:['n','f'],front:['l','r']};
+export const SIDES={side:['n','f'],front:['l','r'],quarter:['l','r']};
 export function fk(p,view='side'){ return view==='front'?fkFront(p):fkSide(p); }
 
 export function getPt(J,name){ const [a,b]=name.split('.'); return b?J[a][b]:J[a]; }
@@ -118,6 +119,7 @@ function limbIK(J,s,limb,target,footAbs){
 // A pose can release one limb from IK for that frame with free_an_n: 1 (etc.); values in between blend the IK result
 // toward the free (FK) position, so a flow can move a hand from the air to the floor without a snap.
 export function solve(spec,pose){
+  if(spec.view==='quarter') return solveQuarter(spec,pose);
   let p=pose;
   if(spec.level){
     let [lo,hi]=spec.level.range;
@@ -244,6 +246,13 @@ function bandSVG(J,pr){
 // Full figure. opt: {floorWork, farShift, props, joints, blink, flip}
 export function figureSVG(J,face,opt={}){
   const props=opt.props||[];
+  const flip=s=>opt.flip?`<g transform="matrix(-1 0 0 1 400 0)">${s}</g>`:s;
+  if(J.view==='quarter'){
+    const dbs=props.filter(p=>p.type==='dumbbell').flatMap(p=>p.hands);
+    return flip(figureQuarterSVG(J,face,opt,{backProps:props.map(backPropSVG).join(''),
+      dumbbells:k=>dbs.filter(h=>h.startsWith(k+'.')).map(h=>dumbbellSVG(J,h)).join(''),
+      bands:props.filter(p=>p.type==='band').map(p=>bandSVG(J,p)).join('')}));
+  }
   let s='';
   if(opt.floorWork) s+=`<rect class="mat" x="28" y="${FLOOR-1}" width="344" height="9" rx="4.5"/>`;
   else {
@@ -290,7 +299,7 @@ export function figureSVG(J,face,opt={}){
     const ps=[J.hip,J.mid,J.sh,J.nk,...ks.flatMap(k=>[J[k].el,J[k].hd,J[k].kn,J[k].an,J[k].toe])];
     for(const p of ps) s+=`<circle class="jt" cx="${f1(p[0])}" cy="${f1(p[1])}" r="3.2"/>`;
   }
-  return opt.flip?`<g transform="matrix(-1 0 0 1 400 0)">${s}</g>`:s;
+  return flip(s);
 }
 
 // Pose and spec for an exercise at a phase of one rep (rest pose when phase is null and the exercise has one).

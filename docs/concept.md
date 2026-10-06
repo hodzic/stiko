@@ -46,7 +46,7 @@ Exercises are classified on several dimensions taken from exercise science and k
 
 How hard an exercise is comes from its dose, not from the exercise itself, so strength and endurance aren't separate categories. Isolated mobility and stretching work may have no movement pattern; it's described by its joint actions instead.
 
-The library has 117 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
+The library has 121 exercises covering all eight pattern families, isolation work, mobility, stretches and balance, from level 1 to 3 with easier/harder links. Each record also carries instructions in all supported languages (see Prototype decisions) and Stiko animation keyframes.
 
 | Group | Exercises | Examples |
 | --- | --- | --- |
@@ -99,10 +99,10 @@ Stiko is a rigged SVG character, not a set of drawings: one renderer animates ev
 - **Skeleton:** hip root; torso, neck, head; per side upper arm, forearm, thigh, shin, foot. Each joint is an angle relative to its parent.
 - **Animation:** 2–4 keyframes per exercise (e.g. top and bottom of a squat), up to about 11 for a flow, tweened with easing; tempo comes from the dose (reps, holds, intervals).
 - **Look:** big round head (about 1/3 of height), dot eyes, sweatband, expression per phase (effort, smile, puffed cheeks on holds), idle sway and blink; far-side limbs drawn lighter.
-- **Views:** side by default; front view for frontal-plane moves (jacks, lateral lunge, side plank, lateral raise).
+- **Views:** side by default; front view for frontal-plane moves (jacks, lateral lunge, side plank, lateral raise); a three-quarter view (prototype) for turns and reaches across the body (hooks, slips, woodchop, band pull-apart). The three-quarter view is a 3D skeleton projected onto the screen: hands are aimed at polar targets from the shoulder, so sweeps follow arcs, and bones are drawn back to front.
 - **Floor work:** root rotation, a bendable spine, pinning and two-bone IK for hands and feet, so contacts don't slide or sink. A limb can blend between free and IK-held, so a flow moves the hands from the air to the floor without a snap. The whole figure can lift (jumps) and slide sideways (skater hops, side steps, footwork).
 - **Props:** dumbbell, band, mat, chair, wall, step and a doorway pull-up bar as SVG parts.
-- **Limits:** the side and front views can't show a limb turning toward or away from the camera, so hooks, slips, shoulder external rotation and waist turns are left out or simplified, and in front view the big head hides arms raised straight overhead. A three-quarter view would remove most of these limits.
+- **Limits:** the side and front views can't show a limb turning toward or away from the camera, so hooks, slips, shoulder external rotation and waist turns are left out or simplified, and in front view the big head hides arms raised straight overhead. The three-quarter prototype covers four of these moves; even there, a limb pointing at the viewer looks short, and the big head can hide fists in front of the face, so each move needs its own camera angle.
 - **Quality control:** a pose-check debug view in the player, a contact-sheet tool that renders every keyframe for review, and tests that catch unreachable hand or foot targets and limbs through the floor. Every animation gets a visual review, since a bad pose teaches bad form.
 
 ## Role of Claude
@@ -157,5 +157,6 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 8. Pull-up bar: dead hang → scapular pull-up → negative → band-assisted → pull-up, plus the hanging knee raise and a "Road to a pull-up" session (done).
 9. Yoga: a Yoga style filter, 11 poses, a breath-paced sun salutation flow, and Morning and Evening yoga sessions (done).
 10. Healthy aging and tai chi: Otago-style strength and balance exercises (toe raise, hamstring curl and knee extension holding a chair, side-stepping) and six qigong / tai chi movements, with a session for each (done).
-11. Boxing conditioning: stance bounce, jab-cross, uppercuts, bob and weave, footwork, shadowboxing rounds and jump rope, with a session (done). Hooks and slips need a 3/4 view and wait for it.
-12. Later: three-quarter view for Stiko (hooks, slips, rotations), workout log, Claude coach via proxy, camera-based form checks, joint-load flags.
+11. Boxing conditioning: stance bounce, jab-cross, uppercuts, bob and weave, footwork, shadowboxing rounds and jump rope, with a session (done).
+12. Three-quarter view prototype: a 3D rig drawn at an angle, with hooks, slips, a standing woodchop and a band pull-apart (done). Next, if it reads well on a phone: move other rotation moves to it.
+13. Later: workout log, Claude coach via proxy, camera-based form checks, joint-load flags.

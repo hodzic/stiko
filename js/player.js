@@ -1,6 +1,7 @@
 // Player screen: runs a queue of exercises (a session, or one exercise from the library).
 // Each item goes get-ready → sets of work/rest; after the last item the player is done.
 import {solve, framesAt, figureSVG, lerpJ, shift} from './rig.js';
+import {LEN_KEYS} from './rig3.js';
 import {T, U, doseText, esc, getLang, tagLabel} from './i18n.js';
 import {regionOf, familyOf} from './vocab.js';
 import * as A from './audio.js';
@@ -312,7 +313,7 @@ export function mountPlayer(root,queue,opts){
     if(phase!==null&&scrubPhase===null) $('scrub').value=Math.round(phase*1000);
     if(joints){
       const p=fr.pose;
-      $('debugVals').textContent=Object.keys(p).sort().map(k=>`${k} ${Math.round(p[k])}°`).join('   ');
+      $('debugVals').textContent=Object.keys(p).sort().map(k=>`${k} ${Math.round(p[k])}${LEN_KEYS.has(k.replace(/_[lrnf]$/,''))?'':'°'}`).join('   ');
     }
   }
 
