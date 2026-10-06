@@ -46,7 +46,7 @@ export const VOCAB = {
   chain:      ['closed','open'],
   block:      ['warmup','main','cooldown'],
   level:      [1,2,3],
-  discipline: ['yoga','tai-chi'],  // optional style an exercise belongs to
+  discipline: ['yoga','tai-chi','boxing'],  // optional style an exercise belongs to
 };
 // Sports a session can be built for (sessions only; exercises aren't sport-specific).
 export const SPORTS = ['alpine-skiing','hiking','road-cycling','mountain-biking','swimming','kayaking'];
