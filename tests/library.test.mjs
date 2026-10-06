@@ -72,7 +72,7 @@ for(const ex of lib.exercises){
       assert.ok(PROPS.includes(pr.type),`prop "${pr.type}"`);
       assert.ok(ex.equipment.includes(pr.type),`prop ${pr.type} drawn but not listed in equipment`);
     }
-    assert.ok(['side','front',undefined].includes(ex.anim.spec.view));
+    assert.ok(['side','front','quarter',undefined].includes(ex.anim.spec.view));
   });
 }
 

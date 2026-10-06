@@ -53,7 +53,8 @@ both sides and the dose counts per side.
 | Field | Meaning |
 | --- | --- |
 | `cycle` | Seconds per rep (or per loop for `time` doses). Not needed for single-pose holds |
-| `spec.view` | `"side"` (default) or `"front"` for frontal-plane moves |
+| `spec.view` | `"side"` (default), `"front"` for frontal-plane moves, or `"quarter"` (prototype) for turns and reaches across the body |
+| `spec.yaw` | Quarter view only: where the figure faces, in degrees from the side view toward the viewer (default 35) |
 | `spec.pin` | `{point, at:[x, y]}`: the joint held in place; y is relative to the floor line (negative = above) |
 | `spec.level` | Solve the body's rotation so a second joint sits at a given height (e.g. plank elbows on the floor) |
 | `spec.ik` | Two-bone IK targets: `an`/`hd` for both ankles/hands, or per side `an_n`, `hd_f`, `an_l`, … Knees bend forward, elbows back (outward in front view) |
@@ -69,6 +70,11 @@ Pose keys are joint angles in degrees. Side view: `rot` (whole body), `torso` (l
 bend, + = flexion), `neck`, `shoulder`, `elbow`, `hip`, `knee`, `ankle`, or absolute segment angles `uaAbs`, `faAbs`,
 `footAbs`; `free_hd_n` (etc., 0–1) releases a limb from its IK target, blending in between; `lift` raises the whole figure (jumps) and `slide` moves it sideways (skater hops, side steps). Add `_n`/`_f` (side view) or `_l`/`_r` (front view) to set one side;
 in front view `shoulder` and `hip` are abduction and `torso`/`spine` are side bends.
+
+The quarter view (`js/rig3.js`) is a 3D skeleton projected onto the screen and drawn back to front, with keys
+`_l`/`_r` for the figure's left and right: trunk `yaw`, `torso`, `spine`, `twist` (upper trunk on the pelvis), `bend`
+(side bend), `neck`, `look`; hips `drop`, `fwd`, `sway`; hands as polar targets from the shoulder `az`, `el`, `reach`
+(px) with the elbow direction `eo`; feet `af`, `aw`, `ay` (px), `toe`, `heel`, `kn`. The file's header has the details.
 
 ### Reviewing poses
 

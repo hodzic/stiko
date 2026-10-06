@@ -50,3 +50,16 @@ test('a partly freed limb blends between its free and IK positions',()=>{
   const ik=solve(spec,pose).n.hd, free=solve(spec,{...pose,free_hd_n:1}).n.hd, half=solve(spec,{...pose,free_hd_n:0.5}).n.hd;
   near(ik[0],236); near(half[0],(ik[0]+free[0])/2); near(half[1],(ik[1]+free[1])/2);
 });
+
+test('three-quarter view keeps 3D bone lengths and lands its pin',()=>{
+  const spec={view:'quarter',pin:{point:'r.an',at:[200,-5]}};
+  const pose={yaw:-20,torso:15,spine:10,twist:30,bend:-10,drop:12,az_l:40,el_l:10,reach_l:40,eo_l:60,az_r:-30,el_r:-20,reach_r:90,af_l:12,heel_r:20};
+  const J=solve(spec,pose), W=J.w, d3=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+  for(const s of ['l','r']){
+    near(d3(W[s].hp,W[s].kn),L.thigh,1e-6); near(d3(W[s].kn,W[s].an),L.shin,1e-6);
+    near(d3(W[s].sp,W[s].el),L.ua,1e-6); near(d3(W[s].el,W[s].hd),L.fa,1e-6); near(d3(W[s].an,W[s].toe),L.foot,1e-6);
+  }
+  near(d3(W.hip,W.sh),L.torso,1);
+  near(J.r.an[0],200); near(J.r.an[1],FLOOR-5);
+  assert.ok(!figureSVG(J,'effort',{joints:true}).includes('NaN'));
+});
