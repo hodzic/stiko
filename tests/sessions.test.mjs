@@ -2,6 +2,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {LANGS} from '../js/i18n.js';
 
 // In-memory localStorage for store.js.
 const mem=new Map();
@@ -87,7 +88,7 @@ test('starter sessions reference only library exercises',()=>{
   assert.ok(r.sessions?.length>=1); assert.equal(r.dropped,0);
   assert.equal(r.sessions.find(s=>s.id==='starter-basics').name,'Tri osnovne');
   const raw=JSON.parse(read('data/starters.json'));
-  for(const s of raw.sessions) for(const l of ['en','bs','fr','de']) assert.ok(s.name[l],`${s.id} name.${l} missing`);
+  for(const s of raw.sessions) for(const l of LANGS) assert.ok(s.name[l],`${s.id} name.${l} missing`);
   assert.ok(r.sessions.every(s=>s.items.length>=3),'every starter has at least 3 exercises');
 });
 

@@ -1,6 +1,6 @@
 # Exercise App with Stiko — Concept
 
-Oct 5, 2026 · @Edin Hodzic · updated Oct 5, 2026
+Oct 5, 2026 · @Edin Hodzic · updated Oct 6, 2026
 
 ## Vision
 
@@ -101,7 +101,7 @@ Same pattern as Dino's other apps: a static PWA in a GitHub repo, served from Gi
 
 - **Frontend:** plain HTML/JS with ES modules and no build step, SVG renderer for Stiko, library as JSON, service worker for offline use.
 - **Storage:** sessions kept in browser storage on the device; JSON export and import, and sharing a single session through the phone's share sheet.
-- **Quality:** Node unit tests check the rig, the session model, and the library against the taxonomy, including English and Bosnian labels for every value.
+- **Quality:** Node unit tests check the rig, the session model, and the library against the taxonomy, including labels in every language for every value.
 - **Later:** Claude API via a Cloudflare Worker proxy for the coach; MediaPipe Pose in the browser for rep counting and form checks.
 - **Workflow:** prototype Stiko in chat, then build the real app in Claude Code.
 
@@ -110,14 +110,14 @@ Same pattern as Dino's other apps: a static PWA in a GitHub repo, served from Gi
 The [Stiko prototype](https://claude.ai/artifact/Ne2xNtAUdnKwNEcynjomXz) settled these player and content details and is the reference implementation.
 
 - **Instructions:** each exercise has setup, movement steps (one per keyframe), breathing, common mistakes, and easier/harder options. The current step highlights in sync with the animation.
-- **Languages:** English, Bosnian, French and German. Every text field is `{en, bs, fr, de}` and UI strings live in one dictionary, so a new language is a new key. All three non-English languages use the informal form ("ti", "tu", "du"). Language defaults from the phone and is remembered; voice cues use a matching text-to-speech voice when the phone has one.
+- **Languages:** English, Bosnian, Croatian, Serbian (Latin script, ekavian), German, Spanish and French. Every text field is `{en, bs, hr, sr, fr, de, es}` and UI strings live in one dictionary, so a new language is a new key. All non-English languages use the informal form ("ti", "du", "tú", "tu"). Language defaults from the phone and is remembered; voice cues use a matching text-to-speech voice when the phone has one.
 - **Layout:** portrait stacks Stiko above the instructions; landscape or wide screens show them side by side.
 - **Player controls:** tap Stiko to pause or resume; speed 0.5×, 1×, 2×; scrub through one rep; a 5-second "Get ready" countdown before each exercise. In a session, an exercise's rest becomes the countdown to the next one, and the screen stays awake while playing.
 - **Read aloud:** reads setup, steps and breathing with the phone's text-to-speech, highlighting each step and showing its pose.
 - **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "Next" between exercises, "Great work" at the end. Every countdown (get ready, rest, switch sides, holds, timed rounds) speaks the tens ("twenty", "ten").
 - **Sounds:** generated with Web Audio, no audio files: rep tick, a subtle tick on every countdown second, 3-2-1 beeps, start tone, set-complete chime, and a two-note chime on the tens when voice is off. Sound and voice toggle separately.
 - **Pose check:** a debug toggle showing joints and angles, the seed of the pose editor.
-- **Constraints found:** audio and speech need a first tap to unlock; speech is missing in the Claude app's embedded view but works in Chrome and in an installed PWA; Bosnian speech needs a Bosnian or Croatian voice on the phone, and French and German speech need a voice for that language.
+- **Constraints found:** audio and speech need a first tap to unlock; speech is missing in the Claude app's embedded view but works in Chrome and in an installed PWA; Bosnian, Croatian and Serbian speech use any of the three voices the phone has (they're mutually intelligible), and German, Spanish and French speech need a voice for that language.
 
 ## Risks and roadmap
 
@@ -125,7 +125,7 @@ The biggest risks are liability and scope creep; the roadmap proves the hardest 
 
 - **Liability:** frame as fitness, not rehab; a disclaimer is shown in the library; the app advises seeing a professional for pain or injury. The kinesiology classification is descriptive, not a prescription. Joint-load flags (e.g. "avoid knee load") would be useful but edge toward clinical advice, so they wait for a deliberate decision.
 - **Animation accuracy:** wrong poses teach bad form; mitigated by the pose editor and review.
-- **Classification and translation accuracy:** muscles and joint actions should be checked by a trainer or physiotherapist, and the Bosnian, French and German exercise text by native speakers, ideally with fitness background.
+- **Classification and translation accuracy:** muscles and joint actions should be checked by a trainer or physiotherapist, and the translated exercise text by native speakers, ideally with fitness background.
 - **Scope creep:** nothing beyond the four MVP screens until they're used.
 
 1. Stiko prototype: squat, glute bridge, plank, with instructions, EN/BS, voice and sounds (done).

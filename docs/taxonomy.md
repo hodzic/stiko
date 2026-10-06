@@ -1,7 +1,7 @@
 # Exercise taxonomy
 
 Every exercise in `data/library.json` is classified on the dimensions below. Vocabularies live in
-`js/vocab.js`, labels (EN/BS) in `js/i18n.js`, and `npm test` rejects any value not listed here.
+`js/vocab.js`, labels (in every language) in `js/i18n.js`, and `npm test` rejects any value not listed here.
 
 The scheme borrows standard frameworks from exercise science and kinesiology so it stays meaningful to
 trainers and physical therapists, while the app itself stays a general-fitness tool, not rehab.
