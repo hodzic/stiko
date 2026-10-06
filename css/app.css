@@ -152,7 +152,9 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:6px 0 0}
 
 /* Editor */
 .field{display:grid;gap:4px;margin-bottom:12px}
-.sport-filter{margin-bottom:12px}
+.sport-filter{margin:0 -16px 12px;padding:0 16px 2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.sport-filter::-webkit-scrollbar{display:none}
+.sport-filter .chip{flex:none}
 .field select{font:500 1rem/1.2 system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:10px 12px;width:100%}
 .field input{font:600 1.2rem/1.2 Fredoka,system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:10px 12px;width:100%}
 .ed-sum{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
