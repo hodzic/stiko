@@ -4,18 +4,21 @@ import {mountLibrary} from './library.js';
 import {mountPlayer} from './player.js';
 import {mountSessions} from './sessions-list.js';
 import {mountEditor} from './editor.js';
+import {mountAbout} from './about.js';
 import * as S from './sessions.js';
 import * as store from './store.js';
 
 const main=document.getElementById('view');
 const langSel=document.getElementById('langSel');
 const tabs=document.getElementById('tabs');
+const helpBtn=document.getElementById('helpBtn');
 let lib=null, view=null;
 
 function showLang(){
   document.documentElement.lang=getLang();
   langSel.value=getLang();
   tabs.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
+  helpBtn.setAttribute('aria-label',U('help')); helpBtn.title=U('help');
 }
 langSel.innerHTML=LANGS.map(l=>`<option value="${l}" lang="${l}">${LANG_NAMES[l]}</option>`).join('');
 langSel.addEventListener('change',()=>{ setLang(langSel.value); showLang(); view?.relang(); });
@@ -27,10 +30,13 @@ langSel.addEventListener('change',()=>{ setLang(langSel.value); showLang(); view
 //   #/run/<id>                    play a session
 //   #/library                     exercise library
 //   #/play/<exerciseId>           play one exercise
+//   #/about                       how to use the app and health advice (shown once on first launch)
 function mount(hash){
   const p=hash.replace(/^#\/?/,'').split('/').map(decodeURIComponent);
   const tab=p[0]==='library'||p[0]==='play'?'library':'sessions';
   tabs.querySelectorAll('a').forEach(a=>a.setAttribute('aria-current',a.dataset.tab===tab?'page':'false'));
+  if(p[0]==='about') return mountAbout(main);
+  if(!store.load('welcomed',false)&&(!p[0]||p[0]==='sessions')&&!p[1]){ location.replace('#/about'); return null; }
   if(p[0]==='library'){ tabs.hidden=false; return mountLibrary(main,lib); }
   if(p[0]==='play'&&lib.byId.has(p[1])){
     const ex=lib.byId.get(p[1]);
