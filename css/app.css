@@ -42,7 +42,7 @@ button:focus-visible,input:focus-visible,a:focus-visible,.stage:focus-visible{ou
 .vpop .field{margin-bottom:8px;min-width:0}
 .vpop select{box-sizing:border-box;min-width:0}
 .vpop .seg{width:max-content}
-.vpop .btn{justify-self:start}
+.vpop-acts{display:flex;justify-content:space-between;gap:8px;margin-top:4px}
 .help{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--line);border-radius:50%;background:var(--surface);
   color:var(--ink);text-decoration:none;font:600 1.05rem/1 Fredoka,system-ui,sans-serif}
 
