@@ -2,7 +2,9 @@
 import {getLang, VOICE} from './i18n.js';
 import * as store from './store.js';
 
-export const prefs={sound:store.load('sound',true), voice:store.load('voice',true)};
+export const prefs={sound:store.load('sound',true), voice:store.load('voice',true), rate:store.load('speechRate',1)};
+export const RATES=[0.8,1,1.2];  // speaking speed: slower, normal, faster (times the language's base rate)
+export function setRate(r){ prefs.rate=r; store.save('speechRate',r); }
 export function setSound(v){ prefs.sound=v; store.save('sound',v); }
 export function setVoice(v){ prefs.voice=v; store.save('voice',v); if(!v&&synth&&!reading) synth.cancel(); }
 
@@ -34,12 +36,20 @@ export function tone(kind){
   else if(kind==='mark'){ note(990,0,0.12,'triangle',0.15); note(1320,0.11,0.14,'triangle',0.15); }  // tens, when voice is off
 }
 
-export function pickVoice(){
-  if(!synth) return null;
-  const vs=synth.getVoices();
-  for(const p of VOICE[getLang()].prefs){ const v=vs.find(v=>v.lang.toLowerCase().replace('_','-').startsWith(p)); if(v) return v; }
-  return null;
+// Device voices for the current language, best match first (e.g. Bosnian, then Croatian, then Serbian).
+export function langVoices(){
+  if(!synth) return [];
+  const vs=synth.getVoices(), out=[];
+  for(const p of VOICE[getLang()].prefs) for(const v of vs) if(v.lang.toLowerCase().replace('_','-').startsWith(p)&&!out.includes(v)) out.push(v);
+  return out;
 }
+// The voice chosen for this language (remembered per language), else the best match.
+export function pickVoice(){
+  const vs=langVoices(), want=store.load('voiceName',{})[getLang()];
+  return vs.find(v=>v.voiceURI===want)||vs[0]||null;
+}
+export function setVoiceName(uri){ const m=store.load('voiceName',{}); if(uri) m[getLang()]=uri; else delete m[getLang()]; store.save('voiceName',m); }
+export const voiceName=()=>store.load('voiceName',{})[getLang()]||'';
 export const voiceCount=()=>synth?synth.getVoices().length:0;
 let voicesCb=null;
 export function onVoicesChanged(cb){ voicesCb=cb; }
@@ -48,7 +58,7 @@ if(synth) synth.onvoiceschanged=()=>voicesCb&&voicesCb();
 function utter(text){
   const u=new SpeechSynthesisUtterance(text), v=pickVoice(), cfg=VOICE[getLang()];
   if(v){u.voice=v;u.lang=v.lang;} else u.lang=cfg.tag;
-  u.rate=cfg.rate;
+  u.rate=cfg.rate*prefs.rate;
   return u;
 }
 const held=[];
@@ -63,6 +73,12 @@ export function speak(text){
   if(!prefs.voice||!synth||reading||!text) return false;
   say(keep(utter(text)));
   return true;
+}
+
+// Sample sentence for the voice settings; plays even when voice cues are off.
+export function testVoice(text){
+  if(!synth||!text) return;
+  stopReading(); say(keep(utter(text)));
 }
 
 // Read-aloud: queue of {text, step}; onStep fires as each part starts, onEnd when finished or stopped.

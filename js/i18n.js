@@ -610,6 +610,15 @@ Object.assign(UI.fr,{favorites:'Favoris', addFav:'Ajouter aux favoris', removeFa
 Object.assign(UI.de,{favorites:'Favoriten', addFav:'Zu Favoriten hinzufügen', removeFav:'Aus Favoriten entfernen'});
 Object.assign(UI.es,{favorites:'Favoritos', addFav:'Añadir a favoritos', removeFav:'Quitar de favoritos'});
 
+// Voice settings in the player.
+Object.assign(UI.en,{voiceSettings:'Voice settings', voicePick:'Voice', voiceAuto:'Automatic', speechSpeed:'Speaking speed', slower:'Slower', normal:'Normal', faster:'Faster', testVoice:'Test', voiceSample:'Get ready. Three, two, one. Go!'});
+Object.assign(UI.bs,{voiceSettings:'Postavke glasa', voicePick:'Glas', voiceAuto:'Automatski', speechSpeed:'Brzina govora', slower:'Sporije', normal:'Normalno', faster:'Brže', testVoice:'Probaj', voiceSample:'Pripremi se. Tri, dva, jedan. Kreni!'});
+Object.assign(UI.hr,{voiceSettings:'Postavke glasa', voicePick:'Glas', voiceAuto:'Automatski', speechSpeed:'Brzina govora', slower:'Sporije', normal:'Normalno', faster:'Brže', testVoice:'Isprobaj', voiceSample:'Pripremi se. Tri, dva, jedan. Kreni!'});
+Object.assign(UI.sr,{voiceSettings:'Podešavanja glasa', voicePick:'Glas', voiceAuto:'Automatski', speechSpeed:'Brzina govora', slower:'Sporije', normal:'Normalno', faster:'Brže', testVoice:'Probaj', voiceSample:'Pripremi se. Tri, dva, jedan. Kreni!'});
+Object.assign(UI.fr,{voiceSettings:'Réglages de la voix', voicePick:'Voix', voiceAuto:'Automatique', speechSpeed:'Débit de parole', slower:'Plus lent', normal:'Normal', faster:'Plus rapide', testVoice:'Tester', voiceSample:'Prépare-toi. Trois, deux, un. C’est parti !'});
+Object.assign(UI.de,{voiceSettings:'Stimmeinstellungen', voicePick:'Stimme', voiceAuto:'Automatisch', speechSpeed:'Sprechtempo', slower:'Langsamer', normal:'Normal', faster:'Schneller', testVoice:'Testen', voiceSample:'Mach dich bereit. Drei, zwei, eins. Los!'});
+Object.assign(UI.es,{voiceSettings:'Ajustes de voz', voicePick:'Voz', voiceAuto:'Automática', speechSpeed:'Velocidad de habla', slower:'Más lenta', normal:'Normal', faster:'Más rápida', testVoice:'Probar', voiceSample:'Prepárate. Tres, dos, uno. ¡Ya!'});
+
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
 // Speech: voice language prefixes to try in order, the fallback BCP-47 tag, and speaking rate.
