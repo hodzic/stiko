@@ -5,6 +5,7 @@ import {mountPlayer} from './player.js';
 import {mountSessions} from './sessions-list.js';
 import {mountEditor} from './editor.js';
 import {mountAbout} from './about.js';
+import {mountVoiceSettings} from './voice-settings.js';
 import * as S from './sessions.js';
 import * as store from './store.js';
 
@@ -12,6 +13,7 @@ const main=document.getElementById('view');
 const langSel=document.getElementById('langSel');
 const tabs=document.getElementById('tabs');
 const helpBtn=document.getElementById('helpBtn');
+let voiceMenu=null;
 let lib=null, view=null;
 
 function showLang(){
@@ -19,7 +21,9 @@ function showLang(){
   langSel.value=getLang();
   tabs.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
   helpBtn.setAttribute('aria-label',U('help')); helpBtn.title=U('help');
+  voiceMenu?.relang();
 }
+voiceMenu=mountVoiceSettings(document.getElementById('voiceMenu'));
 langSel.innerHTML=LANGS.map(l=>`<option value="${l}" lang="${l}">${LANG_NAMES[l]}</option>`).join('');
 langSel.addEventListener('change',()=>{ setLang(langSel.value); showLang(); view?.relang(); });
 
