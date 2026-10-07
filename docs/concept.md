@@ -16,7 +16,7 @@ The MVP is an offline session runner: build named sessions from the library, edi
 
 | Screen | Purpose |
 | --- | --- |
-| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time, filterable by sport; start, create, edit, reorder (↑ ↓ arrows, or move to top from the ⋯ menu), duplicate, delete; export a backup, import |
+| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time, filterable by sport; start, create, edit, reorder (↑ ↓ arrows, or move to top from the ⋯ menu), duplicate, delete, restore an edited starter to the original; export a backup, import |
 | Session editor | Name and optional sport; warm-up, main and cool-down blocks; add exercises from the library, reorder them, set sets, reps or hold, and rest per item; time estimate per block; main-block pattern coverage; share |
 | Library | Browse and filter exercises by style (yoga, tai chi and qigong, boxing), movement pattern, fitness component and body area, with more filters behind a toggle; each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |

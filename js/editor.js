@@ -1,4 +1,4 @@
-// Session editor: name, three fixed blocks, per-item sets/reps/hold/rest, reorder, remove, share.
+// Session editor: name, three fixed blocks, per-item sets/reps/hold/rest, reorder, remove, share; restore a starter.
 import {T, U, esc, tagLabel, getLang} from './i18n.js';
 import {MAIN_FAMILIES, familyOf, SPORTS} from './vocab.js';
 import * as S from './sessions.js';
@@ -19,11 +19,14 @@ export function mountEditor(root,lib,id){
     <div class="row ed-foot">
       <button class="btn" id="shareBtn" data-i18n="share"></button>
       <button class="btn" id="dupBtn" data-i18n="duplicate"></button>
+      <button class="btn" id="restoreBtn" data-i18n="restore" hidden></button>
       <button class="btn danger" id="delBtn" data-i18n="del"></button>
     </div>
   </section>`;
   const $=x=>root.querySelector('#'+x);
-  const save=()=>{ s=S.put(s); renderTotals(); };
+  let starter=null;  // the starter session this one came from, once data/starters.json has loaded
+  const showRestore=()=>{ $('restoreBtn').hidden=!starter||S.isOriginal(s,starter); };
+  const save=()=>{ s=S.put(s); renderTotals(); showRestore(); };
   const nm=()=>S.nameOf(s,getLang());
 
   function num(i,key,label){
@@ -97,6 +100,13 @@ export function mountEditor(root,lib,id){
   });
   $('shareBtn').onclick=()=>saveJSON(`stiko-${slug(nm())}.json`,S.exportPayload([s]),true);
   $('dupBtn').onclick=()=>{ const c=S.duplicate(s.id,U('copyName')(nm())); location.hash=`#/sessions/${encodeURIComponent(c.id)}`; };
+  $('restoreBtn').onclick=()=>{
+    if(!starter||!confirm(U('confirmRestore')(nm()))) return;
+    s=S.put(S.restoreStarter(s,starter)); render(); showRestore();
+  };
+  if(s.id.startsWith('starter-')) fetch('data/starters.json').then(r=>r.text()).then(text=>{
+    starter=(S.parseImport(text,byId,getLang()).sessions||[]).find(x=>x.id===s.id)||null; showRestore();
+  }).catch(()=>{});
   $('delBtn').onclick=()=>{ if(confirm(U('confirmDelete')(nm()))){ S.remove(s.id); location.hash='#/sessions'; } };
 
   render();

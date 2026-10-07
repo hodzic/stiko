@@ -112,22 +112,62 @@ export function attachNames(list,starters){
   return {list:out,changed};
 }
 
-// Bring stored starter sessions' exercises up to date when data/starters.json changes, unless the user edited them.
-// seen maps a starter id to the item list this device last got. Without a record (older devices), a stored list
-// counts as unedited when it is the new list minus the exercises the starter just gained (its "added" list).
-const itemKey=it=>[it.ex,it.block,it.sets,it.reps,it.time,it.hold,it.rest].join(':');
+// Bring stored starter sessions' exercises up to date when data/starters.json changes. seen maps a starter id to the
+// item list this device last got (as itemsKey). An unedited session takes the new list as is. An edited one gets
+// a three-way merge (mergeItems), so it gains new exercises without losing the user's changes. Without a record
+// (older devices) the base is the new list minus the exercises the starter just gained (its "added" list).
+const FIELDS=['ex','block','sets','reps','time','hold','rest'];
+const itemKey=it=>FIELDS.map(f=>it[f]).join(':');
 export const itemsKey=items=>items.map(itemKey).join('|');
+const parseKey=k=>k?k.split('|').map(s=>{
+  const v=s.split(':'), it={ex:v[0], block:v[1]};
+  for(let i=2;i<FIELDS.length;i++) if(v[i]!=='') it[FIELDS[i]]=Number(v[i]);
+  return it;
+}):[];
+// Name each item by its exercise and how many times that exercise came before it, so a list may repeat one.
+const tagged=items=>{ const n={}; return items.map(it=>{ n[it.ex]=(n[it.ex]||0)+1; return [it.ex+'#'+n[it.ex],it]; }); };
+
+// Three-way merge of a starter's item list: base is what the user started from, theirs is the new starter list.
+// Exercises the starter gained are added (after the exercise that precedes them in the starter, else at the top
+// of their block); ones it dropped go, unless the user changed them; ones it changed are updated, unless the user
+// changed them too. Exercises the user removed, added or changed are otherwise left alone.
+export function mergeItems(mine,base,theirs){
+  const B=new Map(tagged(base)), T=new Map(tagged(theirs));
+  let out=tagged(mine.map(x=>({...x})))
+    .filter(([k,it])=>T.has(k)||!B.has(k)||itemKey(it)!==itemKey(B.get(k)))
+    .map(([k,it])=>[k, T.has(k)&&B.has(k)&&itemKey(it)===itemKey(B.get(k))?{...T.get(k)}:it]);
+  const tt=[...T];
+  tt.forEach(([k,it],i)=>{
+    if(B.has(k)||out.some(([m])=>m===k)) return;
+    let at=-1;
+    for(let j=i-1;j>=0&&at<0;j--){ const [pk,pit]=tt[j]; if(pit.block!==it.block) break; at=out.findIndex(([m])=>m===pk); }
+    if(at<0){ at=out.findIndex(([,m])=>BLOCKS.indexOf(m.block)>=BLOCKS.indexOf(it.block)); at=(at<0?out.length:at)-1; }
+    out.splice(at+1,0,[k,{...it}]);
+  });
+  return sortItems(out.map(([,it])=>it));
+}
+
 export function refreshItems(list,starters,seen={},added={}){
   let changed=false; const next={...seen};
   const out=list.map(s=>{
     const st=starters.find(x=>x.id===s.id); if(!st) return s;
     const mine=itemsKey(s.items), theirs=itemsKey(st.items), was=seen[s.id];
+    next[s.id]=theirs;
+    if(mine===theirs||was===theirs) return s;  // up to date, or the starter hasn't changed since last time
     const prev=was??itemsKey(st.items.filter(x=>!(added[s.id]||[]).includes(x.ex)));
-    if(mine===theirs){ next[s.id]=theirs; return s; }
-    if(mine!==prev) return s;  // edited by the user: keep it
-    next[s.id]=theirs; changed=true; return {...s,items:st.items.map(x=>({...x}))};
+    const items=mine===prev?st.items.map(x=>({...x})):mergeItems(s.items,parseKey(prev),st.items);
+    if(itemsKey(items)===mine) return s;
+    changed=true; return {...s,items};
   });
   return {list:out,seen:next,changed};
+}
+
+// The starter a stored session came from, if any, and whether the session still matches it.
+export const isOriginal=(s,st)=>itemsKey(s.items)===itemsKey(st.items)&&JSON.stringify(s.names)===JSON.stringify(st.names)&&s.sport===st.sport;
+export function restoreStarter(s,st){
+  const out={...s, name:st.name, names:st.names, sport:st.sport, items:st.items.map(x=>({...x}))};
+  if(!st.sport) delete out.sport;
+  return out;
 }
 
 // ---- Storage ----
