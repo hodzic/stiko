@@ -308,6 +308,19 @@ export function poseAt(ex,phase){
   return {J:solve(a.spec,fr.pose), fr};
 }
 
+// Extent [minX,minY,maxX,maxY] of the figure in a still: joints padded by stroke, hands and head by their size.
+export function stillBounds(ex,frameIdx){
+  const a=ex.anim, fr=a.frames[Math.min(frameIdx,a.frames.length-1)];
+  const J=solve(a.spec,framesAt(a.frames,fr.t,a.loopAdd).pose);
+  const b=[Infinity,Infinity,-Infinity,-Infinity];
+  const add=(p,r)=>{ b[0]=Math.min(b[0],p[0]-r); b[1]=Math.min(b[1],p[1]-r); b[2]=Math.max(b[2],p[0]+r); b[3]=Math.max(b[3],p[1]+r); };
+  for(const p of [J.hip,J.mid,J.sh,J.nk]) add(p,5);
+  for(const k of SIDES[J.view]) for(const j of ['hp','el','kn','an','toe']) add(J[k][j],5);
+  for(const k of SIDES[J.view]) add(J[k].hd,8);
+  add(J.hc,L.head+4);
+  return b;
+}
+
 // Static picture of an exercise at one keyframe (used for library thumbnails).
 export function stillSVG(ex,frameIdx){
   const a=ex.anim, fr=a.frames[Math.min(frameIdx,a.frames.length-1)];
