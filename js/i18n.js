@@ -601,6 +601,15 @@ Object.assign(UI.es,{
   getStarted:'Entendido, empecemos', aboutBack:'Volver a sesiones',
 });
 
+// Favourites.
+Object.assign(UI.en,{favorites:'Favorites', addFav:'Add to favorites', removeFav:'Remove from favorites'});
+Object.assign(UI.bs,{favorites:'Favoriti', addFav:'Dodaj u favorite', removeFav:'Ukloni iz favorita'});
+Object.assign(UI.hr,{favorites:'Favoriti', addFav:'Dodaj u favorite', removeFav:'Ukloni iz favorita'});
+Object.assign(UI.sr,{favorites:'Favoriti', addFav:'Dodaj u favorite', removeFav:'Ukloni iz favorita'});
+Object.assign(UI.fr,{favorites:'Favoris', addFav:'Ajouter aux favoris', removeFav:'Retirer des favoris'});
+Object.assign(UI.de,{favorites:'Favoriten', addFav:'Zu Favoriten hinzufügen', removeFav:'Aus Favoriten entfernen'});
+Object.assign(UI.es,{favorites:'Favoritos', addFav:'Añadir a favoritos', removeFav:'Quitar de favoritos'});
+
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
 // Speech: voice language prefixes to try in order, the fallback BCP-47 tag, and speaking rate.

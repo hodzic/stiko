@@ -20,6 +20,7 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `index.html`, `css/app.css` | App shell and styles (light/dark tokens) |
 | `js/app.js` | Loads the library, hash router (routes listed at the top of `mount()`), language switch, first-run seeding, service worker |
 | `js/sessions-list.js` | Sessions screen (home): start, edit, reorder (↑ ↓, move to top), duplicate, delete, export backup, import |
+| `js/favs.js` | Favourite exercises and sessions (per-device id lists, not exported), star button and Favorites filter chip |
 | `js/about.js` | About page (`#/about`): how to use the app and health advice; shown once on first launch, then from the ? in the header |
 | `js/editor.js` | Session editor: name, warm-up / main / cool-down blocks, sets/reps/hold/rest, reorder, share |
 | `js/sessions.js` | Session model, validation, time estimates, import/export format, on-device storage (pure, unit-tested) |

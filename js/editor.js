@@ -4,6 +4,7 @@ import {MAIN_FAMILIES, familyOf, SPORTS} from './vocab.js';
 import * as S from './sessions.js';
 import {thumbSVG, thumbBox} from './library.js';
 import {saveJSON, slug} from './ui.js';
+import * as F from './favs.js';
 
 export function mountEditor(root,lib,id){
   const byId=lib.byId;
@@ -107,7 +108,7 @@ export function mountEditor(root,lib,id){
   if(s.id.startsWith('starter-')) fetch('data/starters.json').then(r=>r.text()).then(text=>{
     starter=(S.parseImport(text,byId,getLang()).sessions||[]).find(x=>x.id===s.id)||null; showRestore();
   }).catch(()=>{});
-  $('delBtn').onclick=()=>{ if(confirm(U('confirmDelete')(nm()))){ S.remove(s.id); location.hash='#/sessions'; } };
+  $('delBtn').onclick=()=>{ if(confirm(U('confirmDelete')(nm()))){ S.remove(s.id); F.drop('session',s.id); location.hash='#/sessions'; } };
 
   render();
   return {relang:render, destroy(){}};
