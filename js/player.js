@@ -8,6 +8,7 @@ import * as A from './audio.js';
 import * as store from './store.js';
 import {SWITCH, workSeconds} from './sessions.js';
 import {countdownCue} from './cues.js';
+import * as F from './favs.js';
 
 const READY=5;
 const ICON_PREV='<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9 12z" fill="currentColor"/></svg>';
@@ -57,7 +58,7 @@ const TPL=`
   </div>
   <section class="howto" aria-labelledby="exName">
     <div class="howto-head">
-      <div><h2 id="exName"></h2><p class="dose" id="exDose"></p></div>
+      <div><div class="title-row"><h2 id="exName"></h2><span id="favSlot"></span></div><p class="dose" id="exDose"></p></div>
       <button class="read" id="readBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_SPK}</svg><span id="readTxt"></span></button>
     </div>
     <p class="voice-note" id="voiceNote" hidden></p>
@@ -125,6 +126,7 @@ export function mountPlayer(root,queue,opts){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     $('backTxt').textContent=U(opts.backLabel);
     $('exName').textContent=T(ex.name);
+    $('favSlot').innerHTML=F.starHTML('ex',ex.id,true);
     $('exDose').textContent=doseText(d,ex.laterality);
     $('hSetup').textContent=T(h.setup); $('hBreathe').textContent=T(h.breathe);
     $('hSteps').innerHTML=h.steps.map(t=>`<li>${esc(T(t))}</li>`).join('');
@@ -164,6 +166,7 @@ export function mountPlayer(root,queue,opts){
   }
   $('voiceSel').onchange=e=>{ A.setVoiceName(e.target.value); updateVoiceNote(); A.testVoice(U('voiceSample')); };
   $('rateSeg').onclick=e=>{ const b=e.target.closest('button[data-r]'); if(!b) return; A.setRate(+b.dataset.r); renderVoiceSet(); A.testVoice(U('voiceSample')); };
+  $('favSlot').onclick=e=>{ const f=e.target.closest('button[data-fav]'); if(!f) return; F.toggle('ex',f.dataset.fav); $('favSlot').innerHTML=F.starHTML('ex',f.dataset.fav,true); $('favSlot').firstChild.focus(); };
   $('testBtn').onclick=()=>A.testVoice(U('voiceSample'));
   A.onVoicesChanged(()=>{ updateVoiceNote(); renderVoiceSet(); });
 

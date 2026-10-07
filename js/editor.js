@@ -41,6 +41,7 @@ export function mountEditor(root,lib,id){
       <div class="item-body">
         <div class="item-head"><a href="#/play/${encodeURIComponent(ex.id)}">${esc(T(ex.name))}</a>
           <span class="item-acts">
+            ${F.starHTML('ex',ex.id,true)}
             <button class="icon" data-i="${i}" data-act="up" aria-label="${esc(U('moveUp'))}" ${S.canMove(s.items,i,-1)?'':'disabled'}>↑</button>
             <button class="icon" data-i="${i}" data-act="down" aria-label="${esc(U('moveDown'))}" ${S.canMove(s.items,i,1)?'':'disabled'}>↓</button>
             <button class="icon" data-i="${i}" data-act="rm" aria-label="${esc(U('remove'))}">✕</button>
@@ -91,6 +92,8 @@ export function mountEditor(root,lib,id){
     s.items[i]=it; t.value=it[t.dataset.k]; save();
   });
   $('blocks').addEventListener('click',e=>{
+    const f=e.target.closest('button[data-fav]');
+    if(f){ const k=[...root.querySelectorAll('#blocks button[data-fav]')].indexOf(f); F.toggle('ex',f.dataset.fav); render(); root.querySelectorAll('#blocks button[data-fav]')[k]?.focus(); return; }
     const b=e.target.closest('button[data-act]'); if(!b) return;
     const i=+b.dataset.i, act=b.dataset.act, dir=act==='up'?-1:1;
     // A move within a block swaps neighbours; across a block edge the item keeps its index.
