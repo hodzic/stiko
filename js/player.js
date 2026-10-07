@@ -41,15 +41,6 @@ const TPL=`
       <button class="tog" id="voiceBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_BUBBLE}</svg><span data-i18n="voice"></span></button>
       <label class="toggle"><input type="checkbox" id="jointsChk"> <span data-i18n="poseCheck"></span></label>
     </div>
-    <details class="voice-set" id="voiceSet">
-      <summary data-i18n="voiceSettings"></summary>
-      <div class="vs-body">
-        <label class="field"><span class="flabel" data-i18n="voicePick"></span><select id="voiceSel"></select></label>
-        <div class="field"><span class="flabel" data-i18n="speechSpeed"></span>
-          <div class="seg" role="group" id="rateSeg"></div></div>
-        <button class="btn" id="testBtn" data-i18n="testVoice"></button>
-      </div>
-    </details>
     <p class="hint" data-i18n="tapPause"></p>
     <section class="debug" id="debug" hidden>
       <p data-i18n="debug"></p>
@@ -146,7 +137,7 @@ export function mountPlayer(root,queue,opts){
       $('nextTxt').textContent=nx?U('nextUp')(T(nx.ex.short)):'';
     }
     $('readTxt').textContent=A.isReading()?U('stop'):U('read');
-    updateVoiceNote(); renderVoiceSet(); activeStep=-2; setPlaying(playing);
+    updateVoiceNote(); activeStep=-2; setPlaying(playing);
     document.title=`${multi?opts.title():T(ex.short)} · Stiko`;
   }
   function updateVoiceNote(){
@@ -154,21 +145,8 @@ export function mountPlayer(root,queue,opts){
     if(!A.hasSpeech()){ n.textContent=U('noSpeech'); n.hidden=false; $('readBtn').disabled=true; return; }
     n.textContent=U('noVoice'); n.hidden=!(A.voiceCount()>0&&!A.pickVoice());
   }
-  // Voice settings: device voices for this language, speaking speed, and a test sentence.
-  function renderVoiceSet(){
-    $('voiceSet').hidden=!A.hasSpeech(); if(!A.hasSpeech()) return;
-    const vs=A.langVoices(), cur=A.voiceName();
-    $('voiceSel').innerHTML=`<option value="">${esc(U('voiceAuto'))}${vs[0]?` (${esc(vs[0].name)})`:''}</option>`+
-      vs.map(v=>`<option value="${esc(v.voiceURI)}">${esc(v.name)}${v.lang?` · ${esc(v.lang)}`:''}</option>`).join('');
-    $('voiceSel').value=vs.some(v=>v.voiceURI===cur)?cur:'';
-    $('rateSeg').setAttribute('aria-label',U('speechSpeed'));
-    $('rateSeg').innerHTML=A.RATES.map((r,i)=>`<button data-r="${r}" aria-pressed="${r===A.prefs.rate}">${esc(U(['slower','normal','faster'][i]))}</button>`).join('');
-  }
-  $('voiceSel').onchange=e=>{ A.setVoiceName(e.target.value); updateVoiceNote(); A.testVoice(U('voiceSample')); };
-  $('rateSeg').onclick=e=>{ const b=e.target.closest('button[data-r]'); if(!b) return; A.setRate(+b.dataset.r); renderVoiceSet(); A.testVoice(U('voiceSample')); };
   $('favSlot').onclick=e=>{ const f=e.target.closest('button[data-fav]'); if(!f) return; F.toggle('ex',f.dataset.fav); $('favSlot').innerHTML=F.starHTML('ex',f.dataset.fav,true); $('favSlot').firstChild.focus(); };
-  $('testBtn').onclick=()=>A.testVoice(U('voiceSample'));
-  A.onVoicesChanged(()=>{ updateVoiceNote(); renderVoiceSet(); });
+  A.onVoicesChanged(updateVoiceNote);
 
   // Keep the screen awake while a workout is playing.
   let wake=null;

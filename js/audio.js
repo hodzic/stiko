@@ -51,9 +51,10 @@ export function pickVoice(){
 export function setVoiceName(uri){ const m=store.load('voiceName',{}); if(uri) m[getLang()]=uri; else delete m[getLang()]; store.save('voiceName',m); }
 export const voiceName=()=>store.load('voiceName',{})[getLang()]||'';
 export const voiceCount=()=>synth?synth.getVoices().length:0;
-let voicesCb=null;
-export function onVoicesChanged(cb){ voicesCb=cb; }
-if(synth) synth.onvoiceschanged=()=>voicesCb&&voicesCb();
+// Voices load late on some browsers. Listeners: one per key, so a screen replaces its own (null removes it).
+const voicesCbs=new Map();
+export function onVoicesChanged(cb,key='player'){ if(cb) voicesCbs.set(key,cb); else voicesCbs.delete(key); }
+if(synth) synth.onvoiceschanged=()=>voicesCbs.forEach(cb=>cb());
 
 function utter(text){
   const u=new SpeechSynthesisUtterance(text), v=pickVoice(), cfg=VOICE[getLang()];

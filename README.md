@@ -28,7 +28,8 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `js/player.js` | Player for a queue of exercises: get ready → sets of work/rest → next → done; skip, cues, scrub, read aloud, pose check, screen wake lock |
 | `js/ui.js` | Toasts and saving/sharing JSON files |
 | `js/rig.js` | Stiko rig: FK, pinning, rotation leveling, leg IK, SVG rendering (pure, unit-tested) |
-| `js/audio.js` | Web Audio tones and speech synthesis; device voice per language and speaking speed (Voice settings in the player) |
+| `js/audio.js` | Web Audio tones and speech synthesis; device voice per language and speaking speed |
+| `js/voice-settings.js` | Voice settings popover in the header (speaker button): voice, speaking speed, test |
 | `js/vocab.js` | Exercise taxonomy vocabularies (see `docs/taxonomy.md`) |
 | `js/i18n.js`, `js/store.js` | UI strings and taxonomy labels (EN/BS/HR/SR/DE/ES/FR), voice settings per language, device preferences |
 | `data/library.json` | Exercise library |
