@@ -174,6 +174,28 @@
       ]
     },
     {
+      "id": "starter-gentle-knees-back",
+      "name": {"en": "Gentle daily: knees and back", "bs": "Lagano svaki dan: koljena i leđa", "hr": "Lagano svaki dan: koljena i leđa", "sr": "Lagano svaki dan: kolena i leđa", "fr": "Doux au quotidien : genoux et dos", "de": "Sanft für jeden Tag: Knie und Rücken", "es": "Suave cada día: rodillas y espalda"},
+      "items": [
+        {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 15},
+        {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
+        {"ex": "thoracic-extension", "block": "warmup", "sets": 1, "reps": 6, "rest": 15},
+        {"ex": "seated-knee-extension", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "chair-squat", "block": "main", "sets": 2, "reps": 5, "rest": 45},
+        {"ex": "hip-hinge", "block": "main", "sets": 2, "reps": 6, "rest": 30},
+        {"ex": "calf-raise", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "standing-hip-abduction", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "standing-hamstring-curl", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "wall-push-up", "block": "main", "sets": 2, "reps": 8, "rest": 30},
+        {"ex": "band-pull-apart", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "tandem-stance", "block": "main", "sets": 2, "hold": 20, "rest": 15},
+        {"ex": "raising-the-arms", "block": "cooldown", "sets": 1, "time": 60, "rest": 10},
+        {"ex": "standing-side-bend", "block": "cooldown", "sets": 1, "hold": 20, "rest": 10},
+        {"ex": "chest-opener", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "calf-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 0}
+      ]
+    },
+    {
       "id": "starter-tai-chi",
       "name": {"en": "Tai chi & qigong basics", "bs": "Osnove tai chija i qigonga", "hr": "Osnove tai chija i qigonga", "sr": "Osnove tai čija i ći gonga", "fr": "Initiation au tai-chi et au qi gong", "de": "Tai-Chi & Qigong: Grundlagen", "es": "Taichí y qigong: lo básico"},
       "items": [
