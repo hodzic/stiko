@@ -134,6 +134,7 @@ button:focus-visible,input:focus-visible,a:focus-visible,.stage:focus-visible{ou
 .scard{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:14px 16px}
 .scard-main{display:block;text-decoration:none;margin-bottom:10px}
 .scard h3{font-size:1.15rem}
+.scard .reorder{margin-left:auto;display:flex}
 .menu{position:relative}
 .menu summary{list-style:none;padding:8px 13px}
 .menu summary::-webkit-details-marker{display:none}

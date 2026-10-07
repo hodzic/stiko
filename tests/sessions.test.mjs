@@ -165,3 +165,15 @@ test('a duplicate gets its own fixed name',()=>{
   assert.equal(c.names,undefined); assert.equal(S.nameOf(c,'fr'),'Three basics (copy)');
   assert.ok(S.get(s.id).names,'the original keeps its translations');
 });
+
+test('moveSession: up, down, top, and past sessions a filter hides', ()=>{
+  const L=['a','b','c','d'].map(id=>({id})), ids=l=>l.map(s=>s.id).join('');
+  assert.equal(ids(S.moveSession(L,'c',-1)),'acbd');
+  assert.equal(ids(S.moveSession(L,'b',1)),'acbd');
+  assert.equal(ids(S.moveSession(L,'d','top')),'dabc');
+  assert.equal(ids(S.moveSession(L,'a',-1)),'abcd');  // already first
+  assert.equal(ids(S.moveSession(L,'d',1)),'abcd');   // already last
+  assert.equal(ids(S.moveSession(L,'d',-1,['b','d'])),'adbc');  // jumps over hidden c
+  assert.equal(ids(S.moveSession(L,'b',1,['b','d'])),'acdb');
+  assert.equal(ids(L),'abcd');  // input untouched
+});

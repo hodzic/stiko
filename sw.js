@@ -1,6 +1,6 @@
 // Offline support: precache the app shell, then serve from cache and refresh in the background.
 // Bump VERSION whenever the file list changes.
-const VERSION='stiko-v29';
+const VERSION='stiko-v30';
 const ASSETS=[
   './','index.html','manifest.webmanifest','css/app.css',
   'js/app.js','js/rig.js','js/rig3.js','js/i18n.js','js/store.js','js/vocab.js','js/audio.js','js/library.js','js/player.js',
