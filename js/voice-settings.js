@@ -12,13 +12,13 @@ export function mountVoiceSettings(root){
       <h3 id="vsTitle"></h3>
       <label class="field"><span class="flabel" id="vsVoiceL"></span><select id="voiceSel"></select></label>
       <div class="field"><span class="flabel" id="vsRateL"></span><div class="seg" role="group" id="rateSeg"></div></div>
-      <button class="btn" id="testBtn"></button>
+      <div class="vpop-acts"><button class="btn" id="testBtn"></button><button class="btn primary" id="doneBtn"></button></div>
     </div>`;
   const $=id=>root.querySelector('#'+id);
   function render(){
     const sum=root.querySelector('summary'); sum.setAttribute('aria-label',U('voiceSettings')); sum.title=U('voiceSettings');
     $('vsTitle').textContent=U('voiceSettings'); $('vsVoiceL').textContent=U('voicePick'); $('vsRateL').textContent=U('speechSpeed');
-    $('testBtn').textContent=U('testVoice');
+    $('testBtn').textContent=U('testVoice'); $('doneBtn').textContent=U('done');
     const vs=A.langVoices(), cur=A.voiceName();
     $('voiceSel').innerHTML=`<option value="">${esc(U('voiceAuto'))}${vs[0]?` (${esc(vs[0].name)})`:''}</option>`+
       vs.map(v=>`<option value="${esc(v.voiceURI)}">${esc(v.name)}${v.lang?` · ${esc(v.lang)}`:''}</option>`).join('');
@@ -30,6 +30,7 @@ export function mountVoiceSettings(root){
   $('voiceSel').onchange=e=>{ A.setVoiceName(e.target.value); test(); };
   $('rateSeg').onclick=e=>{ const b=e.target.closest('button[data-r]'); if(!b) return; A.setRate(+b.dataset.r); render(); test(); };
   $('testBtn').onclick=test;
+  $('doneBtn').onclick=()=>{ root.open=false; root.querySelector('summary').focus(); };
   // Close when tapping elsewhere or pressing Escape.
   document.addEventListener('click',e=>{ if(root.open&&!e.composedPath().includes(root)) root.open=false; });
   root.addEventListener('keydown',e=>{ if(e.key==='Escape'&&root.open){ root.open=false; root.querySelector('summary').focus(); } });
