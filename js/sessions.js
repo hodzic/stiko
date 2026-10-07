@@ -141,6 +141,15 @@ export function put(session){
   if(i<0) list.push(s); else list[i]=s;
   saveAll(list); return s;
 }
+// Move a session one place up (-1) or down (+1) past its neighbour among the ids on screen
+// (a sport filter may hide some), or to the very top ('top'). Returns a new list.
+export function moveSession(list,id,dir,visible=list.map(s=>s.id)){
+  const k=visible.indexOf(id), other=dir==='top'?list[0]?.id:visible[k+dir], s=list.find(x=>x.id===id);
+  if(k<0||!s||other==null||other===id) return list;
+  const out=list.filter(x=>x.id!==id);
+  out.splice(out.findIndex(x=>x.id===other)+(dir===1?1:0),0,s);
+  return out;
+}
 export const remove=id=>saveAll(loadAll().filter(s=>s.id!==id));
 export function create(name){ return put({id:uid(), name, items:[]}); }
 export function duplicate(id,name){

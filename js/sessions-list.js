@@ -1,4 +1,4 @@
-// Sessions screen: list of named sessions with start, edit, duplicate, delete; backup export and import.
+// Sessions screen: list of named sessions with start, edit, reorder, duplicate, delete; backup export and import.
 import {U, esc, getLang, tagLabel} from './i18n.js';
 import {SPORTS} from './vocab.js';
 import * as store from './store.js';
@@ -36,7 +36,7 @@ export function mountSessions(root,lib){
     $('sportFilter').innerHTML=opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
     const list=opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all;
     if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U('noSessions'))}</li>`; return; }
-    $('list').innerHTML=list.map(s=>{
+    $('list').innerHTML=list.map((s,k)=>{
       const est=S.estimate(s.items,byId);
       return `<li class="scard" data-id="${esc(s.id)}">
         <a class="scard-main" href="#/sessions/${encodeURIComponent(s.id)}">
@@ -48,9 +48,14 @@ export function mountSessions(root,lib){
           <a class="btn" href="#/sessions/${encodeURIComponent(s.id)}">${esc(U('edit'))}</a>
           <details class="menu"><summary class="btn" aria-label="${esc(U('more'))}">⋯</summary>
             <div class="menu-pop">
+              ${k?`<button data-act="top">${esc(U('moveTop'))}</button>`:''}
               <button data-act="dup">${esc(U('duplicate'))}</button>
               <button class="danger" data-act="del">${esc(U('del'))}</button>
             </div></details>
+          <span class="reorder">
+            <button class="icon" data-act="up" aria-label="${esc(U('moveUp'))}" ${k?'':'disabled'}>↑</button>
+            <button class="icon" data-act="down" aria-label="${esc(U('moveDown'))}" ${k<list.length-1?'':'disabled'}>↓</button>
+          </span>
         </div></li>`;
     }).join('');
   }
@@ -67,6 +72,13 @@ export function mountSessions(root,lib){
     const b=e.target.closest('button[data-act]'); if(!b) return;
     const id=b.closest('[data-id]').dataset.id, s=S.get(id); if(!s) return;
     const name=S.nameOf(s,getLang());
+    const move={up:-1,down:1,top:'top'}[b.dataset.act];
+    if(move!=null){
+      const visible=[...root.querySelectorAll('#list [data-id]')].map(li=>li.dataset.id);
+      S.saveAll(S.moveSession(S.loadAll(),id,move,visible)); render();
+      root.querySelector(`#list [data-id="${CSS.escape(id)}"] [data-act="${move===1?'down':'up'}"]:not(:disabled)`)?.focus();
+      return;
+    }
     if(b.dataset.act==='dup') S.duplicate(id,U('copyName')(name));
     else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))) S.remove(id);
     render();
