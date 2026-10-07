@@ -88,8 +88,11 @@ Pose check toggle shows the live joint angles.
 ## Sessions file format
 
 Exports, shared sessions and `data/starters.json` share one format; import also accepts a bare session or array.
-When a starter session gains exercises, list their ids in its `added` field: devices that saved the starter earlier
-get the new list, unless the user has edited that session.
+When `data/starters.json` changes, devices update their copy of each starter: an unedited copy takes the new list,
+an edited one gets a three-way merge (new exercises are added, dropped or changed ones follow the starter unless the
+user changed them too, and the user's own removals, additions and changes stay). The editor's Restore original
+button resets a starter to the shipped version. When a starter gains exercises, also list their ids in its `added`
+field, for devices from before the app recorded which list each starter came with.
 
 ```json
 { "kind": "stiko-sessions", "version": 1,

@@ -137,25 +137,48 @@ test('attachNames repairs stored starters but leaves renamed ones alone',()=>{
   assert.equal(S.attachNames(list,starters).changed,false,'second run changes nothing');
 });
 
-test('refreshItems updates unedited starters and keeps edited ones',()=>{
-  const it=(ex,block='main')=>({ex,block,sets:2,time:45,rest:30});
+test('refreshItems updates unedited starters and merges into edited ones',()=>{
+  const it=(ex,block='main',reps=8)=>({ex,block,sets:2,reps,rest:30});
   const starter={id:'starter-x',name:'X',items:[it('jab-cross'),it('hooks'),it('uppercuts')]};
   const old=[it('jab-cross'),it('uppercuts')], added={'starter-x':['hooks']};
+  const ex=r=>r.list[0].items.map(x=>x.ex);
   // Older device, no record: the stored list is the new one minus what the starter gained.
   let r=S.refreshItems([{id:'starter-x',name:'X',items:old}],[starter],{},added);
-  assert.equal(r.changed,true); assert.deepEqual(r.list[0].items.map(x=>x.ex),['jab-cross','hooks','uppercuts']);
+  assert.equal(r.changed,true); assert.deepEqual(ex(r),['jab-cross','hooks','uppercuts']);
   assert.equal(r.seen['starter-x'],S.itemsKey(starter.items));
-  // The user removed an exercise: left alone, even though it is a subset of the new list.
-  const mine=[it('uppercuts')];
-  r=S.refreshItems([{id:'starter-x',name:'X',items:mine}],[starter],{},added);
-  assert.equal(r.changed,false); assert.deepEqual(r.list[0].items,mine);
-  // With a record: unchanged since last offered → updated; edited since → kept.
+  // The user removed an exercise: it stays removed, and the new one still arrives.
+  r=S.refreshItems([{id:'starter-x',name:'X',items:[it('uppercuts')]}],[starter],{},added);
+  assert.equal(r.changed,true); assert.deepEqual(ex(r),['hooks','uppercuts']);
+  // With a record: edits are kept and the new exercise lands after its starter neighbour.
   const seen={'starter-x':S.itemsKey(old)};
-  assert.equal(S.refreshItems([{id:'starter-x',name:'X',items:old}],[starter],seen).changed,true);
-  r=S.refreshItems([{id:'starter-x',name:'X',items:mine}],[starter],seen);
-  assert.equal(r.changed,false); assert.equal(r.seen['starter-x'],seen['starter-x']);
+  r=S.refreshItems([{id:'starter-x',name:'X',items:[it('jab-cross','main',12),it('uppercuts'),it('squat')]}],[starter],seen);
+  assert.deepEqual(r.list[0].items,[it('jab-cross','main',12),it('hooks'),it('uppercuts'),it('squat')]);
+  // Nothing new in the starter since last time: an edited session is left alone.
+  const mine=[it('uppercuts')];
+  r=S.refreshItems([{id:'starter-x',name:'X',items:mine}],[starter],{'starter-x':S.itemsKey(starter.items)});
+  assert.equal(r.changed,false); assert.equal(r.list[0].items,mine);
   // User sessions are never touched.
   assert.equal(S.refreshItems([{id:'s-1',name:'Mine',items:old}],[starter],{},added).changed,false);
+});
+
+test('mergeItems: three-way merge of starter exercise lists',()=>{
+  const it=(ex,block='main',reps=8)=>({ex,block,sets:2,reps,rest:30});
+  const base=[it('a','warmup'),it('b'),it('c'),it('d','cooldown')];
+  // Starter: changes b's reps, drops c, adds e to cooldown (top) and f after b.
+  const theirs=[it('a','warmup'),it('b','main',10),it('f'),it('e','cooldown'),it('d','cooldown')];
+  // Unedited: becomes the starter list.
+  assert.deepEqual(S.mergeItems(base,base,theirs),theirs);
+  // User changed c, removed d, added g: c stays (edited), d stays gone, g stays.
+  const mine=[it('a','warmup'),it('b'),it('c','main',5),it('g','cooldown')];
+  assert.deepEqual(S.mergeItems(mine,base,theirs),[it('a','warmup'),it('b','main',10),it('f'),it('c','main',5),it('e','cooldown'),it('g','cooldown')]);
+  // User changed b too: their change wins over the starter's.
+  assert.deepEqual(S.mergeItems([it('b','main',3)],[it('b')],[it('b','main',10)]),[it('b','main',3)]);
+  // A repeated exercise is matched by occurrence.
+  assert.deepEqual(S.mergeItems([it('a'),it('a','main',4)],[it('a'),it('a')],[it('a'),it('a'),it('a','cooldown')]).map(x=>x.reps+x.block),['8main','4main','8cooldown']);
+  // Hold/time items survive the stored-key round trip.
+  const h={ex:'p',block:'main',sets:1,hold:30,rest:0};
+  const r=S.refreshItems([{id:'s',name:'S',items:[{...h,hold:60}]}],[{id:'s',name:'S',items:[h,it('q')]}],{s:S.itemsKey([h])});
+  assert.deepEqual(r.list[0].items,[{...h,hold:60},it('q')]);
 });
 
 test('a duplicate gets its own fixed name',()=>{
