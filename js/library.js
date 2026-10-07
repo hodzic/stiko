@@ -1,6 +1,6 @@
 // Library screen: exercise cards with a still of Stiko, filtered by the taxonomy in vocab.js.
 // In pick mode (opened from the session editor) tapping a card adds the exercise to a session block.
-import {stillSVG} from './rig.js';
+import {stillSVG, stillBounds} from './rig.js';
 import {T, U, tagLabel, doseText, esc, getLang} from './i18n.js';
 import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
@@ -12,8 +12,19 @@ const GROUPS=[...MAIN,...MORE];
 // Filter state survives navigation to the player and back. Values are kept as strings (level is numeric).
 const sel=Object.fromEntries(GROUPS.map(g=>[g,new Set()]));
 const thumbs=new Map();
-// Thumbnails crop to the figure; hanging exercises reach higher, so they get a taller (zoomed-out) box.
-export const thumbBox=ex=>ex.position==='hanging'?'-40 4 480 280':'20 70 360 210';
+// Thumbnails crop to the figure with the floor at the bottom, in one of three zooms of the same shape: the
+// smallest box the still fits (floor work, standing, then raised on a step, arms overhead or hanging).
+const H=[210,240,280], BOTTOM=280, CX=200, ASPECT=360/210, PAD=3;
+const boxes=new Map();
+export function thumbBox(ex){
+  if(!boxes.has(ex.id)){
+    const [x0,y0,x1]=stillBounds(ex,1);
+    const need=Math.max(BOTTOM-(y0-PAD), 2*Math.max(CX-(x0-PAD),(x1+PAD)-CX)/ASPECT);
+    const h=H.find(v=>v>=need)??H.at(-1), w=h*ASPECT;
+    boxes.set(ex.id,[CX-w/2,BOTTOM-h,w,h].map(v=>+v.toFixed(1)).join(' '));
+  }
+  return boxes.get(ex.id);
+}
 export function thumbSVG(ex){ if(!thumbs.has(ex.id)) thumbs.set(ex.id,stillSVG(ex,1)); return thumbs.get(ex.id); }
 
 // Within a group selected values are OR'ed; groups are AND'ed.
