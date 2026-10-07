@@ -200,3 +200,13 @@ test('moveSession: up, down, top, and past sessions a filter hides', ()=>{
   assert.equal(ids(S.moveSession(L,'b',1,['b','d'])),'acdb');
   assert.equal(ids(L),'abcd');  // input untouched
 });
+
+test('favourites: toggle, per kind, drop',async()=>{
+  mem.clear();
+  const F=await import('../js/favs.js');
+  assert.equal(F.toggle('ex','squat'),true); assert.equal(F.toggle('session','s-1'),true);
+  assert.ok(F.has('ex','squat')); assert.ok(!F.has('session','squat'));
+  assert.equal(F.toggle('ex','squat'),false); assert.deepEqual(F.list('ex'),[]);
+  F.drop('session','s-1'); F.drop('session','s-1'); assert.deepEqual(F.list('session'),[]);
+  assert.match(F.starHTML('ex','plank'),/aria-pressed="false"/);
+});

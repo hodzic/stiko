@@ -4,6 +4,7 @@ import {SPORTS} from './vocab.js';
 import * as store from './store.js';
 import * as S from './sessions.js';
 import {toast, saveJSON} from './ui.js';
+import * as F from './favs.js';
 
 export function mountSessions(root,lib){
   const byId=lib.byId;
@@ -31,14 +32,17 @@ export function mountSessions(root,lib){
     let pick=store.load('sessionSport','all');
     if(pick!=='all'&&pick!=='none'&&!sports.includes(pick)) pick='all';
     const opts=sports.length?['all','none',...sports]:[];
-    $('sportFilter').hidden=!opts.length;
+    // Favourites: a toggle on top of the sport filter, shown once there is a favourite.
+    const favIds=new Set(F.list('session').filter(id=>all.some(s=>s.id===id)));
+    let favOnly=store.load('sessionFavOnly',false)&&favIds.size>0;
+    $('sportFilter').hidden=!opts.length&&!favIds.size;
     $('sportFilter').setAttribute('aria-label',U('g_sport'));
-    $('sportFilter').innerHTML=opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
-    const list=opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all;
+    $('sportFilter').innerHTML=(favIds.size?F.chipHTML(favOnly):'')+opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
+    const list=(opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all).filter(s=>!favOnly||favIds.has(s.id));
     if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U('noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map((s,k)=>{
       const est=S.estimate(s.items,byId);
-      return `<li class="scard" data-id="${esc(s.id)}">
+      return `<li class="scard has-fav" data-id="${esc(s.id)}">${F.starHTML('session',s.id)}
         <a class="scard-main" href="#/sessions/${encodeURIComponent(s.id)}">
           <h3>${esc(S.nameOf(s,getLang()))}</h3>
           <p class="dose">${s.sport?esc(tagLabel('sport',s.sport))+' · ':''}${esc(U('exCount')(s.items.length))}${s.items.length?' · '+esc(U('mins')(S.minutes(est.total))):''}</p>
@@ -61,6 +65,7 @@ export function mountSessions(root,lib){
   }
 
   $('sportFilter').addEventListener('click',e=>{
+    if(e.target.closest('#favChip')){ store.save('sessionFavOnly',!store.load('sessionFavOnly',false)); render(); return; }
     const b=e.target.closest('button[data-sport]'); if(!b) return;
     store.save('sessionSport',b.dataset.sport); render();
   });
@@ -69,6 +74,8 @@ export function mountSessions(root,lib){
   const closeMenus=e=>root.querySelectorAll('details.menu[open]').forEach(d=>{ if(!d.contains(e.target)) d.open=false; });
   document.addEventListener('click',closeMenus);
   $('list').addEventListener('click',e=>{
+    const f=e.target.closest('button[data-fav]');
+    if(f){ F.toggle('session',f.dataset.fav); render(); root.querySelector(`button[data-fav="${CSS.escape(f.dataset.fav)}"]`)?.focus(); return; }
     const b=e.target.closest('button[data-act]'); if(!b) return;
     const id=b.closest('[data-id]').dataset.id, s=S.get(id); if(!s) return;
     const name=S.nameOf(s,getLang());
@@ -80,7 +87,7 @@ export function mountSessions(root,lib){
       return;
     }
     if(b.dataset.act==='dup') S.duplicate(id,U('copyName')(name));
-    else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))) S.remove(id);
+    else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))){ S.remove(id); F.drop('session',id); }
     render();
   });
   $('exportBtn').onclick=()=>saveJSON(`stiko-sessions-${new Date().toISOString().slice(0,10)}.json`,S.exportPayload(S.loadAll()));
