@@ -1,16 +1,17 @@
 {
+  "id": "/stiko/",
   "name": "Stiko",
   "short_name": "Stiko",
   "description": "Home workouts demonstrated by Stiko, an animated stick figure.",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/stiko/",
+  "scope": "/stiko/",
   "display": "standalone",
   "background_color": "#EAF2F8",
   "theme_color": "#1F7A6A",
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
-    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
-    {"src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml"}
+    {"src": "/stiko/icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/stiko/icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "/stiko/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    {"src": "/stiko/icons/icon.svg", "sizes": "any", "type": "image/svg+xml"}
   ]
 }
