@@ -104,8 +104,8 @@ test('a session keeps a known sport through export and import, and drops an unkn
 
 test('service worker precaches every app file',()=>{
   const sw=read('sw.js');
-  for(const f of fs.readdirSync(new URL('../js',import.meta.url))) assert.ok(sw.includes(`'js/${f}'`),`sw.js is missing js/${f}`);
-  for(const f of ['data/library.json','data/starters.json','css/app.css','index.html']) assert.ok(sw.includes(`'${f}'`),`sw.js is missing ${f}`);
+  for(const f of fs.readdirSync(new URL('../js',import.meta.url))) assert.ok(sw.includes(`'/stiko/js/${f}'`),`sw.js is missing js/${f}`);
+  for(const f of ['data/library.json','data/starters.json','css/app.css','index.html']) assert.ok(sw.includes(`'/stiko/${f}'`),`sw.js is missing ${f}`);
 });
 
 test('starter names follow the language until renamed',()=>{

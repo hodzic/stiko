@@ -6,7 +6,7 @@ Plain HTML/JS with ES modules, no build step, served from GitHub Pages.
 ## Run locally
 
 ```sh
-npm run serve      # python3 -m http.server 8000, then open http://localhost:8000
+npm run serve      # then open http://localhost:8000/stiko/ (paths are absolute, as on GitHub Pages)
 npm test           # rig, library and session checks (Node 20+)
 npm run sheet      # pose review contact sheet (see below)
 ```
