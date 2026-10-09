@@ -69,7 +69,7 @@ async function seed(){
   let offered=store.load('starters',null);
   if(!offered) offered=S.hasStore()?['starter-basics']:[];  // devices from before starter tracking had only this one
   try{
-    const text=await (await fetch('data/starters.json')).text(), r=S.parseImport(text,lib.byId,getLang());
+    const text=await (await fetch('/stiko/data/starters.json')).text(), r=S.parseImport(text,lib.byId,getLang());
     const added=Object.fromEntries((JSON.parse(text).sessions||[]).filter(x=>x.added).map(x=>[x.id,x.added]));
     const fresh=(r.sessions||[]).filter(x=>!offered.includes(x.id));
     const named=S.attachNames(S.loadAll(),r.sessions||[]);
@@ -84,7 +84,7 @@ async function seed(){
 async function start(){
   showLang();
   try{
-    const res=await fetch('data/library.json');
+    const res=await fetch('/stiko/data/library.json');
     if(!res.ok) throw new Error(res.status);
     lib=await res.json();
     lib.byId=new Map(lib.exercises.map(e=>[e.id,e]));
@@ -105,5 +105,5 @@ if('serviceWorker' in navigator){
   const hadController=!!navigator.serviceWorker.controller;
   let reloaded=false;
   navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(hadController&&!reloaded){ reloaded=true; location.reload(); } });
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  navigator.serviceWorker.register('/stiko/sw.js').catch(()=>{});
 }
