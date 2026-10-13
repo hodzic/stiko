@@ -210,3 +210,21 @@ test('favourites: toggle, per kind, drop',async()=>{
   F.drop('session','s-1'); F.drop('session','s-1'); assert.deepEqual(F.list('session'),[]);
   assert.match(F.starHTML('ex','plank'),/aria-pressed="false"/);
 });
+
+test('share links round-trip a session, starter names and all',()=>{
+  const st=JSON.parse(read('data/starters.json')).sessions;
+  for(const raw of st){
+    const s=S.cleanSession(raw,byId).session, back=S.parseShareCode(S.shareCode(s),byId,'en');
+    assert.deepEqual(back.session,s,raw.id);
+    assert.ok(S.shareCode(s).length<2000,`${raw.id} link is short enough`);
+  }
+  const mine={id:'s-1',name:'Jutro „čvrsto“ 💪',sport:SPORTS[0],items:[{ex:'squat',block:'main',sets:2,reps:8,rest:30}]};
+  assert.deepEqual(S.parseShareCode(S.shareCode(mine),byId,'en').session,mine);
+});
+
+test('share links: bad or empty codes are refused, unknown exercises dropped',()=>{
+  for(const c of ['','!!!','eyJ4IjoxfQ',S.shareCode({id:'x',name:'n',items:[{ex:'nope',block:'main',sets:1,reps:1,rest:0}]})])
+    assert.ok(S.parseShareCode(c,byId,'en').error,JSON.stringify(c));
+  const r=S.parseShareCode(S.shareCode({id:'x',name:'n',items:[{ex:'nope',block:'main',sets:1,reps:1,rest:0},{ex:'squat',block:'main',sets:99,reps:10,rest:30}]}),byId,'en');
+  assert.equal(r.dropped,1); assert.deepEqual(r.session.items,[{ex:'squat',block:'main',sets:10,reps:10,rest:30}]);
+});

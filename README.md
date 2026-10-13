@@ -19,14 +19,15 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | --- | --- |
 | `index.html`, `css/app.css` | App shell and styles (light/dark tokens) |
 | `js/app.js` | Loads the library, hash router (routes listed at the top of `mount()`), language switch, first-run seeding, service worker |
-| `js/sessions-list.js` | Sessions screen (home): start, edit, reorder (↑ ↓, move to top), duplicate, delete, export backup, import |
+| `js/sessions-list.js` | Sessions screen (home): start, edit, reorder (↑ ↓, move to top), share, duplicate, delete, export backup, import |
 | `js/favs.js` | Favourite exercises and sessions (per-device id lists, not exported): star buttons on library and session cards, session editor rows and the player, and the Favorites filter chip |
 | `js/about.js` | About page (`#/about`): how to use the app and health advice; shown once on first launch, then from the ? in the header |
-| `js/editor.js` | Session editor: name, warm-up / main / cool-down blocks, sets/reps/hold/rest, reorder, share |
+| `js/editor.js` | Session editor: name, warm-up / main / cool-down blocks, sets/reps/hold/rest, reorder, share link |
 | `js/sessions.js` | Session model, validation, time estimates, import/export format, on-device storage (pure, unit-tested) |
 | `js/library.js` | Library screen: cards and tag filters; pick mode adds exercises to a session block |
-| `js/player.js` | Player for a queue of exercises: get ready → sets of work/rest → next → done; skip, cues, scrub, read aloud, pose check, screen wake lock |
-| `js/ui.js` | Toasts and saving/sharing JSON files |
+| `js/player.js` | Player for a queue of exercises: get ready → sets of work/rest → next → done; skip, cues, scrub, read aloud (and Read first: each exercise read aloud before its countdown, on by default), share, pose check, screen wake lock |
+| `js/ui.js` | Toasts and saving JSON files |
+| `js/share.js` | Share links (phone share sheet, else copy): the app (header button), a session (`#/shared/<code>`, the session packed into the link) and an exercise (`#/play/<id>`); the shared-session preview screen |
 | `js/rig.js` | Stiko rig: FK, pinning, rotation leveling, leg IK, SVG rendering (pure, unit-tested) |
 | `js/audio.js` | Web Audio tones and speech synthesis; device voice per language and speaking speed |
 | `js/voice-settings.js` | Voice settings popover in the header (speaker button): voice, speaking speed, test |
@@ -90,7 +91,7 @@ Pose check toggle shows the live joint angles.
 
 ## Sessions file format
 
-Exports, shared sessions and `data/starters.json` share one format; import also accepts a bare session or array.
+Exports and `data/starters.json` share one format (a shared-session link packs the same fields compactly, see `shareCode` in `js/sessions.js`); import also accepts a bare session or array.
 When `data/starters.json` changes, devices update their copy of each starter: an unedited copy takes the new list,
 an edited one gets a three-way merge (new exercises are added, dropped or changed ones follow the starter unless the
 user changed them too, and the user's own removals, additions and changes stay). The editor's Restore original

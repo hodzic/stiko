@@ -2,9 +2,10 @@
 import {getLang, VOICE} from './i18n.js';
 import * as store from './store.js';
 
-export const prefs={sound:store.load('sound',true), voice:store.load('voice',true), rate:store.load('speechRate',1)};
+export const prefs={sound:store.load('sound',true), voice:store.load('voice',true), rate:store.load('speechRate',1), intro:store.load('autoRead',true)};
 export const RATES=[0.8,1,1.2];  // speaking speed: slower, normal, faster (times the language's base rate)
 export function setRate(r){ prefs.rate=r; store.save('speechRate',r); }
+export function setIntro(v){ prefs.intro=v; store.save('autoRead',v); }
 export function setSound(v){ prefs.sound=v; store.save('sound',v); }
 export function setVoice(v){ prefs.voice=v; store.save('voice',v); if(!v&&synth&&!reading) synth.cancel(); }
 

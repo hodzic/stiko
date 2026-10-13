@@ -9,6 +9,7 @@ import * as store from './store.js';
 import {SWITCH, workSeconds} from './sessions.js';
 import {countdownCue} from './cues.js';
 import * as F from './favs.js';
+import {shareExercise, ICON_SHARE} from './share.js';
 
 const READY=5;
 const ICON_PREV='<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9 12z" fill="currentColor"/></svg>';
@@ -16,6 +17,7 @@ const ICON_NEXT='<svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l11
 const ICON_PLAY='<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>';
 const ICON_PAUSE='<svg viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="currentColor"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="currentColor"/></svg>';
 const ICON_SPK='<path d="M3.5 9.5v5h4l5 4v-13l-5 4z" fill="currentColor"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+const ICON_BOOK='<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>';
 const ICON_BUBBLE='<path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
 
 const TPL=`
@@ -38,6 +40,7 @@ const TPL=`
         <button data-s="0.5">0.5×</button><button data-s="1">1×</button><button data-s="2">2×</button>
       </div>
       <button class="tog" id="soundBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_SPK}</svg><span data-i18n="sound"></span></button>
+      <button class="tog" id="introBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_BOOK}</svg><span data-i18n="autoRead"></span></button>
       <button class="tog" id="voiceBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_BUBBLE}</svg><span data-i18n="voice"></span></button>
       <label class="toggle"><input type="checkbox" id="jointsChk"> <span data-i18n="poseCheck"></span></label>
     </div>
@@ -49,7 +52,7 @@ const TPL=`
   </div>
   <section class="howto" aria-labelledby="exName">
     <div class="howto-head">
-      <div><div class="title-row"><h2 id="exName"></h2><span id="favSlot"></span></div><p class="dose" id="exDose"></p></div>
+      <div><div class="title-row"><h2 id="exName"></h2><span id="favSlot"></span><button class="fav inline share" id="exShare">${ICON_SHARE}</button></div><p class="dose" id="exDose"></p></div>
       <button class="read" id="readBtn"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON_SPK}</svg><span id="readTxt"></span></button>
     </div>
     <p class="voice-note" id="voiceNote" hidden></p>
@@ -98,6 +101,7 @@ export function mountPlayer(root,queue,opts){
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let playing=!reduce, speed=store.load('speed',1), joints=false, scrubPhase=null, curPhase=null;
   let st={set:1,mode:'ready',t:0}, readyDur=READY, clock=0, last=performance.now(), raf=0;
+  let intro=false, introFor=-1;  // reading the exercise aloud before its countdown (once per item)
   let activeStep=-2, lastJ=null, blendFrom=null, blendStart=-10, lastKey='';
   const ev={key:null,rep:-1,frame:-1,sec:-1};
   $('backLink').href=opts.back;
@@ -109,7 +113,7 @@ export function mountPlayer(root,queue,opts){
   function loadItem(i,wait=READY){
     A.stopReading();
     idx=i; ({ex,dose:d}=queue[i]); a=ex.anim; h=ex.howto;
-    st={set:1,mode:'ready',t:0,side:0}; readyDur=wait; scrubPhase=null;
+    st={set:1,mode:'ready',t:0,side:0}; readyDur=wait; scrubPhase=null; introFor=-1;
     renderText();
   }
 
@@ -137,6 +141,7 @@ export function mountPlayer(root,queue,opts){
       $('nextTxt').textContent=nx?U('nextUp')(T(nx.ex.short)):'';
     }
     $('readTxt').textContent=A.isReading()?U('stop'):U('read');
+    $('exShare').setAttribute('aria-label',U('share')); $('exShare').title=U('share');
     updateVoiceNote(); activeStep=-2; setPlaying(playing);
     document.title=`${multi?opts.title():T(ex.short)} · Stiko`;
   }
@@ -165,12 +170,14 @@ export function mountPlayer(root,queue,opts){
     $('playBtn').innerHTML=v?ICON_PAUSE:ICON_PLAY; $('playBtn').setAttribute('aria-label',v?U('pause'):U('play'));
     $('stage').classList.toggle('paused',!v);
     syncWake();
+    if(v) startIntro();
   }
   function toggle(){
+    if(intro){ A.stopReading(); return; }  // tapping during the intro skips it
     if(st.mode==='done'){ loadItem(0); setPlaying(true); return; }
     setPlaying(!playing);
   }
-  $('playBtn').onclick=toggle;
+  $('playBtn').onclick=()=>{ if(intro){ A.stopReading(); setPlaying(false); } else toggle(); };
   // Tap Stiko to pause or resume; drag sideways to step through one rep (the stage's width is one rep).
   const stage=$('stage');
   let drag=null;
@@ -200,9 +207,11 @@ export function mountPlayer(root,queue,opts){
   speedBtns.forEach(b=>b.onclick=()=>{speed=+b.dataset.s; store.save('speed',speed); showSpeed();});
   showSpeed();
 
-  const showToggles=()=>{ $('soundBtn').setAttribute('aria-pressed',A.prefs.sound); $('voiceBtn').setAttribute('aria-pressed',A.prefs.voice); };
+  const showToggles=()=>{ $('soundBtn').setAttribute('aria-pressed',A.prefs.sound); $('voiceBtn').setAttribute('aria-pressed',A.prefs.voice); $('introBtn').setAttribute('aria-pressed',A.prefs.intro); };
   $('soundBtn').onclick=()=>{ A.setSound(!A.prefs.sound); showToggles(); A.unlockAudio(); A.tone('tick'); };
   $('voiceBtn').onclick=()=>{ A.setVoice(!A.prefs.voice); showToggles(); };
+  $('introBtn').onclick=()=>{ A.setIntro(!A.prefs.intro); showToggles(); if(!A.prefs.intro&&intro) A.stopReading(); };
+  $('exShare').onclick=()=>shareExercise(ex);
   showToggles();
 
   $('jointsChk').onchange=e=>{joints=e.target.checked; $('debug').hidden=!joints;};
@@ -223,6 +232,22 @@ export function mountPlayer(root,queue,opts){
     A.readParts(parts,setReadStep,()=>{ $('readBtn').classList.remove('on'); $('readTxt').textContent=U('read'); activeStep=-2; });
     $('readBtn').classList.add('on'); $('readTxt').textContent=U('stop');
   };
+
+  // Read-first: when an exercise comes up, read its instructions aloud before the countdown starts, showing each
+  // step's pose. Tapping Stiko skips it; the countdown then runs as usual.
+  const stepPhase=i=>i>=0&&a.cycle?(a.frames.find((f,k)=>(f.step??k)===i)??a.frames[0]).t+0.01:null;
+  function startIntro(){
+    if(!A.prefs.intro||!A.hasSpeech()||intro||introFor===idx||st.mode!=='ready'||st.t>0) return;
+    introFor=idx; intro=true;
+    const parts=[{text:`${T(ex.name)}. ${doseText(d,ex.laterality)}. ${U('setup')}. ${T(h.setup)}`, step:-1},
+      ...h.steps.map((x,i)=>({text:`${U('step')} ${i+1}. ${T(x)}`, step:i})),
+      {text:`${U('breathing')}. ${T(h.breathe)}`, step:-1}];
+    A.readParts(parts,i=>{ highlight(i); scrubPhase=stepPhase(i); },()=>{
+      intro=false; scrubPhase=null; activeStep=-2;
+      $('readBtn').classList.remove('on'); $('readTxt').textContent=U('read');
+    });
+    $('readBtn').classList.add('on'); $('readTxt').textContent=U('stop');
+  }
 
   // Unilateral exercises run each set on one side, then a short switch, then the other side (drawn mirrored).
   const unilateral=()=>ex.laterality==='unilateral';
@@ -324,6 +349,7 @@ export function mountPlayer(root,queue,opts){
     $('fig').innerHTML=figureSVG(J,fr.face,{blink,joints,flip,floorWork:a.floorWork,farShift:a.farShift,props:a.props});
     const want=(st.mode==='work'||scrubPhase!==null)?(fr.step??0):-1;
     if(!A.isReading()&&want!==activeStep) highlight(want);
+    if(intro){ main=U('listen'); sub=U('tapSkip'); }
     $('cueNow').textContent=T(fr.label); $('countMain').textContent=main; $('countSub').textContent=sub;
     curPhase=phase;
     if(joints){
@@ -334,7 +360,7 @@ export function mountPlayer(root,queue,opts){
 
   function tick(now){
     const dt=Math.min(0.05,(now-last)/1000); last=now; clock+=dt;
-    if(playing&&scrubPhase===null){ advance(dt*speed); cues(); }
+    if(playing&&scrubPhase===null&&!intro){ advance(dt*speed); cues(); }
     draw(); raf=requestAnimationFrame(tick);
   }
 
