@@ -16,11 +16,12 @@ The MVP is an offline session runner: build named sessions from the library, edi
 
 | Screen | Purpose |
 | --- | --- |
-| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time, filterable by sport and by favourites (★ on each card); start, create, edit, reorder (↑ ↓ arrows, or move to top from the ⋯ menu), duplicate, delete, restore an edited starter to the original; export a backup, import |
+| Sessions (home) | List of named sessions (e.g. "Morning mobility") with estimated time, filterable by sport and by favourites (★ on each card); start, create, edit, reorder (↑ ↓ arrows, or move to top from the ⋯ menu), duplicate, delete, restore an edited starter to the original; share a session as a link; export a backup, import |
 | About | Shown once on first launch and from the ? in the header: how to use the app, and health advice (check with a doctor before starting, start easy, warning signs to stop at, keep support nearby for balance work) |
-| Session editor | Name and optional sport; warm-up, main and cool-down blocks; add exercises from the library, reorder them, set sets, reps or hold, and rest per item; time estimate per block; main-block pattern coverage; share |
+| Session editor | Name and optional sport; warm-up, main and cool-down blocks; add exercises from the library, reorder them, set sets, reps or hold, and rest per item; time estimate per block; main-block pattern coverage; share as a link |
 | Library | Browse and filter exercises by style (yoga, tai chi and qigong, boxing), movement pattern, fitness component and body area, with more filters behind a toggle, and by favourites (★ on each card); each shows Stiko demonstrating it. When adding to a session block, it starts filtered to exercises suited to that block |
-| Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel |
+| Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel; share the exercise as a link |
+| Shared session | Opened from a shared session link: preview of the session, then add it to this device's sessions |
 
 Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Nineteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, Healthy aging (strength and balance), Gentle daily for knees and back (all standing or seated, nothing on the floor), Tai chi and qigong basics, Boxing conditioning, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
 
@@ -118,7 +119,7 @@ In the MVP Claude is a build-time tool only; the app itself never calls Claude.
 Same pattern as Dino's other apps: a static PWA in a GitHub repo, served from GitHub Pages, installable and offline.
 
 - **Frontend:** plain HTML/JS with ES modules and no build step, SVG renderer for Stiko, library as JSON, service worker for offline use.
-- **Storage:** sessions kept in browser storage on the device; JSON export and import, and sharing a single session through the phone's share sheet.
+- **Storage:** sessions kept in browser storage on the device; JSON export and import, and sharing a single session as a link (the session travels inside the link, so nothing is uploaded). A header button shares the app itself.
 - **Quality:** Node unit tests check the rig, the session model, and the library against the taxonomy, including labels in every language for every value.
 - **Later:** Claude API via a Cloudflare Worker proxy for the coach; MediaPipe Pose in the browser for rep counting and form checks.
 - **Workflow:** prototype Stiko in chat, then build the real app in Claude Code.
@@ -132,6 +133,7 @@ The [Stiko prototype](https://claude.ai/artifact/Ne2xNtAUdnKwNEcynjomXz) settled
 - **Layout:** portrait stacks Stiko above the instructions; landscape or wide screens show them side by side.
 - **Player controls:** tap Stiko to pause or resume; speed 0.5×, 1×, 2×; scrub through one rep; a 5-second "Get ready" countdown before each exercise. In a session, an exercise's rest becomes the countdown to the next one, and the screen stays awake while playing.
 - **Read aloud:** reads setup, steps and breathing with the phone's text-to-speech, highlighting each step and showing its pose.
+- **Read first:** on by default, a player toggle: each exercise is read aloud this way (name and dose first) before its get-ready countdown, which waits until the reading ends. Tapping Stiko skips it.
 - **Voice cues:** step names on the first rep, then rep numbers, "Last one", set and rest announcements, "Next" between exercises, "Great work" at the end. Flows speak their step cues every round instead ("Inhale, reach up", "Jab, cross"). Every countdown (get ready, rest, switch sides, holds, timed rounds) speaks the tens ("twenty", "ten").
 - **Sounds:** generated with Web Audio, no audio files: rep tick, a subtle tick on every countdown second, 3-2-1 beeps, start tone, set-complete chime, and a two-note chime on the tens when voice is off. Sound and voice toggle separately. Voice settings (the speaker button in the header, next to the language) pick one of the phone’s voices for the current language (remembered per language) and a speaking speed (slower, normal, faster), with a test sentence.
 - **Pose check:** a debug toggle showing joints and angles, the seed of the pose editor.

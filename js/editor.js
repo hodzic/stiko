@@ -3,8 +3,8 @@ import {T, U, esc, tagLabel, getLang} from './i18n.js';
 import {MAIN_FAMILIES, familyOf, SPORTS} from './vocab.js';
 import * as S from './sessions.js';
 import {thumbSVG, thumbBox} from './library.js';
-import {saveJSON, slug} from './ui.js';
 import * as F from './favs.js';
+import {shareSession} from './share.js';
 
 export function mountEditor(root,lib,id){
   const byId=lib.byId;
@@ -102,7 +102,7 @@ export function mountEditor(root,lib,id){
     save(); render();
     if(act!=='rm') root.querySelector(`button[data-act="${act}"][data-i="${j}"]`)?.focus();
   });
-  $('shareBtn').onclick=()=>saveJSON(`stiko-${slug(nm())}.json`,S.exportPayload([s]),true);
+  $('shareBtn').onclick=()=>shareSession(s);
   $('dupBtn').onclick=()=>{ const c=S.duplicate(s.id,U('copyName')(nm())); location.hash=`#/sessions/${encodeURIComponent(c.id)}`; };
   $('restoreBtn').onclick=()=>{
     if(!starter||!confirm(U('confirmRestore')(nm()))) return;

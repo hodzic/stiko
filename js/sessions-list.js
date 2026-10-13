@@ -5,6 +5,7 @@ import * as store from './store.js';
 import * as S from './sessions.js';
 import {toast, saveJSON} from './ui.js';
 import * as F from './favs.js';
+import {shareSession} from './share.js';
 
 export function mountSessions(root,lib){
   const byId=lib.byId;
@@ -53,6 +54,7 @@ export function mountSessions(root,lib){
           <details class="menu"><summary class="btn" aria-label="${esc(U('more'))}">⋯</summary>
             <div class="menu-pop">
               ${k?`<button data-act="top">${esc(U('moveTop'))}</button>`:''}
+              <button data-act="share">${esc(U('share'))}</button>
               <button data-act="dup">${esc(U('duplicate'))}</button>
               <button class="danger" data-act="del">${esc(U('del'))}</button>
             </div></details>
@@ -86,6 +88,7 @@ export function mountSessions(root,lib){
       root.querySelector(`#list [data-id="${CSS.escape(id)}"] [data-act="${move===1?'down':'up'}"]:not(:disabled)`)?.focus();
       return;
     }
+    if(b.dataset.act==='share'){ b.closest('details').open=false; shareSession(s); return; }
     if(b.dataset.act==='dup') S.duplicate(id,U('copyName')(name));
     else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))){ S.remove(id); F.drop('session',id); }
     render();

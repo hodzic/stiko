@@ -86,6 +86,27 @@ export function parseImport(text,byId,lang){
   if(!sessions.length) return {error:'format'};
   return {sessions, dropped};
 }
+// A session packed into a link (#/shared/<code>): compact JSON, UTF-8, base64url. Items are
+// [exercise, block index, sets, reps|hold|time, rest]; a starter's translated names travel with it.
+const b64url=bytes=>btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+export function shareCode(s){
+  const o={id:s.id, n:s.names||s.name, i:s.items.map(it=>[it.ex,BLOCKS.indexOf(it.block),it.sets,it.reps??it.hold??it.time,it.rest])};
+  if(s.sport) o.sp=s.sport;
+  return b64url(new TextEncoder().encode(JSON.stringify(o)));
+}
+// Returns {session, dropped} or {error}. Exercises this library doesn't have are dropped; values are checked as on import.
+export function parseShareCode(code,byId,lang){
+  let o;
+  try{
+    const bin=atob(String(code).replace(/-/g,'+').replace(/_/g,'/'));
+    o=JSON.parse(new TextDecoder().decode(Uint8Array.from(bin,c=>c.charCodeAt(0))));
+  }catch(e){ return {error:'format'}; }
+  if(!o||!Array.isArray(o.i)) return {error:'format'};
+  const items=o.i.filter(Array.isArray).map(([ex,b,sets,v,rest])=>{ const m=byId.get(ex)?.dose.mode; return {ex, block:BLOCKS[b], sets, ...(m?{[m]:v}:{}), rest}; });
+  const c=cleanSession({id:o.id, name:o.n, sport:o.sp, items},byId,lang);
+  return c&&c.session.items.length?c:{error:'format'};
+}
+
 const same=(a,b)=>nameOf(a)===nameOf(b)&&JSON.stringify(a.items)===JSON.stringify(b.items);
 // Merge imported sessions: an identical copy already stored is skipped; an id clash with different content gets a new id.
 export function mergeImport(existing,incoming){
