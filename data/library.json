@@ -2469,8 +2469,8 @@
         "frames": [
           {"t": 0, "label": {"en": "Knee up, opposite arm forward", "bs": "Koljeno gore, suprotna ruka naprijed", "hr": "Koljeno gore, suprotna ruka naprijed", "sr": "Koleno gore, suprotna ruka napred", "fr": "Genou haut, bras opposé devant", "de": "Knie hoch, Gegenarm nach vorn", "es": "Rodilla arriba, brazo contrario"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 72, "knee_n": 78, "footAbs_n": 28, "hip_f": 0, "knee_f": 0, "footAbs_f": 0, "shoulder_n": -28, "elbow_n": 70, "shoulder_f": 40, "elbow_f": 70}},
           {"t": 0.25, "label": {"en": "Switch sides", "bs": "Promijeni stranu", "hr": "Promijeni stranu", "sr": "Promeni stranu", "fr": "Change de côté", "de": "Seite wechseln", "es": "Cambia de lado"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "footAbs_n": 0, "hip_f": 0, "knee_f": 0, "footAbs_f": 0, "shoulder_n": 6, "elbow_n": 40, "shoulder_f": 6, "elbow_f": 40}},
-          {"t": 0.5, "label": {"en": "Switch sides", "bs": "Promijeni stranu", "hr": "Promijeni stranu", "sr": "Promeni stranu", "fr": "Change de côté", "de": "Seite wechseln", "es": "Cambia de lado"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "footAbs_n": 0, "hip_f": 72, "knee_f": 78, "footAbs_f": 28, "shoulder_n": 40, "elbow_n": 70, "shoulder_f": -28, "elbow_f": 70}, "step": 1},
-          {"t": 0.75, "label": {"en": "Knee up, opposite arm forward", "bs": "Koljeno gore, suprotna ruka naprijed", "hr": "Koljeno gore, suprotna ruka naprijed", "sr": "Koleno gore, suprotna ruka napred", "fr": "Genou haut, bras opposé devant", "de": "Knie hoch, Gegenarm nach vorn", "es": "Rodilla arriba, brazo contrario"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "footAbs_n": 0, "hip_f": 0, "knee_f": 0, "footAbs_f": 0, "shoulder_n": 6, "elbow_n": 40, "shoulder_f": 6, "elbow_f": 40}, "step": 0}
+          {"t": 0.5, "label": {"en": "Knee up, opposite arm forward", "bs": "Koljeno gore, suprotna ruka naprijed", "hr": "Koljeno gore, suprotna ruka naprijed", "sr": "Koleno gore, suprotna ruka napred", "fr": "Genou haut, bras opposé devant", "de": "Knie hoch, Gegenarm nach vorn", "es": "Rodilla arriba, brazo contrario"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "footAbs_n": 0, "hip_f": 72, "knee_f": 78, "footAbs_f": 28, "shoulder_n": 40, "elbow_n": 70, "shoulder_f": -28, "elbow_f": 70}, "step": 0},
+          {"t": 0.75, "label": {"en": "Switch sides", "bs": "Promijeni stranu", "hr": "Promijeni stranu", "sr": "Promeni stranu", "fr": "Change de côté", "de": "Seite wechseln", "es": "Cambia de lado"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "footAbs_n": 0, "hip_f": 0, "knee_f": 0, "footAbs_f": 0, "shoulder_n": 6, "elbow_n": 40, "shoulder_f": 6, "elbow_f": 40}, "step": 1}
         ]
       }
     },
@@ -3547,7 +3547,7 @@
         "cycle": 4,
         "floorWork": false,
         "farShift": [6,-1],
-        "props": [{"type": "chair", "x": 146, "back": -1}],
+        "props": [{"type": "chair", "x": 174, "back": -1, "backH": 26}],
         "spec": {"pin": {"point": "hip", "at": [160,-56]}, "footAbs": 0},
         "frames": [
           {"t": 0, "label": {"en": "Lean back, chest up", "bs": "Unazad, grudi gore", "hr": "Unatrag, prsa gore", "sr": "Unazad, grudi gore", "fr": "En arrière, poitrine haute", "de": "Zurücklehnen, Brust hoch", "es": "Atrás, pecho arriba"}, "face": "smile", "pose": {"torso": -4, "spine": 0, "neck": 0, "shoulder": 160, "elbow": 140, "hip": 80, "knee": 69}},
@@ -4120,12 +4120,12 @@
       "muscles": {"primary": ["calves", "hip-abductors"], "secondary": ["glutes", "abdominals"]},
       "joints": {"ankle": [], "hip": [], "knee": []},
       "dose": {"mode": "hold", "sets": 2, "hold": 30, "rest": 10},
-      "equipment": [],
+      "equipment": ["chair"],
       "level": 1,
       "easier": null,
       "harder": null,
       "howto": {
-        "setup": {"en": "Stand tall next to a wall or chair you can touch if needed.", "bs": "Stani uspravno pored zida ili stolice koje možeš dodirnuti ako zatreba.", "hr": "Stani uspravno pokraj zida ili stolice koje možeš dotaknuti ako zatreba.", "sr": "Stani uspravno pored zida ili stolice koje možeš da dodirneš ako zatreba.", "fr": "Tiens-toi droit à côté d’un mur ou d’une chaise que tu peux toucher si besoin.", "de": "Steh aufrecht neben einer Wand oder einem Stuhl, die du bei Bedarf berühren kannst.", "es": "Ponte de pie junto a una pared o silla que puedas tocar si lo necesitas."},
+        "setup": {"en": "Stand tall behind a sturdy chair or next to a counter, one hand resting lightly on it. Let go only if you feel steady.", "bs": "Stani uspravno iza stabilne stolice ili pored pulta i lagano se osloni jednom rukom. Pusti ruku samo ako se osjećaš sigurno.", "hr": "Stani uspravno iza stabilne stolice ili pokraj pulta i lagano se osloni jednom rukom. Pusti ruku samo ako se osjećaš sigurno.", "sr": "Stani uspravno iza stabilne stolice ili pored pulta i lagano se osloni jednom rukom. Pusti ruku samo ako se osećaš sigurno.", "fr": "Tiens-toi droit derrière une chaise solide ou à côté d’un plan de travail, une main posée légèrement dessus. Ne lâche que si tu te sens stable.", "de": "Steh aufrecht hinter einem stabilen Stuhl oder neben einer Arbeitsplatte und leg eine Hand locker darauf. Lass nur los, wenn du dich sicher fühlst.", "es": "Ponte de pie detrás de una silla firme o junto a una encimera, con una mano apoyada suavemente. Suelta solo si te sientes estable."},
         "steps": [
           {"en": "Lift one foot and balance on the other leg, eyes on a point ahead. Hold, then switch.", "bs": "Podigni jedno stopalo i održavaj ravnotežu na drugoj nozi, pogled u tačku ispred. Zadrži, pa promijeni.", "hr": "Podigni jedno stopalo i održavaj ravnotežu na drugoj nozi, pogled u točku ispred. Zadrži, pa promijeni.", "sr": "Podigni jedno stopalo i održavaj ravnotežu na drugoj nozi, pogled u tačku ispred. Zadrži, pa promeni.", "fr": "Lève un pied et tiens en équilibre sur l’autre jambe, regard fixé sur un point devant. Tiens, puis change de côté.", "de": "Heb einen Fuß und halte das Gleichgewicht auf dem anderen Bein, Blick auf einen Punkt vor dir. Halten, dann Seitenwechsel.", "es": "Levanta un pie y mantén el equilibrio sobre la otra pierna, con la mirada en un punto al frente. Mantén y cambia."}
         ],
@@ -4135,17 +4135,18 @@
           {"en": "Hip dropping on the lifted side", "bs": "Kuk propada na strani podignute noge", "hr": "Kuk propada na strani podignute noge", "sr": "Kuk propada na strani podignute noge", "fr": "Hanche qui tombe du côté levé", "de": "Hüfte sinkt auf der angehobenen Seite ab", "es": "Cadera que cae del lado levantado"},
           {"en": "Staring at your feet", "bs": "Gledanje u stopala", "hr": "Gledanje u stopala", "sr": "Gledanje u stopala", "fr": "Fixer ses pieds", "de": "Auf die Füße starren", "es": "Mirarte los pies"}
         ],
-        "easier": {"en": "Touch the wall lightly with one fingertip.", "bs": "Lagano dodiruj zid jednim prstom.", "hr": "Lagano dodiruj zid jednim prstom.", "sr": "Lagano dodiruj zid jednim prstom.", "fr": "Touche légèrement le mur du bout d’un doigt.", "de": "Berühr die Wand leicht mit einer Fingerspitze.", "es": "Toca la pared suavemente con la yema de un dedo."},
+        "easier": {"en": "Keep a hand on the chair the whole time, or lift the foot only a little.", "bs": "Drži ruku na stolici cijelo vrijeme ili podigni stopalo samo malo.", "hr": "Drži ruku na stolici cijelo vrijeme ili podigni stopalo samo malo.", "sr": "Drži ruku na stolici sve vreme ili podigni stopalo samo malo.", "fr": "Garde une main sur la chaise tout le temps, ou lève le pied juste un peu.", "de": "Lass die Hand die ganze Zeit auf dem Stuhl oder heb den Fuß nur ein wenig an.", "es": "Mantén una mano en la silla todo el tiempo o levanta el pie solo un poco."},
         "harder": {"en": "Close your eyes, or stand on a folded towel.", "bs": "Zatvori oči ili stani na presavijen peškir.", "hr": "Zatvori oči ili stani na presavijeni ručnik.", "sr": "Zatvori oči ili stani na presavijen peškir.", "fr": "Ferme les yeux, ou tiens-toi sur une serviette pliée.", "de": "Schließ die Augen oder stell dich auf ein gefaltetes Handtuch.", "es": "Cierra los ojos o ponte sobre una toalla doblada."}
       },
       "anim": {
         "floorWork": false,
         "farShift": [6,-1],
-        "spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0},
+        "props": [{"type": "chair", "x": 252, "back": -1}],
+        "spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0, "ik": {"hd_n": [231,-99]}},
         "frames": [
-          {"t": 0, "label": {"en": "Balance and breathe", "bs": "Održavaj ravnotežu i diši", "hr": "Održavaj ravnotežu i diši", "sr": "Održavaj ravnotežu i diši", "fr": "Équilibre et respiration", "de": "Balancieren und atmen", "es": "Equilibrio y respira"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 62, "knee_n": 80, "footAbs_n": 20, "hip_f": 0, "knee_f": 2, "footAbs_f": 0, "shoulder": 24, "elbow": 20}}
+          {"t": 0, "label": {"en": "Balance and breathe", "bs": "Održavaj ravnotežu i diši", "hr": "Održavaj ravnotežu i diši", "sr": "Održavaj ravnotežu i diši", "fr": "Équilibre et respiration", "de": "Balancieren und atmen", "es": "Equilibrio y respira"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 22, "knee_n": 86, "footAbs_n": 20, "hip_f": 0, "knee_f": 2, "footAbs_f": 0, "shoulder": 24, "elbow": 20}}
         ],
-        "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0}, "pose": {"torso": 0, "neck": 0, "hip": 0, "knee": 0, "shoulder": 8, "elbow": 14}}
+        "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0, "ik": {"hd_n": [231,-99]}}, "pose": {"torso": 0, "neck": 0, "hip": 0, "knee": 0, "shoulder": 8, "elbow": 14}}
       }
     },
     {
@@ -4162,12 +4163,12 @@
       "muscles": {"primary": ["calves", "hip-abductors"], "secondary": ["abdominals", "adductors"]},
       "joints": {"ankle": [], "hip": []},
       "dose": {"mode": "hold", "sets": 2, "hold": 30, "rest": 10},
-      "equipment": [],
+      "equipment": ["chair"],
       "level": 1,
       "easier": null,
       "harder": "single-leg-stand",
       "howto": {
-        "setup": {"en": "Stand next to a wall or counter for safety.", "bs": "Stani pored zida ili pulta radi sigurnosti.", "hr": "Stani pokraj zida ili pulta radi sigurnosti.", "sr": "Stani pored zida ili pulta radi bezbednosti.", "fr": "Tiens-toi à côté d’un mur ou d’un plan de travail par sécurité.", "de": "Stell dich sicherheitshalber neben eine Wand oder Arbeitsplatte.", "es": "Ponte de pie junto a una pared o encimera por seguridad."},
+        "setup": {"en": "Stand behind a sturdy chair or next to a counter, one hand resting lightly on it.", "bs": "Stani iza stabilne stolice ili pored pulta i lagano se osloni jednom rukom.", "hr": "Stani iza stabilne stolice ili pokraj pulta i lagano se osloni jednom rukom.", "sr": "Stani iza stabilne stolice ili pored pulta i lagano se osloni jednom rukom.", "fr": "Tiens-toi derrière une chaise solide ou à côté d’un plan de travail, une main posée légèrement dessus.", "de": "Stell dich hinter einen stabilen Stuhl oder neben eine Arbeitsplatte und leg eine Hand locker darauf.", "es": "Ponte de pie detrás de una silla firme o junto a una encimera, con una mano apoyada suavemente."},
         "steps": [
           {"en": "Place one foot directly in front of the other, heel touching toes, as if on a tightrope. Hold, then switch which foot is in front.", "bs": "Stavi jedno stopalo direktno ispred drugog, peta uz prste, kao na užetu. Zadrži, pa promijeni koje je stopalo ispred.", "hr": "Stavi jedno stopalo izravno ispred drugoga, peta uz prste, kao na užetu. Zadrži, pa promijeni koje je stopalo ispred.", "sr": "Stavi jedno stopalo direktno ispred drugog, peta uz prste, kao na žici. Zadrži, pa promeni koje je stopalo ispred.", "fr": "Place un pied juste devant l’autre, talon contre orteils, comme sur un fil. Tiens, puis change de pied devant.", "de": "Setz einen Fuß direkt vor den anderen, Ferse an Zehen, wie auf einem Seil. Halten, dann den vorderen Fuß wechseln.", "es": "Coloca un pie justo delante del otro, con el talón tocando la punta, como sobre una cuerda floja. Mantén y cambia el pie de delante."}
         ],
@@ -4175,7 +4176,7 @@
         "mistakes": [
           {"en": "Looking down at your feet", "bs": "Gledanje dolje u stopala", "hr": "Gledanje dolje u stopala", "sr": "Gledanje dole u stopala", "fr": "Regarder ses pieds", "de": "Auf die Füße schauen", "es": "Mirarte los pies"},
           {"en": "Holding your breath", "bs": "Zadržavanje daha", "hr": "Zadržavanje daha", "sr": "Zadržavanje daha", "fr": "Bloquer sa respiration", "de": "Luft anhalten", "es": "Contener la respiración"},
-          {"en": "Gripping the wall the whole time", "bs": "Stalno držanje za zid", "hr": "Stalno držanje za zid", "sr": "Stalno držanje za zid", "fr": "S’agripper au mur tout le temps", "de": "Sich die ganze Zeit an der Wand festhalten", "es": "Agarrarte a la pared todo el tiempo"}
+          {"en": "Gripping the chair hard instead of resting your hand on it", "bs": "Čvrsto stiskanje stolice umjesto laganog oslanjanja", "hr": "Čvrsto stiskanje stolice umjesto laganog oslanjanja", "sr": "Čvrsto stiskanje stolice umesto laganog oslanjanja", "fr": "Serrer la chaise au lieu d’y poser la main", "de": "Den Stuhl fest umklammern, statt die Hand nur aufzulegen", "es": "Agarrar la silla con fuerza en vez de solo apoyar la mano"}
         ],
         "easier": {"en": "Leave a small gap between your feet.", "bs": "Ostavi mali razmak između stopala.", "hr": "Ostavi mali razmak između stopala.", "sr": "Ostavi mali razmak između stopala.", "fr": "Laisse un petit espace entre tes pieds.", "de": "Lass eine kleine Lücke zwischen den Füßen.", "es": "Deja un pequeño espacio entre los pies."},
         "harder": {"en": "Turn your head slowly side to side, or close your eyes.", "bs": "Polako okreći glavu lijevo-desno ili zatvori oči.", "hr": "Polako okreći glavu lijevo-desno ili zatvori oči.", "sr": "Polako okreći glavu levo-desno ili zatvori oči.", "fr": "Tourne lentement la tête de gauche à droite, ou ferme les yeux.", "de": "Dreh den Kopf langsam von Seite zu Seite oder schließ die Augen.", "es": "Gira la cabeza despacio de lado a lado o cierra los ojos."}
@@ -4183,11 +4184,12 @@
       "anim": {
         "floorWork": false,
         "farShift": [3,-1],
-        "spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0},
+        "props": [{"type": "chair", "x": 252, "back": -1}],
+        "spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0, "ik": {"hd_n": [231,-99]}},
         "frames": [
           {"t": 0, "label": {"en": "Heel to toe, eyes forward", "bs": "Peta uz prste, pogled naprijed", "hr": "Peta uz prste, pogled naprijed", "sr": "Peta uz prste, pogled napred", "fr": "Talon contre orteils, regard devant", "de": "Ferse an Zehen, Blick nach vorn", "es": "Talón con punta"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip_n": 6, "knee_n": 0, "hip_f": -6, "knee_f": 0, "shoulder": 30, "elbow": 24}}
         ],
-        "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0}, "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "hip_f": 0, "knee_f": 0, "shoulder": 8, "elbow": 14}}
+        "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0, "ik": {"hd_n": [231,-99]}}, "pose": {"torso": 0, "neck": 0, "hip_n": 0, "knee_n": 0, "hip_f": 0, "knee_f": 0, "shoulder": 8, "elbow": 14}}
       }
     },
     {
