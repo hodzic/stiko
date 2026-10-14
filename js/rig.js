@@ -139,6 +139,7 @@ export function solve(spec,pose){
   }
   // lift raises the whole figure (jumps); slide moves it sideways (skater hops, side steps).
   if(p.lift||p.slide) shift(J,p.slide||0,-(p.lift||0));
+  if(spec.farArmFront) J.farArmFront=true;  // side view: the far arm reaches across in front of the head
   return J;
 }
 export function lerpJ(a,b,u){
@@ -278,8 +279,11 @@ export function figureSVG(J,face,opt={}){
     const fs=opt.farShift||[6,-2];
     const F=p=>[p[0]+fs[0],p[1]+fs[1]];
     s+=`<path class="limb far" d="${pts(F(J.f.hp),F(J.f.kn),F(J.f.an),F(J.f.toe))}"/>`;
-    s+=`<path class="limb far" d="${pts(F(J.sh),F(J.f.el),F(J.f.hd))}"/>`;
-    const fh=F(J.f.hd); s+=`<circle class="hand far" cx="${f1(fh[0])}" cy="${f1(fh[1])}" r="5"/>`;
+    const fh=F(J.f.hd);
+    if(!J.farArmFront){
+      s+=`<path class="limb far" d="${pts(F(J.sh),F(J.f.el),F(J.f.hd))}"/>`;
+      s+=`<circle class="hand far" cx="${f1(fh[0])}" cy="${f1(fh[1])}" r="5"/>`;
+    }
     // Far-hand dumbbells sit with the (offset) far arm, behind the body.
     const Jf={...J,f:{...J.f,hd:fh,el:F(J.f.el)}};
     s+=dbs.filter(h=>h.startsWith('f.')).map(h=>dumbbellSVG(Jf,h)).join('');
@@ -287,12 +291,15 @@ export function figureSVG(J,face,opt={}){
     s+=`<path class="limb" d="${pts(J.n.hp,J.n.kn,J.n.an,J.n.toe)}"/>`;
   }
   s+=headSVG(J,face,opt.blink);
+  if(J.farArmFront) s+=`<path class="limb far" d="${pts(J.sh,J.f.el,J.f.hd)}"/>`;
   // Side view: the near arm is closer to the camera than the head, so it is drawn on top of it
   // (otherwise raised arms vanish behind the head). The far arm stays behind.
   if(J.view!=='front'){
     s+=`<path class="limb" d="${pts(J.sh,J.n.el,J.n.hd)}"/>`;
     s+=`<circle class="hand" cx="${f1(J.n.hd[0])}" cy="${f1(J.n.hd[1])}" r="5"/>`;
     s+=db('n');
+    // The far hand holds the near arm, so it sits on top of it.
+    if(J.farArmFront) s+=`<circle class="hand far" cx="${f1(J.f.hd[0])}" cy="${f1(J.f.hd[1])}" r="5"/>`;
   }
   for(const pr of props) if(pr.type==='band') s+=bandSVG(J,pr);
   if(opt.joints){

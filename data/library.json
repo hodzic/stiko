@@ -4106,11 +4106,11 @@
       },
       "anim": {
         "floorWork": false,
-        "spec": {"view": "front", "pin": {"point": "hip", "at": [200,-95]}, "ik": {"hd_l": [224,-178]}},
+        "spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0, "farArmFront": true, "ik": {"hd_f": [188,-182]}},
         "frames": [
-          {"t": 0, "label": {"en": "Elbow up, hand behind head", "bs": "Lakat gore, šaka iza glave", "hr": "Lakat gore, šaka iza glave", "sr": "Lakat gore, šaka iza glave", "fr": "Coude en haut, main derrière la tête", "de": "Ellbogen hoch, Hand hinter den Kopf", "es": "Codo arriba, mano atrás"}, "face": "smile", "pose": {"torso": 0, "spine": 0, "neck": -12, "hip": 4, "knee": 0, "shoulder": 8, "elbow": 10, "lift": 0, "shoulder_r": 152, "elbow_r": 160, "shoulder_l": 120, "elbow_l": 100}}
+          {"t": 0, "label": {"en": "Elbow up, hand behind head", "bs": "Lakat gore, šaka iza glave", "hr": "Lakat gore, šaka iza glave", "sr": "Lakat gore, šaka iza glave", "fr": "Coude en haut, main derrière la tête", "de": "Ellbogen hoch, Hand hinter den Kopf", "es": "Codo arriba, mano atrás"}, "face": "smile", "pose": {"torso": 0, "neck": 0, "hip": 0, "knee": 0, "uaAbs_n": -112, "faAbs_n": 95}}
         ],
-        "restPose": {"spec": {"view": "front", "pin": {"point": "hip", "at": [200,-95]}}, "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 4, "knee": 0, "shoulder": 8, "elbow": 10, "lift": 0}}
+        "restPose": {"spec": {"pin": {"point": "hip", "at": [200,-95]}, "footAbs": 0}, "pose": {"torso": 0, "neck": 0, "hip": 0, "knee": 0, "shoulder": 8, "elbow": 14}}
       }
     },
     {
