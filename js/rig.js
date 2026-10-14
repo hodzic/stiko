@@ -209,8 +209,9 @@ export const SEAT_H=48;  // chair seat height above the floor, about knee height
 function backPropSVG(pr){
   if(pr.type==='chair'){
     // x = seat centre; back = -1/1 puts the backrest on the left/right edge.
-    // back: 0 draws no backrest (a stool or the seat edge seen from the front). backH: backrest height above the seat.
-    const x=pr.x, w=44, y=FLOOR-SEAT_H, back=pr.back??-1, bx=x+back*w/2, bh=pr.backH??50;
+    // back: 0 draws no backrest (a stool or the seat edge seen from the front). backH: backrest height above the seat;
+    // seatH: seat height above the floor (default SEAT_H).
+    const x=pr.x, w=44, y=FLOOR-(pr.seatH??SEAT_H), back=pr.back??-1, bx=x+back*w/2, bh=pr.backH??50;
     return `<g class="prop"><path d="M${x-w/2} ${y} H${x+w/2} M${x-w/2+3} ${y} V${FLOOR+6} M${x+w/2-3} ${y} V${FLOOR+6}${back?` M${bx} ${y} V${y-bh}`:''}"/></g>`;
   }
   if(pr.type==='wall'){
