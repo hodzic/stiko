@@ -2244,7 +2244,7 @@
         "spec": {"view": "quarter", "yaw": 70, "pin": {"point": "r.an", "at": [196,-5]}},
         "frames": [
           {"t": 0, "label": {"en": "Chop down", "bs": "Zamah dolje", "hr": "Zamah dolje", "sr": "Zamah dole", "de": "Runterhacken", "es": "Hachazo", "fr": "Coup de hache"}, "face": "smile", "pose": {"yaw": -10, "torso": 0, "spine": -4, "twist": -40, "bend": -6, "neck": -8, "look": -10, "drop": 2, "af_l": 0, "aw_l": 12, "toe_l": 12, "heel_l": 10, "af_r": 0, "aw_r": 12, "toe_r": 12, "heel_r": 0, "kn_l": 0, "kn_r": 0, "az_l": -61.6, "el_l": 48.6, "reach_l": 64, "eo_l": -40, "az_r": 37.6, "el_r": 62.1, "reach_r": 64, "eo_r": 40}},
-          {"t": 0.5, "label": {"en": "Reach up", "bs": "Ruke gore", "hr": "Ruke gore", "sr": "Ruke gore", "de": "Hochstrecken", "es": "Arriba", "fr": "Remonte"}, "face": "effort", "pose": {"yaw": -10, "torso": 26, "spine": 10, "twist": 40, "bend": 4, "neck": 10, "look": 10, "drop": 24, "af_l": 0, "aw_l": 12, "toe_l": 12, "heel_l": 0, "af_r": 0, "aw_r": 12, "toe_r": 12, "heel_r": 24, "kn_l": 10, "kn_r": -10, "az_l": 27.9, "el_l": -55.5, "reach_l": 64, "eo_l": 40, "az_r": -53.5, "el_r": -44.4, "reach_r": 64, "eo_r": -40}}
+          {"t": 0.5, "label": {"en": "Reach up", "bs": "Ruke gore", "hr": "Ruke gore", "sr": "Ruke gore", "de": "Hochstrecken", "es": "Arriba", "fr": "Remonte"}, "face": "effort", "pose": {"yaw": -10, "torso": 46, "spine": 4, "twist": 45, "bend": 4, "neck": -45, "look": -20, "drop": 32, "af_l": 0, "aw_l": 12, "toe_l": 12, "heel_l": 0, "af_r": 0, "aw_r": 12, "toe_r": 12, "heel_r": 24, "kn_l": 10, "kn_r": -10, "az_l": -12, "el_l": -30, "reach_l": 64, "eo_l": 40, "az_r": -12, "el_r": -30, "reach_r": 64, "eo_r": -40}}
         ]
       }
     },
@@ -4482,9 +4482,9 @@
       },
       "anim": {
         "floorWork": false,
-        "spec": {"view": "front", "pin": {"point": "l.an", "at": [132,-5]}},
+        "spec": {"view": "front", "pin": {"point": "l.an", "at": [114,-5]}, "ik": {"hd_r": [215,-28]}},
         "frames": [
-          {"t": 0, "label": {"en": "Long sides, top arm up", "bs": "Izduženi bokovi, gornja ruka gore", "hr": "Izduženi bokovi, gornja ruka gore", "sr": "Izduženi bokovi, gornja ruka gore", "fr": "Côtés longs, bras en haut", "de": "Lange Flanken, Arm hoch", "es": "Costados largos, brazo arriba"}, "face": "puff", "pose": {"torso": 56, "spine": 8, "neck": -10, "hip_l": 26, "knee_l": 0, "hip_r": 26, "knee_r": 0, "uaAbs_l": -90, "faAbs_l": -90, "uaAbs_r": 90, "faAbs_r": 90}}
+          {"t": 0, "label": {"en": "Long sides, top arm up", "bs": "Izduženi bokovi, gornja ruka gore", "hr": "Izduženi bokovi, gornja ruka gore", "sr": "Izduženi bokovi, gornja ruka gore", "fr": "Côtés longs, bras en haut", "de": "Lange Flanken, Arm hoch", "es": "Costados largos, brazo arriba"}, "face": "puff", "pose": {"torso": 70, "spine": 8, "neck": -10, "hip_l": 36, "knee_l": 0, "hip_r": 36, "knee_r": 0, "uaAbs_l": -90, "faAbs_l": -90, "uaAbs_r": 90, "faAbs_r": 90}}
         ]
       }
     },
@@ -5304,10 +5304,11 @@
         "farShift": [6,-1],
         "spec": {"pin": {"point": "n.an", "at": [214,-5]}, "footAbs": 0},
         "frames": [
-          {"t": 0, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}},
-          {"t": 0.25, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 2, "slide": 22}, "step": 0},
-          {"t": 0.5, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 1},
-          {"t": 0.75, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 2, "slide": 0}, "step": 1}
+          {"t": 0, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 0}, "step": 0},
+          {"t": 0.2, "label": {"en": "Step in", "bs": "Korak naprijed", "hr": "Korak naprijed", "sr": "Korak napred", "fr": "Avance", "de": "Vor", "es": "Adelante"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 16, "hip_f": -28, "knee_f": 4, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 0},
+          {"t": 0.4, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 1},
+          {"t": 0.55, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "smile", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 16, "knee_n": 16, "hip_f": -24, "knee_f": 1.8, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 1},
+          {"t": 0.75, "label": {"en": "Step out", "bs": "Korak nazad", "hr": "Korak natrag", "sr": "Korak nazad", "fr": "Recule", "de": "Zurück", "es": "Atrás"}, "face": "effort", "pose": {"torso": 8, "spine": 4, "neck": -10, "hip_n": 26, "knee_n": 16, "hip_f": -28, "knee_f": 4, "footAbs_f": 28, "shoulder_n": 44, "elbow_n": 122, "shoulder_f": 30, "elbow_f": 138, "lift": 0, "slide": 22}, "step": 1}
         ]
       }
     },
