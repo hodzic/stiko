@@ -313,8 +313,8 @@
         "spec": {"pin": {"point": "n.an", "at": [195,-5]}, "footAbs": 0},
         "frames": [
           {"t": 0, "label": {"en": "Push your hips back", "bs": "Gurni kukove unazad", "hr": "Gurni kukove unatrag", "sr": "Gurni kukove unazad", "fr": "Hanches en arrière", "de": "Hüfte nach hinten", "es": "Cadera atrás"}, "face": "smile", "pose": {"torso": 0, "hip": 0, "knee": 0, "shoulder": 22, "elbow": 125, "neck": 0}},
-          {"t": 0.45, "label": {"en": "Back flat, feel the stretch", "bs": "Leđa ravna, osjeti istezanje", "hr": "Leđa ravna, osjeti istezanje", "sr": "Leđa ravna, oseti istezanje", "fr": "Dos plat, sens l’étirement", "de": "Rücken gerade, Dehnung spüren", "es": "Espalda plana, estira"}, "face": "effort", "pose": {"torso": 72, "hip": 16, "knee": 20, "shoulder": 22, "elbow": 125, "neck": -8}},
-          {"t": 0.58, "label": {"en": "Squeeze and stand tall", "bs": "Stegni i uspravi se", "hr": "Stegni i uspravi se", "sr": "Stegni i uspravi se", "fr": "Serre et redresse-toi", "de": "Anspannen und aufrichten", "es": "Aprieta y sube"}, "face": "effort", "pose": {"torso": 72, "hip": 16, "knee": 20, "shoulder": 22, "elbow": 125, "neck": -8}}
+          {"t": 0.45, "label": {"en": "Back flat, feel the stretch", "bs": "Leđa ravna, osjeti istezanje", "hr": "Leđa ravna, osjeti istezanje", "sr": "Leđa ravna, oseti istezanje", "fr": "Dos plat, sens l’étirement", "de": "Rücken gerade, Dehnung spüren", "es": "Espalda plana, estira"}, "face": "effort", "pose": {"torso": 48, "hip": 12, "knee": 16, "shoulder": 22, "elbow": 125, "neck": -6}},
+          {"t": 0.58, "label": {"en": "Squeeze and stand tall", "bs": "Stegni i uspravi se", "hr": "Stegni i uspravi se", "sr": "Stegni i uspravi se", "fr": "Serre et redresse-toi", "de": "Anspannen und aufrichten", "es": "Aprieta y sube"}, "face": "effort", "pose": {"torso": 48, "hip": 12, "knee": 16, "shoulder": 22, "elbow": 125, "neck": -6}}
         ]
       }
     },
