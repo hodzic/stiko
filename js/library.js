@@ -4,7 +4,7 @@ import {stillSVG, stillBounds} from './rig.js';
 import {T, U, tagLabel, doseText, esc, getLang} from './i18n.js';
 import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
-import {toast, filterBox} from './ui.js';
+import {toast, filterBox, switchesHTML} from './ui.js';
 import * as F from './favs.js';
 import * as store from './store.js';
 import {search, exerciseFields} from './search.js';
@@ -45,9 +45,7 @@ export function mountLibrary(root,lib,pick=null){
     ${pick?`<div class="pickbar"><span id="pickTxt"></span><a class="btn primary" href="${editHref}" data-i18n="done"></a></div>`:''}
     <div class="lib-head"><h2 data-i18n="exercises"></h2></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
-      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label>
-      <label class="toggle" id="favWrap"><input type="checkbox" id="favOnly"> ★ <span data-i18n="favOnly"></span></label>
-      ${pick?'<label class="toggle"><input type="checkbox" id="fitOnly"> <span id="fitTxt"></span></label>':''}</div>
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
     <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="cards"></ul>
     <p class="note" data-i18n="disclaimer"></p>
@@ -65,16 +63,16 @@ export function mountLibrary(root,lib,pick=null){
       vals.map(v=>`<button class="chip" data-g="${g}" data-v="${esc(v)}" aria-pressed="${sel[g].has(v)}">${esc(tagLabel(g,v))}</button>`).join('')+'</div>';
   }
   function renderFilters(){
-    // Favourites and "suited to the block" are switches beside the search, apart from the tag groups: they always narrow.
-    $('favWrap').hidden=!favOnly&&!F.list('ex').length; $('favOnly').checked=favOnly;
-    if(pick){ $('fitOnly').checked=fitOnly; $('fitTxt').textContent=U('fitsBlock')(tagLabel('block',pick.block)); }
-    let html=`<p class="fhint">${esc(U('filterHint'))}</p>`+MAIN.map(groupHTML).join('');
+    // Favourites and "suited to the block" are switches above the tag groups: they always narrow.
+    const fitTxt=pick&&U('fitsBlock')(tagLabel('block',pick.block)), favs=favOnly||F.list('ex').length>0;
+    let html=`<p class="fhint">${esc(U('filterHint'))}</p>`+switchesHTML([favs&&['favOnly',favOnly,'★ '+U('favOnly')],pick&&['fitOnly',fitOnly,fitTxt]])+
+      MAIN.map(groupHTML).join('');
     const more=MORE.map(groupHTML).join('');
     if(more) html+=`<details class="more" id="more"${moreOpen?' open':''}><summary>${esc(U('moreFilters'))}${MORE.some(g=>sel[g].size)?' •':''}</summary><div class="filters">${more}</div></details>`;
     if(GROUPS.some(g=>sel[g].size)) html+=`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`;
     box.body.innerHTML=html;
     $('more')?.addEventListener('toggle',e=>{ moreOpen=e.target.open; });
-    box.summary(U('filters'),[
+    box.summary(U('filters'),[...(favOnly?['★ '+U('favOnly')]:[]),...(fitOnly?[fitTxt]:[]),
       ...GROUPS.flatMap(g=>VOCAB[g].map(String).filter(v=>sel[g].has(v)).map(v=>tagLabel(g,v)))]);
   }
   function card(ex){
@@ -129,8 +127,10 @@ export function mountLibrary(root,lib,pick=null){
   $('q').value=query; $('qHow').checked=store.load('searchHow',false);
   $('q').addEventListener('input',e=>{ query=e.target.value; renderCards(); });
   $('qHow').addEventListener('change',e=>{ store.save('searchHow',e.target.checked); renderCards(); });
-  $('favOnly').addEventListener('change',e=>{ favOnly=e.target.checked; renderFilters(); renderCards(); });
-  if(pick) $('fitOnly').addEventListener('change',e=>{ fitOnly=e.target.checked; renderCards(); });
+  box.body.addEventListener('change',e=>{
+    if(e.target.id==='favOnly') favOnly=e.target.checked; else if(e.target.id==='fitOnly') fitOnly=e.target.checked; else return;
+    renderFilters(); renderCards(); $(e.target.id)?.focus();
+  });
   render();
   return {relang:render, destroy(){}};
 }

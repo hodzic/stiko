@@ -30,3 +30,8 @@ export function filterBox(el,key,load,save){
     result(text){ el.querySelector('.fresult').textContent=text; },
   };
 }
+// Checkbox switches in a filter panel: [id, checked, label] each; falsy entries are skipped.
+export function switchesHTML(list){
+  const on=list.filter(Boolean);
+  return on.length?`<div class="fswitch">${on.map(([id,c,t])=>`<label class="toggle"><input type="checkbox" id="${id}"${c?' checked':''}> ${t.replace(/[&<>"]/g,ch=>`&#${ch.charCodeAt(0)};`)}</label>`).join('')}</div>`:'';
+}
