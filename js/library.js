@@ -4,7 +4,7 @@ import {stillSVG, stillBounds} from './rig.js';
 import {T, U, tagLabel, doseText, esc, getLang} from './i18n.js';
 import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
-import {toast, filterBox, switchesHTML} from './ui.js';
+import {toast, filterBox, togglesHTML} from './ui.js';
 import * as F from './favs.js';
 import * as store from './store.js';
 import {search, exerciseFields} from './search.js';
@@ -63,16 +63,16 @@ export function mountLibrary(root,lib,pick=null){
       vals.map(v=>`<button class="chip" data-g="${g}" data-v="${esc(v)}" aria-pressed="${sel[g].has(v)}">${esc(tagLabel(g,v))}</button>`).join('')+'</div>';
   }
   function renderFilters(){
-    // Favourites and "suited to the block" are switches above the tag groups: they always narrow.
+    // Favourites and "suited to the block": a row of their own above the tag groups; they always narrow.
     const fitTxt=pick&&U('fitsBlock')(tagLabel('block',pick.block)), favs=favOnly||F.list('ex').length>0;
-    let html=`<p class="fhint">${esc(U('filterHint'))}</p>`+switchesHTML([favs&&['favOnly',favOnly,'★ '+U('favOnly')],pick&&['fitOnly',fitOnly,fitTxt]])+
+    let html=`<p class="fhint">${esc(U('filterHint'))}</p>`+togglesHTML([favs&&['favOnly',favOnly,'★ '+U('favorites')],pick&&['fitOnly',fitOnly,fitTxt]])+
       MAIN.map(groupHTML).join('');
     const more=MORE.map(groupHTML).join('');
     if(more) html+=`<details class="more" id="more"${moreOpen?' open':''}><summary>${esc(U('moreFilters'))}${MORE.some(g=>sel[g].size)?' •':''}</summary><div class="filters">${more}</div></details>`;
     if(GROUPS.some(g=>sel[g].size)) html+=`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`;
     box.body.innerHTML=html;
     $('more')?.addEventListener('toggle',e=>{ moreOpen=e.target.open; });
-    box.summary(U('filters'),[...(favOnly?['★ '+U('favOnly')]:[]),...(fitOnly?[fitTxt]:[]),
+    box.summary(U('filters'),[...(favOnly?['★ '+U('favorites')]:[]),...(fitOnly?[fitTxt]:[]),
       ...GROUPS.flatMap(g=>VOCAB[g].map(String).filter(v=>sel[g].has(v)).map(v=>tagLabel(g,v)))]);
   }
   function card(ex){
@@ -105,6 +105,8 @@ export function mountLibrary(root,lib,pick=null){
   box.body.addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b) return;
     if(b.id==='clearBtn') GROUPS.forEach(g=>sel[g].clear());
+    else if(b.id==='favOnly') favOnly=!favOnly;
+    else if(b.id==='fitOnly') fitOnly=!fitOnly;
     else { const s=sel[b.dataset.g]; s.has(b.dataset.v)?s.delete(b.dataset.v):s.add(b.dataset.v); }
     renderFilters(); renderCards();
   });
@@ -127,10 +129,6 @@ export function mountLibrary(root,lib,pick=null){
   $('q').value=query; $('qHow').checked=store.load('searchHow',false);
   $('q').addEventListener('input',e=>{ query=e.target.value; renderCards(); });
   $('qHow').addEventListener('change',e=>{ store.save('searchHow',e.target.checked); renderCards(); });
-  box.body.addEventListener('change',e=>{
-    if(e.target.id==='favOnly') favOnly=e.target.checked; else if(e.target.id==='fitOnly') fitOnly=e.target.checked; else return;
-    renderFilters(); renderCards(); $(e.target.id)?.focus();
-  });
   render();
   return {relang:render, destroy(){}};
 }

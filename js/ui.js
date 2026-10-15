@@ -30,8 +30,8 @@ export function filterBox(el,key,load,save){
     result(text){ el.querySelector('.fresult').textContent=text; },
   };
 }
-// Checkbox switches in a filter panel: [id, checked, label] each; falsy entries are skipped.
-export function switchesHTML(list){
-  const on=list.filter(Boolean);
-  return on.length?`<div class="fswitch">${on.map(([id,c,t])=>`<label class="toggle"><input type="checkbox" id="${id}"${c?' checked':''}> ${t.replace(/[&<>"]/g,ch=>`&#${ch.charCodeAt(0)};`)}</label>`).join('')}</div>`:'';
+// On/off chips in a filter panel (favourites, suited to a block), each a row of its own since they narrow
+// together: [id, on, label] each; falsy entries are skipped.
+export function togglesHTML(list){
+  return list.filter(Boolean).map(([id,p,t])=>`<div class="fgroup"><button class="chip" id="${id}" aria-pressed="${p}">${t.replace(/[&<>"]/g,ch=>`&#${ch.charCodeAt(0)};`)}</button></div>`).join('');
 }
