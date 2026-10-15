@@ -93,7 +93,7 @@
     },
     {
       "id": "starter-basics",
-      "name": {"en": "Three basics", "bs": "Tri osnovne vježbe", "hr": "Tri osnovne", "sr": "Tri osnovne vežbe", "fr": "Les trois bases", "de": "Drei Grundübungen", "es": "Tres básicos"},
+      "name": {"en": "Three basics", "bs": "Tri osnovne vježbe", "hr": "Tri osnovne vježbe", "sr": "Tri osnovne vežbe", "fr": "Les trois bases", "de": "Drei Grundübungen", "es": "Tres básicos"},
       "items": [
         {"ex": "squat", "block": "main", "sets": 2, "reps": 10, "rest": 30},
         {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},

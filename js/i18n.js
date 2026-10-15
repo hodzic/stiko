@@ -138,7 +138,7 @@ UI.fr={exercises:'Exercices', back:'Tous les exercices', clear:'Effacer les filt
       noSpeech:'La voix n’est pas disponible dans cet affichage (par exemple dans l’app Claude). Ouvre la page dans Chrome ou Safari pour l’entendre.',
       noVoice:'Aucune voix française trouvée sur cet appareil. Ajoute une voix française dans les réglages de synthèse vocale de ton téléphone.',
       paused:'En pause', restLabel:'Repose-toi et respire', play:'Lecture', pause:'Pause', speed:'Vitesse',
-      stageLabel:'Stiko montre l’exercice. Touche pour mettre en pause ou reprendre.'};
+      stageLabel:'Stiko montre l’exercice. Touche pour mettre en pause ou reprendre ; fais-le glisser sur le côté ou utilise les flèches du clavier pour parcourir une répétition.'};
 UI.de={exercises:'Übungen', back:'Alle Übungen', clear:'Filter zurücksetzen', empty:'Keine Übung passt zu diesen Filtern.',
       count:n=>`${n} Übung${n===1?'':'en'}`, loadError:'Die Übungsbibliothek konnte nicht geladen werden.',
       disclaimer:'Stiko ist für allgemeine Fitness gedacht, nicht als medizinischer Rat oder Physiotherapie. Wenn du Schmerzen, eine Verletzung oder eine Erkrankung hast, sprich zuerst mit einer Fachperson.',
@@ -194,7 +194,7 @@ UI.hr={exercises:'Vježbe', back:'Sve vježbe', clear:'Poništi filtre', empty:'
       family:{squat:'Čučanj',hinge:'Pregib u kuku',lunge:'Iskorak',push:'Potisak',pull:'Povlačenje',core:'Trup',carry:'Nošenje',locomotion:'Kretanje'},
       pattern:{squat:'Čučanj',hinge:'Pregib u kuku',lunge:'Iskorak / jedna noga','push-horizontal':'Horizontalni potisak','push-vertical':'Vertikalni potisak',
         'pull-horizontal':'Horizontalno povlačenje','pull-vertical':'Vertikalno povlačenje','anti-extension':'Antiekstenzija','anti-rotation':'Antirotacija',
-        'anti-lateral-flexion':'Anti-lateralna fleksija',rotation:'Rotacija','trunk-flexion':'Fleksija trupa','trunk-extension':'Ekstenzija trupa',carry:'Nošenje',gait:'Hod',jump:'Skok'},
+        'anti-lateral-flexion':'Antilateralna fleksija',rotation:'Rotacija','trunk-flexion':'Fleksija trupa','trunk-extension':'Ekstenzija trupa',carry:'Nošenje',gait:'Hod',jump:'Skok'},
       component:{strength:'Snaga',stability:'Stabilnost',mobility:'Pokretljivost',flexibility:'Fleksibilnost',balance:'Ravnoteža',cardio:'Kardio'},
       region:{lower:'Donji dio tijela',upper:'Gornji dio tijela',core:'Trup',full:'Cijelo tijelo'},
       muscle:{glutes:'Gluteusi',quadriceps:'Kvadricepsi',hamstrings:'Stražnja loža',adductors:'Aduktori','hip-abductors':'Abduktori kuka','hip-flexors':'Fleksori kuka',
@@ -222,12 +222,12 @@ UI.hr={exercises:'Vježbe', back:'Sve vježbe', clear:'Poništi filtre', empty:'
       doseTime:(a,b,c)=>`${a} ${bsPlural(a,'runda','runde','rundi')} po ${b} s, ${c} s odmora`, switchSides:'Promijeni stranu', sideOf:a=>`Strana ${a}/2`, timeS:'Vrijeme (s)',
       rep:(a,b)=>`Ponav. ${a} od ${b}`, left:a=>`Još ${a} s`, rest:a=>`Odmor ${a} s`, set:(a,b)=>`Serija ${a} od ${b}`,
       sound:'Zvuk', voice:'Glas', read:'Pročitaj naglas', stop:'Zaustavi', step:'Korak', ready:'Pripremi se', startsIn:a=>`Počinje za ${a}`,
-      setSay:a=>`Serija ${a}`, restSay:a=>`Odmor, ${a} sekundi`, lastOne:'Još jedno', great:'Odlično!',
+      setSay:a=>`Serija ${a}`, restSay:a=>`Odmor, ${a} ${bsPlural(a,'sekunda','sekunde','sekundi')}`, lastOne:'Posljednje', great:'Odlično!',
       done:'Gotovo', again:'Dodirni za ponovno',
       noSpeech:'Glas nije dostupan u ovom prikazu (npr. unutar aplikacije Claude). Otvori stranicu u Chromeu ili Safariju da ga čuješ.',
       noVoice:'Na ovom uređaju nema hrvatskog glasa. Dodaj hrvatski glas u postavkama pretvaranja teksta u govor.',
       paused:'Pauza', restLabel:'Odmori se i diši', play:'Nastavi', pause:'Pauza', speed:'Brzina',
-      stageLabel:'Stiko pokazuje vježbu. Dodirni za pauzu ili nastavak.'};
+      stageLabel:'Stiko pokazuje vježbu. Dodirni za pauzu ili nastavak; povuci lijevo-desno ili koristi tipke sa strelicama za pregled ponavljanja.'};
 UI.sr={exercises:'Vežbe', back:'Sve vežbe', clear:'Poništi filtere', empty:'Nijedna vežba ne odgovara ovim filterima.',
       count:n=>`${n} ${bsPlural(n,'vežba','vežbe','vežbi')}`, loadError:'Biblioteku vežbi nije moguće učitati.',
       disclaimer:'Stiko je namenjen opštoj kondiciji, a ne medicinskom savetu ili fizikalnoj terapiji. Ako imaš bol, povredu ili zdravstveni problem, prvo se posavetuj sa stručnjakom.',
@@ -363,7 +363,7 @@ Object.assign(UI.fr,{
   g_sport:'Sport', noSport:'Forme générale', allSessions:'Tout',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Randonnée','road-cycling':'Vélo de route','mountain-biking':'VTT',swimming:'Natation',kayaking:'Kayak'},
   sessions:'Séances', newSession:'Nouvelle séance', more:'Plus d’actions', start:'Commencer', edit:'Modifier', duplicate:'Dupliquer', del:'Supprimer',
-  restore:'Rétablir l’original', confirmRestore:n=>`Rétablir « ${n} » d’origine ? Vos modifications seront perdues.`,
+  restore:'Rétablir l’original', confirmRestore:n=>`Rétablir la version d’origine de « ${n} » ? Tes modifications seront perdues.`,
   confirmDelete:n=>`Supprimer « ${n} » ?`, copyName:n=>`${n} (copie)`,
   noSessions:'Aucune séance pour l’instant. Crées-en une, puis ajoute des exercices depuis la bibliothèque.',
   exCount:n=>`${n} exercice${n>1?'s':''}`, mins:m=>`~${m} min`,
@@ -502,13 +502,13 @@ Object.assign(UI.bs,{
 });
 Object.assign(UI.hr,{
   help:'Kako koristiti Stika i sigurnost',
-  aboutTitle:'Dobro došli u Stiko',
+  aboutTitle:'Dobrodošlica u Stiko',
   aboutIntro:'Stiko je figura od crtica koja ti pokazuje svaku vježbu, broji ponavljanja i mjeri odmor. Sve ostaje na tvom mobitelu i radi i bez interneta.',
   howTitle:'Kako se koristi',
   how:['**Treninzi**: odaberi gotov trening i dodirni **Počni**. Stiko te vodi kroz zagrijavanje, glavni dio i smirivanje.',
-    'Dodirni **Uredi** da promijeniš serije, ponavljanja, zadržavanja i odmore, ukloniš vježbe ili dodaš nove. Možeš napraviti i vlastiti trening s **Novi trening**.',
-    '**Vježbe**: pregledaj i filtriraj cijelu biblioteku. Dodirni vježbu da je pogledaš, uz upute korak po korak te lakše i teže inačice.',
-    'Dok Stiko vježba, dodirni figuru za stanku i povuci ustranu da polako prođeš kroz pokret. **Zvuk** i **Glas** uključuju i isključuju najave.',
+    'Dodirni **Uredi** da promijeniš serije, ponavljanja, držanja i odmore, ukloniš vježbe ili dodaš nove. Možeš napraviti i vlastiti trening s **Novi trening**.',
+    '**Vježbe**: pregledaj i filtriraj cijeli popis. Dodirni vježbu da je pogledaš, uz upute korak po korak te lakše i teže inačice.',
+    'Dok Stiko vježba, dodirni figuru za pauzu i povuci lijevo-desno da polako prođeš kroz pokret. **Zvuk** i **Glas** uključuju i isključuju najave.',
     'Dodaj Stika na početni zaslon (izbornik preglednika → Dodaj na početni zaslon) da ga otvaraš kao aplikaciju.',
     'Treninzi se spremaju samo na ovom mobitelu. Koristi **Izvezi kopiju** na zaslonu Treninzi da spremiš kopiju.'],
   safetyTitle:'Zdravlje je na prvom mjestu',
@@ -517,7 +517,7 @@ Object.assign(UI.hr,{
     'Počni lagano, s manje serija i ponavljanja nego što je predloženo, i povećavaj postupno kroz tjedne. Napor je u redu, bol nije.',
     'Odmah prestani ako osjetiš bol ili pritisak u prsima, vrtoglavicu, neobičan nedostatak zraka ili oštru bol. Potraži liječničku pomoć ako ne prođe.',
     'Kod vježbi ravnoteže drži čvrstu stolicu, radnu plohu ili zid nadohvat ruke.',
-    'Vježbaš na vlastitu odgovornost i sam paziš da ostaneš u svojim granicama.'],
+    'Vježbaš na vlastitu odgovornost i na tebi je da ostaneš u svojim granicama.'],
   getStarted:'Razumijem, krenimo', aboutBack:'Natrag na treninge',
 });
 Object.assign(UI.sr,{
@@ -543,12 +543,12 @@ Object.assign(UI.sr,{
 Object.assign(UI.fr,{
   help:'Mode d’emploi de Stiko et sécurité',
   aboutTitle:'Bienvenue dans Stiko',
-  aboutIntro:'Stiko est un bonhomme bâton qui te montre chaque exercice, compte tes répétitions et chronomètre tes pauses. Tout reste sur ton téléphone et fonctionne hors ligne.',
+  aboutIntro:'Stiko est un bonhomme bâton qui te montre chaque exercice, compte tes répétitions et chronomètre tes temps de repos. Tout reste sur ton téléphone et fonctionne hors ligne.',
   howTitle:'Comment l’utiliser',
   how:['**Séances** : choisis une séance toute prête et touche **Commencer**. Stiko te guide à travers l’échauffement, le bloc principal et le retour au calme.',
-    'Touche **Modifier** pour changer les séries, répétitions, maintiens et pauses, retirer des exercices ou en ajouter. Tu peux aussi créer ta propre séance avec **Nouvelle séance**.',
+    'Touche **Modifier** pour changer les séries, répétitions, maintiens et temps de repos, retirer des exercices ou en ajouter. Tu peux aussi créer ta propre séance avec **Nouvelle séance**.',
     '**Exercices** : parcours et filtre toute la bibliothèque. Touche un exercice pour le voir, avec des instructions pas à pas et des variantes plus faciles ou plus difficiles.',
-    'Pendant l’animation, touche le personnage pour faire pause et glisse sur le côté pour parcourir le mouvement lentement. **Son** et **Voix** activent ou coupent les indications.',
+    'Pendant l’animation, touche le personnage pour mettre en pause et glisse sur le côté pour parcourir le mouvement lentement. **Son** et **Voix** activent ou coupent les indications.',
     'Ajoute Stiko à ton écran d’accueil (menu du navigateur → Ajouter à l’écran d’accueil) pour l’ouvrir comme une appli.',
     'Les séances sont enregistrées sur ce téléphone uniquement. Utilise **Exporter une sauvegarde** sur l’écran Séances pour en garder une copie.'],
   safetyTitle:'Ta santé d’abord',
@@ -622,7 +622,7 @@ Object.assign(UI.es,{voiceSettings:'Ajustes de voz', voicePick:'Voz', voiceAuto:
 // Sharing links, the shared-session screen, and reading each exercise aloud before it starts.
 Object.assign(UI.en,{shareApp:'Share Stiko', shareAppText:'Home workouts shown by Stiko, an animated stick figure. Free, and works offline.', shareSessionText:n=>`Try the workout “${n}” in Stiko.`, shareExText:n=>`See how to do “${n}” in Stiko.`, linkCopied:'Link copied', sharedTitle:'Shared session', sharedAdd:'Add to my sessions', sharedAdded:'Session added', sharedHave:'You already have this session.', sharedBad:'This link doesn’t contain a session Stiko can read.', cancel:'Cancel', autoRead:'Read first', listen:'Listen', tapSkip:'Tap to skip'});
 Object.assign(UI.bs,{shareApp:'Podijeli Stiko', shareAppText:'Vježbe kod kuće koje pokazuje Stiko, animirani čovječuljak. Besplatno i radi bez interneta.', shareSessionText:n=>`Probaj trening „${n}“ u aplikaciji Stiko.`, shareExText:n=>`Pogledaj kako se radi „${n}“ u aplikaciji Stiko.`, linkCopied:'Link je kopiran', sharedTitle:'Podijeljeni trening', sharedAdd:'Dodaj u moje treninge', sharedAdded:'Trening je dodan', sharedHave:'Već imaš ovaj trening.', sharedBad:'Ovaj link ne sadrži trening koji Stiko može pročitati.', cancel:'Odustani', autoRead:'Prvo pročitaj', listen:'Slušaj', tapSkip:'Dodirni za preskakanje'});
-Object.assign(UI.hr,{shareApp:'Podijeli Stiko', shareAppText:'Vježbe kod kuće koje pokazuje Stiko, animirani čovječuljak. Besplatno i radi bez interneta.', shareSessionText:n=>`Isprobaj trening „${n}“ u aplikaciji Stiko.`, shareExText:n=>`Pogledaj kako se izvodi „${n}“ u aplikaciji Stiko.`, linkCopied:'Poveznica je kopirana', sharedTitle:'Podijeljeni trening', sharedAdd:'Dodaj u moje treninge', sharedAdded:'Trening je dodan', sharedHave:'Već imaš ovaj trening.', sharedBad:'Ova poveznica ne sadrži trening koji Stiko može pročitati.', cancel:'Odustani', autoRead:'Prvo pročitaj', listen:'Slušaj', tapSkip:'Dodirni za preskakanje'});
+Object.assign(UI.hr,{shareApp:'Podijeli Stika', shareAppText:'Vježbe kod kuće koje pokazuje Stiko, animirani čovječuljak. Besplatno i radi bez interneta.', shareSessionText:n=>`Isprobaj trening „${n}“ u aplikaciji Stiko.`, shareExText:n=>`Pogledaj kako se izvodi „${n}“ u aplikaciji Stiko.`, linkCopied:'Poveznica je kopirana', sharedTitle:'Podijeljeni trening', sharedAdd:'Dodaj u moje treninge', sharedAdded:'Trening je dodan', sharedHave:'Već imaš ovaj trening.', sharedBad:'Ova poveznica ne sadrži trening koji Stiko može pročitati.', cancel:'Odustani', autoRead:'Prvo pročitaj', listen:'Slušaj', tapSkip:'Dodirni za preskakanje'});
 Object.assign(UI.sr,{shareApp:'Podeli Stika', shareAppText:'Vežbe kod kuće koje pokazuje Stiko, animirani čovečuljak. Besplatno i radi bez interneta.', shareSessionText:n=>`Probaj trening „${n}“ u aplikaciji Stiko.`, shareExText:n=>`Pogledaj kako se radi „${n}“ u aplikaciji Stiko.`, linkCopied:'Link je kopiran', sharedTitle:'Podeljeni trening', sharedAdd:'Dodaj u moje treninge', sharedAdded:'Trening je dodat', sharedHave:'Već imaš ovaj trening.', sharedBad:'Ovaj link ne sadrži trening koji Stiko može da pročita.', cancel:'Odustani', autoRead:'Prvo pročitaj', listen:'Slušaj', tapSkip:'Dodirni za preskakanje'});
 Object.assign(UI.de,{shareApp:'Stiko teilen', shareAppText:'Training zu Hause, vorgemacht von Stiko, einem animierten Strichmännchen. Kostenlos und funktioniert offline.', shareSessionText:n=>`Probier das Training „${n}“ in Stiko aus.`, shareExText:n=>`Sieh dir in Stiko an, wie „${n}“ geht.`, linkCopied:'Link kopiert', sharedTitle:'Geteiltes Training', sharedAdd:'Zu meinen Trainings hinzufügen', sharedAdded:'Training hinzugefügt', sharedHave:'Du hast dieses Training schon.', sharedBad:'Dieser Link enthält kein Training, das Stiko lesen kann.', cancel:'Abbrechen', autoRead:'Erst vorlesen', listen:'Zuhören', tapSkip:'Tippen zum Überspringen'});
 Object.assign(UI.es,{shareApp:'Compartir Stiko', shareAppText:'Ejercicios en casa que muestra Stiko, un monigote animado. Gratis y funciona sin conexión.', shareSessionText:n=>`Prueba la sesión «${n}» en Stiko.`, shareExText:n=>`Mira cómo se hace «${n}» en Stiko.`, linkCopied:'Enlace copiado', sharedTitle:'Sesión compartida', sharedAdd:'Añadir a mis sesiones', sharedAdded:'Sesión añadida', sharedHave:'Ya tienes esta sesión.', sharedBad:'Este enlace no contiene una sesión que Stiko pueda leer.', cancel:'Cancelar', autoRead:'Leer antes', listen:'Escuchar', tapSkip:'Toca para saltar'});
