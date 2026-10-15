@@ -3,12 +3,14 @@ import {U, esc, getLang, tagLabel} from './i18n.js';
 import {SPORTS} from './vocab.js';
 import * as store from './store.js';
 import * as S from './sessions.js';
-import {toast, saveJSON} from './ui.js';
+import {toast, saveJSON, filterBox} from './ui.js';
 import * as F from './favs.js';
 import {search, sessionFields} from './search.js';
 import {shareSession} from './share.js';
 
 let query='';  // search text, kept while moving between screens
+// Selected sport filters; older versions stored a single value, 'all' meaning none.
+const sportPick=()=>{ const v=store.load('sessionSport',[]); return Array.isArray(v)?v:v&&v!=='all'?[v]:[]; };
 
 export function mountSessions(root,lib){
   const byId=lib.byId;
@@ -16,7 +18,7 @@ export function mountSessions(root,lib){
     <div class="lib-head"><h2 data-i18n="sessions"></h2><button class="btn primary" id="newBtn" data-i18n="newSession"></button></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
       <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
-    <div class="fgroup sport-filter" id="sportFilter" role="group"></div>
+    <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="list"></ul>
     <div class="backup">
       <p class="note" data-i18n="storageNote"></p>
@@ -26,6 +28,7 @@ export function mountSessions(root,lib){
       </div>
     </div>
   </section>`;
+  const box=filterBox(root.querySelector('#fbox'),'sessionFiltersOpen',store.load,store.save);
   const $=id=>root.querySelector('#'+id);
 
   function render(){
@@ -33,22 +36,25 @@ export function mountSessions(root,lib){
     document.title=`${U('sessions')} · Stiko`;
     const all=S.loadAll();
     $('exportBtn').disabled=!all.length;
-    // Sport filter: only when some session has a sport. 'all', 'none' (general fitness) or a sport.
+    // Filters: favourites, general fitness and sports, any combination (OR'ed). 'All' is on when none is.
     const sports=SPORTS.filter(sp=>all.some(s=>s.sport===sp));
-    let pick=store.load('sessionSport','all');
-    if(pick!=='all'&&pick!=='none'&&!sports.includes(pick)) pick='all';
-    const opts=sports.length?['all','none',...sports]:[];
-    // Favourites: a toggle on top of the sport filter, shown once there is a favourite.
     const favIds=new Set(F.list('session').filter(id=>all.some(s=>s.id===id)));
-    let favOnly=store.load('sessionFavOnly',false)&&favIds.size>0;
-    $('sportFilter').hidden=!opts.length&&!favIds.size;
-    $('sportFilter').setAttribute('aria-label',U('g_sport'));
-    $('sportFilter').innerHTML=(favIds.size?F.chipHTML(favOnly):'')+opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
+    const favOnly=store.load('sessionFavOnly',false)&&favIds.size>0;
+    const opts=sports.length?['none',...sports]:[];
+    const picked=sportPick().filter(v=>opts.includes(v));
+    const none=!favOnly&&!picked.length;
+    $('fbox').hidden=!opts.length&&!favIds.size;
+    const label=v=>v==='none'?U('noSport'):tagLabel('sport',v);
+    box.body.innerHTML=`<div class="fgroup" role="group" aria-label="${esc(U('filters'))}">`+
+      `<button class="chip" data-sport="all" aria-pressed="${none}">${esc(U('allSessions'))}</button>`+
+      (favIds.size?F.chipHTML(favOnly):'')+
+      opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>';
+    box.summary(U('filters'),[...(favOnly?[U('favorites')]:[]),...picked.map(label)]);
     const how=store.load('searchHow',false);
     // Search keeps the user's order, so the move arrows still make sense.
-    const list=search((opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all).filter(s=>!favOnly||favIds.has(s.id)),s=>sessionFields(s,byId,how),query,true);
+    const list=search(all.filter(s=>(!picked.length||picked.includes(s.sport||'none'))&&(!favOnly||favIds.has(s.id))),s=>sessionFields(s,byId,how),query,true);
     $('q').placeholder=U('searchSessions'); $('q').setAttribute('aria-label',U('searchSessions'));
-    if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U(query.trim()&&all.length?'noSessionMatch':'noSessions'))}</li>`; return; }
+    if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U(all.length?'noSessionMatch':'noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map((s,k)=>{
       const est=S.estimate(s.items,byId);
       return `<li class="scard has-fav" data-id="${esc(s.id)}">${F.starHTML('session',s.id)}
@@ -74,10 +80,13 @@ export function mountSessions(root,lib){
     }).join('');
   }
 
-  $('sportFilter').addEventListener('click',e=>{
+  box.body.addEventListener('click',e=>{
     if(e.target.closest('#favChip')){ store.save('sessionFavOnly',!store.load('sessionFavOnly',false)); render(); return; }
     const b=e.target.closest('button[data-sport]'); if(!b) return;
-    store.save('sessionSport',b.dataset.sport); render();
+    const v=b.dataset.sport, cur=sportPick();
+    if(v==='all'){ store.save('sessionSport',[]); store.save('sessionFavOnly',false); }
+    else store.save('sessionSport',cur.includes(v)?cur.filter(x=>x!==v):[...cur,v]);
+    render();
   });
   $('newBtn').onclick=()=>{ const s=S.create(U('newSession')); location.hash=`#/sessions/${encodeURIComponent(s.id)}`; };
   // Close an open ⋯ menu when tapping anywhere else.

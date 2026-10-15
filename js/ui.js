@@ -11,3 +11,20 @@ export function saveJSON(filename,obj){
   const a=document.createElement('a'); a.href=URL.createObjectURL(file); a.download=filename;
   document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
+
+// Collapsible filter panel. While closed, the summary shows how many filters are on and which.
+// key: store key remembering whether it is open (closed by default).
+export function filterBox(el,key,load,save){
+  el.innerHTML=`<summary><span class="ftitle"></span><span class="fcount"></span><span class="factive"></span></summary><div class="filters"></div>`;
+  el.open=!!load(key,false);
+  el.addEventListener('toggle',()=>save(key,el.open));
+  return {
+    body:el.querySelector('.filters'),
+    summary(title,active){
+      el.querySelector('.ftitle').textContent=title;
+      el.querySelector('.fcount').textContent=active.length||'';
+      el.querySelector('.factive').textContent=active.join(', ');
+      el.classList.toggle('on',active.length>0);
+    },
+  };
+}
