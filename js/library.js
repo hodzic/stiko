@@ -45,7 +45,9 @@ export function mountLibrary(root,lib,pick=null){
     ${pick?`<div class="pickbar"><span id="pickTxt"></span><a class="btn primary" href="${editHref}" data-i18n="done"></a></div>`:''}
     <div class="lib-head"><h2 data-i18n="exercises"></h2><span class="sub" id="count"></span></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
-      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label>
+      <label class="toggle" id="favWrap"><input type="checkbox" id="favOnly"> ★ <span data-i18n="favOnly"></span></label>
+      ${pick?'<label class="toggle"><input type="checkbox" id="fitOnly"> <span id="fitTxt"></span></label>':''}</div>
     <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="cards"></ul>
     <p class="note" data-i18n="disclaimer"></p>
@@ -63,16 +65,16 @@ export function mountLibrary(root,lib,pick=null){
       vals.map(v=>`<button class="chip" data-g="${g}" data-v="${esc(v)}" aria-pressed="${sel[g].has(v)}">${esc(tagLabel(g,v))}</button>`).join('')+'</div>';
   }
   function renderFilters(){
-    let html='';
-    const favs=favOnly||F.list('ex').length;
-    if(pick||favs) html+=`<div class="fgroup">${favs?F.chipHTML(favOnly):''}${pick?`<button class="chip" id="fitBtn" aria-pressed="${fitOnly}">${esc(U('fitsBlock')(tagLabel('block',pick.block)))}</button>`:''}</div>`;
-    html+=MAIN.map(groupHTML).join('');
+    // Favourites and "suited to the block" are switches beside the search, apart from the tag groups: they always narrow.
+    $('favWrap').hidden=!favOnly&&!F.list('ex').length; $('favOnly').checked=favOnly;
+    if(pick){ $('fitOnly').checked=fitOnly; $('fitTxt').textContent=U('fitsBlock')(tagLabel('block',pick.block)); }
+    let html=`<p class="fhint">${esc(U('filterHint'))}</p>`+MAIN.map(groupHTML).join('');
     const more=MORE.map(groupHTML).join('');
     if(more) html+=`<details class="more" id="more"${moreOpen?' open':''}><summary>${esc(U('moreFilters'))}${MORE.some(g=>sel[g].size)?' •':''}</summary><div class="filters">${more}</div></details>`;
-    if(favOnly||GROUPS.some(g=>sel[g].size)) html+=`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`;
+    if(GROUPS.some(g=>sel[g].size)) html+=`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`;
     box.body.innerHTML=html;
     $('more')?.addEventListener('toggle',e=>{ moreOpen=e.target.open; });
-    box.summary(U('filters'),[...(favOnly?[U('favorites')]:[]),...(fitOnly?[U('fitsBlock')(tagLabel('block',pick.block))]:[]),
+    box.summary(U('filters'),[
       ...GROUPS.flatMap(g=>VOCAB[g].map(String).filter(v=>sel[g].has(v)).map(v=>tagLabel(g,v)))]);
   }
   function card(ex){
@@ -92,7 +94,7 @@ export function mountLibrary(root,lib,pick=null){
     const fav=new Set(F.list('ex'));
     const how=store.load('searchHow',false);
     const list=search(exs.filter(ex=>matches(ex)&&(!fitOnly||ex.blocks.includes(pick.block))&&(!favOnly||fav.has(ex.id))),ex=>exerciseFields(ex,how),query);
-    $('count').textContent=U('count')(list.length);
+    $('count').textContent=U('count')(list.length); box.result(U('count')(list.length));
     $('cards').innerHTML=list.length?list.map(card).join(''):`<li class="empty">${esc(U('empty'))}</li>`;
   }
   function render(){
@@ -104,9 +106,7 @@ export function mountLibrary(root,lib,pick=null){
   }
   box.body.addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b) return;
-    if(b.id==='clearBtn'){ GROUPS.forEach(g=>sel[g].clear()); favOnly=false; }
-    else if(b.id==='favChip') favOnly=!favOnly;
-    else if(b.id==='fitBtn') fitOnly=!fitOnly;
+    if(b.id==='clearBtn') GROUPS.forEach(g=>sel[g].clear());
     else { const s=sel[b.dataset.g]; s.has(b.dataset.v)?s.delete(b.dataset.v):s.add(b.dataset.v); }
     renderFilters(); renderCards();
   });
@@ -122,13 +122,15 @@ export function mountLibrary(root,lib,pick=null){
     const b=e.target.closest('button[data-fav]');
     if(!b) return pick&&add(e);
     const id=b.dataset.fav; F.toggle('ex',id);
-    renderFilters();  // the Favourites chip appears with the first one
+    renderFilters();  // the Favourites switch appears with the first one
     renderCards(); root.querySelector(`button[data-fav="${CSS.escape(id)}"]`)?.focus();
   });
   if(pick) $('cards').addEventListener('keydown',e=>{ if(!e.target.closest('.fav')&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); add(e); } });
   $('q').value=query; $('qHow').checked=store.load('searchHow',false);
   $('q').addEventListener('input',e=>{ query=e.target.value; renderCards(); });
   $('qHow').addEventListener('change',e=>{ store.save('searchHow',e.target.checked); renderCards(); });
+  $('favOnly').addEventListener('change',e=>{ favOnly=e.target.checked; renderFilters(); renderCards(); });
+  if(pick) $('fitOnly').addEventListener('change',e=>{ fitOnly=e.target.checked; renderCards(); });
   render();
   return {relang:render, destroy(){}};
 }

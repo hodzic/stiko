@@ -320,7 +320,7 @@ UI.es={exercises:'Ejercicios', back:'Todos los ejercicios', clear:'Quitar filtro
 // Sessions, editor and session player.
 Object.assign(UI.en,{
   g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai chi & qigong',boxing:'Boxing'},
-  g_sport:'Sport', noSport:'General fitness', allSessions:'All',
+  g_sport:'Sport', noSport:'General fitness',
   sport:{'alpine-skiing':'Alpine skiing',hiking:'Hiking','road-cycling':'Road cycling','mountain-biking':'Mountain biking',swimming:'Swimming',kayaking:'Kayaking'},
   sessions:'Sessions', newSession:'New session', more:'More actions', start:'Start', edit:'Edit', duplicate:'Duplicate', del:'Delete',
   restore:'Restore original', confirmRestore:n=>`Restore “${n}” to the original? Your changes to it will be lost.`,
@@ -340,7 +340,7 @@ Object.assign(UI.en,{
 });
 Object.assign(UI.bs,{
   g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
-  g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
+  g_sport:'Sport', noSport:'Opća kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliciraj', del:'Obriši',
   restore:'Vrati original', confirmRestore:n=>`Vratiti „${n}“ na original? Tvoje izmjene će se izgubiti.`,
@@ -360,7 +360,7 @@ Object.assign(UI.bs,{
 });
 Object.assign(UI.fr,{
   g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai-chi et qi gong',boxing:'Boxe'},
-  g_sport:'Sport', noSport:'Forme générale', allSessions:'Tout',
+  g_sport:'Sport', noSport:'Forme générale',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Randonnée','road-cycling':'Vélo de route','mountain-biking':'VTT',swimming:'Natation',kayaking:'Kayak'},
   sessions:'Séances', newSession:'Nouvelle séance', more:'Plus d’actions', start:'Commencer', edit:'Modifier', duplicate:'Dupliquer', del:'Supprimer',
   restore:'Rétablir l’original', confirmRestore:n=>`Rétablir la version d’origine de « ${n} » ? Tes modifications seront perdues.`,
@@ -380,7 +380,7 @@ Object.assign(UI.fr,{
 });
 Object.assign(UI.de,{
   g_discipline:'Stil', discipline:{yoga:'Yoga','tai-chi':'Tai-Chi & Qigong',boxing:'Boxen'},
-  g_sport:'Sportart', noSport:'Allgemeine Fitness', allSessions:'Alle',
+  g_sport:'Sportart', noSport:'Allgemeine Fitness',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Wandern','road-cycling':'Rennrad','mountain-biking':'Mountainbike',swimming:'Schwimmen',kayaking:'Kajak'},
   sessions:'Trainings', newSession:'Neues Training', more:'Weitere Aktionen', start:'Starten', edit:'Bearbeiten', duplicate:'Duplizieren', del:'Löschen',
   restore:'Original wiederherstellen', confirmRestore:n=>`„${n}“ auf das Original zurücksetzen? Deine Änderungen gehen verloren.`,
@@ -400,7 +400,7 @@ Object.assign(UI.de,{
 });
 Object.assign(UI.hr,{
   g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
-  g_sport:'Sport', noSport:'Opća kondicija', allSessions:'Sve',
+  g_sport:'Sport', noSport:'Opća kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Kopiraj', del:'Obriši',
   restore:'Vrati izvornik', confirmRestore:n=>`Vratiti „${n}“ na izvornik? Tvoje izmjene će se izgubiti.`,
@@ -420,7 +420,7 @@ Object.assign(UI.hr,{
 });
 Object.assign(UI.sr,{
   g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai či i ći gong',boxing:'Boks'},
-  g_sport:'Sport', noSport:'Opšta kondicija', allSessions:'Sve',
+  g_sport:'Sport', noSport:'Opšta kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Drumski biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliraj', del:'Obriši',
   restore:'Vrati original', confirmRestore:n=>`Vratiti „${n}“ na original? Tvoje izmene će se izgubiti.`,
@@ -440,7 +440,7 @@ Object.assign(UI.sr,{
 });
 Object.assign(UI.es,{
   g_discipline:'Estilo', discipline:{yoga:'Yoga','tai-chi':'Taichí y qigong',boxing:'Boxeo'},
-  g_sport:'Deporte', noSport:'Forma física general', allSessions:'Todas',
+  g_sport:'Deporte', noSport:'Forma física general',
   sport:{'alpine-skiing':'Esquí alpino',hiking:'Senderismo','road-cycling':'Ciclismo de carretera','mountain-biking':'Ciclismo de montaña',swimming:'Natación',kayaking:'Kayak'},
   sessions:'Sesiones', newSession:'Nueva sesión', more:'Más acciones', start:'Empezar', edit:'Editar', duplicate:'Duplicar', del:'Eliminar',
   restore:'Restaurar original', confirmRestore:n=>`¿Restaurar «${n}» al original? Se perderán tus cambios.`,
@@ -643,6 +643,20 @@ Object.assign(UI.sr,{filters:'Filteri'});
 Object.assign(UI.de,{filters:'Filter'});
 Object.assign(UI.es,{filters:'Filtros'});
 Object.assign(UI.fr,{filters:'Filtres'});
+Object.assign(UI.en,{favOnly:'Favorites only', filterHint:'Same row: any of them. Different rows: all of them.', sessCount:n=>`${n} session${n===1?'':'s'}`});
+UI.en.how.splice(3,0,'**Filters** and **search** narrow the list. In one row of filters, picking more shows more (Squat or Hinge). Picks in different rows must all match (Squat and Lower body). **Favorites only** and the search box always narrow it further. Tap **Clear filters** to start over.');
+Object.assign(UI.bs,{favOnly:'Samo favoriti', filterHint:'Isti red: bilo koji od njih. Različiti redovi: svi zajedno.', sessCount:n=>`${n} ${bsPlural(n,'trening','treninga','treninga')}`});
+UI.bs.how.splice(3,0,'**Filteri** i **pretraga** sužavaju popis. U jednom redu filtera, više izbora prikazuje više (Čučanj ili Pregib u kuku). Izbori u različitim redovima moraju se svi poklapati (Čučanj i Donji dio tijela). **Samo favoriti** i pretraga uvijek dodatno sužavaju popis. Dodirni **Poništi filtere** da kreneš ispočetka.');
+Object.assign(UI.hr,{favOnly:'Samo favoriti', filterHint:'Isti red: bilo koji od njih. Različiti redovi: svi zajedno.', sessCount:n=>`${n} ${bsPlural(n,'trening','treninga','treninga')}`});
+UI.hr.how.splice(3,0,'**Filtri** i **pretraživanje** sužavaju popis. U jednom redu filtara, više odabira prikazuje više (Čučanj ili Pregib u kuku). Odabiri u različitim redovima moraju se svi podudarati (Čučanj i Donji dio tijela). **Samo favoriti** i pretraživanje uvijek dodatno sužavaju popis. Dodirni **Poništi filtre** da kreneš ispočetka.');
+Object.assign(UI.sr,{favOnly:'Samo favoriti', filterHint:'Isti red: bilo koji od njih. Različiti redovi: svi zajedno.', sessCount:n=>`${n} ${bsPlural(n,'trening','treninga','treninga')}`});
+UI.sr.how.splice(3,0,'**Filteri** i **pretraga** sužavaju spisak. U jednom redu filtera, više izbora prikazuje više (Čučanj ili Pregib u kuku). Izbori u različitim redovima moraju se svi poklapati (Čučanj i Donji deo tela). **Samo favoriti** i pretraga uvek dodatno sužavaju spisak. Dodirni **Poništi filtere** da kreneš iz početka.');
+Object.assign(UI.de,{favOnly:'Nur Favoriten', filterHint:'Gleiche Zeile: eins davon. Verschiedene Zeilen: alle zusammen.', sessCount:n=>`${n} Training${n===1?'':'s'}`});
+UI.de.how.splice(3,0,'**Filter** und **Suche** grenzen die Liste ein. In einer Filterzeile zeigt jede weitere Auswahl mehr (Kniebeuge oder Hüftbeuge). Auswahlen aus verschiedenen Zeilen müssen alle zutreffen (Kniebeuge und Unterkörper). **Nur Favoriten** und das Suchfeld grenzen immer weiter ein. Tippe auf **Filter zurücksetzen**, um neu anzufangen.');
+Object.assign(UI.es,{favOnly:'Solo favoritos', filterHint:'Misma fila: cualquiera. Filas distintas: todas a la vez.', sessCount:n=>`${n} sesi${n===1?'ón':'ones'}`});
+UI.es.how.splice(3,0,'Los **filtros** y la **búsqueda** acotan la lista. En una misma fila de filtros, elegir más muestra más (Sentadilla o Bisagra de cadera). Lo elegido en filas distintas debe cumplirse a la vez (Sentadilla y Tren inferior). **Solo favoritos** y el buscador siempre acotan aún más. Toca **Quitar filtros** para empezar de nuevo.');
+Object.assign(UI.fr,{favOnly:'Favoris seulement', filterHint:'Même ligne : l’un ou l’autre. Lignes différentes : tous à la fois.', sessCount:n=>`${n} séance${n>1?'s':''}`});
+UI.fr.how.splice(3,0,'Les **filtres** et la **recherche** réduisent la liste. Dans une même ligne de filtres, choisir plus en montre plus (Squat ou Charnière de hanche). Les choix de lignes différentes doivent tous correspondre (Squat et Bas du corps). **Favoris seulement** et la recherche réduisent toujours davantage. Touche **Effacer les filtres** pour recommencer.');
 
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};

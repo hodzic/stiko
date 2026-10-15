@@ -17,7 +17,8 @@ export function mountSessions(root,lib){
   root.innerHTML=`<section>
     <div class="lib-head"><h2 data-i18n="sessions"></h2><button class="btn primary" id="newBtn" data-i18n="newSession"></button></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
-      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label>
+      <label class="toggle" id="favWrap"><input type="checkbox" id="favOnly"> ★ <span data-i18n="favOnly"></span></label></div>
     <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="list"></ul>
     <div class="backup">
@@ -36,23 +37,24 @@ export function mountSessions(root,lib){
     document.title=`${U('sessions')} · Stiko`;
     const all=S.loadAll();
     $('exportBtn').disabled=!all.length;
-    // Filters: favourites, general fitness and sports, any combination (OR'ed). 'All' is on when none is.
+    // Sport filter: general fitness and sports, any of them (OR'ed); none picked shows every session.
+    // Favourites only is a switch beside the search: it always narrows.
     const sports=SPORTS.filter(sp=>all.some(s=>s.sport===sp));
     const favIds=new Set(F.list('session').filter(id=>all.some(s=>s.id===id)));
     const favOnly=store.load('sessionFavOnly',false)&&favIds.size>0;
+    $('favWrap').hidden=!favIds.size; $('favOnly').checked=favOnly;
     const opts=sports.length?['none',...sports]:[];
     const picked=sportPick().filter(v=>opts.includes(v));
-    const none=!favOnly&&!picked.length;
-    $('fbox').hidden=!opts.length&&!favIds.size;
+    $('fbox').hidden=!opts.length;
     const label=v=>v==='none'?U('noSport'):tagLabel('sport',v);
-    box.body.innerHTML=`<div class="fgroup" role="group" aria-label="${esc(U('filters'))}">`+
-      `<button class="chip" data-sport="all" aria-pressed="${none}">${esc(U('allSessions'))}</button>`+
-      (favIds.size?F.chipHTML(favOnly):'')+
-      opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>';
-    box.summary(U('filters'),[...(favOnly?[U('favorites')]:[]),...picked.map(label)]);
+    box.body.innerHTML=`<div class="fgroup" role="group" aria-label="${esc(U('g_sport'))}"><span class="flabel">${esc(U('g_sport'))}</span>`+
+      opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>'+
+      (picked.length?`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`:'');
+    box.summary(U('filters'),picked.map(label));
     const how=store.load('searchHow',false);
     // Search keeps the user's order, so the move arrows still make sense.
     const list=search(all.filter(s=>(!picked.length||picked.includes(s.sport||'none'))&&(!favOnly||favIds.has(s.id))),s=>sessionFields(s,byId,how),query,true);
+    box.result(U('sessCount')(list.length));
     $('q').placeholder=U('searchSessions'); $('q').setAttribute('aria-label',U('searchSessions'));
     if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U(all.length?'noSessionMatch':'noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map((s,k)=>{
@@ -81,13 +83,13 @@ export function mountSessions(root,lib){
   }
 
   box.body.addEventListener('click',e=>{
-    if(e.target.closest('#favChip')){ store.save('sessionFavOnly',!store.load('sessionFavOnly',false)); render(); return; }
+    if(e.target.closest('#clearBtn')){ store.save('sessionSport',[]); render(); return; }
     const b=e.target.closest('button[data-sport]'); if(!b) return;
     const v=b.dataset.sport, cur=sportPick();
-    if(v==='all'){ store.save('sessionSport',[]); store.save('sessionFavOnly',false); }
-    else store.save('sessionSport',cur.includes(v)?cur.filter(x=>x!==v):[...cur,v]);
+    store.save('sessionSport',cur.includes(v)?cur.filter(x=>x!==v):[...cur,v]);
     render();
   });
+  $('favOnly').addEventListener('change',e=>{ store.save('sessionFavOnly',e.target.checked); render(); });
   $('newBtn').onclick=()=>{ const s=S.create(U('newSession')); location.hash=`#/sessions/${encodeURIComponent(s.id)}`; };
   // Close an open ⋯ menu when tapping anywhere else.
   const closeMenus=e=>root.querySelectorAll('details.menu[open]').forEach(d=>{ if(!d.contains(e.target)) d.open=false; });

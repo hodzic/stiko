@@ -12,10 +12,11 @@ export function saveJSON(filename,obj){
   document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 
-// Collapsible filter panel. While closed, the summary shows how many filters are on and which.
+// Collapsible filter panel. While closed, the summary shows how many filters are on and which; while open, how
+// many items the filters and search let through.
 // key: store key remembering whether it is open (closed by default).
 export function filterBox(el,key,load,save){
-  el.innerHTML=`<summary><span class="ftitle"></span><span class="fcount"></span><span class="factive"></span></summary><div class="filters"></div>`;
+  el.innerHTML=`<summary><span class="ftitle"></span><span class="fcount"></span><span class="factive"></span><span class="fresult"></span></summary><div class="filters"></div>`;
   el.open=!!load(key,false);
   el.addEventListener('toggle',()=>save(key,el.open));
   return {
@@ -26,5 +27,6 @@ export function filterBox(el,key,load,save){
       el.querySelector('.factive').textContent=active.join(', ');
       el.classList.toggle('on',active.length>0);
     },
+    result(text){ el.querySelector('.fresult').textContent=text; },
   };
 }
