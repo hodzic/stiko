@@ -628,6 +628,15 @@ Object.assign(UI.de,{shareApp:'Stiko teilen', shareAppText:'Training zu Hause, v
 Object.assign(UI.es,{shareApp:'Compartir Stiko', shareAppText:'Ejercicios en casa que muestra Stiko, un monigote animado. Gratis y funciona sin conexión.', shareSessionText:n=>`Prueba la sesión «${n}» en Stiko.`, shareExText:n=>`Mira cómo se hace «${n}» en Stiko.`, linkCopied:'Enlace copiado', sharedTitle:'Sesión compartida', sharedAdd:'Añadir a mis sesiones', sharedAdded:'Sesión añadida', sharedHave:'Ya tienes esta sesión.', sharedBad:'Este enlace no contiene una sesión que Stiko pueda leer.', cancel:'Cancelar', autoRead:'Leer antes', listen:'Escuchar', tapSkip:'Toca para saltar'});
 Object.assign(UI.fr,{shareApp:'Partager Stiko', shareAppText:'Des exercices à la maison montrés par Stiko, un bonhomme animé. Gratuit, et fonctionne hors ligne.', shareSessionText:n=>`Essaie la séance « ${n} » dans Stiko.`, shareExText:n=>`Regarde comment faire « ${n} » dans Stiko.`, linkCopied:'Lien copié', sharedTitle:'Séance partagée', sharedAdd:'Ajouter à mes séances', sharedAdded:'Séance ajoutée', sharedHave:'Tu as déjà cette séance.', sharedBad:'Ce lien ne contient pas de séance que Stiko peut lire.', cancel:'Annuler', autoRead:'Lire avant', listen:'Écoute', tapSkip:'Touche pour passer'});
 
+// Search on the Exercises and Sessions screens.
+Object.assign(UI.en,{searchEx:'Search exercises', searchSessions:'Search sessions', searchHow:'Include instructions', noSessionMatch:'No sessions match your search.'});
+Object.assign(UI.bs,{searchEx:'Pretraži vježbe', searchSessions:'Pretraži treninge', searchHow:'Uključi upute', noSessionMatch:'Nijedan trening ne odgovara pretrazi.'});
+Object.assign(UI.hr,{searchEx:'Pretraži vježbe', searchSessions:'Pretraži treninge', searchHow:'Uključi upute', noSessionMatch:'Nijedan trening ne odgovara pretraživanju.'});
+Object.assign(UI.sr,{searchEx:'Pretraži vežbe', searchSessions:'Pretraži treninge', searchHow:'Uključi uputstva', noSessionMatch:'Nijedan trening ne odgovara pretrazi.'});
+Object.assign(UI.de,{searchEx:'Übungen suchen', searchSessions:'Trainings suchen', searchHow:'Anleitungen einbeziehen', noSessionMatch:'Kein Training passt zu deiner Suche.'});
+Object.assign(UI.es,{searchEx:'Buscar ejercicios', searchSessions:'Buscar sesiones', searchHow:'Incluir instrucciones', noSessionMatch:'Ninguna sesión coincide con tu búsqueda.'});
+Object.assign(UI.fr,{searchEx:'Rechercher des exercices', searchSessions:'Rechercher des séances', searchHow:'Inclure les instructions', noSessionMatch:'Aucune séance ne correspond à ta recherche.'});
+
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
 // Speech: voice language prefixes to try in order, the fallback BCP-47 tag, and speaking rate.

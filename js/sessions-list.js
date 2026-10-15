@@ -5,12 +5,17 @@ import * as store from './store.js';
 import * as S from './sessions.js';
 import {toast, saveJSON} from './ui.js';
 import * as F from './favs.js';
+import {search, sessionFields} from './search.js';
 import {shareSession} from './share.js';
+
+let query='';  // search text, kept while moving between screens
 
 export function mountSessions(root,lib){
   const byId=lib.byId;
   root.innerHTML=`<section>
     <div class="lib-head"><h2 data-i18n="sessions"></h2><button class="btn primary" id="newBtn" data-i18n="newSession"></button></div>
+    <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
     <div class="fgroup sport-filter" id="sportFilter" role="group"></div>
     <ul class="cards" id="list"></ul>
     <div class="backup">
@@ -39,8 +44,11 @@ export function mountSessions(root,lib){
     $('sportFilter').hidden=!opts.length&&!favIds.size;
     $('sportFilter').setAttribute('aria-label',U('g_sport'));
     $('sportFilter').innerHTML=(favIds.size?F.chipHTML(favOnly):'')+opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${v===pick}">${esc(v==='all'?U('allSessions'):v==='none'?U('noSport'):tagLabel('sport',v))}</button>`).join('');
-    const list=(opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all).filter(s=>!favOnly||favIds.has(s.id));
-    if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U('noSessions'))}</li>`; return; }
+    const how=store.load('searchHow',false);
+    // Search keeps the user's order, so the move arrows still make sense.
+    const list=search((opts.length?all.filter(s=>pick==='all'||(pick==='none'?!s.sport:s.sport===pick)):all).filter(s=>!favOnly||favIds.has(s.id)),s=>sessionFields(s,byId,how),query,true);
+    $('q').placeholder=U('searchSessions'); $('q').setAttribute('aria-label',U('searchSessions'));
+    if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U(query.trim()&&all.length?'noSessionMatch':'noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map((s,k)=>{
       const est=S.estimate(s.items,byId);
       return `<li class="scard has-fav" data-id="${esc(s.id)}">${F.starHTML('session',s.id)}
@@ -105,6 +113,9 @@ export function mountSessions(root,lib){
   };
   root.querySelector('label.btn').addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); $('importIn').click(); } });
 
+  $('q').value=query; $('qHow').checked=store.load('searchHow',false);
+  $('q').addEventListener('input',e=>{ query=e.target.value; render(); });
+  $('qHow').addEventListener('change',e=>{ store.save('searchHow',e.target.checked); render(); });
   render();
   return {relang:render, destroy(){ document.removeEventListener('click',closeMenus); }};
 }

@@ -27,6 +27,7 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `js/library.js` | Library screen: cards and tag filters; pick mode adds exercises to a session block |
 | `js/player.js` | Player for a queue of exercises: get ready → sets of work/rest → next → done; skip, cues, scrub, read aloud (and Read first: each exercise read aloud before its countdown, on by default), share, pose check, screen wake lock |
 | `js/ui.js` | Toasts and saving JSON files |
+| `js/search.js` | Search on the Exercises and Sessions screens: accent- and case-insensitive word-prefix matching over names, labels (pattern, muscles, equipment, style, sport) and, optionally, instruction text, in the app language and English |
 | `js/share.js` | Share links (phone share sheet, else copy): the app (header button), a session (`#/shared/<code>`, the session packed into the link) and an exercise (`#/play/<id>`); the shared-session preview screen |
 | `js/rig.js` | Stiko rig: FK, pinning, rotation leveling, leg IK, SVG rendering (pure, unit-tested) |
 | `js/audio.js` | Web Audio tones and speech synthesis; device voice per language and speaking speed |
