@@ -4,7 +4,7 @@
   "sessions": [
     {
       "id": "starter-full-body-beginner",
-      "name": {"en": "Full body: beginner", "bs": "Cijelo tijelo: početni", "hr": "Cijelo tijelo: početna razina", "sr": "Celo telo: početni", "fr": "Corps entier : débutant", "de": "Ganzkörper: Einsteiger", "es": "Cuerpo completo: principiante"},
+      "name": {"en": "Full body: beginner", "bs": "Cijelo tijelo: početni nivo", "hr": "Cijelo tijelo: početna razina", "sr": "Celo telo: početni", "fr": "Corps entier : débutant", "de": "Ganzkörper: Einsteiger", "es": "Cuerpo completo: principiante"},
       "items": [
         {"ex": "march-in-place", "block": "warmup", "sets": 1, "time": 60, "rest": 10},
         {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
@@ -93,7 +93,7 @@
     },
     {
       "id": "starter-basics",
-      "name": {"en": "Three basics", "bs": "Tri osnovne", "hr": "Tri osnovne", "sr": "Tri osnovne", "fr": "Les trois bases", "de": "Drei Grundübungen", "es": "Tres básicos"},
+      "name": {"en": "Three basics", "bs": "Tri osnovne vježbe", "hr": "Tri osnovne vježbe", "sr": "Tri osnovne vežbe", "fr": "Les trois bases", "de": "Drei Grundübungen", "es": "Tres básicos"},
       "items": [
         {"ex": "squat", "block": "main", "sets": 2, "reps": 10, "rest": 30},
         {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 12, "rest": 30},
@@ -212,7 +212,7 @@
     {
       "id": "starter-boxing",
       "added": ["hooks", "slips"],
-      "name": {"en": "Boxing conditioning", "bs": "Boksačka kondicija", "hr": "Boksačka kondicija", "sr": "Bokserska kondicija", "fr": "Préparation physique boxe", "de": "Box-Fitness", "es": "Acondicionamiento de boxeo"},
+      "name": {"en": "Boxing conditioning", "bs": "Boksačka kondicija", "hr": "Boksačka kondicija", "sr": "Boksačka kondicija", "fr": "Préparation physique boxe", "de": "Box-Fitness", "es": "Acondicionamiento de boxeo"},
       "items": [
         {"ex": "jump-rope", "block": "warmup", "sets": 2, "time": 60, "rest": 30},
         {"ex": "arm-circles", "block": "warmup", "sets": 1, "time": 30, "rest": 10},
