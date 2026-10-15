@@ -195,9 +195,6 @@ button.help{padding:0;cursor:pointer}
 
 /* Editor */
 .field{display:grid;gap:4px;margin-bottom:12px}
-.sport-filter{margin:0 -16px 12px;padding:0 16px 2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-.sport-filter::-webkit-scrollbar{display:none}
-.sport-filter .chip{flex:none}
 .field select{font:500 1rem/1.2 system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:10px 12px;width:100%}
 .field input{font:600 1.2rem/1.2 Fredoka,system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:10px 12px;width:100%}
 .ed-sum{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
@@ -266,3 +263,13 @@ div.card{cursor:pointer}
 .bandp{fill:none;stroke:var(--bandp);stroke-width:3.5;stroke-linecap:round}
 .anchor{fill:var(--prop)}
 .barp{fill:var(--prop)} .barm{stroke:var(--prop);stroke-width:4}
+/* Collapsible filters; closed, the summary lists the active ones */
+.filterbox{margin-bottom:14px}
+.filterbox>summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font:600 .95rem/1.2 Fredoka,system-ui,sans-serif;color:var(--accent);padding:4px 0}
+.filterbox>summary::-webkit-details-marker{display:none}
+.filterbox>summary::before{content:'▸';display:inline-block;transition:transform .15s}
+.filterbox[open]>summary::before{transform:rotate(90deg)}
+.filterbox .fcount:not(:empty){min-width:1.4em;padding:2px 6px;border-radius:999px;background:var(--accent);color:var(--bg);font-size:.8rem;text-align:center;box-sizing:border-box}
+.filterbox .factive{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
+.filterbox[open] .factive{display:none}
+.filterbox>.filters{margin:8px 0 0}

@@ -4,7 +4,7 @@ import {stillSVG, stillBounds} from './rig.js';
 import {T, U, tagLabel, doseText, esc, getLang} from './i18n.js';
 import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
-import {toast} from './ui.js';
+import {toast, filterBox} from './ui.js';
 import * as F from './favs.js';
 import * as store from './store.js';
 import {search, exerciseFields} from './search.js';
@@ -46,12 +46,13 @@ export function mountLibrary(root,lib,pick=null){
     <div class="lib-head"><h2 data-i18n="exercises"></h2><span class="sub" id="count"></span></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
       <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
-    <div class="filters" id="filters"></div>
+    <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="cards"></ul>
     <p class="note" data-i18n="disclaimer"></p>
   </section>`;
   const $=id=>root.querySelector('#'+id);
   const exs=lib.exercises;
+  const box=filterBox($('fbox'),'exFiltersOpen',store.load,store.save);
 
   function groupHTML(g){
     const present=new Set(exs.flatMap(ex=>tagsOf(ex,g)).map(String));
@@ -69,8 +70,10 @@ export function mountLibrary(root,lib,pick=null){
     const more=MORE.map(groupHTML).join('');
     if(more) html+=`<details class="more" id="more"${moreOpen?' open':''}><summary>${esc(U('moreFilters'))}${MORE.some(g=>sel[g].size)?' •':''}</summary><div class="filters">${more}</div></details>`;
     if(favOnly||GROUPS.some(g=>sel[g].size)) html+=`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`;
-    $('filters').innerHTML=html;
+    box.body.innerHTML=html;
     $('more')?.addEventListener('toggle',e=>{ moreOpen=e.target.open; });
+    box.summary(U('filters'),[...(favOnly?[U('favorites')]:[]),...(fitOnly?[U('fitsBlock')(tagLabel('block',pick.block))]:[]),
+      ...GROUPS.flatMap(g=>VOCAB[g].map(String).filter(v=>sel[g].has(v)).map(v=>tagLabel(g,v)))]);
   }
   function card(ex){
     const tags=[ex.pattern&&tagLabel('pattern',ex.pattern),tagLabel('component',ex.component),...equipmentOf(ex).map(v=>tagLabel('equipment',v))].filter(Boolean);
@@ -99,7 +102,7 @@ export function mountLibrary(root,lib,pick=null){
     if(pick) $('pickTxt').textContent=`${U('addingTo')(tagLabel('block',pick.block))} · ${S.get(pick.sessionId)?S.nameOf(S.get(pick.sessionId),getLang()):''}`;
     renderFilters(); renderCards();
   }
-  $('filters').addEventListener('click',e=>{
+  box.body.addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b) return;
     if(b.id==='clearBtn'){ GROUPS.forEach(g=>sel[g].clear()); favOnly=false; }
     else if(b.id==='favChip') favOnly=!favOnly;

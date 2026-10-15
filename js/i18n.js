@@ -636,6 +636,13 @@ Object.assign(UI.sr,{searchEx:'Pretraži vežbe', searchSessions:'Pretraži tren
 Object.assign(UI.de,{searchEx:'Übungen suchen', searchSessions:'Trainings suchen', searchHow:'Anleitungen einbeziehen', noSessionMatch:'Kein Training passt zu deiner Suche.'});
 Object.assign(UI.es,{searchEx:'Buscar ejercicios', searchSessions:'Buscar sesiones', searchHow:'Incluir instrucciones', noSessionMatch:'Ninguna sesión coincide con tu búsqueda.'});
 Object.assign(UI.fr,{searchEx:'Rechercher des exercices', searchSessions:'Rechercher des séances', searchHow:'Inclure les instructions', noSessionMatch:'Aucune séance ne correspond à ta recherche.'});
+Object.assign(UI.en,{filters:'Filters'});
+Object.assign(UI.bs,{filters:'Filteri'});
+Object.assign(UI.hr,{filters:'Filtri'});
+Object.assign(UI.sr,{filters:'Filteri'});
+Object.assign(UI.de,{filters:'Filter'});
+Object.assign(UI.es,{filters:'Filtros'});
+Object.assign(UI.fr,{filters:'Filtres'});
 
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
