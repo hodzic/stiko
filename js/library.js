@@ -43,7 +43,7 @@ export function mountLibrary(root,lib,pick=null){
   let moreOpen=MORE.some(g=>sel[g].size);
   root.innerHTML=`<section class="lib">
     ${pick?`<div class="pickbar"><span id="pickTxt"></span><a class="btn primary" href="${editHref}" data-i18n="done"></a></div>`:''}
-    <div class="lib-head"><h2 data-i18n="exercises"></h2><span class="sub" id="count"></span></div>
+    <div class="lib-head"><h2 data-i18n="exercises"></h2></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
       <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label>
       <label class="toggle" id="favWrap"><input type="checkbox" id="favOnly"> ★ <span data-i18n="favOnly"></span></label>
@@ -94,7 +94,7 @@ export function mountLibrary(root,lib,pick=null){
     const fav=new Set(F.list('ex'));
     const how=store.load('searchHow',false);
     const list=search(exs.filter(ex=>matches(ex)&&(!fitOnly||ex.blocks.includes(pick.block))&&(!favOnly||fav.has(ex.id))),ex=>exerciseFields(ex,how),query);
-    $('count').textContent=U('count')(list.length); box.result(U('count')(list.length));
+    box.result(U('count')(list.length));
     $('cards').innerHTML=list.length?list.map(card).join(''):`<li class="empty">${esc(U('empty'))}</li>`;
   }
   function render(){

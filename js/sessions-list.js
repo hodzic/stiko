@@ -45,10 +45,9 @@ export function mountSessions(root,lib){
     $('favWrap').hidden=!favIds.size; $('favOnly').checked=favOnly;
     const opts=sports.length?['none',...sports]:[];
     const picked=sportPick().filter(v=>opts.includes(v));
-    $('fbox').hidden=!opts.length;
     const label=v=>v==='none'?U('noSport'):tagLabel('sport',v);
-    box.body.innerHTML=`<div class="fgroup" role="group" aria-label="${esc(U('g_sport'))}"><span class="flabel">${esc(U('g_sport'))}</span>`+
-      opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>'+
+    box.body.innerHTML=`<p class="fhint">${esc(U('filterHint'))}</p>`+(opts.length?`<div class="fgroup" role="group" aria-label="${esc(U('g_sport'))}"><span class="flabel">${esc(U('g_sport'))}</span>`+
+      opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>':'')+
       (picked.length?`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`:'');
     box.summary(U('filters'),picked.map(label));
     const how=store.load('searchHow',false);
