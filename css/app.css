@@ -270,7 +270,7 @@ div.card{cursor:pointer}
 .filterbox[open]>summary::before{transform:rotate(90deg)}
 .filterbox .fcount:not(:empty){min-width:1.4em;padding:2px 6px;border-radius:999px;background:var(--accent);color:var(--bg);font-size:.8rem;text-align:center;box-sizing:border-box}
 .filterbox .factive{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
-.filterbox[open] .factive,.filterbox:not([open]) .fresult,.filterbox[open] .fcount{display:none}
-.filterbox .fresult{flex:1;text-align:right;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
+.filterbox[open] .factive,.filterbox[open] .fcount{display:none}
+.filterbox .fresult{flex:none;margin-left:auto;padding-left:6px;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
 .fhint{margin:0;font-size:.8rem;color:var(--ink-soft)}
 .filterbox>.filters{margin:8px 0 0}
