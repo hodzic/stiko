@@ -92,7 +92,7 @@ export function mountLibrary(root,lib,pick=null){
     const fav=new Set(F.list('ex'));
     const how=store.load('searchHow',false);
     const list=search(exs.filter(ex=>matches(ex)&&(!fitOnly||ex.blocks.includes(pick.block))&&(!favOnly||fav.has(ex.id))),ex=>exerciseFields(ex,how),query);
-    box.result(U('count')(list.length));
+    box.result(U(list.length===exs.length&&list.length>1?'countAll':'count')(list.length));
     $('cards').innerHTML=list.length?list.map(card).join(''):`<li class="empty">${esc(U('empty'))}</li>`;
   }
   function render(){

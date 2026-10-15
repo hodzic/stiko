@@ -51,7 +51,7 @@ export function mountSessions(root,lib){
     const how=store.load('searchHow',false);
     // Search keeps the user's order, so the move arrows still make sense.
     const list=search(all.filter(s=>(!picked.length||picked.includes(s.sport||'none'))&&(!favOnly||favIds.has(s.id))),s=>sessionFields(s,byId,how),query,true);
-    box.result(U('sessCount')(list.length));
+    box.result(U(list.length===all.length&&list.length>1?'sessCountAll':'sessCount')(list.length));
     $('q').placeholder=U('searchSessions'); $('q').setAttribute('aria-label',U('searchSessions'));
     if(!list.length){ $('list').innerHTML=`<li class="empty">${esc(U(all.length?'noSessionMatch':'noSessions'))}</li>`; return; }
     $('list').innerHTML=list.map((s,k)=>{
