@@ -16,4 +16,3 @@ export const drop=(kind,id)=>{ if(has(kind,id)) toggle(kind,id); };
 // Star toggle; data-fav carries the id. inline: in a row of buttons rather than in a card's corner.
 export const starHTML=(kind,id,inline=false)=>{ const on=has(kind,id);
   return `<button class="fav${inline?' inline':''}" data-fav="${esc(id)}" aria-pressed="${on}" aria-label="${esc(U(on?'removeFav':'addFav'))}" title="${esc(U(on?'removeFav':'addFav'))}">${on?'★':'☆'}</button>`; };
-export const chipHTML=on=>`<button class="chip fav-chip" id="favChip" aria-pressed="${on}">★ ${esc(U('favorites'))}</button>`;
