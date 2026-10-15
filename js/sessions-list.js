@@ -3,7 +3,7 @@ import {U, esc, getLang, tagLabel} from './i18n.js';
 import {SPORTS} from './vocab.js';
 import * as store from './store.js';
 import * as S from './sessions.js';
-import {toast, saveJSON, filterBox} from './ui.js';
+import {toast, saveJSON, filterBox, switchesHTML} from './ui.js';
 import * as F from './favs.js';
 import {search, sessionFields} from './search.js';
 import {shareSession} from './share.js';
@@ -17,8 +17,7 @@ export function mountSessions(root,lib){
   root.innerHTML=`<section>
     <div class="lib-head"><h2 data-i18n="sessions"></h2><button class="btn primary" id="newBtn" data-i18n="newSession"></button></div>
     <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
-      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label>
-      <label class="toggle" id="favWrap"><input type="checkbox" id="favOnly"> ★ <span data-i18n="favOnly"></span></label></div>
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
     <details class="filterbox" id="fbox"></details>
     <ul class="cards" id="list"></ul>
     <div class="backup">
@@ -38,18 +37,17 @@ export function mountSessions(root,lib){
     const all=S.loadAll();
     $('exportBtn').disabled=!all.length;
     // Sport filter: general fitness and sports, any of them (OR'ed); none picked shows every session.
-    // Favourites only is a switch beside the search: it always narrows.
+    // Favourites only is a switch above the sport row: it always narrows.
     const sports=SPORTS.filter(sp=>all.some(s=>s.sport===sp));
     const favIds=new Set(F.list('session').filter(id=>all.some(s=>s.id===id)));
     const favOnly=store.load('sessionFavOnly',false)&&favIds.size>0;
-    $('favWrap').hidden=!favIds.size; $('favOnly').checked=favOnly;
     const opts=sports.length?['none',...sports]:[];
     const picked=sportPick().filter(v=>opts.includes(v));
     const label=v=>v==='none'?U('noSport'):tagLabel('sport',v);
-    box.body.innerHTML=`<p class="fhint">${esc(U('filterHint'))}</p>`+(opts.length?`<div class="fgroup" role="group" aria-label="${esc(U('g_sport'))}"><span class="flabel">${esc(U('g_sport'))}</span>`+
+    box.body.innerHTML=`<p class="fhint">${esc(U('filterHint'))}</p>`+switchesHTML([favIds.size&&['favOnly',favOnly,'★ '+U('favOnly')]])+(opts.length?`<div class="fgroup" role="group" aria-label="${esc(U('g_sport'))}"><span class="flabel">${esc(U('g_sport'))}</span>`+
       opts.map(v=>`<button class="chip" data-sport="${v}" aria-pressed="${picked.includes(v)}">${esc(label(v))}</button>`).join('')+'</div>':'')+
       (picked.length?`<button class="clear" id="clearBtn">${esc(U('clear'))}</button>`:'');
-    box.summary(U('filters'),picked.map(label));
+    box.summary(U('filters'),[...(favOnly?['★ '+U('favOnly')]:[]),...picked.map(label)]);
     const how=store.load('searchHow',false);
     // Search keeps the user's order, so the move arrows still make sense.
     const list=search(all.filter(s=>(!picked.length||picked.includes(s.sport||'none'))&&(!favOnly||favIds.has(s.id))),s=>sessionFields(s,byId,how),query,true);
@@ -88,7 +86,7 @@ export function mountSessions(root,lib){
     store.save('sessionSport',cur.includes(v)?cur.filter(x=>x!==v):[...cur,v]);
     render();
   });
-  $('favOnly').addEventListener('change',e=>{ store.save('sessionFavOnly',e.target.checked); render(); });
+  box.body.addEventListener('change',e=>{ if(e.target.id!=='favOnly') return; store.save('sessionFavOnly',e.target.checked); render(); $('favOnly')?.focus(); });
   $('newBtn').onclick=()=>{ const s=S.create(U('newSession')); location.hash=`#/sessions/${encodeURIComponent(s.id)}`; };
   // Close an open ⋯ menu when tapping anywhere else.
   const closeMenus=e=>root.querySelectorAll('details.menu[open]').forEach(d=>{ if(!d.contains(e.target)) d.open=false; });
