@@ -272,7 +272,5 @@ div.card{cursor:pointer}
 .filterbox .factive{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
 .filterbox[open] .factive,.filterbox[open] .fcount{display:none}
 .filterbox .fresult{flex:none;margin-left:auto;padding-left:6px;font:400 .85rem/1.2 system-ui,sans-serif;color:var(--ink-soft)}
-.fswitch{display:flex;flex-wrap:wrap;gap:6px 16px}
-.fswitch .toggle{margin-left:0;font-size:.9rem;color:var(--ink)}
 .fhint{margin:0;font-size:.8rem;color:var(--ink-soft)}
 .filterbox>.filters{margin:8px 0 0}
