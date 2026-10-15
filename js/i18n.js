@@ -657,6 +657,13 @@ Object.assign(UI.es,{filterHint:'Misma fila: cualquiera. Filas distintas: todas 
 UI.es.how.splice(3,0,'Los **filtros** y la **búsqueda** acotan la lista. En una misma fila de filtros, elegir más muestra más (Sentadilla o Bisagra de cadera). Lo elegido en filas distintas debe cumplirse a la vez (Sentadilla y Tren inferior). **★ Favoritos** y el buscador siempre acotan aún más. Toca **Quitar filtros** para empezar de nuevo.');
 Object.assign(UI.fr,{filterHint:'Même ligne : l’un ou l’autre. Lignes différentes : tous à la fois.', sessCount:n=>`${n} séance${n>1?'s':''}`});
 UI.fr.how.splice(3,0,'Les **filtres** et la **recherche** réduisent la liste. Dans une même ligne de filtres, choisir plus en montre plus (Squat ou Charnière de hanche). Les choix de lignes différentes doivent tous correspondre (Squat et Bas du corps). **★ Favoris** et la recherche réduisent toujours davantage. Touche **Effacer les filtres** pour recommencer.');
+Object.assign(UI.en,{countAll:n=>`all ${n} exercises`, sessCountAll:n=>`all ${n} sessions`});
+Object.assign(UI.bs,{countAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sve':'svih'} ${n} ${few?'vježbe':'vježbi'}`;}, sessCountAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sva':'svih'} ${n} treninga`;}});
+Object.assign(UI.hr,{countAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sve':'svih'} ${n} ${few?'vježbe':'vježbi'}`;}, sessCountAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sva':'svih'} ${n} treninga`;}});
+Object.assign(UI.sr,{countAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sve':'svih'} ${n} ${few?'vežbe':'vežbi'}`;}, sessCountAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>14); return `${few?'sva':'svih'} ${n} treninga`;}});
+Object.assign(UI.de,{countAll:n=>`alle ${n} Übungen`, sessCountAll:n=>`alle ${n} Trainings`});
+Object.assign(UI.es,{countAll:n=>`todos los ${n} ejercicios`, sessCountAll:n=>`todas las ${n} sesiones`});
+Object.assign(UI.fr,{countAll:n=>`tous les ${n} exercices`, sessCountAll:n=>`toutes les ${n} séances`});
 
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
