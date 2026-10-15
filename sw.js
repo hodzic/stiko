@@ -1,10 +1,10 @@
 // Offline support: precache the app shell, then serve from cache and refresh in the background.
 // Bump VERSION whenever the file list changes.
-const VERSION='stiko-v48';
+const VERSION='stiko-v49';
 const ASSETS=[
   '/stiko/','/stiko/index.html','/stiko/manifest.webmanifest','/stiko/css/app.css',
   '/stiko/js/app.js','/stiko/js/rig.js','/stiko/js/rig3.js','/stiko/js/i18n.js','/stiko/js/store.js','/stiko/js/vocab.js','/stiko/js/audio.js','/stiko/js/library.js','/stiko/js/player.js',
-  '/stiko/js/sessions.js','/stiko/js/sessions-list.js','/stiko/js/editor.js','/stiko/js/ui.js','/stiko/js/cues.js','/stiko/js/about.js','/stiko/js/favs.js','/stiko/js/voice-settings.js','/stiko/js/share.js',
+  '/stiko/js/sessions.js','/stiko/js/sessions-list.js','/stiko/js/editor.js','/stiko/js/ui.js','/stiko/js/cues.js','/stiko/js/about.js','/stiko/js/favs.js','/stiko/js/voice-settings.js','/stiko/js/share.js','/stiko/js/search.js',
   '/stiko/data/library.json','/stiko/data/starters.json','/stiko/icons/icon.svg','/stiko/icons/icon-192.png','/stiko/icons/apple-touch-icon.png',
 ];
 const FONT_HOSTS=['fonts.googleapis.com','fonts.gstatic.com'];

@@ -6,13 +6,15 @@ import {VOCAB, tagsOf, equipmentOf} from './vocab.js';
 import * as S from './sessions.js';
 import {toast} from './ui.js';
 import * as F from './favs.js';
+import * as store from './store.js';
+import {search, exerciseFields} from './search.js';
 
 const MAIN=['discipline','family','component','region'];
 const MORE=['muscle','position','equipment','plane','laterality','level'];
 const GROUPS=[...MAIN,...MORE];
 // Filter state survives navigation to the player and back. Values are kept as strings (level is numeric).
 const sel=Object.fromEntries(GROUPS.map(g=>[g,new Set()]));
-let favOnly=false;
+let favOnly=false, query='';  // query: search text, kept like the filters
 const thumbs=new Map();
 // Thumbnails crop to the figure with the floor at the bottom, in one of three zooms of the same shape: the
 // smallest box the still fits (floor work, standing, then raised on a step, arms overhead or hanging).
@@ -42,6 +44,8 @@ export function mountLibrary(root,lib,pick=null){
   root.innerHTML=`<section class="lib">
     ${pick?`<div class="pickbar"><span id="pickTxt"></span><a class="btn primary" href="${editHref}" data-i18n="done"></a></div>`:''}
     <div class="lib-head"><h2 data-i18n="exercises"></h2><span class="sub" id="count"></span></div>
+    <div class="search"><input type="search" id="q" autocomplete="off" enterkeyhint="search">
+      <label class="toggle"><input type="checkbox" id="qHow"> <span data-i18n="searchHow"></span></label></div>
     <div class="filters" id="filters"></div>
     <ul class="cards" id="cards"></ul>
     <p class="note" data-i18n="disclaimer"></p>
@@ -83,13 +87,15 @@ export function mountLibrary(root,lib,pick=null){
   }
   function renderCards(){
     const fav=new Set(F.list('ex'));
-    const list=exs.filter(ex=>matches(ex)&&(!fitOnly||ex.blocks.includes(pick.block))&&(!favOnly||fav.has(ex.id)));
+    const how=store.load('searchHow',false);
+    const list=search(exs.filter(ex=>matches(ex)&&(!fitOnly||ex.blocks.includes(pick.block))&&(!favOnly||fav.has(ex.id))),ex=>exerciseFields(ex,how),query);
     $('count').textContent=U('count')(list.length);
     $('cards').innerHTML=list.length?list.map(card).join(''):`<li class="empty">${esc(U('empty'))}</li>`;
   }
   function render(){
     root.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=U(el.dataset.i18n));
     document.title=`${U('exercises')} · Stiko`;
+    $('q').placeholder=U('searchEx'); $('q').setAttribute('aria-label',U('searchEx'));
     if(pick) $('pickTxt').textContent=`${U('addingTo')(tagLabel('block',pick.block))} · ${S.get(pick.sessionId)?S.nameOf(S.get(pick.sessionId),getLang()):''}`;
     renderFilters(); renderCards();
   }
@@ -117,6 +123,9 @@ export function mountLibrary(root,lib,pick=null){
     renderCards(); root.querySelector(`button[data-fav="${CSS.escape(id)}"]`)?.focus();
   });
   if(pick) $('cards').addEventListener('keydown',e=>{ if(!e.target.closest('.fav')&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); add(e); } });
+  $('q').value=query; $('qHow').checked=store.load('searchHow',false);
+  $('q').addEventListener('input',e=>{ query=e.target.value; renderCards(); });
+  $('qHow').addEventListener('change',e=>{ store.save('searchHow',e.target.checked); renderCards(); });
   render();
   return {relang:render, destroy(){}};
 }
