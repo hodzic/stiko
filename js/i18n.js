@@ -689,3 +689,12 @@ export const doseText=(d,laterality)=>{
   return d.mode==='reps'?U('doseReps')(d.sets,d.reps,d.rest,ps):d.mode==='hold'?U('doseHold')(d.sets,d.hold,d.rest,ps):U('doseTime')(d.sets,d.time,d.rest);
 };
 export const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Links to the author's other apps, on the About page.
+Object.assign(UI.en,{otherApps:'Other apps', allApps:'All apps'});
+Object.assign(UI.bs,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
+Object.assign(UI.hr,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
+Object.assign(UI.sr,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
+Object.assign(UI.de,{otherApps:'Weitere Apps', allApps:'Alle Apps'});
+Object.assign(UI.es,{otherApps:'Otras apps', allApps:'Todas las apps'});
+Object.assign(UI.fr,{otherApps:'Autres applis', allApps:'Toutes les applis'});

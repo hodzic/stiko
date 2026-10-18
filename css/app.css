@@ -54,6 +54,7 @@ button:focus-visible,input:focus-visible,a:focus-visible,.stage:focus-visible{ou
 .about .safety{margin-top:18px;background:var(--surface);border:2px solid var(--band);border-radius:18px;padding:2px 16px 14px}
 .about .safety h3{margin-top:14px}
 .about .go{margin-top:24px;display:block;text-align:center}
+.about .apps{margin:22px 0 0;color:var(--ink-soft);font-size:.95rem}
 .seg{display:flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
 .seg button{border:0;background:none;color:var(--ink);padding:8px 12px;font:500 .9rem/1 system-ui,sans-serif;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--line)}

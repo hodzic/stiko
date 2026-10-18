@@ -18,6 +18,7 @@ export function mountAbout(root){
       </div>
       <h3>${esc(U('howTitle'))}</h3>
       <ul class="how">${U('how').map(x=>`<li>${md(x)}</li>`).join('')}</ul>
+      <p class="apps">${esc(U('otherApps'))}: <a href="/outback/">Outback</a> · <a href="/photo-splitter/">Panorama Splitter</a> · <a href="/">${esc(U('allApps'))}</a></p>
       <a class="btn primary go" href="#/sessions" id="goBtn">${esc(U(first?'getStarted':'aboutBack'))}</a>
     </section>`;
     root.querySelector('#goBtn').onclick=()=>store.save('welcomed',true);
