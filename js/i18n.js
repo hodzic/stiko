@@ -690,11 +690,11 @@ export const doseText=(d,laterality)=>{
 };
 export const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// Links to the author's other apps, on the About page.
-Object.assign(UI.en,{otherApps:'Other apps', allApps:'All apps'});
-Object.assign(UI.bs,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
-Object.assign(UI.hr,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
-Object.assign(UI.sr,{otherApps:'Druge aplikacije', allApps:'Sve aplikacije'});
-Object.assign(UI.de,{otherApps:'Weitere Apps', allApps:'Alle Apps'});
-Object.assign(UI.es,{otherApps:'Otras apps', allApps:'Todas las apps'});
-Object.assign(UI.fr,{otherApps:'Autres applis', allApps:'Toutes les applis'});
+// Link to the hub page with the author's other apps, on the About page.
+Object.assign(UI.en,{allApps:'All apps'});
+Object.assign(UI.bs,{allApps:'Sve aplikacije'});
+Object.assign(UI.hr,{allApps:'Sve aplikacije'});
+Object.assign(UI.sr,{allApps:'Sve aplikacije'});
+Object.assign(UI.de,{allApps:'Alle Apps'});
+Object.assign(UI.es,{allApps:'Todas las apps'});
+Object.assign(UI.fr,{allApps:'Toutes les applis'});
