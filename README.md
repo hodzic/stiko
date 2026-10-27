@@ -37,7 +37,7 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `data/library.json` | Exercise library |
 | `data/starters.json` | Starter sessions, offered once per device (same format as an export) |
 | `tools/` | `sheet.mjs` pose review sheets, `format-library.mjs` library formatter |
-| `sw.js`, `manifest.webmanifest`, `icons/` | PWA. Bump `VERSION` in `sw.js` when the asset list changes |
+| `sw.js`, `manifest.webmanifest`, `icons/` | PWA. Run `npm run bump` for each release: the version is the date (US Pacific) plus a letter per release that day, e.g. `2026-10-27a`, in `js/version.js` and the cache name in `sw.js`. Updates download in the background; a toast, or *Check for updates* on the About page, switches to them |
 
 ## Adding an exercise
 

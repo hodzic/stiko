@@ -479,6 +479,7 @@ Object.assign(UI.en,{
     'For balance exercises, keep a sturdy chair, counter or wall within reach.',
     'You exercise at your own risk and are responsible for staying within your limits.'],
   getStarted:'Got it, let’s start', aboutBack:'Back to sessions',
+  updateReady:'Update available. Tap to reload.', version:'Version', checkUpdates:'Check for updates', checking:'Checking…', upToDate:'Up to date.', updateNow:'Update now', checkFailed:'Couldn’t check (offline?).',
 });
 Object.assign(UI.bs,{
   help:'Kako koristiti Stika i sigurnost',
@@ -499,6 +500,7 @@ Object.assign(UI.bs,{
     'Kod vježbi ravnoteže drži čvrstu stolicu, pult ili zid nadohvat ruke.',
     'Vježbaš na vlastitu odgovornost i na tebi je da ostaneš u svojim granicama.'],
   getStarted:'Razumijem, krenimo', aboutBack:'Nazad na treninge',
+  updateReady:'Dostupna je nova verzija. Dodirni za ponovno učitavanje.', version:'Verzija', checkUpdates:'Provjeri ažuriranja', checking:'Provjeravam…', upToDate:'Imaš najnoviju verziju.', updateNow:'Ažuriraj sada', checkFailed:'Provjera nije uspjela (nisi na mreži?).',
 });
 Object.assign(UI.hr,{
   help:'Kako koristiti Stika i sigurnost',
@@ -519,6 +521,7 @@ Object.assign(UI.hr,{
     'Kod vježbi ravnoteže drži čvrstu stolicu, radnu plohu ili zid nadohvat ruke.',
     'Vježbaš na vlastitu odgovornost i na tebi je da ostaneš u svojim granicama.'],
   getStarted:'Razumijem, krenimo', aboutBack:'Natrag na treninge',
+  updateReady:'Dostupna je nova verzija. Dodirni za ponovno učitavanje.', version:'Verzija', checkUpdates:'Provjeri ažuriranja', checking:'Provjeravam…', upToDate:'Imaš najnoviju verziju.', updateNow:'Ažuriraj sada', checkFailed:'Provjera nije uspjela (nisi na mreži?).',
 });
 Object.assign(UI.sr,{
   help:'Kako koristiti Stika i bezbednost',
@@ -539,6 +542,7 @@ Object.assign(UI.sr,{
     'Kod vežbi ravnoteže drži čvrstu stolicu, pult ili zid nadohvat ruke.',
     'Vežbaš na sopstvenu odgovornost i na tebi je da ostaneš u svojim granicama.'],
   getStarted:'Razumem, krenimo', aboutBack:'Nazad na treninge',
+  updateReady:'Dostupna je nova verzija. Dodirni za ponovno učitavanje.', version:'Verzija', checkUpdates:'Proveri ažuriranja', checking:'Proveravam…', upToDate:'Imaš najnoviju verziju.', updateNow:'Ažuriraj sada', checkFailed:'Provera nije uspela (nisi na mreži?).',
 });
 Object.assign(UI.fr,{
   help:'Mode d’emploi de Stiko et sécurité',
@@ -559,6 +563,7 @@ Object.assign(UI.fr,{
     'Pour les exercices d’équilibre, garde une chaise solide, un plan de travail ou un mur à portée de main.',
     'Tu fais de l’exercice sous ta propre responsabilité et c’est à toi de rester dans tes limites.'],
   getStarted:'Compris, on commence', aboutBack:'Retour aux séances',
+  updateReady:'Mise à jour disponible. Touche pour recharger.', version:'Version', checkUpdates:'Rechercher des mises à jour', checking:'Recherche…', upToDate:'Tu as la dernière version.', updateNow:'Mettre à jour', checkFailed:'Vérification impossible (hors ligne ?).',
 });
 Object.assign(UI.de,{
   help:'Anleitung und Sicherheitshinweise',
@@ -579,6 +584,7 @@ Object.assign(UI.de,{
     'Halte bei Gleichgewichtsübungen einen stabilen Stuhl, eine Arbeitsplatte oder eine Wand in Reichweite.',
     'Du trainierst auf eigene Verantwortung und achtest selbst darauf, innerhalb deiner Grenzen zu bleiben.'],
   getStarted:'Verstanden, los geht’s', aboutBack:'Zurück zu den Trainings',
+  updateReady:'Update verfügbar. Tippe zum Neuladen.', version:'Version', checkUpdates:'Nach Updates suchen', checking:'Suche…', upToDate:'Du hast die neueste Version.', updateNow:'Jetzt aktualisieren', checkFailed:'Prüfung nicht möglich (offline?).',
 });
 Object.assign(UI.es,{
   help:'Cómo usar Stiko y seguridad',
@@ -599,6 +605,7 @@ Object.assign(UI.es,{
     'En los ejercicios de equilibrio, ten a mano una silla firme, una encimera o una pared.',
     'Haces ejercicio bajo tu propia responsabilidad y te toca mantenerte dentro de tus límites.'],
   getStarted:'Entendido, empecemos', aboutBack:'Volver a sesiones',
+  updateReady:'Actualización disponible. Toca para recargar.', version:'Versión', checkUpdates:'Buscar actualizaciones', checking:'Buscando…', upToDate:'Tienes la versión más reciente.', updateNow:'Actualizar ahora', checkFailed:'No se pudo comprobar (¿sin conexión?).',
 });
 
 // Favourites.

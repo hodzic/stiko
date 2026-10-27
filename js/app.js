@@ -1,4 +1,5 @@
 // App shell: loads the library, routes between screens, handles language and the service worker.
+import {registerUpdates} from './updates.js';
 import {U, getLang, setLang, LANGS, LANG_NAMES} from './i18n.js';
 import {mountLibrary} from './library.js';
 import {mountPlayer} from './player.js';
@@ -105,11 +106,4 @@ async function start(){
 }
 start();
 
-if('serviceWorker' in navigator){
-  // When an updated version takes over, reload once so the new code runs now rather than on the next visit.
-  // (No reload on the very first install, when there was no previous version.)
-  const hadController=!!navigator.serviceWorker.controller;
-  let reloaded=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(hadController&&!reloaded){ reloaded=true; location.reload(); } });
-  navigator.serviceWorker.register('/stiko/sw.js').catch(()=>{});
-}
+registerUpdates();
