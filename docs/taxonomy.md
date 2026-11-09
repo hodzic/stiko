@@ -20,6 +20,7 @@ trainers and physical therapists, while the app itself stays a general-fitness t
 | Routine fit | `blocks` | warmup, main, cooldown | Which part of the three-part routine it suits |
 | Equipment | `equipment` | band, dumbbell, mat, chair, wall, step, bar (doorway pull-up bar; empty = none) | |
 | Discipline | `discipline` (optional) | yoga, tai-chi (tai chi and qigong), boxing | Style the exercise belongs to; shown as a filter |
+| Good for | `focus` (optional list) | lower-back | Common problems an exercise is chosen for: gentle stretching, easing and strengthening that suits them. Shown as the first filter and in the Kinesiology panel. Not a treatment claim; the About screen's safety advice applies |
 | Level | `level`, `easier`, `harder` | 1–3, with links to a regression and a progression | Progression/regression chains |
 
 ## Movement patterns

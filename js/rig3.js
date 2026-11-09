@@ -20,7 +20,8 @@
 import {FLOOR, L, shift, getPt} from './rig.js';
 
 export const QUARTER_YAW=35;   // default facing: 35° from the side view toward the viewer
-const PITCH=20;                // the camera looks down slightly, so the floor plane reads
+const PITCH=20;                // the camera looks down slightly, so the floor plane reads (spec.pitch overrides it)
+let pitch=PITCH;               // the pitch of the exercise being solved or drawn
 const HIP_W=8, SH_W=14;  // broader than the front view so turns of the hips and shoulders read
 const hipH=()=>L.thigh+L.shin-2;  // a function: rig.js and this module import each other
 export const LEN_KEYS=new Set(['drop','fwd','sway','lift','slide','reach','af','aw','ay','px','pw','py']);
@@ -57,8 +58,8 @@ function twoBone3(root,target,l1,l2,pole){
   return [mid,add(root,mul(a,d))];
 }
 
-const proj=P=>{ const c=Math.cos(rad(PITCH)), s=Math.sin(rad(PITCH)); return [P[0],FLOOR-(P[1]*c-P[2]*s)]; };
-export const depthOf=P=>P[1]*Math.sin(rad(PITCH))+P[2]*Math.cos(rad(PITCH));
+const proj=P=>{ const c=Math.cos(rad(pitch)), s=Math.sin(rad(pitch)); return [P[0],FLOOR-(P[1]*c-P[2]*s)]; };
+export const depthOf=P=>P[1]*Math.sin(rad(pitch))+P[2]*Math.cos(rad(pitch));
 
 function world(spec,p){
   const n=k=>p[k]||0, side=(s,k,d=0)=>p[k+'_'+s]??p[k]??d;
@@ -103,10 +104,11 @@ function world(spec,p){
 // Same shape as the flat views (2D screen points per joint, l/r limbs) so props, pins and blending work unchanged;
 // J.w keeps the 3D points for depth sorting and the head.
 export function solveQuarter(spec,p){
+  pitch=spec.pitch??PITCH;
   const W=world(spec,p), pr=o=>{ const r={}; for(const k in o) r[k]=proj(o[k]); return r; };
   const {N,...pts}=W;
   // The far side is fixed per exercise (from its base facing), so limbs don't swap shade as the body turns.
-  const J={view:'quarter',far:Math.cos(rad(spec.yaw??QUARTER_YAW))>=0?'l':'r',hip:proj(W.hip),mid:proj(W.mid),sh:proj(W.sh),nk:proj(W.nk),hc:proj(W.hc),
+  const J={view:'quarter',pitch,far:Math.cos(rad(spec.yaw??QUARTER_YAW))>=0?'l':'r',hip:proj(W.hip),mid:proj(W.mid),sh:proj(W.sh),nk:proj(W.nk),hc:proj(W.hc),
     l:pr(W.l),r:pr(W.r),w:{...pts,N}};
   // Pin a joint, or a spot on the floor ({floor:[forward, out]}): with the camera looking down, contacts nearer the
   // viewer sit lower on screen, so floor work pins the nearest contact's spot.
@@ -165,6 +167,7 @@ function headQ(J,face,blink){
 // Draws the figure back to front: every bone is sorted by its depth, the head by its centre's.
 // The side turned away from the viewer is drawn light, as in the side view.
 export function figureQuarterSVG(J,face,opt,{backProps,dumbbells,bands}){
+  pitch=J.pitch??PITCH;
   const W=J.w, D=depthOf, far=J.far;
   let s=opt.floorWork?`<path class="mat" d="${J.matPts.map((q,i)=>(i?'L':'M')+f1(q.x)+' '+f1(q.y)).join(' ')}Z"/>`
     :`<ellipse class="shadow" cx="${f1((J.l.an[0]+J.r.an[0])/2)}" cy="${FLOOR+3}" rx="38" ry="6"/>`;

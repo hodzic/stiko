@@ -78,6 +78,7 @@ function kinHTML(ex){
   const list=(g,vals)=>vals.map(v=>tagLabel(g,v)).join(', ');
   const rows=[
     ['g_pattern', ex.pattern?[...new Set([tagLabel('family',familyOf(ex.pattern)),tagLabel('pattern',ex.pattern)])].join(' · '):''],
+    ['g_focus', list('focus',ex.focus||[])],
     ['g_discipline', ex.discipline?tagLabel('discipline',ex.discipline):''],
     ['g_component', tagLabel('component',ex.component)],
     ['g_region', tagLabel('region',regionOf(ex))],

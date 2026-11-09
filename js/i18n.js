@@ -319,7 +319,7 @@ UI.es={exercises:'Ejercicios', back:'Todos los ejercicios', clear:'Quitar filtro
 
 // Sessions, editor and session player.
 Object.assign(UI.en,{
-  g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai chi & qigong',boxing:'Boxing'},
+  g_focus:'Good for', focus:{'lower-back':'Lower back'}, g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai chi & qigong',boxing:'Boxing'},
   g_sport:'Sport', noSport:'General fitness',
   sport:{'alpine-skiing':'Alpine skiing',hiking:'Hiking','road-cycling':'Road cycling','mountain-biking':'Mountain biking',swimming:'Swimming',kayaking:'Kayaking'},
   sessions:'Sessions', newSession:'New session', more:'More actions', start:'Start', edit:'Edit', duplicate:'Duplicate', del:'Delete',
@@ -338,7 +338,7 @@ Object.assign(UI.en,{
   exOf:(a,b)=>`Exercise ${a} of ${b}`, nextUp:x=>`Next: ${x}`, prevEx:'Previous exercise', skipEx:'Skip exercise', allDone:'Session complete',
 });
 Object.assign(UI.bs,{
-  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
+  g_focus:'Korisno za', focus:{'lower-back':'Donji dio leđa'}, g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
   g_sport:'Sport', noSport:'Opća kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliciraj', del:'Obriši',
@@ -357,7 +357,7 @@ Object.assign(UI.bs,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.fr,{
-  g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai-chi et qi gong',boxing:'Boxe'},
+  g_focus:'Bon pour', focus:{'lower-back':'Bas du dos'}, g_discipline:'Style', discipline:{yoga:'Yoga','tai-chi':'Tai-chi et qi gong',boxing:'Boxe'},
   g_sport:'Sport', noSport:'Forme générale',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Randonnée','road-cycling':'Vélo de route','mountain-biking':'VTT',swimming:'Natation',kayaking:'Kayak'},
   sessions:'Séances', newSession:'Nouvelle séance', more:'Plus d’actions', start:'Commencer', edit:'Modifier', duplicate:'Dupliquer', del:'Supprimer',
@@ -376,7 +376,7 @@ Object.assign(UI.fr,{
   exOf:(a,b)=>`Exercice ${a} sur ${b}`, nextUp:x=>`Ensuite : ${x}`, prevEx:'Exercice précédent', skipEx:'Passer l’exercice', allDone:'Séance terminée',
 });
 Object.assign(UI.de,{
-  g_discipline:'Stil', discipline:{yoga:'Yoga','tai-chi':'Tai-Chi & Qigong',boxing:'Boxen'},
+  g_focus:'Gut für', focus:{'lower-back':'Unterer Rücken'}, g_discipline:'Stil', discipline:{yoga:'Yoga','tai-chi':'Tai-Chi & Qigong',boxing:'Boxen'},
   g_sport:'Sportart', noSport:'Allgemeine Fitness',
   sport:{'alpine-skiing':'Ski alpin',hiking:'Wandern','road-cycling':'Rennrad','mountain-biking':'Mountainbike',swimming:'Schwimmen',kayaking:'Kajak'},
   sessions:'Trainings', newSession:'Neues Training', more:'Weitere Aktionen', start:'Starten', edit:'Bearbeiten', duplicate:'Duplizieren', del:'Löschen',
@@ -395,7 +395,7 @@ Object.assign(UI.de,{
   exOf:(a,b)=>`Übung ${a} von ${b}`, nextUp:x=>`Als Nächstes: ${x}`, prevEx:'Vorherige Übung', skipEx:'Übung überspringen', allDone:'Training abgeschlossen',
 });
 Object.assign(UI.hr,{
-  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
+  g_focus:'Korisno za', focus:{'lower-back':'Donji dio leđa'}, g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai chi i qigong',boxing:'Boks'},
   g_sport:'Sport', noSport:'Opća kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Cestovni biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Kopiraj', del:'Obriši',
@@ -414,7 +414,7 @@ Object.assign(UI.hr,{
   exOf:(a,b)=>`Vježba ${a} od ${b}`, nextUp:x=>`Sljedeće: ${x}`, prevEx:'Prethodna vježba', skipEx:'Preskoči vježbu', allDone:'Trening završen',
 });
 Object.assign(UI.sr,{
-  g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai či i ći gong',boxing:'Boks'},
+  g_focus:'Korisno za', focus:{'lower-back':'Donji deo leđa'}, g_discipline:'Stil', discipline:{yoga:'Joga','tai-chi':'Tai či i ći gong',boxing:'Boks'},
   g_sport:'Sport', noSport:'Opšta kondicija',
   sport:{'alpine-skiing':'Alpsko skijanje',hiking:'Planinarenje','road-cycling':'Drumski biciklizam','mountain-biking':'Brdski biciklizam',swimming:'Plivanje',kayaking:'Kajak'},
   sessions:'Treninzi', newSession:'Novi trening', more:'Više opcija', start:'Počni', edit:'Uredi', duplicate:'Dupliraj', del:'Obriši',
@@ -433,7 +433,7 @@ Object.assign(UI.sr,{
   exOf:(a,b)=>`Vežba ${a} od ${b}`, nextUp:x=>`Sledeće: ${x}`, prevEx:'Prethodna vežba', skipEx:'Preskoči vežbu', allDone:'Trening završen',
 });
 Object.assign(UI.es,{
-  g_discipline:'Estilo', discipline:{yoga:'Yoga','tai-chi':'Taichí y qigong',boxing:'Boxeo'},
+  g_focus:'Bueno para', focus:{'lower-back':'Zona lumbar'}, g_discipline:'Estilo', discipline:{yoga:'Yoga','tai-chi':'Taichí y qigong',boxing:'Boxeo'},
   g_sport:'Deporte', noSport:'Forma física general',
   sport:{'alpine-skiing':'Esquí alpino',hiking:'Senderismo','road-cycling':'Ciclismo de carretera','mountain-biking':'Ciclismo de montaña',swimming:'Natación',kayaking:'Kayak'},
   sessions:'Sesiones', newSession:'Nueva sesión', more:'Más acciones', start:'Empezar', edit:'Editar', duplicate:'Duplicar', del:'Eliminar',
@@ -671,6 +671,13 @@ Object.assign(UI.sr,{storageNote:'Treninzi, favoriti i podešavanja čuvaju se s
 Object.assign(UI.de,{storageNote:'Trainings, Favoriten und Einstellungen werden nur auf diesem Gerät gespeichert. Exportiere eine Sicherung, um sie zu behalten oder auf ein anderes Telefon zu übertragen; Importieren stellt sie wieder her. Zum Teilen öffne ein Training und tippe auf Teilen.', restoreConfirm:'Diese Sicherung wiederherstellen? Ihre Trainings, Favoriten und Einstellungen ersetzen die hier vorhandenen. Trainings auf diesem Gerät, die nicht in der Sicherung sind, bleiben erhalten.', restored:(n,d)=>`Sicherung wiederhergestellt: ${n} Training${n===1?'':'s'}.`+(d?` Unbekannte Übungen weggelassen: ${d}.`:'')});
 Object.assign(UI.es,{storageNote:'Las sesiones, los favoritos y los ajustes se guardan solo en este dispositivo. Exporta una copia para conservarlos o pasarlos a otro teléfono; Importar la restaura. Para compartir una sesión, ábrela y toca Compartir.', restoreConfirm:'¿Restaurar esta copia? Sus sesiones, favoritos y ajustes reemplazan a los de aquí. Las sesiones de este dispositivo que no están en la copia se conservan.', restored:(n,d)=>`Copia restaurada: ${n} sesi${n===1?'ón':'ones'}.`+(d?` Ejercicios desconocidos omitidos: ${d}.`:'')});
 Object.assign(UI.fr,{storageNote:'Les séances, favoris et réglages sont enregistrés uniquement sur cet appareil. Exporte une sauvegarde pour les conserver ou les transférer sur un autre téléphone ; Importer la restaure. Pour partager une séance, ouvre-la et touche Partager.', restoreConfirm:'Restaurer cette sauvegarde ? Ses séances, favoris et réglages remplacent ceux d’ici. Les séances de cet appareil absentes de la sauvegarde sont conservées.', restored:(n,d)=>`Sauvegarde restaurée : ${n} séance${n>1?'s':''}.`+(d?` Exercices inconnus ignorés : ${d}.`:'')});
+UI.en.safety.splice(4,0,'With back pain, move slowly and only within a comfortable range. See a doctor first, or stop and get help, if pain spreads down a leg or comes with numbness, weakness, fever, or trouble controlling your bladder or bowels.');
+UI.bs.safety.splice(4,0,'Kod bolova u leđima kreći se polako i samo u ugodnom opsegu. Prvo se javi ljekaru, ili prekini i potraži pomoć, ako se bol širi niz nogu ili je prati utrnulost, slabost, temperatura ili problem s kontrolom mokrenja ili stolice.');
+UI.hr.safety.splice(4,0,'Kod bolova u leđima kreći se polako i samo u ugodnom opsegu. Prvo se javi liječniku, ili prekini i potraži pomoć, ako se bol širi niz nogu ili je prati utrnulost, slabost, temperatura ili problem s kontrolom mokrenja ili stolice.');
+UI.sr.safety.splice(4,0,'Kod bolova u leđima kreći se polako i samo u prijatnom opsegu. Prvo se javi lekaru, ili prekini i potraži pomoć, ako se bol širi niz nogu ili je prati utrnulost, slabost, temperatura ili problem sa kontrolom mokrenja ili stolice.');
+UI.de.safety.splice(4,0,'Bei Rückenschmerzen beweg dich langsam und nur im angenehmen Bereich. Geh zuerst zum Arzt, oder hör auf und hol Hilfe, wenn der Schmerz ins Bein ausstrahlt oder mit Taubheit, Schwäche, Fieber oder Problemen bei der Blasen- oder Darmkontrolle einhergeht.');
+UI.es.safety.splice(4,0,'Con dolor de espalda, muévete despacio y solo dentro de un rango cómodo. Consulta antes a un médico, o para y pide ayuda, si el dolor baja por una pierna o va acompañado de entumecimiento, debilidad, fiebre o problemas para controlar la vejiga o el intestino.');
+UI.fr.safety.splice(4,0,'En cas de mal de dos, bouge lentement et seulement dans une amplitude confortable. Consulte d’abord un médecin, ou arrête et demande de l’aide, si la douleur descend dans une jambe ou s’accompagne d’engourdissement, de faiblesse, de fièvre ou de troubles du contrôle de la vessie ou des intestins.');
 
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
