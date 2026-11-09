@@ -7,6 +7,7 @@ import {toast, saveJSON, filterBox, togglesHTML} from './ui.js';
 import * as F from './favs.js';
 import {search, sessionFields} from './search.js';
 import {shareSession} from './share.js';
+import * as B from './backup.js';
 
 let query='';  // search text, kept while moving between screens
 // Selected sport filters; older versions stored a single value, 'all' meaning none.
@@ -109,10 +110,25 @@ export function mountSessions(root,lib){
     else if(b.dataset.act==='del'&&confirm(U('confirmDelete')(name))){ S.remove(id); F.drop('session',id); }
     render();
   });
-  $('exportBtn').onclick=()=>saveJSON(`stiko-sessions-${new Date().toISOString().slice(0,10)}.json`,S.exportPayload(S.loadAll()));
+  // Export writes a full backup; Import restores one, or adds the sessions from an older export or a session file.
+  const deviceState=()=>({sessions:S.loadAll(), starters:lib.starters||[], offered:store.load('starters',[]),
+    seen:store.load('starterItems',{}), favs:{ex:F.list('ex'), session:F.list('session')},
+    settings:Object.fromEntries(B.SETTINGS.map(k=>[k,store.load(k,undefined)]))});
+  $('exportBtn').onclick=()=>saveJSON(`stiko-backup-${new Date().toISOString().slice(0,10)}.json`,B.makeBackup(deviceState()));
   $('importIn').onchange=async e=>{
     const f=e.target.files[0]; e.target.value=''; if(!f) return;
-    const r=S.parseImport(await f.text(),byId,getLang());
+    const text=await f.text();
+    let raw=null; try{ raw=JSON.parse(text); }catch(err){}
+    if(B.isBackup(raw)){
+      if(!confirm(U('restoreConfirm'))) return;
+      const r=B.applyBackup(raw,deviceState(),byId,getLang());
+      S.saveAll(r.sessions); store.save('starters',r.offered); store.save('starterItems',r.seen);
+      F.set('ex',r.favs.ex); F.set('session',r.favs.session);
+      for(const [k,v] of Object.entries(r.settings)) store.save(k,v);
+      store.save('welcomed',true); store.save('restored',{n:r.restored,d:r.dropped});  // shown after the reload that applies the settings
+      location.reload(); return;
+    }
+    const r=S.parseImport(text,byId,getLang());
     if(r.error){ toast(U('importFail')); return; }
     const m=S.mergeImport(S.loadAll(),r.sessions);
     S.saveAll(m.sessions);

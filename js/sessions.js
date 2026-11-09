@@ -73,7 +73,7 @@ export function moveItem(items,i,dir){
 export const canMove=(items,i,dir)=>{ const it=items[i]; return !((dir<0&&i===0&&it.block===BLOCKS[0])||(dir>0&&i===items.length-1&&it.block===BLOCKS.at(-1))); };
 
 // ---- Import / export ----
-const strip=s=>({id:s.id, name:s.name, ...(s.names?{names:s.names}:{}), ...(s.sport?{sport:s.sport}:{}), items:s.items});
+export const strip=s=>({id:s.id, name:s.name, ...(s.names?{names:s.names}:{}), ...(s.sport?{sport:s.sport}:{}), items:s.items});
 export const exportPayload=sessions=>({kind:FILE_KIND, version:1, exported:new Date().toISOString(), sessions:sessions.map(strip)});
 
 // Accepts an export file, a bare array of sessions, or a single session. Returns {sessions, dropped} or {error}.

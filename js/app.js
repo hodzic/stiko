@@ -9,6 +9,7 @@ import {mountVoiceSettings} from './voice-settings.js';
 import {mountShared, shareApp, ICON_SHARE} from './share.js';
 import * as S from './sessions.js';
 import * as store from './store.js';
+import {toast} from './ui.js';
 
 const main=document.getElementById('view');
 const langSel=document.getElementById('langSel');
@@ -77,6 +78,7 @@ async function seed(){
   try{
     const text=await (await fetch('/stiko/data/starters.json')).text(), r=S.parseImport(text,lib.byId,getLang());
     const added=Object.fromEntries((JSON.parse(text).sessions||[]).filter(x=>x.added).map(x=>[x.id,x.added]));
+    lib.starters=r.sessions||[];  // as shipped, for backups
     const fresh=(r.sessions||[]).filter(x=>!offered.includes(x.id));
     const named=S.attachNames(S.loadAll(),r.sessions||[]);
     const upd=S.refreshItems(named.list,r.sessions||[],store.load('starterItems',{}),added);
@@ -102,6 +104,8 @@ async function start(){
   navigator.storage?.persist?.().catch(()=>{});
   addEventListener('hashchange',route);
   route();
+  const r=store.load('restored',null);  // a backup was restored just before this reload
+  if(r){ store.save('restored',null); toast(U('restored')(r.n,r.d)); }
 }
 start();
 

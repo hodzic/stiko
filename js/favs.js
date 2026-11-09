@@ -11,6 +11,7 @@ export function toggle(kind,id){
   store.save(KEY[kind],on?[...l,id]:l.filter(x=>x!==id));
   return on;
 }
+export const set=(kind,ids)=>store.save(KEY[kind],[...new Set(ids)]);
 export const drop=(kind,id)=>{ if(has(kind,id)) toggle(kind,id); };
 
 // Star toggle; data-fav carries the id. inline: in a row of buttons rather than in a card's corner.

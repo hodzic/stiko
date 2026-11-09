@@ -23,7 +23,7 @@ The MVP is an offline session runner: build named sessions from the library, edi
 | Player | Runs a session or a single exercise: Stiko demo, timer or rep counter, cues, rest, next-up; pause, skip and previous; instructions and a Kinesiology panel; share the exercise as a link |
 | Shared session | Opened from a shared session link: preview of the session, then add it to this device's sessions |
 
-Sessions are stored on the device and can be exported or imported as JSON, which also covers backup and sharing with others. Nineteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, Healthy aging (strength and balance), Gentle daily for knees and back (all standing or seated, nothing on the floor), Tai chi and qigong basics, Boxing conditioning, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
+Sessions are stored on the device. A backup file holds everything that differs from what ships with the app (own and changed sessions, deleted starters, order, favourites, settings), and importing it restores them. Nineteen starter sessions ship with the app: Full body beginner and intermediate, Morning mobility, Core and balance, Desk break, Three basics, Road to a pull-up, Morning yoga, Evening yoga, Healthy aging (strength and balance), Gentle daily for knees and back (all standing or seated, nothing on the floor), Tai chi and qigong basics, Boxing conditioning, and sport prep for alpine skiing, hiking, road cycling, mountain biking, swimming and kayaking. A session can be tagged with a sport, and the Sessions screen filters by it.
 
 ## Exercise library
 
@@ -119,7 +119,7 @@ In the MVP Claude is a build-time tool only; the app itself never calls Claude.
 Same pattern as Dino's other apps: a static PWA in a GitHub repo, served from GitHub Pages, installable and offline.
 
 - **Frontend:** plain HTML/JS with ES modules and no build step, SVG renderer for Stiko, library as JSON, service worker for offline use.
-- **Storage:** sessions kept in browser storage on the device; JSON export and import, and sharing a single session as a link (the session travels inside the link, so nothing is uploaded). A header button shares the app itself.
+- **Storage:** sessions kept in browser storage on the device; a full backup to a JSON file and restore from it, and sharing a single session as a link (the session travels inside the link, so nothing is uploaded). A header button shares the app itself.
 - **Quality:** Node unit tests check the rig, the session model, and the library against the taxonomy, including labels in every language for every value.
 - **Later:** Claude API via a Cloudflare Worker proxy for the coach; MediaPipe Pose in the browser for rep counting and form checks.
 - **Workflow:** prototype Stiko in chat, then build the real app in Claude Code.
