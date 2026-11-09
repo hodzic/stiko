@@ -20,9 +20,10 @@ The app fetches `data/library.json`, so open it over HTTP, not `file://`.
 | `index.html`, `css/app.css` | App shell and styles (light/dark tokens) |
 | `js/app.js` | Loads the library, hash router (routes listed at the top of `mount()`), language switch, first-run seeding, service worker |
 | `js/sessions-list.js` | Sessions screen (home): start, edit, reorder (↑ ↓, move to top), share, duplicate, delete, export backup, import |
-| `js/favs.js` | Favourite exercises and sessions (per-device id lists, not exported): star buttons on library and session cards, session editor rows and the player, and the ★ Favorites filter chip |
+| `js/favs.js` | Favourite exercises and sessions (per-device id lists, in backups but not in shared sessions): star buttons on library and session cards, session editor rows and the player, and the ★ Favorites filter chip |
 | `js/about.js` | About page (`#/about`): how to use the app and health advice; shown once on first launch, then from the ? in the header |
 | `js/editor.js` | Session editor: name, warm-up / main / cool-down blocks, sets/reps/hold/rest, reorder, share link |
+| `js/backup.js` | Full backup and restore: own and edited sessions, deleted starters, order, favourites, settings (pure, unit-tested) |
 | `js/sessions.js` | Session model, validation, time estimates, import/export format, on-device storage (pure, unit-tested) |
 | `js/library.js` | Library screen: cards and tag filters; pick mode adds exercises to a session block |
 | `js/player.js` | Player for a queue of exercises: get ready → sets of work/rest → next → done; skip, cues, scrub, read aloud (and Read first: each exercise read aloud before its countdown, on by default), share, pose check, screen wake lock |
@@ -111,6 +112,17 @@ field, for devices from before the app recorded which list each starter came wit
 `mountain-biking`, `swimming`, `kayaking`); the Sessions screen filters by it. Reps-based exercises take `reps`, hold-based ones `hold` (seconds).
 On import, values are clamped to valid ranges, unknown exercises are dropped, an identical session already on
 the device is skipped, and a different session with the same id is added under a new id.
+
+### Backups
+
+Export writes a full backup (`version: 2`, `js/backup.js`): everything that differs from what ships with the app.
+`sessions` holds only the user's own sessions and starters they changed, so older versions of the app can still
+import it; `order` lists every session id in the user's order (starters left as shipped are only named there),
+`deleted` the starters they removed, `offered` and `starterItems` the starter bookkeeping (so edited starters keep
+merging updates), plus `favorites` and `settings`. Importing a backup asks first, then restores it: its sessions
+replace ones with the same id, unchanged starters come back as currently shipped, deleted starters go, favourites
+are added to and settings replaced; sessions on the device that the backup doesn't know are kept. Older export files
+and single sessions import as before.
 
 ## Languages
 

@@ -332,7 +332,6 @@ Object.assign(UI.en,{
   addEx:'Add exercise', name:'Name', sets:'Sets', reps:'Reps', holdS:'Hold (s)', restS:'Rest (s)',
   moveTop:'Move to top', moveUp:'Move up', moveDown:'Move down', remove:'Remove', share:'Share',
   exportAll:'Export backup', importFile:'Import', notFound:'Session not found.', emptySession:'Add exercises to start.',
-  storageNote:'Sessions are saved on this device only. Export a backup to keep them safe or move them to another phone. To share a session, open it and tap Share.',
   imported:(n,s,d)=>`Imported ${n} session${n===1?'':'s'}.`+(s?` ${s} already here.`:'')+(d?` ${d} unknown exercise${d===1?'':'s'} left out.`:''),
   importNone:s=>`Nothing new: ${s} already here.`, importFail:'That file isn’t a Stiko sessions file.',
   addingTo:b=>`Adding to ${b}`, added:x=>`${x} added`, addedN:n=>`Added ×${n}`,
@@ -352,7 +351,6 @@ Object.assign(UI.bs,{
   addEx:'Dodaj vježbu', name:'Naziv', sets:'Serije', reps:'Ponavljanja', holdS:'Držanje (s)', restS:'Odmor (s)',
   moveTop:'Pomjeri na vrh', moveUp:'Pomjeri gore', moveDown:'Pomjeri dolje', remove:'Ukloni', share:'Podijeli',
   exportAll:'Izvezi kopiju', importFile:'Uvezi', notFound:'Trening nije pronađen.', emptySession:'Dodaj vježbe za početak.',
-  storageNote:'Treninzi se čuvaju samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi telefon. Da podijeliš trening, otvori ga i dodirni Podijeli.',
   imported:(n,s,d)=>`Uvezeno treninga: ${n}.`+(s?` Već postoji: ${s}.`:'')+(d?` Izostavljeno nepoznatih vježbi: ${d}.`:''),
   importNone:s=>`Ništa novo, već postoji: ${s}.`, importFail:'Ta datoteka nije Stiko datoteka s treninzima.',
   addingTo:b=>`Dodaješ u: ${b}`, added:x=>`Dodano: ${x}`, addedN:n=>`Dodano ×${n}`,
@@ -372,7 +370,6 @@ Object.assign(UI.fr,{
   addEx:'Ajouter un exercice', name:'Nom', sets:'Séries', reps:'Rép.', holdS:'Maintien (s)', restS:'Repos (s)',
   moveTop:'Placer en haut', moveUp:'Monter', moveDown:'Descendre', remove:'Retirer', share:'Partager',
   exportAll:'Exporter une sauvegarde', importFile:'Importer', notFound:'Séance introuvable.', emptySession:'Ajoute des exercices pour commencer.',
-  storageNote:'Les séances sont enregistrées uniquement sur cet appareil. Exporte une sauvegarde pour les conserver ou les transférer sur un autre téléphone. Pour partager une séance, ouvre-la et touche Partager.',
   imported:(n,s,d)=>`Séances importées : ${n}.`+(s?` Déjà présentes : ${s}.`:'')+(d?` Exercices inconnus ignorés : ${d}.`:''),
   importNone:s=>`Rien de nouveau, déjà présentes : ${s}.`, importFail:'Ce fichier n’est pas un fichier de séances Stiko.',
   addingTo:b=>`Ajout à : ${b}`, added:x=>`${x} ajouté`, addedN:n=>`Ajouté ×${n}`,
@@ -392,7 +389,6 @@ Object.assign(UI.de,{
   addEx:'Übung hinzufügen', name:'Name', sets:'Sätze', reps:'Wdh.', holdS:'Halten (s)', restS:'Pause (s)',
   moveTop:'Ganz nach oben', moveUp:'Nach oben', moveDown:'Nach unten', remove:'Entfernen', share:'Teilen',
   exportAll:'Sicherung exportieren', importFile:'Importieren', notFound:'Training nicht gefunden.', emptySession:'Füge Übungen hinzu, um zu beginnen.',
-  storageNote:'Trainings werden nur auf diesem Gerät gespeichert. Exportiere eine Sicherung, um sie zu behalten oder auf ein anderes Telefon zu übertragen. Zum Teilen öffne ein Training und tippe auf Teilen.',
   imported:(n,s,d)=>`Importierte Trainings: ${n}.`+(s?` Bereits vorhanden: ${s}.`:'')+(d?` Unbekannte Übungen weggelassen: ${d}.`:''),
   importNone:s=>`Nichts Neues, bereits vorhanden: ${s}.`, importFail:'Diese Datei ist keine Stiko-Trainingsdatei.',
   addingTo:b=>`Hinzufügen zu: ${b}`, added:x=>`${x} hinzugefügt`, addedN:n=>`Hinzugefügt ×${n}`,
@@ -412,7 +408,6 @@ Object.assign(UI.hr,{
   addEx:'Dodaj vježbu', name:'Naziv', sets:'Serije', reps:'Ponavljanja', holdS:'Držanje (s)', restS:'Odmor (s)',
   moveTop:'Premjesti na vrh', moveUp:'Pomakni gore', moveDown:'Pomakni dolje', remove:'Ukloni', share:'Podijeli',
   exportAll:'Izvezi kopiju', importFile:'Uvezi', notFound:'Trening nije pronađen.', emptySession:'Dodaj vježbe za početak.',
-  storageNote:'Treninzi se spremaju samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi mobitel. Da podijeliš trening, otvori ga i dodirni Podijeli.',
   imported:(n,s,d)=>`Uvezeno treninga: ${n}.`+(s?` Već postoji: ${s}.`:'')+(d?` Izostavljeno nepoznatih vježbi: ${d}.`:''),
   importNone:s=>`Ništa novo, već postoji: ${s}.`, importFail:'Ta datoteka nije Stiko datoteka s treninzima.',
   addingTo:b=>`Dodaješ u: ${b}`, added:x=>`Dodano: ${x}`, addedN:n=>`Dodano ×${n}`,
@@ -432,7 +427,6 @@ Object.assign(UI.sr,{
   addEx:'Dodaj vežbu', name:'Naziv', sets:'Serije', reps:'Ponavljanja', holdS:'Držanje (s)', restS:'Odmor (s)',
   moveTop:'Pomeri na vrh', moveUp:'Pomeri gore', moveDown:'Pomeri dole', remove:'Ukloni', share:'Podeli',
   exportAll:'Izvezi kopiju', importFile:'Uvezi', notFound:'Trening nije pronađen.', emptySession:'Dodaj vežbe za početak.',
-  storageNote:'Treninzi se čuvaju samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi telefon. Da podeliš trening, otvori ga i dodirni Podeli.',
   imported:(n,s,d)=>`Uvezeno treninga: ${n}.`+(s?` Već postoji: ${s}.`:'')+(d?` Izostavljeno nepoznatih vežbi: ${d}.`:''),
   importNone:s=>`Ništa novo, već postoji: ${s}.`, importFail:'Ta datoteka nije Stiko datoteka sa treninzima.',
   addingTo:b=>`Dodaješ u: ${b}`, added:x=>`Dodato: ${x}`, addedN:n=>`Dodato ×${n}`,
@@ -452,7 +446,6 @@ Object.assign(UI.es,{
   addEx:'Añadir ejercicio', name:'Nombre', sets:'Series', reps:'Reps', holdS:'Mantener (s)', restS:'Descanso (s)',
   moveTop:'Mover al principio', moveUp:'Subir', moveDown:'Bajar', remove:'Quitar', share:'Compartir',
   exportAll:'Exportar copia', importFile:'Importar', notFound:'Sesión no encontrada.', emptySession:'Añade ejercicios para empezar.',
-  storageNote:'Las sesiones se guardan solo en este dispositivo. Exporta una copia para conservarlas o pasarlas a otro teléfono. Para compartir una sesión, ábrela y toca Compartir.',
   imported:(n,s,d)=>`Sesiones importadas: ${n}.`+(s?` Ya estaban: ${s}.`:'')+(d?` Ejercicios desconocidos omitidos: ${d}.`:''),
   importNone:s=>`Nada nuevo, ya estaban: ${s}.`, importFail:'Ese archivo no es un archivo de sesiones de Stiko.',
   addingTo:b=>`Añadiendo a: ${b}`, added:x=>`Añadido: ${x}`, addedN:n=>`Añadido ×${n}`,
@@ -671,6 +664,13 @@ Object.assign(UI.sr,{countAll:n=>{const t=n%10,h=n%100,few=t>=2&&t<=4&&(h<12||h>
 Object.assign(UI.de,{countAll:n=>`alle ${n} Übungen`, sessCountAll:n=>`alle ${n} Trainings`});
 Object.assign(UI.es,{countAll:n=>`todos los ${n} ejercicios`, sessCountAll:n=>`todas las ${n} sesiones`});
 Object.assign(UI.fr,{countAll:n=>`tous les ${n} exercices`, sessCountAll:n=>`toutes les ${n} séances`});
+Object.assign(UI.en,{storageNote:'Sessions, favorites and settings are saved on this device only. Export a backup to keep them safe or move them to another phone; Import restores it. To share a session, open it and tap Share.', restoreConfirm:'Restore this backup? Its sessions, favorites and settings replace the ones here. Sessions on this device that aren’t in the backup are kept.', restored:(n,d)=>`Backup restored: ${n} session${n===1?'':'s'}.`+(d?` ${d} unknown exercise${d===1?'':'s'} left out.`:'')});
+Object.assign(UI.bs,{storageNote:'Treninzi, favoriti i postavke čuvaju se samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi telefon; Uvezi je vraća. Da podijeliš trening, otvori ga i dodirni Podijeli.', restoreConfirm:'Vratiti ovu kopiju? Njeni treninzi, favoriti i postavke zamijenit će ove ovdje. Treninzi na ovom uređaju kojih nema u kopiji ostaju.', restored:(n,d)=>`Kopija vraćena, treninga: ${n}.`+(d?` Izostavljeno nepoznatih vježbi: ${d}.`:'')});
+Object.assign(UI.hr,{storageNote:'Treninzi, favoriti i postavke spremaju se samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi mobitel; Uvezi je vraća. Da podijeliš trening, otvori ga i dodirni Podijeli.', restoreConfirm:'Vratiti ovu kopiju? Njezini treninzi, favoriti i postavke zamijenit će ove ovdje. Treninzi na ovom uređaju kojih nema u kopiji ostaju.', restored:(n,d)=>`Kopija vraćena, treninga: ${n}.`+(d?` Izostavljeno nepoznatih vježbi: ${d}.`:'')});
+Object.assign(UI.sr,{storageNote:'Treninzi, favoriti i podešavanja čuvaju se samo na ovom uređaju. Izvezi kopiju da ih sačuvaš ili prebaciš na drugi telefon; Uvezi je vraća. Da podeliš trening, otvori ga i dodirni Podeli.', restoreConfirm:'Vratiti ovu kopiju? Njeni treninzi, favoriti i podešavanja zameniće ove ovde. Treninzi na ovom uređaju kojih nema u kopiji ostaju.', restored:(n,d)=>`Kopija vraćena, treninga: ${n}.`+(d?` Izostavljeno nepoznatih vežbi: ${d}.`:'')});
+Object.assign(UI.de,{storageNote:'Trainings, Favoriten und Einstellungen werden nur auf diesem Gerät gespeichert. Exportiere eine Sicherung, um sie zu behalten oder auf ein anderes Telefon zu übertragen; Importieren stellt sie wieder her. Zum Teilen öffne ein Training und tippe auf Teilen.', restoreConfirm:'Diese Sicherung wiederherstellen? Ihre Trainings, Favoriten und Einstellungen ersetzen die hier vorhandenen. Trainings auf diesem Gerät, die nicht in der Sicherung sind, bleiben erhalten.', restored:(n,d)=>`Sicherung wiederhergestellt: ${n} Training${n===1?'':'s'}.`+(d?` Unbekannte Übungen weggelassen: ${d}.`:'')});
+Object.assign(UI.es,{storageNote:'Las sesiones, los favoritos y los ajustes se guardan solo en este dispositivo. Exporta una copia para conservarlos o pasarlos a otro teléfono; Importar la restaura. Para compartir una sesión, ábrela y toca Compartir.', restoreConfirm:'¿Restaurar esta copia? Sus sesiones, favoritos y ajustes reemplazan a los de aquí. Las sesiones de este dispositivo que no están en la copia se conservan.', restored:(n,d)=>`Copia restaurada: ${n} sesi${n===1?'ón':'ones'}.`+(d?` Ejercicios desconocidos omitidos: ${d}.`:'')});
+Object.assign(UI.fr,{storageNote:'Les séances, favoris et réglages sont enregistrés uniquement sur cet appareil. Exporte une sauvegarde pour les conserver ou les transférer sur un autre téléphone ; Importer la restaure. Pour partager une séance, ouvre-la et touche Partager.', restoreConfirm:'Restaurer cette sauvegarde ? Ses séances, favoris et réglages remplacent ceux d’ici. Les séances de cet appareil absentes de la sauvegarde sont conservées.', restored:(n,d)=>`Sauvegarde restaurée : ${n} séance${n>1?'s':''}.`+(d?` Exercices inconnus ignorés : ${d}.`:'')});
 
 export const LANGS=['en','bs','hr','sr','de','es','fr'];
 export const LANG_NAMES={en:'English',bs:'Bosanski',hr:'Hrvatski',sr:'Srpski',de:'Deutsch',es:'Español',fr:'Français'};
