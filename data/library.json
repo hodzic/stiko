@@ -51,6 +51,7 @@
       "id": "chair-squat",
       "name": {"en": "Sit to stand", "bs": "Ustajanje sa stolice", "hr": "Ustajanje sa stolice", "sr": "Ustajanje sa stolice", "fr": "Assis-debout", "de": "Aufstehen vom Stuhl", "es": "Sentarse y levantarse"},
       "short": {"en": "Sit to stand", "bs": "Sa stolice", "hr": "Sa stolice", "sr": "Sa stolice", "fr": "Assis-debout", "de": "Aufstehen", "es": "Sentarse y levantarse"},
+      "focus": ["knees"],
       "pattern": "squat",
       "component": "strength",
       "planes": ["sagittal"],
@@ -145,6 +146,7 @@
       "id": "wall-sit",
       "name": {"en": "Wall sit", "bs": "Sjedenje uz zid", "hr": "Sjedenje uz zid", "sr": "Sedenje uz zid", "fr": "Chaise contre le mur", "de": "Wandsitzen", "es": "Sentadilla isométrica en pared"},
       "short": {"en": "Wall sit", "bs": "Uz zid", "hr": "Uz zid", "sr": "Uz zid", "fr": "Chaise au mur", "de": "Wandsitzen", "es": "Silla en pared"},
+      "focus": ["knees"],
       "pattern": "squat",
       "component": "strength",
       "planes": ["sagittal"],
@@ -230,6 +232,7 @@
       "id": "glute-bridge",
       "name": {"en": "Glute bridge", "bs": "Glutealni most", "hr": "Glutealni most", "sr": "Glutealni most", "fr": "Pont fessier", "de": "Glute Bridge", "es": "Puente de glúteos"},
       "short": {"en": "Bridge", "bs": "Most", "hr": "Most", "sr": "Most", "fr": "Pont", "de": "Bridge", "es": "Puente"},
+      "focus": ["lower-back", "knees"],
       "pattern": "hinge",
       "component": "strength",
       "planes": ["sagittal"],
@@ -270,13 +273,13 @@
           {"t": 0.42, "label": {"en": "Squeeze at the top", "bs": "Stegni gluteuse na vrhu", "hr": "Stegni gluteuse na vrhu", "sr": "Stegni gluteuse na vrhu", "fr": "Serre en haut", "de": "Oben anspannen", "es": "Aprieta arriba"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0}},
           {"t": 0.6, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "pelvic-tilt",
       "name": {"en": "Pelvic tilt", "bs": "Nagib zdjelice", "hr": "Nagib zdjelice", "sr": "Nagib karlice", "fr": "Bascule du bassin", "de": "Beckenkippen", "es": "Basculación pélvica"},
       "short": {"en": "Pelvic tilt", "bs": "Nagib zdjelice", "hr": "Nagib zdjelice", "sr": "Nagib karlice", "fr": "Bascule du bassin", "de": "Beckenkippen", "es": "Basculación pélvica"},
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "stability",
       "planes": ["sagittal"],
@@ -317,13 +320,13 @@
           {"t": 0.4, "label": {"en": "Hold", "bs": "Zadrži", "hr": "Zadrži", "sr": "Zadrži", "fr": "Tiens", "de": "Halten", "es": "Mantén"}, "face": "smile", "pose": {"rot": -90, "torso": 8, "spine": -8, "neck": 34, "shoulder": 6, "elbow": 0}},
           {"t": 0.6, "label": {"en": "Relax", "bs": "Opusti se", "hr": "Opusti se", "sr": "Opusti se", "fr": "Relâche", "de": "Lösen", "es": "Relaja"}, "face": "smile", "pose": {"rot": -90, "torso": 8, "spine": -8, "neck": 34, "shoulder": 6, "elbow": 0}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "hip-hinge",
       "name": {"en": "Hip hinge", "bs": "Pregib u kuku", "hr": "Pregib u kuku", "sr": "Pregib u kuku", "fr": "Charnière de hanche", "de": "Hüftbeuge", "es": "Bisagra de cadera"},
       "short": {"en": "Hip hinge", "bs": "Pregib", "hr": "Pregib", "sr": "Pregib", "fr": "Charnière", "de": "Hüftbeuge", "es": "Bisagra de cadera"},
+      "focus": ["lower-back"],
       "pattern": "hinge",
       "component": "strength",
       "planes": ["sagittal"],
@@ -364,8 +367,7 @@
           {"t": 0.45, "label": {"en": "Back flat, feel the stretch", "bs": "Leđa ravna, osjeti istezanje", "hr": "Leđa ravna, osjeti istezanje", "sr": "Leđa ravna, oseti istezanje", "fr": "Dos plat, sens l’étirement", "de": "Rücken gerade, Dehnung spüren", "es": "Espalda plana, nota el estiramiento"}, "face": "effort", "pose": {"torso": 48, "hip": 12, "knee": 16, "shoulder": 22, "elbow": 125, "neck": -6}},
           {"t": 0.58, "label": {"en": "Squeeze and stand tall", "bs": "Stegni i uspravi se", "hr": "Stegni i uspravi se", "sr": "Stegni i uspravi se", "fr": "Serre et redresse-toi", "de": "Anspannen und aufrichten", "es": "Aprieta y sube"}, "face": "effort", "pose": {"torso": 48, "hip": 12, "knee": 16, "shoulder": 22, "elbow": 125, "neck": -6}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "hinge-hold",
@@ -412,6 +414,7 @@
       "id": "standing-back-extension",
       "name": {"en": "Standing back bend", "bs": "Zaklon u stojećem stavu", "hr": "Zaklon u stojećem stavu", "sr": "Zaklon u stojećem stavu", "fr": "Extension du dos debout", "de": "Rückbeuge im Stehen", "es": "Extensión de espalda de pie"},
       "short": {"en": "Standing back bend", "bs": "Zaklon stojeći", "hr": "Zaklon stojeći", "sr": "Zaklon stojeći", "fr": "Extension debout", "de": "Rückbeuge", "es": "Extensión de pie"},
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -451,8 +454,7 @@
           {"t": 0.4, "label": {"en": "Hold", "bs": "Zadrži", "hr": "Zadrži", "sr": "Zadrži", "fr": "Tiens", "de": "Halten", "es": "Mantén"}, "face": "smile", "pose": {"torso": -8, "spine": -22, "hip": -4, "knee": 8, "neck": -4, "shoulder": -90, "elbow": 100}},
           {"t": 0.6, "label": {"en": "Stand tall", "bs": "Uspravi se", "hr": "Uspravi se", "sr": "Uspravi se", "fr": "Redresse-toi", "de": "Aufrichten", "es": "Ponte erguido"}, "face": "smile", "pose": {"torso": -8, "spine": -22, "hip": -4, "knee": 8, "neck": -4, "shoulder": -90, "elbow": 100}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "dumbbell-rdl",
@@ -551,6 +553,7 @@
       "id": "glute-bridge-march",
       "name": {"en": "Glute bridge march", "bs": "Glutealni most s marširanjem", "hr": "Glutealni most s marširanjem", "sr": "Glutealni most sa marširanjem", "fr": "Pont fessier avec marche", "de": "Glute Bridge mit Marschieren", "es": "Puente de glúteos con marcha"},
       "short": {"en": "Bridge march", "bs": "Most s marširanjem", "hr": "Most s marširanjem", "sr": "Most sa marširanjem", "fr": "Pont avec marche", "de": "Bridge-Marsch", "es": "Puente con marcha"},
+      "focus": ["lower-back"],
       "pattern": "anti-rotation",
       "component": "stability",
       "planes": ["sagittal", "transverse"],
@@ -591,8 +594,7 @@
           {"t": 0.5, "step": 1, "label": {"en": "Now the other", "bs": "Sad drugo", "hr": "Sad drugo", "sr": "Sad drugo", "fr": "Puis l’autre", "de": "Jetzt das andere", "es": "Ahora la otra"}, "face": "smile", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_n": 0, "knee_n": 83, "hip_f": 0, "knee_f": 83}},
           {"t": 0.75, "label": {"en": "Now the other", "bs": "Sad drugo", "hr": "Sad drugo", "sr": "Sad drugo", "fr": "Puis l’autre", "de": "Jetzt das andere", "es": "Ahora la otra"}, "face": "effort", "pose": {"rot": -110, "torso": 0, "neck": 54, "shoulder": -20, "elbow": 0, "hip_n": 0, "knee_n": 83, "hip_f": 50, "knee_f": 100}, "step": 1}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "inchworm",
@@ -781,6 +783,7 @@
       "id": "step-up",
       "name": {"en": "Step-up", "bs": "Penjanje na stepenik", "hr": "Penjanje na stepenicu", "sr": "Penjanje na stepenik", "fr": "Montée de marche", "de": "Step-up", "es": "Subida al escalón"},
       "short": {"en": "Step-up", "bs": "Na stepenik", "hr": "Na stepenicu", "sr": "Na stepenik", "fr": "Montée de marche", "de": "Step-up", "es": "Subida al escalón"},
+      "focus": ["knees"],
       "pattern": "lunge",
       "component": "strength",
       "planes": ["sagittal"],
@@ -826,6 +829,7 @@
       "id": "step-down",
       "name": {"en": "Step-down", "bs": "Spuštanje sa stepenika", "hr": "Spuštanje sa stepenice", "sr": "Spuštanje sa stepenika", "fr": "Descente de marche", "de": "Step-down", "es": "Bajada del escalón"},
       "short": {"en": "Step-down", "bs": "Sa stepenika", "hr": "Sa stepenice", "sr": "Sa stepenika", "fr": "Descente de marche", "de": "Step-down", "es": "Bajada del escalón"},
+      "focus": ["knees"],
       "pattern": "lunge",
       "component": "strength",
       "planes": ["sagittal"],
@@ -1821,6 +1825,7 @@
       "id": "knee-plank",
       "name": {"en": "Kneeling plank", "bs": "Upor na koljenima", "hr": "Upor na koljenima", "sr": "Upor na kolenima", "fr": "Planche sur les genoux", "de": "Unterarmstütz auf den Knien", "es": "Plancha de rodillas"},
       "short": {"en": "Knee plank", "bs": "Upor na koljenima", "hr": "Upor na koljenima", "sr": "Upor na kolenima", "fr": "Planche genoux", "de": "Knie-Plank", "es": "Plancha de rodillas"},
+      "focus": ["lower-back"],
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -1857,13 +1862,13 @@
           {"t": 0, "label": {"en": "Straight line, head to knees", "bs": "Ravna linija od glave do koljena", "hr": "Ravna linija od glave do koljena", "sr": "Prava linija od glave do kolena", "fr": "Ligne droite de la tête aux genoux", "de": "Gerade Linie vom Kopf bis zu den Knien", "es": "Línea recta"}, "face": "puff", "pose": {"torso": 0, "neck": 2, "hip": 0, "knee": 38, "uaAbs": 90, "faAbs": 0}}
         ],
         "restPose": {"spec": {"pin": {"point": "n.toe", "at": [80,-4]}, "footAbs": 180}, "pose": {"rot": 90, "torso": 0, "neck": -32, "hip": 0, "knee": 0, "uaAbs": 178, "faAbs": 180}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "dead-bug",
       "name": {"en": "Dead bug", "bs": "Mrtva buba", "hr": "Mrtva buba", "sr": "Mrtva buba", "fr": "Dead bug", "de": "Dead Bug", "es": "Bicho muerto"},
       "short": {"en": "Dead bug", "bs": "Mrtva buba", "hr": "Mrtva buba", "sr": "Mrtva buba", "fr": "Dead bug", "de": "Dead Bug", "es": "Bicho muerto"},
+      "focus": ["lower-back"],
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -1904,13 +1909,13 @@
           {"t": 0.5, "label": {"en": "Lower opposite arm and leg", "bs": "Spusti suprotnu ruku i nogu", "hr": "Spusti suprotnu ruku i nogu", "sr": "Spusti suprotnu ruku i nogu", "fr": "Descends bras et jambe opposés", "de": "Gegenüberliegenden Arm und Bein senken", "es": "Brazo y pierna contrarios"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "neck": 34, "hip_n": 90, "knee_n": 90, "hip_f": 90, "knee_f": 90, "shoulder_n": 90, "elbow_n": 0, "shoulder_f": 90, "elbow_f": 0}, "step": 0},
           {"t": 0.8, "label": {"en": "Back to start, switch", "bs": "Nazad, promijeni", "hr": "Natrag, promijeni", "sr": "Nazad, promeni", "fr": "Retour, change de côté", "de": "Zurück, Seite wechseln", "es": "Vuelve y cambia"}, "face": "effort", "pose": {"rot": -90, "torso": 0, "neck": 34, "hip_n": 12, "knee_n": 0, "hip_f": 90, "knee_f": 90, "shoulder_n": 90, "elbow_n": 0, "shoulder_f": 172, "elbow_f": 0}, "step": 1}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "bird-dog",
       "name": {"en": "Bird dog", "bs": "Ptica-pas", "hr": "Ptica-pas", "sr": "Ptica-pas", "fr": "Bird dog", "de": "Bird Dog", "es": "Perro de caza"},
       "short": {"en": "Bird dog", "bs": "Ptica-pas", "hr": "Ptica-pas", "sr": "Ptica-pas", "fr": "Bird dog", "de": "Bird Dog", "es": "Perro de caza"},
+      "focus": ["lower-back"],
       "pattern": "anti-rotation",
       "component": "stability",
       "planes": ["sagittal"],
@@ -1951,8 +1956,7 @@
           {"t": 0.5, "label": {"en": "Reach arm and opposite leg", "bs": "Ispruži ruku i suprotnu nogu", "hr": "Ispruži ruku i suprotnu nogu", "sr": "Ispruži ruku i suprotnu nogu", "fr": "Tends bras et jambe opposée", "de": "Arm und gegenüberliegendes Bein strecken", "es": "Brazo y pierna contraria"}, "face": "smile", "pose": {"rot": 76, "torso": 0, "spine": 0, "neck": 15, "hip": 76, "knee": 90, "hip_n": 76, "knee_n": 90, "hip_f": 76, "knee_f": 90, "uaAbs_n": 90, "faAbs_n": 90, "uaAbs_f": 90, "faAbs_f": 90}, "step": 0},
           {"t": 0.8, "label": {"en": "Back to start, switch", "bs": "Nazad, promijeni", "hr": "Natrag, promijeni", "sr": "Nazad, promeni", "fr": "Retour, change de côté", "de": "Zurück, Seite wechseln", "es": "Vuelve y cambia"}, "face": "effort", "pose": {"rot": 76, "torso": 0, "spine": 0, "neck": 15, "hip": 76, "knee": 90, "hip_n": -20, "knee_n": 0, "hip_f": 76, "knee_f": 90, "uaAbs_n": 90, "faAbs_n": 90, "uaAbs_f": -12, "faAbs_f": -12}, "step": 1}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "crunch",
@@ -2004,6 +2008,7 @@
       "id": "curl-up",
       "name": {"en": "Curl-up (McGill)", "bs": "Kratki pregib (McGill)", "hr": "Kratki pregib (McGill)", "sr": "Kratki pregib (McGill)", "fr": "Curl-up (McGill)", "de": "Curl-up (McGill)", "es": "Curl-up (McGill)"},
       "short": {"en": "Curl-up", "bs": "Kratki pregib", "hr": "Kratki pregib", "sr": "Kratki pregib", "fr": "Curl-up", "de": "Curl-up", "es": "Curl-up"},
+      "focus": ["lower-back"],
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -2044,8 +2049,7 @@
           {"t": 0.12, "label": {"en": "Hold", "bs": "Zadrži", "hr": "Zadrži", "sr": "Zadrži", "fr": "Tiens", "de": "Halten", "es": "Mantén"}, "face": "effort", "pose": {"rot": -90, "torso": 0, "spine": 14, "neck": 30, "hip_f": 0, "knee_f": 0, "ankle_f": 10, "shoulder": -8, "elbow": 20}},
           {"t": 0.85, "label": {"en": "Lower slowly", "bs": "Polako dolje", "hr": "Polako dolje", "sr": "Polako dole", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"rot": -90, "torso": 0, "spine": 14, "neck": 30, "hip_f": 0, "knee_f": 0, "ankle_f": 10, "shoulder": -8, "elbow": 20}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "hanging-knee-raise",
@@ -2096,6 +2100,7 @@
       "id": "superman",
       "name": {"en": "Superman", "bs": "Supermen", "hr": "Superman", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
       "short": {"en": "Superman", "bs": "Supermen", "hr": "Superman", "sr": "Supermen", "fr": "Superman", "de": "Superman", "es": "Superman"},
+      "focus": ["lower-back"],
       "pattern": "trunk-extension",
       "component": "strength",
       "planes": ["sagittal"],
@@ -2136,8 +2141,7 @@
           {"t": 0.4, "label": {"en": "Hold and squeeze", "bs": "Zadrži i stegni", "hr": "Zadrži i stegni", "sr": "Zadrži i stegni", "fr": "Tiens et serre", "de": "Halten und anspannen", "es": "Mantén y aprieta"}, "face": "effort", "pose": {"rot": 90, "torso": 0, "spine": -20, "neck": -16, "hip": -14, "knee": 0, "shoulder": 190, "elbow": 0}},
           {"t": 0.6, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "effort", "pose": {"rot": 90, "torso": 0, "spine": -20, "neck": -16, "hip": -14, "knee": 0, "shoulder": 190, "elbow": 0}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "thread-the-needle",
@@ -2189,6 +2193,7 @@
       "id": "knee-side-plank",
       "name": {"en": "Kneeling side plank", "bs": "Bočni upor na koljenima", "hr": "Bočni upor na koljenima", "sr": "Bočni upor na kolenima", "fr": "Planche latérale sur les genoux", "de": "Seitstütz auf den Knien", "es": "Plancha lateral de rodillas"},
       "short": {"en": "Knee side plank", "bs": "Bočni na koljenima", "hr": "Bočni na koljenima", "sr": "Bočni na kolenima", "fr": "Planche latérale genoux", "de": "Knie-Seitstütz", "es": "Plancha lateral de rodillas"},
+      "focus": ["lower-back"],
       "pattern": "anti-lateral-flexion",
       "component": "stability",
       "planes": ["frontal"],
@@ -2224,13 +2229,13 @@
           {"t": 0, "label": {"en": "Hips up, head to knees", "bs": "Kukovi gore, od glave do koljena", "hr": "Kukovi gore, od glave do koljena", "sr": "Kukovi gore, od glave do kolena", "fr": "Hanches hautes, de la tête aux genoux", "de": "Hüfte hoch, Kopf bis Knie", "es": "Cadera arriba, línea recta"}, "face": "puff", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 0, "knee_r": 20, "knee_l": -20, "uaAbs_r": 90, "faAbs_r": 4, "uaAbs_l": 150, "faAbs_l": 110}}
         ],
         "restPose": {"spec": {"view": "front", "pin": {"point": "r.kn", "at": [150,-7]}, "footAbs": 180}, "pose": {"rot": 90, "torso": 0, "spine": 0, "neck": -20, "hip": 0, "knee_r": 20, "knee_l": -20, "uaAbs_r": 4, "faAbs_r": -60, "uaAbs_l": 150, "faAbs_l": 160}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "forearm-plank",
       "name": {"en": "Forearm plank", "bs": "Upor na podlakticama", "hr": "Upor na podlakticama", "sr": "Upor na podlakticama", "fr": "Planche sur les avant-bras", "de": "Unterarmstütz", "es": "Plancha sobre antebrazos"},
       "short": {"en": "Plank", "bs": "Upor", "hr": "Upor", "sr": "Upor", "fr": "Planche", "de": "Plank", "es": "Plancha"},
+      "focus": ["lower-back"],
       "pattern": "anti-extension",
       "component": "stability",
       "planes": ["sagittal"],
@@ -2267,13 +2272,13 @@
           {"t": 0, "label": {"en": "Hold a straight line", "bs": "Drži ravnu liniju", "hr": "Drži ravnu liniju", "sr": "Drži pravu liniju", "fr": "Garde une ligne droite", "de": "Gerade Linie halten", "es": "Mantén la línea recta"}, "face": "puff", "pose": {"rot": 80, "torso": 0, "neck": 4, "hip": 0, "knee": 0, "uaAbs": 90, "faAbs": 0}}
         ],
         "restPose": {"spec": {"pin": {"point": "n.toe", "at": [80,-4]}, "footAbs": 180}, "pose": {"rot": 90, "torso": 0, "neck": -32, "hip": 0, "knee": 0, "uaAbs": 178, "faAbs": 180}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "side-plank",
       "name": {"en": "Side plank", "bs": "Bočni upor", "hr": "Bočni upor", "sr": "Bočni upor", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
       "short": {"en": "Side plank", "bs": "Bočni upor", "hr": "Bočni upor", "sr": "Bočni upor", "fr": "Planche latérale", "de": "Seitstütz", "es": "Plancha lateral"},
+      "focus": ["lower-back"],
       "pattern": "anti-lateral-flexion",
       "component": "stability",
       "planes": ["frontal"],
@@ -2309,8 +2314,7 @@
           {"t": 0, "label": {"en": "Hips up, straight line", "bs": "Kukovi gore, ravna linija", "hr": "Kukovi gore, ravna linija", "sr": "Kukovi gore, prava linija", "fr": "Hanches hautes, ligne droite", "de": "Hüfte hoch, gerade Linie", "es": "Cadera arriba, línea recta"}, "face": "puff", "pose": {"torso": 0, "spine": 0, "neck": 0, "hip": 0, "knee": 0, "uaAbs_r": 90, "faAbs_r": 4, "uaAbs_l": -86, "faAbs_l": -88}}
         ],
         "restPose": {"spec": {"view": "front", "pin": {"point": "r.an", "at": [96,-7]}, "footAbs": 0}, "pose": {"rot": 90, "torso": 0, "spine": 0, "neck": -20, "hip": 0, "knee": 0, "uaAbs_r": 4, "faAbs_r": -60, "uaAbs_l": 150, "faAbs_l": 160}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "plank-shoulder-tap",
@@ -2952,6 +2956,7 @@
       "id": "calf-raise",
       "name": {"en": "Calf raise", "bs": "Podizanje na prste", "hr": "Podizanje na prste", "sr": "Podizanje na prste", "fr": "Élévation des mollets", "de": "Wadenheben", "es": "Elevación de talones"},
       "short": {"en": "Calf raise", "bs": "Na prste", "hr": "Na prste", "sr": "Na prste", "fr": "Mollets", "de": "Wadenheben", "es": "Elevación de talones"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["sagittal"],
@@ -3267,6 +3272,7 @@
       "id": "side-lying-leg-raise",
       "name": {"en": "Side-lying leg raise", "bs": "Podizanje noge ležeći na boku", "hr": "Podizanje noge ležeći na boku", "sr": "Podizanje noge ležeći na boku", "fr": "Élévation de jambe sur le côté", "de": "Seitliches Beinheben im Liegen", "es": "Elevación lateral de pierna en el suelo"},
       "short": {"en": "Side leg raise", "bs": "Noga u stranu", "hr": "Noga u stranu", "sr": "Noga u stranu", "fr": "Jambe sur le côté", "de": "Seitliches Beinheben", "es": "Elevación de pierna"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["frontal"],
@@ -3310,6 +3316,7 @@
       "id": "standing-hip-abduction",
       "name": {"en": "Standing hip abduction", "bs": "Odmicanje noge u stojećem položaju", "hr": "Odmicanje noge u stojećem položaju", "sr": "Odmicanje noge u stojećem položaju", "fr": "Abduction de hanche debout", "de": "Hüftabduktion im Stehen", "es": "Abducción de cadera de pie"},
       "short": {"en": "Hip abduction", "bs": "Noga u stranu", "hr": "Noga u stranu", "sr": "Noga u stranu", "fr": "Abduction de hanche", "de": "Hüftabduktion", "es": "Abducción de cadera"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["frontal"],
@@ -3353,6 +3360,7 @@
       "id": "standing-hamstring-curl",
       "name": {"en": "Standing hamstring curl", "bs": "Savijanje noge u stojećem položaju", "hr": "Savijanje noge u stojećem položaju", "sr": "Savijanje noge u stojećem položaju", "fr": "Flexion du genou debout", "de": "Beinbeuger im Stehen", "es": "Curl femoral de pie"},
       "short": {"en": "Hamstring curl", "bs": "Savijanje noge", "hr": "Savijanje noge", "sr": "Savijanje noge", "fr": "Flexion du genou", "de": "Beinbeuger", "es": "Curl femoral"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["sagittal"],
@@ -3398,6 +3406,7 @@
       "id": "seated-knee-extension",
       "name": {"en": "Seated knee extension", "bs": "Opružanje koljena u sjedećem položaju", "hr": "Opružanje koljena u sjedećem položaju", "sr": "Opružanje kolena u sedećem položaju", "fr": "Extension du genou assis", "de": "Kniestrecken im Sitzen", "es": "Extensión de rodilla en silla"},
       "short": {"en": "Knee extension", "bs": "Opružanje koljena", "hr": "Opružanje koljena", "sr": "Opružanje kolena", "fr": "Extension du genou", "de": "Kniestrecken", "es": "Extensión de rodilla"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["sagittal"],
@@ -3443,6 +3452,7 @@
       "id": "lateral-band-walk",
       "name": {"en": "Lateral band walk", "bs": "Bočno hodanje s trakom", "hr": "Bočno hodanje s trakom", "sr": "Bočno hodanje sa trakom", "fr": "Marche latérale avec élastique", "de": "Seitliches Gehen mit Band", "es": "Paso lateral con banda"},
       "short": {"en": "Band walk", "bs": "Hodanje s trakom", "hr": "Hodanje s trakom", "sr": "Hodanje sa trakom", "fr": "Marche élastique", "de": "Band-Seitgang", "es": "Paso con banda"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "strength",
       "planes": ["frontal"],
@@ -3581,6 +3591,7 @@
       "name": {"en": "Cat-cow", "bs": "Mačka-krava", "hr": "Mačka-krava", "sr": "Mačka-krava", "fr": "Chat-vache", "de": "Katze-Kuh", "es": "Gato-vaca"},
       "short": {"en": "Cat-cow", "bs": "Mačka-krava", "hr": "Mačka-krava", "sr": "Mačka-krava", "fr": "Chat-vache", "de": "Katze-Kuh", "es": "Gato-vaca"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -3619,14 +3630,14 @@
           {"t": 0, "label": {"en": "Cow: chest up", "bs": "Krava: grudi gore", "hr": "Krava: prsa gore", "sr": "Krava: grudi gore", "fr": "Vache : poitrine haute", "de": "Kuh: Brust hoch", "es": "Vaca: pecho arriba"}, "face": "smile", "pose": {"rot": 72, "torso": 20, "spine": -40, "neck": -22, "hip": 72, "knee": 90}},
           {"t": 0.5, "label": {"en": "Cat: round your back", "bs": "Mačka: zaobli leđa", "hr": "Mačka: zaobli leđa", "sr": "Mačka: zaobli leđa", "fr": "Chat : arrondis le dos", "de": "Katze: Rücken rund", "es": "Gato: redondea la espalda"}, "face": "smile", "pose": {"rot": 72, "torso": -28, "spine": 56, "neck": 38, "hip": 72, "knee": 90}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "cobra-press-up",
       "name": {"en": "Cobra press-up", "bs": "Kobra", "hr": "Kobra", "sr": "Kobra", "fr": "Cobra", "de": "Kobra", "es": "Cobra"},
       "short": {"en": "Cobra", "bs": "Kobra", "hr": "Kobra", "sr": "Kobra", "fr": "Cobra", "de": "Kobra", "es": "Cobra"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -3665,14 +3676,14 @@
           {"t": 0, "label": {"en": "Press your chest up", "bs": "Podigni grudi", "hr": "Podigni prsa", "sr": "Podigni grudi", "fr": "Lève la poitrine", "de": "Brust hochdrücken", "es": "Eleva el pecho"}, "face": "smile", "pose": {"rot": 90, "torso": 0, "spine": 0, "neck": -30, "hip": 0, "knee": 0}},
           {"t": 0.5, "label": {"en": "Lower slowly", "bs": "Polako se spusti", "hr": "Polako se spusti", "sr": "Polako se spusti", "fr": "Redescends lentement", "de": "Langsam absenken", "es": "Baja despacio"}, "face": "smile", "pose": {"rot": 90, "torso": -6, "spine": -50, "neck": -4, "hip": 0, "knee": 0}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "sphinx-pose",
       "name": {"en": "Sphinx pose", "bs": "Sfinga", "hr": "Sfinga", "sr": "Sfinga", "fr": "Posture du sphinx", "de": "Sphinx", "es": "Postura de la esfinge"},
       "short": {"en": "Sphinx", "bs": "Sfinga", "hr": "Sfinga", "sr": "Sfinga", "fr": "Sphinx", "de": "Sphinx", "es": "Esfinge"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "mobility",
       "planes": ["sagittal"],
@@ -3708,8 +3719,7 @@
         "frames": [
           {"t": 0, "label": {"en": "Lift your chest and relax", "bs": "Podigni grudi i opusti se", "hr": "Podigni prsa i opusti se", "sr": "Podigni grudi i opusti se", "fr": "Soulève la poitrine et détends-toi", "de": "Brust heben und entspannen", "es": "Eleva el pecho y relájate"}, "face": "smile", "pose": {"rot": 90, "torso": -6, "spine": -50, "neck": -8, "hip": 0, "knee": 0}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "thoracic-extension",
@@ -3760,6 +3770,7 @@
       "id": "seated-trunk-rotation",
       "name": {"en": "Seated trunk rotation", "bs": "Rotacija trupa u sjedu", "hr": "Rotacija trupa u sjedu", "sr": "Rotacija trupa u sedu", "fr": "Rotation du buste assis", "de": "Rumpfdrehung im Sitzen", "es": "Rotación del tronco sentado"},
       "short": {"en": "Seated rotation", "bs": "Rotacija u sjedu", "hr": "Rotacija u sjedu", "sr": "Rotacija u sedu", "fr": "Rotation assise", "de": "Drehung im Sitzen", "es": "Rotación sentado"},
+      "focus": ["lower-back"],
       "pattern": "rotation",
       "component": "mobility",
       "planes": ["transverse"],
@@ -3799,8 +3810,7 @@
           {"t": 0.5, "label": {"en": "Turn to one side", "bs": "Okreni se u stranu", "hr": "Okreni se u stranu", "sr": "Okreni se u stranu", "fr": "Tourne d’un côté", "de": "Zur Seite drehen", "es": "Gira hacia un lado"}, "face": "smile", "pose": {"yaw": 0, "torso": 0, "spine": 0, "bend": 0, "neck": 0, "drop": 38, "fwd": 0, "sway": 0, "af_l": 50, "aw_l": 6, "ay_l": 0, "toe_l": 8, "heel_l": 0, "kn_l": 0, "af_r": 50, "aw_r": 6, "ay_r": 0, "toe_r": 8, "heel_r": 0, "kn_r": 0, "az_l": -25, "el_l": -10, "reach_l": 46, "eo_l": 70, "az_r": -25, "el_r": -10, "reach_r": 46, "eo_r": 70, "twist": 0, "look": 0}, "step": 0},
           {"t": 0.75, "label": {"en": "Back to the middle", "bs": "Nazad na sredinu", "hr": "Natrag na sredinu", "sr": "Nazad na sredinu", "fr": "Retour au centre", "de": "Zurück zur Mitte", "es": "Vuelve al centro"}, "face": "smile", "pose": {"yaw": 0, "torso": 0, "spine": 0, "bend": 0, "neck": 0, "drop": 38, "fwd": 0, "sway": 0, "af_l": 50, "aw_l": 6, "ay_l": 0, "toe_l": 8, "heel_l": 0, "kn_l": 0, "af_r": 50, "aw_r": 6, "ay_r": 0, "toe_r": 8, "heel_r": 0, "kn_r": 0, "az_l": -25, "el_l": -10, "reach_l": 46, "eo_l": 70, "az_r": -25, "el_r": -10, "reach_r": 46, "eo_r": 70, "twist": -45, "look": -22}, "step": 1}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "leg-swings",
@@ -3939,6 +3949,7 @@
       "name": {"en": "Child’s pose", "bs": "Položaj djeteta", "hr": "Položaj djeteta", "sr": "Položaj deteta", "fr": "Posture de l’enfant", "de": "Kindhaltung", "es": "Postura del niño"},
       "short": {"en": "Child’s pose", "bs": "Položaj djeteta", "hr": "Položaj djeteta", "sr": "Položaj deteta", "fr": "Posture de l’enfant", "de": "Kindhaltung", "es": "Postura del niño"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -3974,14 +3985,14 @@
         "frames": [
           {"t": 0, "label": {"en": "Relax and breathe", "bs": "Opusti se i diši", "hr": "Opusti se i diši", "sr": "Opusti se i diši", "fr": "Relâche et respire", "de": "Entspannen und atmen", "es": "Relájate y respira"}, "face": "smile", "pose": {"rot": 0, "hip": 57, "knee": 147, "torso": 85, "spine": 15, "neck": -14, "uaAbs": 22, "faAbs": 18}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "knees-to-chest",
       "name": {"en": "Knees-to-chest stretch", "bs": "Koljena na grudi", "hr": "Koljena na prsa", "sr": "Kolena na grudi", "fr": "Genoux à la poitrine", "de": "Knie zur Brust", "es": "Rodillas al pecho"},
       "short": {"en": "Knees to chest", "bs": "Koljena na grudi", "hr": "Koljena na prsa", "sr": "Kolena na grudi", "fr": "Genoux à la poitrine", "de": "Knie zur Brust", "es": "Rodillas al pecho"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4018,13 +4029,13 @@
           {"t": 0, "label": {"en": "Hug and relax", "bs": "Obgrli i opusti se", "hr": "Obgrli i opusti se", "sr": "Obgrli i opusti se", "fr": "Serre et relâche", "de": "Heranziehen und entspannen", "es": "Abraza y relaja"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 4, "neck": 30, "hip": 134, "knee": 136, "shoulder": 62, "elbow": 62}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [205,-9]}}, "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 34, "hip": 40, "knee": 80, "shoulder": 4, "elbow": 0}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "single-knee-to-chest",
       "name": {"en": "Single knee-to-chest stretch", "bs": "Jedno koljeno na grudi", "hr": "Jedno koljeno na prsa", "sr": "Jedno koleno na grudi", "fr": "Un genou à la poitrine", "de": "Ein Knie zur Brust", "es": "Una rodilla al pecho"},
       "short": {"en": "One knee to chest", "bs": "Koljeno na grudi", "hr": "Koljeno na prsa", "sr": "Koleno na grudi", "fr": "Genou à la poitrine", "de": "Knie zur Brust", "es": "Rodilla al pecho"},
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4060,13 +4071,13 @@
           {"t": 0, "label": {"en": "Hug one knee", "bs": "Obgrli jedno koljeno", "hr": "Obgrli jedno koljeno", "sr": "Obgrli jedno koleno", "fr": "Serre un genou", "de": "Ein Knie heranziehen", "es": "Abraza una rodilla"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 4, "neck": 30, "hip_n": 134, "knee_n": 136, "shoulder": 62, "elbow": 62}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [205,-9]}, "ik": {"an": [262,-5]}, "footAbs": 0}, "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 34, "shoulder": 4, "elbow": 0}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "lower-trunk-rotation",
       "name": {"en": "Lying knee rotation", "bs": "Rotacija koljena u ležanju", "hr": "Rotacija koljena u ležanju", "sr": "Rotacija kolena u ležanju", "fr": "Rotation des genoux allongé", "de": "Knierotation in Rückenlage", "es": "Rotación de rodillas tumbado"},
       "short": {"en": "Knee rotation", "bs": "Rotacija koljena", "hr": "Rotacija koljena", "sr": "Rotacija kolena", "fr": "Rotation des genoux", "de": "Knierotation", "es": "Rotación de rodillas"},
+      "focus": ["lower-back"],
       "pattern": "rotation",
       "component": "mobility",
       "planes": ["transverse"],
@@ -4106,14 +4117,14 @@
           {"t": 0.5, "label": {"en": "Knees to one side", "bs": "Koljena u stranu", "hr": "Koljena u stranu", "sr": "Kolena u stranu", "fr": "Genoux d’un côté", "de": "Knie zur Seite", "es": "Rodillas a un lado"}, "face": "smile", "pose": {"yaw": 0, "torso": -90, "spine": 0, "twist": 0, "bend": 0, "neck": 20, "look": 0, "drop": 80, "fwd": 0, "sway": 0, "heel": 0, "toe_l": 0, "toe_r": 0, "plant_l": 1, "px_l": -46, "pw_l": 70, "py_l": 0, "plant_r": 1, "px_r": -46, "pw_r": 70, "py_r": 0, "az_l": 0, "el_l": 0, "reach_l": 62, "eo_l": 90, "az_r": 0, "el_r": 0, "reach_r": 62, "eo_r": 90, "af_l": 44, "af_r": 44, "aw_l": 0, "aw_r": 0, "ay_l": 54, "ay_r": 54, "kup_l": 90, "kup_r": 90, "kn_l": 0, "kn_r": 0}, "step": 0},
           {"t": 0.75, "label": {"en": "Back to the middle", "bs": "Nazad na sredinu", "hr": "Natrag na sredinu", "sr": "Nazad na sredinu", "fr": "Retour au centre", "de": "Zurück zur Mitte", "es": "Vuelve al centro"}, "face": "smile", "pose": {"yaw": 0, "torso": -90, "spine": 0, "twist": 0, "bend": 0, "neck": 20, "look": 0, "drop": 80, "fwd": 0, "sway": 0, "heel": 0, "toe_l": 0, "toe_r": 0, "plant_l": 1, "px_l": -46, "pw_l": 70, "py_l": 0, "plant_r": 1, "px_r": -46, "pw_r": 70, "py_r": 0, "az_l": 0, "el_l": 0, "reach_l": 62, "eo_l": 90, "az_r": 0, "el_r": 0, "reach_r": 62, "eo_r": 90, "af_l": 44, "af_r": 44, "aw_l": -39.8, "aw_r": 39.8, "ay_l": 31, "ay_r": 31, "kup_l": 30, "kup_r": 30, "kn_l": -90, "kn_r": 90}, "step": 1}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "seated-hamstring-stretch",
       "name": {"en": "Seated forward fold", "bs": "Pretklon u sjedećem položaju", "hr": "Pretklon u sjedećem položaju", "sr": "Pretklon u sedećem položaju", "fr": "Flexion avant assise", "de": "Vorbeuge im Sitzen", "es": "Flexión hacia delante en el suelo"},
       "short": {"en": "Forward fold", "bs": "Pretklon", "hr": "Pretklon", "sr": "Pretklon", "fr": "Flexion avant", "de": "Vorbeuge", "es": "Flexión adelante"},
       "discipline": "yoga",
+      "focus": ["lower-back", "knees"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4150,13 +4161,13 @@
           {"t": 0, "label": {"en": "Fold from your hips", "bs": "Pretklon iz kukova", "hr": "Pretklon iz kukova", "sr": "Pretklon iz kukova", "fr": "Penche-toi depuis les hanches", "de": "Aus der Hüfte beugen", "es": "Inclínate desde la cadera"}, "face": "smile", "pose": {"rot": 0, "torso": 40, "spine": 8, "neck": 12, "hip": 90, "knee": 4, "ankle": -10, "shoulder": 140, "elbow": 6}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [150,-10]}}, "pose": {"rot": 0, "torso": 0, "spine": 0, "neck": 0, "hip": 90, "knee": 4, "ankle": -10, "shoulder": 12, "elbow": 10}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "supine-hamstring-stretch",
       "name": {"en": "Lying hamstring stretch", "bs": "Istezanje zadnje lože u ležanju", "hr": "Istezanje stražnje lože u ležanju", "sr": "Istezanje zadnje lože u ležanju", "fr": "Étirement des ischios allongé", "de": "Beinrückseiten-Dehnung in Rückenlage", "es": "Estiramiento de isquiotibiales tumbado"},
       "short": {"en": "Lying hamstring stretch", "bs": "Istezanje lože", "hr": "Istezanje lože", "sr": "Istezanje lože", "fr": "Ischios allongé", "de": "Beinrückseite dehnen", "es": "Isquiotibiales tumbado"},
+      "focus": ["lower-back", "knees"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4193,13 +4204,13 @@
           {"t": 0, "label": {"en": "Straighten and hold", "bs": "Ispravi i zadrži", "hr": "Ispravi i zadrži", "sr": "Ispravi i zadrži", "fr": "Tends et tiens", "de": "Strecken und halten", "es": "Estira y mantén"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 34, "hip_n": 78, "knee_n": 6, "ankle_n": 10, "footAbs_f": 0, "shoulder": 60, "elbow": 20}}
         ],
         "restPose": {"spec": {"pin": {"point": "hip", "at": [205,-9]}, "ik": {"an": [262,-5]}, "footAbs": 0}, "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 34, "shoulder": 4, "elbow": 0}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "figure-four-stretch",
       "name": {"en": "Figure-four stretch", "bs": "Istezanje u obliku četvorke", "hr": "Istezanje u obliku četvorke", "sr": "Istezanje u obliku četvorke", "fr": "Étirement en figure 4", "de": "Figur-Vier-Dehnung", "es": "Estiramiento en figura cuatro"},
       "short": {"en": "Figure four", "bs": "Četvorka", "hr": "Četvorka", "sr": "Četvorka", "fr": "Figure 4", "de": "Figur-Vier", "es": "Figura cuatro"},
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["transverse"],
@@ -4235,13 +4246,13 @@
           {"t": 0, "label": {"en": "Pull the thigh in", "bs": "Privuci butinu", "hr": "Privuci bedro", "sr": "Privuci butinu", "fr": "Tire la cuisse vers toi", "de": "Oberschenkel heranziehen", "es": "Tira del muslo"}, "face": "smile", "pose": {"yaw": 0, "torso": -90, "spine": 0, "twist": 0, "bend": 0, "neck": 26, "look": 0, "drop": 80, "fwd": 0, "sway": 0, "heel": 0, "af_r": 42, "aw_r": 0, "ay_r": 46, "kup_r": 90, "kn_r": 0, "toe_r": 0, "af_l": 6, "aw_l": -14, "ay_l": 56, "kup_l": 10, "kn_l": 150, "toe_l": -60, "plant_l": 1, "px_l": -4, "pw_l": -8, "py_l": 30, "plant_r": 1, "px_r": -4, "pw_r": 8, "py_r": 30, "az_l": 0, "el_l": 0, "reach_l": 60, "eo_l": 0, "az_r": 0, "el_r": 0, "reach_r": 60, "eo_r": 0}}
         ],
         "restPose": {"spec": {"view": "quarter", "yaw": 45, "pin": {"floor": [55,10], "at": [215,-5]}, "mat": [-110,70,-28,28]}, "pose": {"yaw": 0, "torso": -90, "spine": 0, "twist": 0, "bend": 0, "neck": 26, "look": 0, "drop": 80, "fwd": 0, "sway": 0, "heel": 0, "af_l": 40, "aw_l": 2, "ay_l": 0, "kup_l": 90, "kn_l": 0, "toe_l": 0, "af_r": 40, "aw_r": 2, "ay_r": 0, "kup_r": 90, "kn_r": 0, "toe_r": 0, "plant_l": 0, "px_l": 0, "pw_l": 0, "py_l": 0, "plant_r": 0, "px_r": 0, "pw_r": 0, "py_r": 0, "az_l": 0, "el_l": -90, "reach_l": 62, "eo_l": 0, "az_r": 0, "el_r": -90, "reach_r": 62, "eo_r": 0}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "standing-quad-stretch",
       "name": {"en": "Standing quad stretch", "bs": "Istezanje kvadricepsa u stojećem položaju", "hr": "Istezanje kvadricepsa u stojećem položaju", "sr": "Istezanje kvadricepsa u stojećem položaju", "fr": "Étirement des quadriceps debout", "de": "Quadrizepsdehnung im Stehen", "es": "Estiramiento de cuádriceps de pie"},
       "short": {"en": "Quad stretch", "bs": "Istezanje kvadricepsa", "hr": "Istezanje kvadricepsa", "sr": "Istezanje kvadricepsa", "fr": "Étirement quadriceps", "de": "Quadrizepsdehnung", "es": "Estiramiento de cuádriceps"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4285,6 +4296,7 @@
       "id": "calf-stretch",
       "name": {"en": "Wall calf stretch", "bs": "Istezanje lista uz zid", "hr": "Istezanje lista uz zid", "sr": "Istezanje lista uz zid", "fr": "Étirement des mollets au mur", "de": "Wadendehnung an der Wand", "es": "Estiramiento de gemelos en pared"},
       "short": {"en": "Calf stretch", "bs": "Istezanje lista", "hr": "Istezanje lista", "sr": "Istezanje lista", "fr": "Étirement mollet", "de": "Wadendehnung", "es": "Estiramiento de gemelos"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4328,6 +4340,7 @@
       "id": "hip-flexor-stretch",
       "name": {"en": "Half-kneeling hip flexor stretch", "bs": "Istezanje fleksora kuka na jednom koljenu", "hr": "Istezanje fleksora kuka na jednom koljenu", "sr": "Istezanje fleksora kuka na jednom kolenu", "fr": "Étirement des fléchisseurs de hanche à genou", "de": "Hüftbeugerdehnung im Halbknien", "es": "Estiramiento de flexores de cadera con una rodilla en el suelo"},
       "short": {"en": "Hip flexor stretch", "bs": "Istezanje fleksora kuka", "hr": "Istezanje fleksora kuka", "sr": "Istezanje fleksora kuka", "fr": "Étirement fléchisseurs", "de": "Hüftbeugerdehnung", "es": "Flexores de cadera"},
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4364,8 +4377,7 @@
           {"t": 0, "label": {"en": "Tuck, squeeze, shift forward", "bs": "Podvuci, stegni, pomjeri se naprijed", "hr": "Podvuci, stegni, pomakni se naprijed", "sr": "Podvuci, stegni, pomeri se napred", "fr": "Bassin rentré, serre, avance", "de": "Einkippen, anspannen, nach vorn", "es": "Mete, aprieta, adelante"}, "face": "smile", "pose": {"rot": 0, "torso": -2, "neck": -4, "hip_n": -22, "knee_n": 68, "shoulder": 46, "elbow": 24, "footAbs_f": 0}}
         ],
         "restPose": {"spec": {"pin": {"point": "n.kn", "at": [168,-6]}, "footAbs": 180, "ik": {"an_f": [240,-5]}}, "pose": {"rot": 0, "torso": 0, "neck": 0, "hip_n": 0, "knee_n": 90, "shoulder": 8, "elbow": 14, "footAbs_f": 0}}
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "standing-side-bend",
@@ -4494,6 +4506,7 @@
       "id": "single-leg-stand",
       "name": {"en": "Single-leg balance", "bs": "Ravnoteža na jednoj nozi", "hr": "Ravnoteža na jednoj nozi", "sr": "Ravnoteža na jednoj nozi", "fr": "Équilibre sur une jambe", "de": "Einbeinstand", "es": "Equilibrio a una pierna"},
       "short": {"en": "One-leg balance", "bs": "Ravnoteža", "hr": "Ravnoteža", "sr": "Ravnoteža", "fr": "Équilibre", "de": "Einbeinstand", "es": "Equilibrio a una pierna"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "balance",
       "planes": ["sagittal"],
@@ -4537,6 +4550,7 @@
       "id": "tandem-stance",
       "name": {"en": "Tandem stance", "bs": "Stav peta-prsti", "hr": "Stav peta-prsti", "sr": "Stav peta-prsti", "fr": "Position en tandem", "de": "Tandemstand", "es": "Postura en tándem"},
       "short": {"en": "Tandem stance", "bs": "Peta-prsti", "hr": "Peta-prsti", "sr": "Peta-prsti", "fr": "Tandem", "de": "Tandemstand", "es": "Postura en tándem"},
+      "focus": ["knees"],
       "pattern": null,
       "component": "balance",
       "planes": ["sagittal"],
@@ -4956,6 +4970,7 @@
       "name": {"en": "Happy baby", "bs": "Sretna beba", "hr": "Sretna beba", "sr": "Srećna beba", "fr": "Bébé heureux", "de": "Glückliches Baby", "es": "Bebé feliz"},
       "short": {"en": "Happy baby", "bs": "Sretna beba", "hr": "Sretna beba", "sr": "Srećna beba", "fr": "Bébé heureux", "de": "Glückliches Baby", "es": "Bebé feliz"},
       "discipline": "yoga",
+      "focus": ["lower-back"],
       "pattern": null,
       "component": "flexibility",
       "planes": ["sagittal"],
@@ -4991,8 +5006,7 @@
         "frames": [
           {"t": 0, "label": {"en": "Knees toward the floor", "bs": "Koljena prema podu", "hr": "Koljena prema podu", "sr": "Kolena ka podu", "fr": "Genoux vers le sol", "de": "Knie Richtung Boden", "es": "Rodillas hacia el suelo"}, "face": "smile", "pose": {"rot": -90, "torso": 0, "spine": 0, "neck": 24, "hip": 130, "knee": 40, "shoulder": 0, "elbow": 0, "footAbs": 180}}
         ]
-      },
-      "focus": ["lower-back"]
+      }
     },
     {
       "id": "corpse-pose",

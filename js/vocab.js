@@ -47,7 +47,7 @@ export const VOCAB = {
   block:      ['warmup','main','cooldown'],
   level:      [1,2,3],
   discipline: ['yoga','tai-chi','boxing'],  // optional style an exercise belongs to
-  focus:      ['lower-back'],  // optional: problems an exercise is chosen for (stretching, easing, strengthening)
+  focus:      ['lower-back','knees'],  // optional: problems an exercise is chosen for (stretching, easing, strengthening)
 };
 // Sports a session can be built for (sessions only; exercises aren't sport-specific).
 export const SPORTS = ['alpine-skiing','hiking','road-cycling','mountain-biking','swimming','kayaking'];
