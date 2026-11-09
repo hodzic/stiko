@@ -9,7 +9,7 @@ import * as F from './favs.js';
 import * as store from './store.js';
 import {search, exerciseFields} from './search.js';
 
-const MAIN=['discipline','family','component','region'];
+const MAIN=['focus','discipline','family','component','region'];
 const MORE=['muscle','position','equipment','plane','laterality','level'];
 const GROUPS=[...MAIN,...MORE];
 // Filter state survives navigation to the player and back. Values are kept as strings (level is numeric).

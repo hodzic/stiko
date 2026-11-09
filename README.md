@@ -61,6 +61,7 @@ both sides and the dose counts per side.
 | `cycle` | Seconds per rep (or per loop for `time` doses). Not needed for single-pose holds |
 | `spec.view` | `"side"` (default), `"front"` for frontal-plane moves, or `"quarter"` (prototype) for turns and reaches across the body |
 | `spec.yaw` | Quarter view only: where the figure faces, in degrees from the side view toward the viewer (default 35) |
+| `spec.pitch` | Quarter view only: how far the camera looks down, in degrees (default 20). Higher shows floor work from above, e.g. knees tipping side to side while lying on the back |
 | `spec.pin` | `{point, at:[x, y]}`: the joint held in place; y is relative to the floor line (negative = above) |
 | `spec.level` | Solve the body's rotation so a second joint sits at a given height (e.g. plank elbows on the floor) |
 | `spec.ik` | Two-bone IK targets: `an`/`hd` for both ankles/hands, or per side `an_n`, `hd_f`, `an_l`, … Knees bend forward, elbows back (outward in front view) |

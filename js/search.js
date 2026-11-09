@@ -13,7 +13,7 @@ export const tokens=q=>words(q);
 
 // Field weights.
 const NAME=4, LABEL=2, TEXT=1;
-const GROUPS=['discipline','family','pattern','component','region','muscle','position','equipment','plane','laterality'];
+const GROUPS=['focus','discipline','family','pattern','component','region','muscle','position','equipment','plane','laterality'];
 
 // The current language and English, so a search in English still works with the app in another language.
 const langs=()=>[...new Set([getLang(),'en'])];

@@ -196,6 +196,25 @@
       ]
     },
     {
+      "id": "starter-lower-back",
+      "name": {"en": "Lower back care", "bs": "Njega donjeg dijela leđa", "hr": "Njega donjeg dijela leđa", "sr": "Nega donjeg dela leđa", "fr": "Soin du bas du dos", "de": "Pflege für den unteren Rücken", "es": "Cuidado de la zona lumbar"},
+      "items": [
+        {"ex": "seated-trunk-rotation", "block": "warmup", "sets": 1, "reps": 8, "rest": 15},
+        {"ex": "pelvic-tilt", "block": "warmup", "sets": 1, "reps": 10, "rest": 15},
+        {"ex": "cat-cow", "block": "warmup", "sets": 1, "reps": 8, "rest": 15},
+        {"ex": "lower-trunk-rotation", "block": "warmup", "sets": 1, "reps": 8, "rest": 15},
+        {"ex": "glute-bridge", "block": "main", "sets": 2, "reps": 10, "rest": 30},
+        {"ex": "bird-dog", "block": "main", "sets": 2, "reps": 6, "rest": 30},
+        {"ex": "curl-up", "block": "main", "sets": 2, "reps": 5, "rest": 30},
+        {"ex": "knee-side-plank", "block": "main", "sets": 2, "hold": 15, "rest": 20},
+        {"ex": "dead-bug", "block": "main", "sets": 2, "reps": 6, "rest": 30},
+        {"ex": "single-knee-to-chest", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "supine-hamstring-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "figure-four-stretch", "block": "cooldown", "sets": 1, "hold": 30, "rest": 10},
+        {"ex": "childs-pose", "block": "cooldown", "sets": 1, "hold": 45, "rest": 10}
+      ]
+    },
+    {
       "id": "starter-tai-chi",
       "name": {"en": "Tai chi & qigong basics", "bs": "Osnove tai chija i qigonga", "hr": "Osnove tai chija i qigonga", "sr": "Osnove tai čija i ći gonga", "fr": "Initiation au tai-chi et au qi gong", "de": "Tai-Chi & Qigong: Grundlagen", "es": "Taichí y qigong: lo básico"},
       "items": [
